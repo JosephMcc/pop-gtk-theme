@@ -1,7 +1,7 @@
 Pop-gtk-theme
 ======
 
-An adaptive Gtk+ theme based on the Pop GTK+ theme.
+An adaptive Gtk+ theme based on the Adapta GTK+ theme.
 
 Before using Pop
 -------------------
