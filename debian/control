@@ -1,5 +1,5 @@
 Source: system76-pop-gtk-theme
-Section: x11
+Section: gnome
 Priority: optional
 Maintainer: Jeremy Soller <jeremy@system76.com>
 Uploaders: Jeremy Soller <jeremy@system76.com>

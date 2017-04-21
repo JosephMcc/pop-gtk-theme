@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.0.1) zesty; urgency=medium
+
+  * Move to gnome section
+
+ -- Jeremy Soller <jeremy@system76.com>  Fri, 21 Apr 2017 13:52:13 -0600
+
 system76-pop-gtk-theme (1.0.0) zesty; urgency=medium
 
   * First release
