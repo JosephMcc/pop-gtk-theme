@@ -12,6 +12,6 @@ override_dh_auto_configure:
 	./autogen.sh --prefix=/usr \
 		--disable-parallel \
 		--enable-gtk_next \
-		--enable-chrome \
-		--enable-plank \
-		--enable-telegram
+		--disable-chrome \
+		--disable-plank \
+		--disable-telegram
