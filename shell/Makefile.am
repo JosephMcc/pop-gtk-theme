@@ -479,23 +479,7 @@ install-data-local:
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
-	$(MKDIR_P) $(noktodir)/gnome-shell
-	$(MKDIR_P) $(noktodir)/gnome-shell/assets
-	$(MKDIR_P) $(noktodir)/gnome-shell/assets/dot
-	$(MKDIR_P) $(noktodir)/gnome-shell/extensions
-	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/window-list
-	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock
-	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
-	cp -Rv $(shell_nokto_file) $(noktodir)/gnome-shell
-	cp -Rv $(shell_pad_osd_file) $(noktodir)/gnome-shell
-	cp -Rv $(shell_nokto_asset_file) $(noktodir)/gnome-shell/assets
-	cp -Rv $(shell_asset_dot_file) $(noktodir)/gnome-shell/assets/dot
-	cp -Rv $(shell_extension_windowlist_file) \
-		$(noktodir)/gnome-shell/extensions/window-list
-	cp -Rv $(shell_extension_workspace_file) \
-		$(noktodir)/gnome-shell/extensions/workspaces-to-dock
-	cp -Rv $(shell_extension_workspace_asset_file) \
-		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
+
 
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell/assets
@@ -515,23 +499,7 @@ install-data-local:
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
-	$(MKDIR_P) $(noktoetadir)/gnome-shell
-	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets
-	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets/dot
-	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions
-	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/window-list
-	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
-	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
-	cp -Rv $(shell_nokto_eta_file) $(noktoetadir)/gnome-shell
-	cp -Rv $(shell_pad_osd_file) $(noktoetadir)/gnome-shell
-	cp -Rv $(shell_nokto_eta_asset_file) $(noktoetadir)/gnome-shell/assets
-	cp -Rv $(shell_asset_dot_file) $(noktoetadir)/gnome-shell/assets/dot
-	cp -Rv $(shell_extension_windowlist_file) \
-		$(noktoetadir)/gnome-shell/extensions/window-list
-	cp -Rv $(shell_extension_workspace_file) \
-		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
-	cp -Rv $(shell_extension_workspace_asset_file) \
-		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(adaptadir)/cinnamon
@@ -557,6 +525,66 @@ if ENABLE_CINNAMON
 	cd $(adaptadir)/cinnamon && \
 		ln -sf ./assets/thumbnail.png thumbnail.png
 
+
+endif
+
+if ENABLE_UNITY
+	$(MKDIR_P) $(adaptadir)/unity
+	cp -Rv $(unity_file) $(adaptadir)/unity
+	cd $(adaptadir)
+	ln -sf ../Pop/unity $(adaptaetadir)/unity
+endif
+
+if ENABLE_XFCE
+	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
+	$(MKDIR_P) $(adaptadir)/gtk-2.0/Xfce
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Xfce
+	cp -Rv $(xfce_image_file) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfce_rc_file) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfce_image_file) $(adaptadir)/gtk-2.0/Xfce
+	cp -Rv $(xfce_image_file) $(adaptaetadir)/gtk-2.0/Xfce
+endif
+
+
+
+if ENABLE_NOKTO
+	$(MKDIR_P) $(noktodir)/gnome-shell
+	$(MKDIR_P) $(noktodir)/gnome-shell/assets
+	$(MKDIR_P) $(noktodir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(noktodir)/gnome-shell/extensions
+	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/window-list
+	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock
+	$(MKDIR_P) $(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
+	cp -Rv $(shell_nokto_file) $(noktodir)/gnome-shell
+	cp -Rv $(shell_pad_osd_file) $(noktodir)/gnome-shell
+	cp -Rv $(shell_nokto_asset_file) $(noktodir)/gnome-shell/assets
+	cp -Rv $(shell_asset_dot_file) $(noktodir)/gnome-shell/assets/dot
+	cp -Rv $(shell_extension_windowlist_file) \
+		$(noktodir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_extension_workspace_file) \
+		$(noktodir)/gnome-shell/extensions/workspaces-to-dock
+	cp -Rv $(shell_extension_workspace_asset_file) \
+		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
+
+	$(MKDIR_P) $(noktoetadir)/gnome-shell
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/window-list
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
+	$(MKDIR_P) $(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+	cp -Rv $(shell_nokto_eta_file) $(noktoetadir)/gnome-shell
+	cp -Rv $(shell_pad_osd_file) $(noktoetadir)/gnome-shell
+	cp -Rv $(shell_nokto_eta_asset_file) $(noktoetadir)/gnome-shell/assets
+	cp -Rv $(shell_asset_dot_file) $(noktoetadir)/gnome-shell/assets/dot
+	cp -Rv $(shell_extension_windowlist_file) \
+		$(noktoetadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_extension_workspace_file) \
+		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
+	cp -Rv $(shell_extension_workspace_asset_file) \
+		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+
+if ENABLE_CINNAMON
 	$(MKDIR_P) $(noktodir)/cinnamon
 	$(MKDIR_P) $(noktodir)/cinnamon/assets
 	$(MKDIR_P) $(noktodir)/cinnamon/assets/checkbox
@@ -582,27 +610,18 @@ if ENABLE_CINNAMON
 endif
 
 if ENABLE_UNITY
-	$(MKDIR_P) $(adaptadir)/unity
-	cp -Rv $(unity_file) $(adaptadir)/unity
-	cd $(adaptadir)
-	ln -sf ../Pop/unity $(noktodir)/unity
-	ln -sf ../Pop/unity $(adaptaetadir)/unity
 	ln -sf ../Pop/unity $(noktoetadir)/unity
+	ln -sf ../Pop/unity $(noktodir)/unity
 endif
 
 if ENABLE_XFCE
-	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Xfce
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Xfce
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Xfce
 	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Xfce
-	cp -Rv $(xfce_image_file) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfce_rc_file) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfce_image_file) $(adaptadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(noktodir)/gtk-2.0/Xfce
-	cp -Rv $(xfce_image_file) $(adaptaetadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(noktoetadir)/gtk-2.0/Xfce
 endif
+endif
+
 
 # *******************
 # * Uninstall files *

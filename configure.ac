@@ -34,6 +34,7 @@ ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
 ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
 ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
+ADAPTA_OPTION([NOKTO],     [nokto],     [Nokto],          [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
@@ -127,6 +128,7 @@ AC_MSG_RESULT([
         | Extra support
         -----------------------------------------------------------
 
+         Nokto:                $ENABLE_NOKTO
          GtkSourceView/Gedit:  always
          Chrome(ium):          $ENABLE_CHROME
          Plank:                $ENABLE_PLANK

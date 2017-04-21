@@ -513,14 +513,12 @@ endif
 
 install-data-local:
 	$(MKDIR_P) $(adaptadir)
-	$(MKDIR_P) $(noktodir)
 	$(MKDIR_P) $(adaptaetadir)
-	$(MKDIR_P) $(noktoetadir)
 
 	cp -Rv $(index_file) $(adaptadir)
-	cp -Rv $(index_nokto_file) $(noktodir)/index.theme
+
 	cp -Rv $(indexeta_file) $(adaptaetadir)/index.theme
-	cp -Rv $(index_noktoeta_file) $(noktoetadir)/index.theme
+
 
 	$(MKDIR_P) $(adaptadir)/gtk-3.0
 	cp -Rv $(gtk318_file) $(adaptadir)/gtk-3.0
@@ -532,9 +530,6 @@ install-data-local:
 	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
 
 	cd $(adaptadir)
-	ln -sf ../Pop/gtk-3.0 $(noktodir)/gtk-3.0
-	ln -sf ../Pop/gtk-3.20 $(noktodir)/gtk-3.20
-	ln -sf ../Pop/gtk-3.22 $(noktodir)/gtk-3.22
 
 	$(MKDIR_P) $(adaptaetadir)/gtk-3.20
 	cp -Rv $(gtk320eta_file) $(adaptaetadir)/gtk-3.20
@@ -543,8 +538,6 @@ install-data-local:
 	cp -Rv $(gtk322eta_file) $(adaptaetadir)/gtk-3.22
 
 	cd $(adaptadir)
-	ln -sf ../Pop-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
-	ln -sf ../Pop-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
 
 	$(MKDIR_P) $(adaptadir)/gtk-2.0
 	$(MKDIR_P) $(adaptadir)/gtk-2.0/Arrows
@@ -609,6 +602,36 @@ install-data-local:
 	cp -Rv $(gtk2_shadow_file) $(adaptaetadir)/gtk-2.0/Shadows
 	cp -Rv $(gtk2_spin_file) $(adaptaetadir)/gtk-2.0/Spin
 	cp -Rv $(gtk2_toolbar_file) $(adaptaetadir)/gtk-2.0/Toolbar
+
+
+
+if ENABLE_GTK_NEXT
+	$(MKDIR_P) $(adaptadir)/gtk-4.0
+	$(MKDIR_P) $(adaptaetadir)/gtk-4.0
+	cp -Rv $(gtknext_file) $(adaptadir)/gtk-4.0
+	cd $(adaptadir)
+
+	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-4.0
+	cd $(adaptadir)
+endif
+
+if ENABLE_XFCE
+	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfcenotify_file) $(adaptadir)/xfce-notify-4.0
+endif
+
+if ENABLE_NOKTO
+	$(MKDIR_P) $(noktodir)
+	$(MKDIR_P) $(noktoetadir)
+	cp -Rv $(index_nokto_file) $(noktodir)/index.theme
+	cp -Rv $(index_noktoeta_file) $(noktoetadir)/index.theme
+	cd $(adaptadir)
+	ln -sf ../Pop/gtk-3.0 $(noktodir)/gtk-3.0
+	ln -sf ../Pop/gtk-3.20 $(noktodir)/gtk-3.20
+	ln -sf ../Pop/gtk-3.22 $(noktodir)/gtk-3.22
+	cd $(adaptadir)
+	ln -sf ../Pop-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
+	ln -sf ../Pop-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
 
 	$(MKDIR_P) $(noktodir)/gtk-2.0
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Arrows
@@ -675,20 +698,11 @@ install-data-local:
 	cp -Rv $(gtk2_nokto_toolbar_file) $(noktoetadir)/gtk-2.0/Toolbar
 
 if ENABLE_GTK_NEXT
-	$(MKDIR_P) $(adaptadir)/gtk-4.0
-	$(MKDIR_P) $(adaptaetadir)/gtk-4.0
-	cp -Rv $(gtknext_file) $(adaptadir)/gtk-4.0
 	cd $(adaptadir)
 	ln -sf ../Pop/gtk-4.0 $(noktodir)/gtk-4.0
-
-	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-4.0
 	cd $(adaptadir)
 	ln -sf ../Pop-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
 endif
-
-if ENABLE_XFCE
-	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfcenotify_file) $(adaptadir)/xfce-notify-4.0
 endif
 
 # *******************

@@ -65,7 +65,7 @@ endif
 	$(MKDIR_P) $(adaptadir)/gedit
 	cp -Rv $(gedit_file) $(adaptadir)/gedit
 	cd $(adaptadir)
-	ln -sf ../Pop/gedit $(noktodir)/gedit
+#	ln -sf ../Pop/gedit $(noktodir)/gedit
 
 # *******************
 # * Uninstall files *

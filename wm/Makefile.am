@@ -196,9 +196,9 @@ if ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
-	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+#	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
 	ln -sf ../Pop/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+#	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 
 if ENABLE_CINNAMON
@@ -206,9 +206,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
-	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+#	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
 	ln -sf ../Pop/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+#	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -217,9 +217,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
-	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+#	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
 	ln -sf ../Pop/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+#	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -228,9 +228,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(adaptadir)/metacity-1
 	cp -Rv $(metacity_file) $(adaptadir)/metacity-1
 	cd $(adaptadir)
-	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+#	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
 	ln -sf ../Pop/metacity-1 $(adaptaetadir)/metacity-1
-	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+#	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -238,17 +238,17 @@ if ENABLE_XFCE
 	$(MKDIR_P) $(adaptadir)/xfwm4
 	cp -Rv $(xfwm_file) $(adaptadir)/xfwm4
 	cd $(adaptadir)
-	ln -sf ../Pop/xfwm4 $(noktodir)/xfwm4
+#	ln -sf ../Pop/xfwm4 $(noktodir)/xfwm4
 endif
 
 if ENABLE_OPENBOX
 	$(MKDIR_P) $(adaptadir)/openbox-3
-	$(MKDIR_P) $(noktodir)/openbox-3
+#	$(MKDIR_P) $(noktodir)/openbox-3
 	cp -Rv $(openbox_file) $(adaptadir)/openbox-3
 	cp -Rv $(openbox_rc_file) $(adaptadir)/openbox-3/themerc
 	cp -Rv $(openbox_compton_file) $(adaptadir)/openbox-3/
-	cp -Rv $(openbox_file) $(noktodir)/openbox-3
-	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
+#	cp -Rv $(openbox_file) $(noktodir)/openbox-3
+#	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
 endif
 
 # *******************
