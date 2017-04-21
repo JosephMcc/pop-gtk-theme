@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.0.3) zesty; urgency=medium
+
+  * Disable building Nokto variants by default
+
+ -- Ian Santopietro <ian@system76.com>  Fri, 21 Apr 2017 16:14:26 -0600
+
 system76-pop-gtk-theme (1.0.1) zesty; urgency=medium
 
   * Move to gnome section
