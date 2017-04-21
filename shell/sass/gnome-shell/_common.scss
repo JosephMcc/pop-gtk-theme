@@ -18,8 +18,8 @@
 
 $panel-corner-radius: 0;
 
-$font-family: Noto Sans, Cantarell, Sans-Serif;
-$mono-font-family: Noto Mono, Monospace;
+$font-family: Fira Sans, Cantarell, Sans-Serif;
+$mono-font-family: Fira Mono, Monospace;
 
 stage {
   @include fontscaling($ref_size);
