@@ -6263,7 +6263,7 @@ headerbar.titlebar.default-decoration {
 //  ***********************/
 
 %selected_items {
-  background-color: $selected_bg_color;
+  background-color: $accent_color;
 
   @at-root %nobg_selected_items, & {
     color: $selected_fg_color;

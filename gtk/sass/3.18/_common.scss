@@ -4156,7 +4156,7 @@ GtkVolumeButton.button {
 //  ***********************/
 
 %selected_items {
-  background-color: $selected_bg_color;
+  background-color: $accent_color;
   color: $selected_fg_color;
   &:insensitive { color: $insensitive_selected_fg_color; }
   &:backdrop {
