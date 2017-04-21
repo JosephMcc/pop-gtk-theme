@@ -33,33 +33,48 @@ all:
 install-data-local:
 if ENABLE_CHROME
 	$(MKDIR_P) $(adaptadir)/chrome
-	$(MKDIR_P) $(noktodir)/chrome
+
 	cp -Rv $(chrome_file) $(adaptadir)/chrome
 	cp -Rv $(chrome_nokto_file) $(noktodir)/chrome
 
 	cd $(adaptadir)
 	ln -sf ../Pop/chrome $(adaptaetadir)/chrome
+
+	
+if ENABLE_NOKTO
+	$(MKDIR_P) $(noktodir)/chrome
+	cd $(adaptadir)
 	ln -sf ../Pop-Nokto/chrome $(noktoetadir)/chrome
+endif
 endif
 
 if ENABLE_PLANK
 	$(MKDIR_P) $(adaptadir)/plank
 	cp -Rv $(plank_file) $(adaptadir)/plank
 	cd $(adaptadir)
-	ln -sf ../Pop/plank $(noktodir)/plank
 	ln -sf ../Pop/plank $(adaptaetadir)/plank
-	ln -sf ../Pop/plank $(noktoetadir)/plank
+	
+if ENABLE_NOKTO
+	cd $(adaptadir)
+	ln -sf ../Pop/plank $(noktodir)/plank
+	ln -sf ../Pop/plank $(noktoetadir)/plank\
+
+endif
 endif
 
 if ENABLE_TELEGRAM
 	$(MKDIR_P) $(adaptadir)/telegram
-	$(MKDIR_P) $(noktodir)/telegram
 	cp -Rv $(telegram_file) $(adaptadir)/telegram
-	cp -Rv $(telegram_nokto_file) $(noktodir)/telegram
 
 	cd $(adaptadir)
 	ln -sf ../Pop/telegram $(adaptaetadir)/telegram
+	
+if ENABLE_NOKTO
+	$(MKDIR_P) $(noktodir)/telegram
+	cp -Rv $(telegram_nokto_file) $(noktodir)/telegram
+	cd $(adaptadir)
 	ln -sf ../Pop-Nokto/telegram $(noktoetadir)/telegram
+endif
 endif
 
 	$(MKDIR_P) $(adaptadir)/gedit
