@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.0.5) zesty; urgency=medium
+
+  * Don't build unecessary extras
+
+ -- Ian Santopietro <ian@system76.com>  Fri, 21 Apr 2017 17:20:10 -0600
+
 system76-pop-gtk-theme (1.0.4) zesty; urgency=medium
 
   * Fix build bug with Extras support
