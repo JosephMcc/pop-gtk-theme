@@ -57,8 +57,7 @@ if ENABLE_PLANK
 if ENABLE_NOKTO
 	cd $(adaptadir)
 	ln -sf ../Pop/plank $(noktodir)/plank
-	ln -sf ../Pop/plank $(noktoetadir)/plank\
-
+	ln -sf ../Pop/plank $(noktoetadir)/plank
 endif
 endif
 
