@@ -15,7 +15,9 @@ shell_file = \
 	$(shelldir)/toggle-off-hover.svg \
 	$(shelldir)/toggle-off.svg \
 	$(shelldir)/toggle-on-hover.svg \
-	$(shelldir)/toggle-on.svg
+	$(shelldir)/toggle-on.svg \
+    $(shelldir)/activities.svg \
+    $(shelldir)/activities-active.svg 
 shell_pad_osd_file = \
 	$(shelldir)/pad-osd.css
 shell_asset_file = \
@@ -479,8 +481,6 @@ install-data-local:
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
-
-
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell/assets
 	$(MKDIR_P) $(adaptaetadir)/gnome-shell/assets/dot
@@ -675,21 +675,45 @@ CLEANFILES = \
 	$(srcdir)/gnome-shell-nokto/gnome-shell-theme.gresource \
 	$(srcdir)/gnome-shell-eta/gnome-shell-theme.gresource \
 	$(srcdir)/gnome-shell-nokto-eta/gnome-shell-theme.gresource \
-	$(srcdir)/gnome-shell/*.svg \
+	$(srcdir)/gnome-shell/no-notifications.svg \
+	$(srcdir)/gnome-shell/no-events.svg \
+	$(srcdir)/gnome-shell/process-working.svg \
+	$(srcdir)/gnome-shell/toggle-off.svg \
+	$(srcdir)/gnome-shell/togg-off-hover.svg \
+	$(srcdir)/gnome-shell/toggle-on.svg \
+	$(srcdir)/gnome-shell/toggle-on-hover.svg \
 	$(srcdir)/gnome-shell/*.png \
 	$(srcdir)/gnome-shell/assets/*.svg \
 	$(srcdir)/gnome-shell/assets/dot/*.svg \
 	$(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets/*.svg \
 	$(srcdir)/gnome-shell-eta/extensions/workspaces-to-dock/assets/*.svg \
-	$(srcdir)/gnome-shell-eta/*.svg \
+	$(srcdir)/gnome-shell-eta/no-notifications.svg \
+	$(srcdir)/gnome-shell-eta/no-events.svg \
+	$(srcdir)/gnome-shell-eta/process-working.svg \
+	$(srcdir)/gnome-shell-eta/toggle-off.svg \
+	$(srcdir)/gnome-shell-eta/togg-off-hover.svg \
+	$(srcdir)/gnome-shell-eta/toggle-on.svg \
+	$(srcdir)/gnome-shell-eta/toggle-on-hover.svg \
 	$(srcdir)/gnome-shell-eta/*.png \
 	$(srcdir)/gnome-shell-eta/assets/*.svg \
 	$(srcdir)/gnome-shell-eta/assets/dot/*.svg \
-	$(srcdir)/gnome-shell-nokto/*.svg \
+	$(srcdir)/gnome-shell-nokto/no-notifications.svg \
+	$(srcdir)/gnome-shell-nokto/no-events.svg \
+	$(srcdir)/gnome-shell-nokto/process-working.svg \
+	$(srcdir)/gnome-shell-nokto/toggle-off.svg \
+	$(srcdir)/gnome-shell-nokto/togg-off-hover.svg \
+	$(srcdir)/gnome-shell-nokto/toggle-on.svg \
+	$(srcdir)/gnome-shell-nokto/toggle-on-hover.svg \
 	$(srcdir)/gnome-shell-nokto/*.png \
 	$(srcdir)/gnome-shell-nokto/assets/*.svg \
 	$(srcdir)/gnome-shell-nokto/assets/dot/*.svg \
-	$(srcdir)/gnome-shell-nokto-eta/*.svg \
+	$(srcdir)/gnome-shell-nokto-eta/no-notifications.svg \
+	$(srcdir)/gnome-shell-nokto-eta/no-events.svg \
+	$(srcdir)/gnome-shell-nokto-eta/process-working.svg \
+	$(srcdir)/gnome-shell-nokto-eta/toggle-off.svg \
+	$(srcdir)/gnome-shell-nokto-eta/togg-off-hover.svg \
+	$(srcdir)/gnome-shell-nokto-eta/toggle-on.svg \
+	$(srcdir)/gnome-shell-nokto-eta/toggle-on-hover.svg \
 	$(srcdir)/gnome-shell-nokto-eta/*.png \
 	$(srcdir)/gnome-shell-nokto-eta/assets/*.svg \
 	$(srcdir)/gnome-shell-nokto-eta/assets/dot/*.svg \
