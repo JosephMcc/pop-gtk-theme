@@ -16,7 +16,7 @@
    id="svg11300"
    sodipodi:version="0.32"
    inkscape:version="0.92+devel unknown"
-   sodipodi:docname="activities.svg"
+   sodipodi:docname="activities-active.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
    style="display:inline;enable-background:new"
@@ -30,9 +30,9 @@
      borderopacity="1"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="16"
-     inkscape:cx="2.1527747"
-     inkscape:cy="1.8142786"
+     inkscape:zoom="32"
+     inkscape:cx="14.413944"
+     inkscape:cy="7.283601"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:grid-bbox="true"
@@ -142,18 +142,18 @@
      id="layer1"
      transform="translate(-7,-274)">
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 30.5,287 V 275"
+       style="fill:none;fill-rule:evenodd;stroke:#faa41a;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 30.5,288 V 276"
        id="path4276"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 7.5,287 V 275"
+       style="fill:none;fill-rule:evenodd;stroke:#faa41a;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 7.5,288 V 276"
        id="path4278"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 27.5,277.5 h -17 v 7 h 17 z"
+       style="fill:none;fill-rule:evenodd;stroke:#faa41a;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 27.5,278.5 h -17 v 7 h 17 z"
        id="path4280"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc"

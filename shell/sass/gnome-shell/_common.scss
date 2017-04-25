@@ -1103,7 +1103,7 @@ StScrollBar {
   .screencast-indicator { color: $error_color; }
 }
 
-#panel #panelActivities.panel-button {
+/*#panel #panelActivities.panel-button {
 
   > * {
     background-image: url("activities.svg");
@@ -1111,7 +1111,7 @@ StScrollBar {
     padding-right: .8em;
     background-position: center top;
     width: 24px;
-    height: 13px; /*tweak to keep icon aligned to pixel grid*/
+    height: 13px;
     background-color: transparent !important;
     background-gradient-direction: none !important;
     border: 0 solid transparent !important;
@@ -1130,7 +1130,7 @@ StScrollBar {
     > * { background-image: url("activities-active.svg");}
   }
 }
-
+*/
 
 // /********************
 //  * Calendar Popover *
