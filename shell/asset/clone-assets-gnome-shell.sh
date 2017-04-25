@@ -81,6 +81,12 @@ do
     f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.svg" # file name
     v="`echo $i | cut -c1`"                           # variant type
     d="`echo $i | cut -d' ' -f2`"                     # target directory
+    
+    echo $i
+    echo $s
+    echo $f
+    echo $v
+    echo $d
 
     if [ $v = "c" ]; then # 'commmon'
         if [ -f $ASSETS_DIR/$d/$f ] && \
@@ -89,6 +95,7 @@ do
             echo $ASSETS_DARK_DIR/$d/$f exists.
             echo $ASSETS_ETA_DIR/$d/$f exists.
             echo $ASSETS_DARK_ETA_DIR/$d/$f exists.
+            
         elif [ $i = "common/noise-texture.png ." ]; then # PNG special case
             f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.png"
             echo Cloning $ASSETS_DIR/$d/$f
@@ -99,6 +106,7 @@ do
             cp -f $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
             echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
+            
         else
             echo Cloning $ASSETS_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f

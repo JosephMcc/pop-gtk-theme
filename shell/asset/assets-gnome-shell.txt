@@ -11,7 +11,10 @@ nokto/no-notifications.svg .
 nokto/toggle-off-hover.svg .
 nokto/toggle-off.svg .
 
+
 common/checkbox-hover.svg assets r1
+common/activities.svg.in .
+common/activities-active.svg.in .
 common/checkbox-off-hover.svg assets
 common/checkbox-off.svg assets
 common/checkbox.svg assets r1
