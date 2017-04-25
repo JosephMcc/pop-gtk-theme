@@ -50,6 +50,18 @@ Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
  > **Note:**
  >
  >   * Mate-Desktop and Pantheon support are W.I.P.
+ 
+ 
+
+### Recommendations
+
+- For GTK, use icons alongside [Pop Icon Theme](https://github.com/system76/pop-icon-theme)
+- For fonts, use: 
+ > Window Titles: Fira Sans SemiBold 10
+ > Interface: Fira Sans Book 10
+ > Documents: Roboto Slab Regular 11
+ > Monospace: Fira Mono Regular 11
+ 
 
 ### Installation
 
