@@ -1,14 +1,14 @@
-Pop-gtk-theme
+## Pop-gtk-theme
 ======
 
 An adaptive Gtk+ theme based on the Adapta GTK+ theme.
 
-Before using Pop
+#### Before using Pop
 -------------------
 
 > **Note:**
 >
->   **Nokto** is a dark variant.
+>   **Nokto** is a dark variant for GTK2 (Inkscape, Gimp). To have a Dark theme system wide, use the standard Dark Theme option.
 >
 >   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
 >
@@ -20,10 +20,10 @@ Before using Pop
 >     gtk-application-prefer-dark-theme=1
 >     ```
 >
->   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
+>   * Eta variants are recommended if your LCD resolution is lower than 1920x1080 (LoDPI) or 3200x1800 (HiDPI). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
-Required Components
+### Required Components
 -------------------
 Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
 
@@ -34,7 +34,7 @@ Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
  * gtk2-engines-murrine >= 0.98.1
  ```
 
-Supported Desktop Environments
+#### Supported Desktop Environments
 ------------------------------
 
  ```
@@ -49,44 +49,29 @@ Supported Desktop Environments
 
  > **Note:**
  >
- >   * Mate-Desktop support is a W.I.P.
+ >   * Mate-Desktop and Pantheon support are W.I.P.
 
-Unsupported Gtk+ Based Desktop(s)
--------------------------------
- * Pantheon
+### Installation
 
- > **Note:**
- >
- >   * Pop does NOT support elementaryOS.
-
-Installation from Git (Prebuilt version)
-----------------------------
-Just do this:
-
+Pop is intended to be installed through the package manager. Packages for Ubuntu are available in PPA:
 ```
-./install-prebuilt.sh
+sudo add-apt-repository ppa:system76-dev/stable
+sudo apt update
+sudo apt install system76-pop-theme
+```
+It's recomended to use the `system76-pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
+```
+sudo apt install system76-pop-gtk-theme
 ```
 
-This will install a pre-built copy of the theme with the correct colors set up, and will include the Pop Variant of the Papirus icon theme. It will also attempt to use gsettings to set up the icons, theme, and shell theme (if the user-themes extension is enabled)
 
-Installation from Git Source (Quick version)
-----------------------------
-
-Run these:
-
-```
-./deps.sh
-./conf.sh
-make
-sudo make install
-```
-
-Installation from Git Source (Full version)
+### Installation from Git Source
 ----------------------------
 
 1. If previous versions were installed/existed, remove them first.
 
  ```
+ sudo apt remove system76-pop-gtk-theme
  sudo rm -rf /usr/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
  rm -rf ~/.local/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
  rm -rf ~/.themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
@@ -107,6 +92,7 @@ Installation from Git Source (Full version)
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
  * sassc                                     >= 3.3.2
+ * parallel                                  (Optional, for faster builds)
  ```
  
  You can install them using:
@@ -133,18 +119,6 @@ Installation from Git Source (Full version)
 
  ```
  ./autogen.sh \
-    --enable-parallel \
-    --disable-cinnamon \
-    --disable-openbox \
-    --enable-gtk_next \
-    --with-selection_color=#FAA41A \
-    --with-second_selection_color=#FFB13D \
-    --with-accent_color=#48B9C7 \
-    --with-suggestion_color=#73C48F \
-    --with-destruction_color=#F15D22 \
-    --enable-chrome \
-    --enable-plank \
-    --enable-telegram 
  make
  sudo make install
  ```
@@ -195,18 +169,16 @@ Installation from Git Source (Full version)
 7. To change the default 5 **Key-Colors**, pass these options:
 
  ```
- --with-selection_color        Primary color for 'selected-items' (Default: #574F4A = Cyan500, type: int)
- --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300, type: int)
- --with-accent_color           Secondary color for notifications and OSDs (Default: #48B9C7 = Teal300, type: int)
- --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: int)
- --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: int)
+ --with-selection_color        Primary color for highlighted items in the UI (Default: #faa41a)
+ --with-second_selection_color Primary color for 'select' effects (Default: #ffb13d = Cyan300, type: int)
+ --with-accent_color           Secondary color for notifications and OSDs, and selected items (Default: #48B9C7)
+ --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #73C48F)
+ --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #F15D22)
  ```
 
  > **Note:**
  >
  >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
- >     Uppercases are strongly recommended in Pop code-base.
- >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
  >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#48B9C7```
@@ -218,15 +190,13 @@ Installation from Git Source (Full version)
  >     and `make clean` cleans up all generated files from source directories.
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
-GtkSourceView/Gedit Color Scheme Support
----------------------------------------
- A theme file `adapta.xml` is installed by default into `Pop(-Nokto)/gedit` directory.
- See details in [`README.md`](/extra/gedit/README.md).
 
- > **Note:**
- >
- >   * The color-scheme can be used in Gnome-Builder and Gedit if installed to `gtksourceview-3.0/styles` directory.
- >   * Currently only dark-variant is supported.
+8. Enable Nokto Theme
+
+By default, the Nokto theme is not installed into the system. If you would like to add it, pass this option:
+```
+--enable-nokto
+```
 
 Extra Browser Support
 ---------------------
