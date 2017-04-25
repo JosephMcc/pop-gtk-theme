@@ -1111,7 +1111,7 @@ StScrollBar {
     padding-right: .8em;
     background-position: center top;
     width: 24px;
-    height: 24px;
+    height: 13px; /*tweak to keep icon aligned to pixel grid*/
     background-color: transparent !important;
     background-gradient-direction: none !important;
     border: 0 solid transparent !important;
