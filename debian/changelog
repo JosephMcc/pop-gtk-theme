@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.0.6) zesty; urgency=medium
+
+  * Remove half-tiled effect on headerbars
+
+ -- Ian Santopietro <ian@system76.com>  Thu, 27 Apr 2017 09:17:29 -0600
+
 system76-pop-gtk-theme (1.0.5) zesty; urgency=medium
 
   * Don't build unecessary extras
