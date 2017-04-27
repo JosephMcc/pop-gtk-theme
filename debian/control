@@ -2,7 +2,7 @@ Source: system76-pop-gtk-theme
 Section: gnome
 Priority: optional
 Maintainer: Jeremy Soller <jeremy@system76.com>
-Uploaders: Jeremy Soller <jeremy@system76.com>
+Uploaders: Ian Santopietro <ian@system76.com>
 Build-Depends: debhelper (>= 9),
 	       automake,
 	       autoconf,
@@ -23,7 +23,8 @@ Architecture: all
 Depends: gtk2-engines-pixbuf (>= 2.24.30),
 	 gtk2-engines-murrine (>= 0.98.1),
 	 libgtk2.0-common (>= 2.24.30),
-	 libgtk-3-common (>= 3.18.9)
+	 libgtk-3-common (>= 3.18.9),
+	 ${misc:Depends}
 Description: System76 Pop GTK Theme
  An adaptive Gtk+ theme based on Material Design Guidelines
  It supports Gtk 3.18.x, 3.20.x and 3.22.x.
