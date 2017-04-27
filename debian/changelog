@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.0.8) zesty; urgency=medium
+
+  * GTK 2 Tweaks
+
+ -- Ian Santopietro <ian@system76.com>  Thu, 27 Apr 2017 17:57:41 -0600
+
 system76-pop-gtk-theme (1.0.7) zesty; urgency=medium
 
   * Attempt to tweak color for "OFF" switches.
