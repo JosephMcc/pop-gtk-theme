@@ -365,7 +365,7 @@ entry {
   // fallback entries for non-native apps
   &, &.flat {
     @extend %entry_fallback_normal;
-    border-radius: 2px;
+    border-radius: 3px;
     &:focus { @extend %entry_fallback_focus; }
     &:disabled { @extend %entry_fallback_insensitive; }
   }
@@ -373,15 +373,15 @@ entry {
   // standard entries for native Gtk+ apps
   .background & {
     @include entry(normal);
-    border-radius: 4px;
-    background-color: gtkopacity(#000000, 0.15);
+    border-radius: 3px;
+    background-color: gtkopacity(#000000, 0.1);
     &:focus {
       @include entry(focus);
-      background-color: gtkopacity(#000000, 0.15);
+      background-color: gtkopacity(#000000, 0.1);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: gtkopacity(#000000, 0.15);
+      background-color: gtkopacity(#000000, 0.1);
     }
 
     selection {
@@ -391,15 +391,15 @@ entry {
 
   .background &.flat {
     @include entry(flat-normal);
-    border-radius: 4px;
-    background-color: gtkopacity(#000000, 0.15);
+    border-radius: 3px;
+    background-color: gtkopacity(#000000, 0.1);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity(#000000, 0.15);
+      background-color: gtkopacity(#000000, 0.1);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity(#000000, 0.15);
+      background-color: gtkopacity(#000000, 0.1);
     }
   }
 
@@ -418,7 +418,7 @@ entry {
   .linked > &, &.flat,
   .linked.vertical > &, &.flat {
     @extend %entry_fallback_normal;
-    border-radius: 2px;
+    border-radius: 3px;
     &:focus { @extend %entry_fallback_focus; }
     &:disabled { @extend %entry_fallback_insensitive; }
   }
@@ -427,16 +427,16 @@ entry {
   .background .linked > &, &.flat,
   .background .linked.vertical > &, &.flat {
     @include entry(flat-normal);
-    border-radius: 0;
-    -gtk-outline-radius: 0;
-    background-color: gtkopacity(#000000, 0.15);
+    border-radius: 3px;
+    -gtk-outline-radius: 3px;
+    background-color: gtkopacity(#000000, 0.1);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity(#000000, 0.15);
+      background-color: gtkopacity(#000000, 0.1);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity(#000000, 0.15);
+      background-color: gtkopacity(#000000, 0.1);
     }
   }
 
@@ -1409,15 +1409,15 @@ combobox {
   // standard combo-entries for native Gtk+ apps
   .background & entry.combo {
     @include entry(normal);
-    border-radius: 0;
-    background-color: transparent;
+    border-radius: 3px;
+    background-color: gtkopacity(#000000, 0.1);
     &:focus {
       @include entry(focus);
-      background-color: transparent;
+      background-color: gtkopacity(#000000, 0.1);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: transparent;
+      background-color: gtkopacity(#000000, 0.1);
     }
 
     selection {
@@ -1453,7 +1453,7 @@ combobox {
   // fallback combo-buttons for non-native apps
   button.combo {
     @extend %button_fallback_normal;
-    border-radius: 2px;
+    border-radius: 3px;
     &:hover { @extend %button_fallback_hover; }
     &:active,
     &:checked { @extend %button_fallback_active; }
@@ -1466,7 +1466,7 @@ combobox {
   // standard combo-buttons for native Gtk+ apps
   .background & button.combo {
     @extend %button_flat_normal;
-    border-radius: 0;
+    border-radius: 3px;
     border: none; // unset borders
     color: $secondary_fg_color;
     background: transparent;
@@ -1480,7 +1480,7 @@ combobox {
     &:active,
     &:checked {
       @extend %button_flat_hover;
-      border-radius: 0;
+      border-radius: 3px;
       color: $fg_color;
       background: transparent;
       border-image: -gtk-gradient(radial,
@@ -1513,7 +1513,7 @@ combobox {
     border-#{$edge}-width: 0;
 
     &:only-child {
-      border-radius: 2px;
+      border-radius: 3px;
       border-width: 1px;
     }
   }
