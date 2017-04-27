@@ -373,15 +373,15 @@ entry {
   // standard entries for native Gtk+ apps
   .background & {
     @include entry(normal);
-    border-radius: 0;
-    background-color: transparent;
+    border-radius: 4px;
+    background-color: gtkopacity(#000000, 0.15);
     &:focus {
       @include entry(focus);
-      background-color: transparent;
+      background-color: gtkopacity(#000000, 0.15);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: transparent;
+      background-color: gtkopacity(#000000, 0.15);
     }
 
     selection {
@@ -391,15 +391,15 @@ entry {
 
   .background &.flat {
     @include entry(flat-normal);
-    border-radius: 0;
-    background-color: transparent;
+    border-radius: 4px;
+    background-color: gtkopacity(#000000, 0.15);
     &:focus {
       @include entry(flat-focus);
-      background-color: transparent;
+      background-color: gtkopacity(#000000, 0.15);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: transparent;
+      background-color: gtkopacity(#000000, 0.15);
     }
   }
 
@@ -429,14 +429,14 @@ entry {
     @include entry(flat-normal);
     border-radius: 0;
     -gtk-outline-radius: 0;
-    background-color: transparent;
+    background-color: gtkopacity(#000000, 0.15);
     &:focus {
       @include entry(flat-focus);
-      background-color: transparent;
+      background-color: gtkopacity(#000000, 0.15);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: transparent;
+      background-color: gtkopacity(#000000, 0.15);
     }
   }
 
@@ -1799,7 +1799,7 @@ toolbar {
   border-style: solid;
   border-width: 0 1px 1px;
   border-color: $borders_color;
-  background-color: $secondary_dark_color;
+  background-color: $dark_color;
   box-shadow: if($variant == 'light', $inline-shadow-light,
                                       $inline-shadow-dark);
 }
@@ -1810,7 +1810,7 @@ searchbar,
   border-style: solid;
   border-width: 0 0 1px;
   border-color: $borders_color;
-  background-color: $secondary_dark_color;
+  background-color: $dark_color;
 
   .linked > button.image-button {
     min-width: $icon_size;
@@ -2596,19 +2596,19 @@ headerbar.selection-mode { // selection-mode specific
 .background:not(.maximized):not(.tiled):not(.solid-csd) {
   headerbar,
   .titlebar { // set rounded corners
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
   }
 
   box headerbar {
     &:not(:last-child) {
       &:dir(ltr) {
-        border-top-left-radius: 2px;
+        border-top-left-radius: 4px;
         border-top-right-radius: 0;
       }
       &:dir(rtl) {
         border-top-left-radius: 0;
-        border-top-right-radius: 2px;
+        border-top-right-radius: 4px;
       }
     }
 
@@ -2623,26 +2623,26 @@ headerbar.selection-mode { // selection-mode specific
 window:not(.maximized):not(.tiled):not(.solid-csd) {
   paned.titlebar,
   grid.titlebar {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 
     > headerbar:not(:last-child) {
       &:dir(ltr) {
-        border-top-left-radius: 2px;
+        border-top-left-radius: 4px;
         border-top-right-radius: 0;
       }
       &:dir(rtl) {
         border-top-left-radius: 0;
-        border-top-right-radius: 2px;
+        border-top-right-radius: 4px;
       }
     }
     > headerbar:last-child {
       &:dir(ltr) {
         border-top-left-radius: 0;
-        border-top-right-radius: 2px;
+        border-top-right-radius: 4px;
       }
       &:dir(rtl) {
-        border-top-left-radius: 2px;
+        border-top-left-radius: 4px;
         border-top-right-radius: 0;
       }
     }
@@ -2703,8 +2703,8 @@ headerbar.titlebar.default-decoration {
 dialog.background.csd > headerbar.titlebar {
   // enforce square shape in 'Cancel' and 'Open' button
   > button:not(.image-button):not(.text-button):not(.toggle):not(.popup) {
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
+    border-radius: 4px;
+    -gtk-outline-radius: 4px;
  }
 }
 
@@ -2713,7 +2713,7 @@ dialog.background.csd > headerbar.titlebar {
   border-radius: 0;
   border-color: $panel_bg_color;
   border-width: 2px 0 0 0;
-  border-top-color: #666260;
+  border-top-color: $top_edge_border_color;
   background-color: $inverted_dark_color;
   &:backdrop { border-top-color: $track_color; }
 }
