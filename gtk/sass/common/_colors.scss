@@ -92,7 +92,7 @@ $secondary_dark_color: if($variant == 'light',
 
 $inverted_bg_color: mix(#574f4a, #333333, 50%);                 // = 700 _ 800
 $inverted_base_color: #574f4a;                                  // = BluGry700
-$inverted_dark_color: mix(#574F4A, #333333, 75%);               // = 900 _ 800
+$inverted_dark_color: #574F4A;               // = 900 _ 800
 
 
 //

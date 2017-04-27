@@ -2713,8 +2713,8 @@ dialog.background.csd > headerbar.titlebar {
   border-radius: 0;
   border-color: $panel_bg_color;
   border-width: 2px 0 0 0;
-  border-top-color: $secondary_selected_bg_color;
-  background-color: $panel_bg_color;
+  border-top-color: #666260;
+  background-color: $inverted_dark_color;
   &:backdrop { border-top-color: $track_color; }
 }
 
