@@ -29,20 +29,28 @@ if [ -e "../sass/common/_key_colors.scss" ]; then
     cp -f $SRC_FILE.in $SRC_FILE && cp -f $SRC_DARK_FILE.in $SRC_DARK_FILE
 
     if [ $selection1 != $selection2 ]; then
-        sed -i "s/$selection1/$selection2/gi" $SRC_FILE
-        echo $selection1 is re-colored with $selection2 in $SRC_FILE.
-        sed -i "s/$selection1/$selection2/gi" $SRC_DARK_FILE
-        echo $selection1 is re-colored with $selection2 in $SRC_DARK_FILE.
+        echo "Skipping selection1..."
+        #sed -i "s/$selection1/$selection2/gi" $SRC_FILE
+        #sed -i "s/p_bg_color:#FAA41A/p_bg_color:#574F4A/gi"
+        #sed -i "s/k_color:#FAA41A/k_color:#574F4A/gi"
+        #echo $selection1 is re-colored with $selection2 in $SRC_FILE.
+        #sed -i "s/$selection1/$selection2/gi" $SRC_DARK_FILE
+        #echo $selection1 is re-colored with $selection2 in $SRC_DARK_FILE.
     fi
     if [ $accent1 != $accent2 ]; then
-        sed -i "s/$accent1/$accent2/gi" $SRC_FILE
-        echo $accent1 is re-colored with $accent2 in $SRC_FILE.
-        sed -i "s/$accent1/$accent2/gi" $SRC_DARK_FILE
-        echo $accent1 is re-colored with $accent2 in $SRC_DARK_FILE.
+        echo "Skipping accent2..."
+        #sed -i "s/$accent1/$accent2/gi" $SRC_FILE
+        #sed -i "s/p_bg_color:#FAA41A/p_bg_color:#574F4A/gi"
+        #sed -i "s/k_color:#FAA41A/k_color:#574F4A/gi"
+        #echo $accent1 is re-colored with $accent2 in $SRC_FILE.
+        #sed -i "s/$accent1/$accent2/gi" $SRC_DARK_FILE
+        #echo $accent1 is re-colored with $accent2 in $SRC_DARK_FILE.
     fi
 else
     echo _key_colors.scss was not found. Stopped...
     exit 1
 fi
+
+
 
 exit 0
