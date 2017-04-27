@@ -1,3 +1,11 @@
+system76-pop-gtk-theme (1.0.7) zesty; urgency=medium
+
+  * Attempt to tweak color for "OFF" switches.
+  * Add slightly rounded top border
+  * Darken GtkEntry widgets to improve visibility.
+
+ -- Ian Santopietro <ian@system76.com>  Thu, 27 Apr 2017 15:29:08 -0600
+
 system76-pop-gtk-theme (1.0.6) zesty; urgency=medium
 
   * Remove half-tiled effect on headerbars
