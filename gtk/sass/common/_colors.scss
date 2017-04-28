@@ -99,21 +99,32 @@ $inverted_dark_color: #574F4A;               // = 900 _ 800
 // Selection (primary) colors
 //
 
-// Default: #FAA41A                                             // = Cyan500
-$selected_bg_color: $key_selection_color;
-// Default: #FFB13D                                             // = Cyan300
-$secondary_selected_bg_color: $key_secondary_selection_color;
+// Default: #48B9C7                                             // = Cyan500
+//$selected_bg_color: $key_selection_color;
+$blue_color: $key_selection_color;
+// Default: #3DEFFF                                             // = Cyan300
+//$secondary_selected_bg_color: $key_secondary_selection_color;
+$secondary_blue_color: $key_secondary_selection_color;
 
-
+// TODO: Remove these fallbacks
+$selected_bg_color: $blue_color;
+$secondary_selected_bg_color: $secondary_blue_color;
 //
 // Accent (secondary) colors
 //
 
-// Default: #48B9C7                                             // = Teal300
-$accent_color: $key_accent_color;
-$accent_label_color: if($variant == 'light',
-                        mix($key_accent_color, $fg_color, 80%),
-                        mix($key_accent_color, $fg_color, 60%));
+// Default: #FAA41A                                             // = Teal300
+//$accent_color: $key_accent_color;
+$orange_color: $key_accent_color;
+//$accent_label_color: if($variant == 'light',
+$blue_label_color: if($variant == 'light',
+                        mix($key_selection_color, $fg_color, 80%),
+                        mix($key_selection_color, $fg_color, 60%));
+
+//TODO: Remove fallbacks
+$accent_color: $orange_color;
+$accent_label_color: $blue_label_color;
+
 $secondary_accent_color: gtkopacity($accent_color, 0.9);
 $secondary_accent_label_color: gtkopacity($accent_label_color, 0.9);
 $accent_fill_color: gtkopacity($inverted_fg_color, 0.1);
@@ -124,6 +135,7 @@ $inverted_accent_label_color:
   mix($key_accent_color, $inverted_fg_color, 60%);
 $inverted_secondary_accent_label_color:
   gtkopacity($inverted_accent_label_color, 0.9);
+
 
 
 //
