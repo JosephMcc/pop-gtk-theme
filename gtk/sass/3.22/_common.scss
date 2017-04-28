@@ -150,8 +150,8 @@ iconview { @extend .view; }
 
 .rubberband,
 rubberband {
-  border: 1px solid $secondary_selected_bg_color;
-  background-color: gtkopacity($secondary_selected_bg_color, 0.2);
+  border: 1px solid $orange_color;
+  background-color: gtkopacity($orange_color, 0.2);
 }
 
 flowbox {
@@ -193,7 +193,7 @@ frame.content-view flowbox > flowboxchild.tile {
     //             inset 0 1px $highlight_color;
   }
   &:selected {
-    background-color: gtkopacity($secondary_selected_bg_color, 0.4);
+    background-color: gtkopacity($blue_color, 0.4);
     color: $fg_color;
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
@@ -5230,7 +5230,7 @@ placessidebar {
       label { color: $orange_color; }
 
       button.image-button {
-        color: $secondary_selected_bg_color;
+        color: $orange_color;
         &:hover,
         &:active { color: $orange_color; }
       }
