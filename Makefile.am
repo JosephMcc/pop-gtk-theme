@@ -1,9 +1,9 @@
 ACLOCAL_AMFLAGS = -I m4
 
 themedir  = $(datadir)/themes
-adaptadir = $(DESTDIR)$(themedir)/Pop
+popdir = $(DESTDIR)$(themedir)/Pop
 noktodir  = $(DESTDIR)$(themedir)/Pop-Nokto
-adaptaetadir = $(DESTDIR)$(themedir)/Pop-Eta
+popetadir = $(DESTDIR)$(themedir)/Pop-Eta
 noktoetadir  = $(DESTDIR)$(themedir)/Pop-Nokto-Eta
 
 SUBDIRS = \
@@ -18,10 +18,10 @@ EXTRA_DIST = \
 	README.md
 
 install-data-hook:
-	cp -Rv $(EXTRA_DIST) $(adaptadir)
+	cp -Rv $(EXTRA_DIST) $(popdir)
 
 uninstall-hook:
 	test -e $(noktodir) && rm -rfv $(noktodir)
-	test -e $(adaptadir) && rm -rfv $(adaptadir)
+	test -e $(popdir) && rm -rfv $(popdir)
 	test -e $(noktetaodir) && rm -rfv $(noktoetadir)
-	test -e $(adaptaetadir) && rm -rfv $(adaptaetadir)
+	test -e $(popetadir) && rm -rfv $(popetadir)
