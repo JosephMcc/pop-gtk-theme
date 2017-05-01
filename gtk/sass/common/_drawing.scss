@@ -82,19 +82,19 @@ $sub-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.06),
 $selected-header-shadow-light-ltr: 0 1px 1px rgba(0, 0, 0, 0.16),
                                    0 1px 2px rgba(0, 0, 0, 0.26),
                                    0 2px 3px rgba(0, 0, 0, 0.32),
-                                   -5px 0 0 -1px $selected_bg_color;
+                                   -5px 0 0 -1px $blue_color;
 $selected-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.06),
                                   0 1px 2px rgba(0, 0, 0, 0.14),
                                   0 2px 3px rgba(0, 0, 0, 0.20),
-                                  -5px 0 0 -1px $selected_bg_color;
+                                  -5px 0 0 -1px $blue_color;
 $selected_header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
                                    0 1px 2px rgba(0, 0, 0, 0.26),
                                    0 2px 3px rgba(0, 0, 0, 0.32),
-                                   5px 0 0 -1px $selected_bg_color;
+                                   5px 0 0 -1px $blue_color;
 $selected-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.06),
                                   0 1px 2px rgba(0, 0, 0, 0.14),
                                   0 2px 3px rgba(0, 0, 0, 0.20),
-                                  5px 0 0 -1px $selected_bg_color;
+                                  5px 0 0 -1px $blue_color;
 $tiled-header-shadow-light-ltr: 0 1px 1px rgba(0, 0, 0, 0.16),
                                 0 1px 2px rgba(0, 0, 0, 0.26),
                                 0 2px 3px rgba(0, 0, 0, 0.32),
@@ -297,7 +297,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   box-shadow: none;
 }
 
-@mixin entry($t, $fc:$selected_bg_color) {
+@mixin entry($t, $fc:$orange_color) {
 //
 // Entries drawing function
 //
@@ -470,8 +470,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 }
 
 %button_fallback_active {
-  border: 1px solid $selected_bg_color;
-  background-color: $selected_bg_color;
+  border: 1px solid $orange_color;
+  background-color: $orange_color;
   color: $fg_color; // do not use inverted colours
   box-shadow: none;
   animation: none;
@@ -486,8 +486,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 
 %button_fallback_checked_insensitive {
   border: none;
-  background-color: mix($selected_bg_color, $light_color, 20%);
-  color: mix($selected_bg_color, $light_color, 40%);
+  background-color: mix($orange_color, $light_color, 20%);
+  color: mix($orange_color, $light_color, 40%);
   box-shadow: none;
 }
 
@@ -543,7 +543,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   // checked button
   //
     @extend %button_checked;
-    background-color: $selected_bg_color;
+    background-color: $orange_color;
     color: $selected_fg_color;
   }
   @else if $t==checked-insensitive {
@@ -552,7 +552,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   //
     @extend %button_checked_disabled;
     background-color: $track_color;
-    color: gtkopacity($selected_bg_color, 0.4);
+    color: gtkopacity($orange_color, 0.4);
   }
 
   @else if $t==flat-normal {
@@ -602,7 +602,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 // Overshoot
 //
 
-@mixin overshoot($p, $t:normal, $c:$secondary_selected_bg_color) {
+@mixin overshoot($p, $t:normal, $c:$secondary_blue_color) {
 //
 // Overshoot drawing function
 //

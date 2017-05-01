@@ -54,7 +54,7 @@
 // Base background color of selections
 //
 
-@define-color theme_selected_bg_color #{"" +$selected_bg_color};
+@define-color theme_selected_bg_color #{"" +$blue_color};
 
 
 //
@@ -133,7 +133,7 @@
 // Base background color of selections on backdrop windows
 //
 
-@define-color theme_unfocused_selected_bg_color #{"" +$selected_bg_color};
+@define-color theme_unfocused_selected_bg_color #{"" +$blue_color};
 
 
 //

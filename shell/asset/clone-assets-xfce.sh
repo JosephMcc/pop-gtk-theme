@@ -18,8 +18,12 @@ RECOLOR_FILE2="./assets-xfce/flat-button-hover.svg"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-accent1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
+selection1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
+                   cut -d' ' -f3`"
+accent1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
                 cut -d' ' -f3`"
+destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
+                     cut -d' ' -f3`"
 
 # Check and re-color 'flat-button-active' and 'flat-button-hover' file
 if [ -e $KEY_FILE ]; then

@@ -158,8 +158,9 @@ flowbox {
   rubberband { @extend rubberband; }
 
   flowboxchild {
+    margin: rem(4px, $sw: 1.0);
     padding: rem(4px, $sw: 1.0);
-    border-radius: 0;
+    border-radius: 2px;
     -gtk-outline-radius: 2px;
     &:selected {
       @extend %selected_items;
@@ -193,7 +194,7 @@ frame.content-view flowbox > flowboxchild.tile {
     //             inset 0 1px $highlight_color;
   }
   &:selected {
-    background-color: gtkopacity($blue_color, 0.4);
+    background-color: gtkopacity($orange_color, 0.4);
     color: $fg_color;
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
@@ -374,14 +375,14 @@ entry {
   .background & {
     @include entry(normal);
     border-radius: 3px;
-    background-color: gtkopacity(#000000, 0.1);
+    background-color: gtkopacity(#FFFFFF, 0.18);
     &:focus {
       @include entry(focus);
-      background-color: gtkopacity(#000000, 0.1);
+      background-color: gtkopacity(#FFFFFF, 0.18);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: gtkopacity(#000000, 0.1);
+      background-color: gtkopacity(#FFFFFF, 0.18);
     }
 
     selection {
@@ -392,14 +393,14 @@ entry {
   .background &.flat {
     @include entry(flat-normal);
     border-radius: 3px;
-    background-color: gtkopacity(#000000, 0.1);
+    background-color: gtkopacity(#FFFFFF, 0.18);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity(#000000, 0.1);
+      background-color: gtkopacity(#FFFFFF, 0.18);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity(#000000, 0.1);
+      background-color: gtkopacity(#FFFFFF, 0.18);
     }
   }
 
@@ -429,14 +430,14 @@ entry {
     @include entry(flat-normal);
     border-radius: 3px;
     -gtk-outline-radius: 3px;
-    background-color: gtkopacity(#000000, 0.1);
+    background-color: gtkopacity(#FFFFFF, 0.18);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity(#000000, 0.1);
+      background-color: gtkopacity(#FFFFFF, 0.18);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity(#000000, 0.1);
+      background-color: gtkopacity(#FFFFFF, 0.18);
     }
   }
 
@@ -512,8 +513,8 @@ button {
   min-height: rem(13.3px);
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(13.3px) rem(10.7px);
-  border-radius: 2px;
-  -gtk-outline-radius: 2px;
+  border-radius: 4px;
+  -gtk-outline-radius: 4px;
   background-repeat: no-repeat;
   background-position: center, center;
   font-weight: 500;
@@ -547,8 +548,8 @@ button {
     &:checked { @include button(flat-checked); }
     &:checked:disabled { @include button(flat-checked-insensitive); }
     .linked > & {
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
+      border-radius: 4px;
+      -gtk-outline-radius: 4px;
       &.image-button {
         border-radius: 100px;
         -gtk-outline-radius: 100px;
@@ -635,8 +636,8 @@ button {
 
   &.text-button {
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
+    border-radius: 4px;
+    -gtk-outline-radius: 4px;
     font-weight: 700;
   }
 
@@ -651,8 +652,8 @@ button {
     // one, so we're adding the missing padding to the label depending on
     // its position inside the button
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
+    border-radius: 4px;
+    -gtk-outline-radius: 4px;
 
     label {
       padding-left: rem(4px);
@@ -1410,14 +1411,14 @@ combobox {
   .background & entry.combo {
     @include entry(normal);
     border-radius: 3px;
-    background-color: gtkopacity(#000000, 0.1);
+    background-color: gtkopacity(#FFFFFF, 0.18);
     &:focus {
       @include entry(focus);
-      background-color: gtkopacity(#000000, 0.1);
+      background-color: gtkopacity(#FFFFFF, 0.18);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: gtkopacity(#000000, 0.1);
+      background-color: gtkopacity(#FFFFFF, 0.18);
     }
 
     selection {
@@ -3046,6 +3047,7 @@ menu {
     &:checked { @include button(flat-checked); }
     &:checked:disabled { @include button(flat-checked-insensitive); }
     &:disabled {
+      @extend %button_flat_disabled;
       border-color: transparent ;
       color: transparent;
       background-color: transparent;
@@ -4144,7 +4146,7 @@ check {
 %scale_highlight {
   border: 1px solid transparent;
   border-radius: 0;
-  background-color: $blue_color;
+  background-color: $orange_color;
   &:disabled {
     color: $insensitive_fg_color;
     background-color: $track_color;
@@ -4510,7 +4512,7 @@ progressbar {
   padding: 0;
   border: none;
   border-radius: 0;
-  background-color: gtkopacity($orange_color, 0.2);
+  background-color: gtkopacity($blue_color, 0.2);
   background-image: none;
 }
 
@@ -4563,7 +4565,7 @@ levelbar {
 
 // /****************
 //  * Print dialog *
-// *****************/
+//  *****************/
 
 printdialog {
   paper {
