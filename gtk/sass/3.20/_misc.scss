@@ -33,7 +33,7 @@ panel-applet menubar {
     background-color: transparent;
     &:hover {
       color: $inverted_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $blue_color;
     }
   }
 }
@@ -58,7 +58,7 @@ wnck-tasklist > button.toggle,
   &:disabled:checked { // 'checked' = 'active'
     color: $inverted_fg_color;
     background-color: transparent;
-    box-shadow: inset 0 -2px $selected_bg_color;
+    box-shadow: inset 0 -2px $blue_color;
   }
 }
 
@@ -72,7 +72,7 @@ wnck-pager {
   background: transparent;
   color: $inverted_fg_color;
   &:hover { box-shadow: inset 0 -2px $track_color; }
-  &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
+  &:selected { box-shadow: inset 0 -2px $blue_color; }
 }
 
 na-tray-applet {
@@ -127,10 +127,10 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   font-weight: 500;
   &:hover { color: $fg_color; }
   &:selected {
-    color: $selected_bg_color;
+    color: $blue_color;
     background-color: transparent;
 
-    label { color: $selected_bg_color; }
+    label { color: $blue_color; }
   }
 }
 
@@ -190,7 +190,7 @@ row.tweak { // basic row node container in right-pane
           &:hover { color: $selected_fg_color; }
           &:active {
             color: $selected_fg_color;
-            background-color: $selected_bg_color;
+            background-color: $blue_color;
           }
           &:checked {
             color: $secondary_selected_fg_color;
@@ -403,7 +403,7 @@ NautilusTrashBar {
     color: $insensitive_fg_color;
   }
 
-  &.used { background-color: $selected_bg_color; }
+  &.used { background-color: $blue_color; }
 
   &.unknown { background-color: $warning_color; }
 }
@@ -418,7 +418,7 @@ NautilusTrashBar {
     color: $fixed_fg_color;
   }
   &:selected {
-    background-color: $selected_bg_color;
+    background-color: $blue_color;
     color: $selected_fg_color;
   }
 }
@@ -430,7 +430,7 @@ NautilusTrashBar {
     &.dim-label {
       color: $tertiary_fg_color;
       &:selected {
-        &, &:focus { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+        &, &:focus { color: mix($selected_fg_color, $blue_color, 50%); }
       }
     }
   }
@@ -438,7 +438,7 @@ NautilusTrashBar {
   &-list-dim-label {
     color: $tertiary_fg_color;
     &:selected {
-      &, &:focus { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+      &, &:focus { color: mix($selected_fg_color, $blue_color, 50%); }
     }
   }
 }
@@ -559,10 +559,10 @@ NautilusTrashBar {
       font-weight: 400; // reset weight
       &:selected {
         &, &:focus {
-          background-color: gtkopacity($selected_bg_color, 0.2);
+          background-color: gtkopacity($blue_color, 0.2);
           color: $fg_color;
-          &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
-          &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
+          &:dir(ltr) { box-shadow: inset 4px 0 $blue_color; }
+          &:dir(rtl) { box-shadow: inset -4px 0 $blue_color; }
         }
       }
     }
@@ -584,7 +584,7 @@ NautilusTrashBar {
       &:selected {
         &, &:focus {
           background-color: transparent;
-          color: $selected_bg_color;
+          color: $blue_color;
         }
       }
     }
@@ -785,7 +785,7 @@ window paned > box.vertical {
     &:hover { color: $fg_color; }
     &:selected {
       color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      background-color: $blue_color;
     }
   }
 }
@@ -861,7 +861,7 @@ box > headerbar > label.polari-titlebar-separator {
       &, &:focus {
         background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                   rgba(18, 22, 0, 0.04));
-        color: $selected_bg_color;
+        color: $blue_color;
       }
     }
   }
@@ -975,7 +975,7 @@ notebook > stack > box > grid.horizontal > grid.horizontal > grid.horizontal {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($blue_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -1290,15 +1290,15 @@ overlay > box.vertical > paned.horizontal > box.vertical {
     font-weight: 500;
     &:hover { color: $fg_color; }
     &:selected {
-      color: $selected_bg_color;
+      color: $blue_color;
       background-color: transparent;
 
-      label { color: $selected_bg_color; }
+      label { color: $blue_color; }
 
       button {
-        color: gtkalpha($selected_bg_color, 0.75);
+        color: gtkalpha($blue_color, 0.75);
         &:hover,
-        &:active { color: $selected_bg_color; }
+        &:active { color: $blue_color; }
       }
     }
 
@@ -1467,7 +1467,7 @@ layouttabbar {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($blue_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1504,7 +1504,7 @@ layouttab {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($blue_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1601,7 +1601,7 @@ tabstrip {
     }
     &:checked {
       color: $fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $blue_color;
     }
   }
 }
@@ -1730,7 +1730,7 @@ window overlay > grid > frame > grid {
       &:hover { color: $fg_color; }
       &:selected,
       &:selected.activatable {
-        &, label { color: $selected_bg_color; }
+        &, label { color: $blue_color; }
         background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                   rgba(18, 22, 0, 0.04));
       }
@@ -1861,10 +1861,10 @@ window.background > box.vertical > stack > box.horizontal {
       font-weight: 500;
       &:hover { color: $fg_color; }
       &:selected {
-        color: $selected_bg_color;
+        color: $blue_color;
         background-color: transparent;
 
-        label { color: $selected_bg_color; }
+        label { color: $blue_color; }
       }
 
       > label {
@@ -1940,7 +1940,7 @@ terminal-window {
     background-color: transparent;
     &:hover { // Seems like it :hover even with keyboard focus
       color: $inverted_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $blue_color;
     }
     &:disabled {
       color: $insensitive_inverted_fg_color;
@@ -2026,7 +2026,7 @@ window stack > frame > frame > grid.horizontal > grid.horizontal {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($blue_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
       }
@@ -2132,7 +2132,7 @@ window > popover > stack > grid > button {
     font-weight: 500;
     &:selected {
       background-color: transparent;
-      color: $selected_bg_color;
+      color: $blue_color;
     }
   }
 }
@@ -2162,7 +2162,7 @@ window > popover > stack > grid > button {
     font-weight: 500;
     &:selected {
       background-color: transparent;
-      color: $selected_bg_color;
+      color: $blue_color;
     }
   }
 }
@@ -2199,7 +2199,7 @@ window.background > box.vertical {
       treeview.view {
         background-color: transparent;
         &:selected {
-          background-color: $selected_bg_color;
+          background-color: $blue_color;
           color: $selected_fg_color;
         }
       }
@@ -2251,7 +2251,7 @@ window.background > grid.horizontal {
           &:selected,
           &:checked {
             color: $selected_fg_color;
-            background-color: $selected_bg_color;
+            background-color: $blue_color;
           }
         }
       }
@@ -2381,10 +2381,10 @@ window.background > box.vertical > stack > widget > box.horizontal {
       font-weight: 500;
       &:hover { color: $fg_color; }
       &:selected {
-        color: $selected_bg_color;
+        color: $blue_color;
         background-color: transparent;
 
-        > label { color: $selected_bg_color; }
+        > label { color: $blue_color; }
       }
     }
   }

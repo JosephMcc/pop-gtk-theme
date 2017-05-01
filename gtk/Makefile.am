@@ -1,7 +1,7 @@
 themedir     = $(datadir)/themes
-adaptadir    = $(DESTDIR)$(themedir)/Pop
+popdir    = $(DESTDIR)$(themedir)/Pop
 noktodir     = $(DESTDIR)$(themedir)/Pop-Nokto
-adaptaetadir = $(DESTDIR)$(themedir)/Pop-Eta
+popetadir = $(DESTDIR)$(themedir)/Pop-Eta
 noktoetadir  = $(DESTDIR)$(themedir)/Pop-Nokto-Eta
 
 gtk3_assetdir = $(srcdir)/asset/assets-gtk3
@@ -512,112 +512,112 @@ endif
 # *****************
 
 install-data-local:
-	$(MKDIR_P) $(adaptadir)
-	$(MKDIR_P) $(adaptaetadir)
+	$(MKDIR_P) $(popdir)
+	$(MKDIR_P) $(popetadir)
 
-	cp -Rv $(index_file) $(adaptadir)
+	cp -Rv $(index_file) $(popdir)
 
-	cp -Rv $(indexeta_file) $(adaptaetadir)/index.theme
+	cp -Rv $(indexeta_file) $(popetadir)/index.theme
 
 
-	$(MKDIR_P) $(adaptadir)/gtk-3.0
-	cp -Rv $(gtk318_file) $(adaptadir)/gtk-3.0
+	$(MKDIR_P) $(popdir)/gtk-3.0
+	cp -Rv $(gtk318_file) $(popdir)/gtk-3.0
 
-	$(MKDIR_P) $(adaptadir)/gtk-3.20
-	cp -Rv $(gtk320_file) $(adaptadir)/gtk-3.20
+	$(MKDIR_P) $(popdir)/gtk-3.20
+	cp -Rv $(gtk320_file) $(popdir)/gtk-3.20
 
-	$(MKDIR_P) $(adaptadir)/gtk-3.22
-	cp -Rv $(gtk322_file) $(adaptadir)/gtk-3.22
+	$(MKDIR_P) $(popdir)/gtk-3.22
+	cp -Rv $(gtk322_file) $(popdir)/gtk-3.22
 
-	cd $(adaptadir)
+	cd $(popdir)
 
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.20
-	cp -Rv $(gtk320eta_file) $(adaptaetadir)/gtk-3.20
+	$(MKDIR_P) $(popetadir)/gtk-3.20
+	cp -Rv $(gtk320eta_file) $(popetadir)/gtk-3.20
 
-	$(MKDIR_P) $(adaptaetadir)/gtk-3.22
-	cp -Rv $(gtk322eta_file) $(adaptaetadir)/gtk-3.22
+	$(MKDIR_P) $(popetadir)/gtk-3.22
+	cp -Rv $(gtk322eta_file) $(popetadir)/gtk-3.22
 
-	cd $(adaptadir)
+	cd $(popdir)
 
-	$(MKDIR_P) $(adaptadir)/gtk-2.0
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Arrows
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Buttons
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Check-Radio
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Column
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Entry
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Handles
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Lines
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Others
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/ProgressBar
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Range
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Scrollbars
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Shadows
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Spin
-	$(MKDIR_P) $(adaptadir)/gtk-2.0/Toolbar
-	cp -Rv $(gtk2_file) $(adaptadir)/gtk-2.0
-	cp -Rv $(gtk2_gtkrc_file) $(adaptadir)/gtk-2.0
-	cp -Rv $(gtk2_arrow_file) $(adaptadir)/gtk-2.0/Arrows
-	cp -Rv $(gtk2_button_file) $(adaptadir)/gtk-2.0/Buttons
-	cp -Rv $(gtk2_checkradio_file) $(adaptadir)/gtk-2.0/Check-Radio
-	cp -Rv $(gtk2_column_file) $(adaptadir)/gtk-2.0/Column
-	cp -Rv $(gtk2_entry_file) $(adaptadir)/gtk-2.0/Entry
-	cp -Rv $(gtk2_handle_file) $(adaptadir)/gtk-2.0/Handles
-	cp -Rv $(gtk2_line_file) $(adaptadir)/gtk-2.0/Lines
-	cp -Rv $(gtk2_other_file) $(adaptadir)/gtk-2.0/Others
-	cp -Rv $(gtk2_progress_file) $(adaptadir)/gtk-2.0/ProgressBar
-	cp -Rv $(gtk2_range_file) $(adaptadir)/gtk-2.0/Range
-	cp -Rv $(gtk2_scrollbar_file) $(adaptadir)/gtk-2.0/Scrollbars
-	cp -Rv $(gtk2_shadow_file) $(adaptadir)/gtk-2.0/Shadows
-	cp -Rv $(gtk2_spin_file) $(adaptadir)/gtk-2.0/Spin
-	cp -Rv $(gtk2_toolbar_file) $(adaptadir)/gtk-2.0/Toolbar
+	$(MKDIR_P) $(popdir)/gtk-2.0
+	$(MKDIR_P) $(popdir)/gtk-2.0/Arrows
+	$(MKDIR_P) $(popdir)/gtk-2.0/Buttons
+	$(MKDIR_P) $(popdir)/gtk-2.0/Check-Radio
+	$(MKDIR_P) $(popdir)/gtk-2.0/Column
+	$(MKDIR_P) $(popdir)/gtk-2.0/Entry
+	$(MKDIR_P) $(popdir)/gtk-2.0/Handles
+	$(MKDIR_P) $(popdir)/gtk-2.0/Lines
+	$(MKDIR_P) $(popdir)/gtk-2.0/Others
+	$(MKDIR_P) $(popdir)/gtk-2.0/ProgressBar
+	$(MKDIR_P) $(popdir)/gtk-2.0/Range
+	$(MKDIR_P) $(popdir)/gtk-2.0/Scrollbars
+	$(MKDIR_P) $(popdir)/gtk-2.0/Shadows
+	$(MKDIR_P) $(popdir)/gtk-2.0/Spin
+	$(MKDIR_P) $(popdir)/gtk-2.0/Toolbar
+	cp -Rv $(gtk2_file) $(popdir)/gtk-2.0
+	cp -Rv $(gtk2_gtkrc_file) $(popdir)/gtk-2.0
+	cp -Rv $(gtk2_arrow_file) $(popdir)/gtk-2.0/Arrows
+	cp -Rv $(gtk2_button_file) $(popdir)/gtk-2.0/Buttons
+	cp -Rv $(gtk2_checkradio_file) $(popdir)/gtk-2.0/Check-Radio
+	cp -Rv $(gtk2_column_file) $(popdir)/gtk-2.0/Column
+	cp -Rv $(gtk2_entry_file) $(popdir)/gtk-2.0/Entry
+	cp -Rv $(gtk2_handle_file) $(popdir)/gtk-2.0/Handles
+	cp -Rv $(gtk2_line_file) $(popdir)/gtk-2.0/Lines
+	cp -Rv $(gtk2_other_file) $(popdir)/gtk-2.0/Others
+	cp -Rv $(gtk2_progress_file) $(popdir)/gtk-2.0/ProgressBar
+	cp -Rv $(gtk2_range_file) $(popdir)/gtk-2.0/Range
+	cp -Rv $(gtk2_scrollbar_file) $(popdir)/gtk-2.0/Scrollbars
+	cp -Rv $(gtk2_shadow_file) $(popdir)/gtk-2.0/Shadows
+	cp -Rv $(gtk2_spin_file) $(popdir)/gtk-2.0/Spin
+	cp -Rv $(gtk2_toolbar_file) $(popdir)/gtk-2.0/Toolbar
 
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Arrows
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Buttons
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Check-Radio
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Column
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Entry
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Handles
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Lines
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Others
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/ProgressBar
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Range
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Scrollbars
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Shadows
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Spin
-	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Toolbar
-	cp -Rv $(gtk2_eta_file) $(adaptaetadir)/gtk-2.0
-	cp -Rv $(gtk2_eta_gtkrc_file) $(adaptaetadir)/gtk-2.0/gtkrc
-	cp -Rv $(gtk2_arrow_file) $(adaptaetadir)/gtk-2.0/Arrows
-	cp -Rv $(gtk2_button_file) $(adaptaetadir)/gtk-2.0/Buttons
-	cp -Rv $(gtk2_checkradio_file) $(adaptaetadir)/gtk-2.0/Check-Radio
-	cp -Rv $(gtk2_column_file) $(adaptaetadir)/gtk-2.0/Column
-	cp -Rv $(gtk2_entry_file) $(adaptaetadir)/gtk-2.0/Entry
-	cp -Rv $(gtk2_handle_file) $(adaptaetadir)/gtk-2.0/Handles
-	cp -Rv $(gtk2_line_file) $(adaptaetadir)/gtk-2.0/Lines
-	cp -Rv $(gtk2_other_file) $(adaptaetadir)/gtk-2.0/Others
-	cp -Rv $(gtk2_progress_file) $(adaptaetadir)/gtk-2.0/ProgressBar
-	cp -Rv $(gtk2_range_file) $(adaptaetadir)/gtk-2.0/Range
-	cp -Rv $(gtk2_scrollbar_file) $(adaptaetadir)/gtk-2.0/Scrollbars
-	cp -Rv $(gtk2_shadow_file) $(adaptaetadir)/gtk-2.0/Shadows
-	cp -Rv $(gtk2_spin_file) $(adaptaetadir)/gtk-2.0/Spin
-	cp -Rv $(gtk2_toolbar_file) $(adaptaetadir)/gtk-2.0/Toolbar
+	$(MKDIR_P) $(popetadir)/gtk-2.0
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Arrows
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Buttons
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Check-Radio
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Column
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Entry
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Handles
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Lines
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Others
+	$(MKDIR_P) $(popetadir)/gtk-2.0/ProgressBar
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Range
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Scrollbars
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Shadows
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Spin
+	$(MKDIR_P) $(popetadir)/gtk-2.0/Toolbar
+	cp -Rv $(gtk2_eta_file) $(popetadir)/gtk-2.0
+	cp -Rv $(gtk2_eta_gtkrc_file) $(popetadir)/gtk-2.0/gtkrc
+	cp -Rv $(gtk2_arrow_file) $(popetadir)/gtk-2.0/Arrows
+	cp -Rv $(gtk2_button_file) $(popetadir)/gtk-2.0/Buttons
+	cp -Rv $(gtk2_checkradio_file) $(popetadir)/gtk-2.0/Check-Radio
+	cp -Rv $(gtk2_column_file) $(popetadir)/gtk-2.0/Column
+	cp -Rv $(gtk2_entry_file) $(popetadir)/gtk-2.0/Entry
+	cp -Rv $(gtk2_handle_file) $(popetadir)/gtk-2.0/Handles
+	cp -Rv $(gtk2_line_file) $(popetadir)/gtk-2.0/Lines
+	cp -Rv $(gtk2_other_file) $(popetadir)/gtk-2.0/Others
+	cp -Rv $(gtk2_progress_file) $(popetadir)/gtk-2.0/ProgressBar
+	cp -Rv $(gtk2_range_file) $(popetadir)/gtk-2.0/Range
+	cp -Rv $(gtk2_scrollbar_file) $(popetadir)/gtk-2.0/Scrollbars
+	cp -Rv $(gtk2_shadow_file) $(popetadir)/gtk-2.0/Shadows
+	cp -Rv $(gtk2_spin_file) $(popetadir)/gtk-2.0/Spin
+	cp -Rv $(gtk2_toolbar_file) $(popetadir)/gtk-2.0/Toolbar
 
 
 
 if ENABLE_GTK_NEXT
-	$(MKDIR_P) $(adaptadir)/gtk-4.0
-	$(MKDIR_P) $(adaptaetadir)/gtk-4.0
-	cp -Rv $(gtknext_file) $(adaptadir)/gtk-4.0
-	cd $(adaptadir)
+	$(MKDIR_P) $(popdir)/gtk-4.0
+	$(MKDIR_P) $(popetadir)/gtk-4.0
+	cp -Rv $(gtknext_file) $(popdir)/gtk-4.0
+	cd $(popdir)
 
-	cp -Rv $(gtknexteta_file) $(adaptaetadir)/gtk-4.0
-	cd $(adaptadir)
+	cp -Rv $(gtknexteta_file) $(popetadir)/gtk-4.0
+	cd $(popdir)
 endif
 
 if ENABLE_XFCE
-	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
-	cp -Rv $(xfcenotify_file) $(adaptadir)/xfce-notify-4.0
+	$(MKDIR_P) $(popdir)/xfce-notify-4.0
+	cp -Rv $(xfcenotify_file) $(popdir)/xfce-notify-4.0
 endif
 
 if ENABLE_NOKTO
@@ -625,11 +625,11 @@ if ENABLE_NOKTO
 	$(MKDIR_P) $(noktoetadir)
 	cp -Rv $(index_nokto_file) $(noktodir)/index.theme
 	cp -Rv $(index_noktoeta_file) $(noktoetadir)/index.theme
-	cd $(adaptadir)
+	cd $(popdir)
 	ln -sf ../Pop/gtk-3.0 $(noktodir)/gtk-3.0
 	ln -sf ../Pop/gtk-3.20 $(noktodir)/gtk-3.20
 	ln -sf ../Pop/gtk-3.22 $(noktodir)/gtk-3.22
-	cd $(adaptadir)
+	cd $(popdir)
 	ln -sf ../Pop-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
 	ln -sf ../Pop-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
 
@@ -698,9 +698,9 @@ if ENABLE_NOKTO
 	cp -Rv $(gtk2_nokto_toolbar_file) $(noktoetadir)/gtk-2.0/Toolbar
 
 if ENABLE_GTK_NEXT
-	cd $(adaptadir)
+	cd $(popdir)
 	ln -sf ../Pop/gtk-4.0 $(noktodir)/gtk-4.0
-	cd $(adaptadir)
+	cd $(popdir)
 	ln -sf ../Pop-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
 endif
 endif
@@ -716,11 +716,11 @@ uninstall-local:
 	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
 	test -e $(noktodir)/gtk-2.0 && rm -rfv $(noktodir)/gtk-2.0
 
-	test -e $(adaptadir)/index.theme && rm -rfv $(adaptadir)/index.theme
-	test -e $(adaptadir)/gtk-3.0 && rm -rfv $(adaptadir)/gtk-3.0
-	test -e $(adaptadir)/gtk-3.20 && rm -rfv $(adaptadir)/gtk-3.20
-	test -e $(adaptadir)/gtk-3.22 && rm -rfv $(adaptadir)/gtk-3.22
-	test -e $(adaptadir)/gtk-2.0 && rm -rfv $(adaptadir)/gtk-2.0
+	test -e $(popdir)/index.theme && rm -rfv $(popdir)/index.theme
+	test -e $(popdir)/gtk-3.0 && rm -rfv $(popdir)/gtk-3.0
+	test -e $(popdir)/gtk-3.20 && rm -rfv $(popdir)/gtk-3.20
+	test -e $(popdir)/gtk-3.22 && rm -rfv $(popdir)/gtk-3.22
+	test -e $(popdir)/gtk-2.0 && rm -rfv $(popdir)/gtk-2.0
 
 	test -e $(noktoetadir)/index.theme && rm -rfv $(noktoetadir)/index.theme
 	test -e $(noktoetadir)/gtk-3.0 && rm -rfv $(noktoetadir)/gtk-3.0
@@ -728,23 +728,23 @@ uninstall-local:
 	test -e $(noktoetadir)/gtk-3.22 && rm -rfv $(noktoetadir)/gtk-3.22
 	test -e $(noktoetadir)/gtk-2.0 && rm -rfv $(noktoetadir)/gtk-2.0
 
-	test -e $(adaptaetadir)/index.theme && rm -rfv $(adaptaetadir)/index.theme
-	test -e $(adaptaetadir)/gtk-3.0 && rm -rfv $(adaptaetadir)/gtk-3.0
-	test -e $(adaptaetadir)/gtk-3.20 && rm -rfv $(adaptaetadir)/gtk-3.20
-	test -e $(adaptaetadir)/gtk-3.22 && rm -rfv $(adaptaetadir)/gtk-3.22
-	test -e $(adaptaetadir)/gtk-2.0 && rm -rfv $(adaptaetadir)/gtk-2.0
+	test -e $(popetadir)/index.theme && rm -rfv $(popetadir)/index.theme
+	test -e $(popetadir)/gtk-3.0 && rm -rfv $(popetadir)/gtk-3.0
+	test -e $(popetadir)/gtk-3.20 && rm -rfv $(popetadir)/gtk-3.20
+	test -e $(popetadir)/gtk-3.22 && rm -rfv $(popetadir)/gtk-3.22
+	test -e $(popetadir)/gtk-2.0 && rm -rfv $(popetadir)/gtk-2.0
 
 if ENABLE_GTK_NEXT
 	test -e $(noktodir)/gtk-4.0 && rm -rfv $(noktodir)/gtk-4.0
-	test -e $(adaptadir)/gtk-4.0 && rm -rfv $(adaptadir)/gtk-4.0
+	test -e $(popdir)/gtk-4.0 && rm -rfv $(popdir)/gtk-4.0
 
 	test -e $(noktoetadir)/gtk-4.0 && rm -rfv $(noktoetadir)/gtk-4.0
-	test -e $(adaptaetadir)/gtk-4.0 && rm -rfv $(adaptaetadir)/gtk-4.0
+	test -e $(popetadir)/gtk-4.0 && rm -rfv $(popetadir)/gtk-4.0
 endif
 
 if ENABLE_XFCE
-	test -e $(adaptadir)/xfce-notify-4.0/gtk.css && \
-		rm -rfv $(adaptadir)/xfce-notify-4.0/gtk.css
+	test -e $(popdir)/xfce-notify-4.0/gtk.css && \
+		rm -rfv $(popdir)/xfce-notify-4.0/gtk.css
 endif
 
 # ****************************

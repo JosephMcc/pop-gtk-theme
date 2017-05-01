@@ -1,5 +1,5 @@
 /*
- *  This file is part of adapta-gtk-theme
+ *  This file is part of pop-gtk-theme
  *
  * Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
  *
@@ -55,7 +55,7 @@ $duration_short: 0.1s;
 // entries
 //
 
-@mixin entry($t, $fc:$selected_bg_color) {
+@mixin entry($t, $fc:$orange_color) {
 //
 // Entries drawing function
 //
@@ -69,29 +69,29 @@ $duration_short: 0.1s;
   @if $t==normal {
     border-color: transparent;
     background-color: $hidden_fill_color;
-    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
+    box-shadow: inset 0 -1px if($fc!=$orange_color, $fc,
                                                          $fill_color);
   }
   @if $t==focus {
     border-color: transparent;
-    box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc,
-                                                         $selected_bg_color);
+    box-shadow: inset 0 -2px if($fc!=$orange_color, $fc,
+                                                         $orange_color);
   }
   @if $t==hover {
     border-color: transparent;
-    box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc,
+    box-shadow: inset 0 -2px if($fc!=$orange_color, $fc,
                                                          $fill_color);
   }
   @if $t==insensitive {
     border-color: transparent;
     color: $insensitive_fg_color;
-    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
+    box-shadow: inset 0 -1px if($fc!=$orange_color, $fc,
                                                          $insensitive_fill_color);
   }
   @if $t==osd-normal {
     border-color: transparent;
     background-color: $hidden_fill_color;
-    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
+    box-shadow: inset 0 -1px if($fc!=$orange_color, $fc,
                                                          $osd_fill_color);
   }
   @if $t==osd-focus {
@@ -99,14 +99,14 @@ $duration_short: 0.1s;
     background-color: $hidden_fill_color;
     color: $selected_fg_color;
     caret-color: $selected_fg_color;
-    box-shadow: inset 0 -2px if($fc!=$selected_bg_color, $fc,
-                                                         $selected_bg_color);
+    box-shadow: inset 0 -2px if($fc!=$orange_color, $fc,
+                                                         $orange_color);
   }
   @if $t==osd-insensitive {
     border-color: transparent;
     background-color: $hidden_fill_color;
     color: $insensitive_osd_fg_color;
-    box-shadow: inset 0 -1px if($fc!=$selected_bg_color, $fc,
+    box-shadow: inset 0 -1px if($fc!=$orange_color, $fc,
                                                          $insensitive_osd_fill_color);
   }
 }

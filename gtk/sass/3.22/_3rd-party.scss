@@ -148,7 +148,7 @@ box.horizontal.pinned { // drop-target
       }
       &:active,
       &:checked {
-        border-#{$along_side}: 2px solid $selected_bg_color;
+        border-#{$along_side}: 2px solid $blue_color;
       }
     }
   }
@@ -168,7 +168,7 @@ box.horizontal.pinned { // drop-target
       &:hover,
       &:active,
       &:checked {
-        border-#{$along_side}: 2px solid $selected_bg_color;
+        border-#{$along_side}: 2px solid $blue_color;
         border-image: none;
       }
     }
@@ -270,10 +270,10 @@ box.horizontal.pinned { // drop-target
       &:checked {
         background-image: none;
         background-color: transparent;
-        color: $selected_bg_color;
-        &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
+        color: $blue_color;
+        &:hover { background-color: gtkopacity($blue_color, 0.1); }
         &:disabled {
-          color: gtkopacity($selected_bg_color, 0.4);
+          color: gtkopacity($blue_color, 0.4);
 
           label { color: inherit; }
         }
@@ -508,7 +508,7 @@ box.horizontal.pinned { // drop-target
       &:active {
         @extend %button_active;
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $blue_color;
       }
       &:checked {
         @extend %button_checked;
@@ -535,9 +535,9 @@ box.horizontal.pinned { // drop-target
     &:hover { color: $fg_color; }
     &:selected {
       &, label {
-        color: $selected_bg_color;
+        color: $blue_color;
       }
-      &:hover { background-color: gtkopacity($selected_bg_color, 0.1); }
+      &:hover { background-color: gtkopacity($blue_color, 0.1); }
     }
 
     separator {
@@ -585,7 +585,7 @@ box.horizontal.pinned { // drop-target
       &:hover { color: $selected_fg_color; }
       &:active {
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $blue_color;
       }
       &:checked {
         color: $secondary_selected_fg_color;
@@ -647,9 +647,9 @@ box.horizontal.pinned { // drop-target
       border-bottom: 1px solid $borders_color;
       &:selected {
         &, &:focus {
-          background-color: gtkopacity($selected_bg_color, 0.2);
-          &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
-          &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
+          background-color: gtkopacity($blue_color, 0.2);
+          &:dir(ltr) { box-shadow: inset 4px 0 $blue_color; }
+          &:dir(rtl) { box-shadow: inset -4px 0 $blue_color; }
 
           > grid > label {
             &, &.dim-label {
@@ -853,12 +853,12 @@ widget.keyboard-indicator >  widget > box.horizontal {
 wnck-pager {
   .top & {
     &:hover { box-shadow: inset 0 2px gtkalpha($inverted_fg_color, 0.4); }
-    &:selected { box-shadow: inset 0 2px $selected_bg_color; }
+    &:selected { box-shadow: inset 0 2px $blue_color; }
   }
 
   .bottom & {
     &:hover { box-shadow: inset 0 -2px gtkalpha($inverted_fg_color, 0.4); }
-    &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
+    &:selected { box-shadow: inset 0 -2px $blue_color; }
   }
 }
 
@@ -976,7 +976,7 @@ wnck-pager {
 
       image {
         &:not(:hover):not(:active) { color: $inverted_fg_color; }
-        &:active { color: $selected_bg_color; }
+        &:active { color: $blue_color; }
         &:disabled { color: $insensitive_inverted_fg_color; }
       }
     }
@@ -1093,8 +1093,8 @@ wnck-pager {
       background: none;
       background-image: none;
 
-      .top & { box-shadow: inset 0 2px $selected_bg_color; }
-      .bottom & { box-shadow: inset 0 -2px $selected_bg_color; }
+      .top & { box-shadow: inset 0 2px $blue_color; }
+      .bottom & { box-shadow: inset 0 -2px $blue_color; }
     }
   }
 }
@@ -1124,7 +1124,7 @@ UnityDecoration {
   -UnityDecoration-inactive-shadow-radius: 11px;
 
   -UnityDecoration-glow-size: 10px;
-  -UnityDecoration-glow-color: $selected_bg_color;
+  -UnityDecoration-glow-color: $blue_color;
 
   -UnityDecoration-title-indent: 16px;
   -UnityDecoration-title-fade: 32px;
@@ -1140,7 +1140,7 @@ UnityDecoration {
     box-shadow: inset 0 1px $highlight_color;
     &:hover { // for L.I.M's selected menuitem
       color: $selected_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $blue_color;
     }
     &:backdrop { color: $insensitive_inverted_fg_color; }
   }
@@ -1187,7 +1187,7 @@ UnityPanelWidget,
       background-color: transparent;
       &:hover {
         color: $selected_fg_color;
-        box-shadow: inset 0 2px $selected_bg_color;
+        box-shadow: inset 0 2px $blue_color;
       }
     }
   }
@@ -1206,7 +1206,7 @@ UnityPanelWidget,
     // reset $base_color;
     iconview.view {
       background-color: transparent;
-      &:selected { background-color: $selected_bg_color; }
+      &:selected { background-color: $blue_color; }
     }
   }
 }
@@ -1241,7 +1241,7 @@ UnityPanelWidget,
 
       &:hover {
         color: $selected_fg_color;
-        box-shadow: inset 0 2px $selected_bg_color;
+        box-shadow: inset 0 2px $blue_color;
 
         label,
         image { color: $selected_fg_color; }
@@ -1251,7 +1251,7 @@ UnityPanelWidget,
       > menuitem {
         padding: rem(5.3px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
         background-color: transparent;
-        &:hover { box-shadow: inset 0 2px $selected_bg_color; }
+        &:hover { box-shadow: inset 0 2px $blue_color; }
       }
 
       menu {
@@ -1308,7 +1308,7 @@ UnityPanelWidget,
           border-image: -gtk-gradient(radial,
                                       center bottom, 0,
                                       center bottom, 0.5,
-                                      to($selected_bg_color),
+                                      to($blue_color),
                                       to(transparent))
                                       0 0 2 / 0 0 2px;
           color: $selected_fg_color;
@@ -1492,7 +1492,7 @@ window.background > popover.background > frame > list > row.activatable {
 
       &:selected { // FIXME: selection node doesn't work?
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $blue_color;
       }
     }
   }
@@ -1610,7 +1610,7 @@ window.background > popover.background > frame > list > row.activatable {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($blue_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1712,7 +1712,7 @@ window.background:not(.csd) > box.vertical > stack {
         background-color: transparent;
         &:selected {
           color: $selected_fg_color;
-          background-color: $selected_bg_color;
+          background-color: $blue_color;
 
           label { color: $selected_fg_color; }
         }
@@ -1741,7 +1741,7 @@ window.background:not(.csd) > box.vertical > stack {
           animation: none;
         }
         &:selected {
-          background-color: $selected_bg_color;
+          background-color: $blue_color;
           color: $selected_fg_color;
         }
       }
@@ -1827,7 +1827,7 @@ window.background:not(.csd) > box.vertical > stack {
       color: $insensitive_inverted_fg_color;
     }
     &:backdrop { // for alt-text keyboard layout?
-      color: $selected_bg_color;
+      color: $blue_color;
     }
 
     image.left {
@@ -1959,7 +1959,7 @@ window.background:not(.csd) > box.vertical > stack {
       background-color: transparent;
       background-image: none;
       color: $selected_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $blue_color;
       transition: none;
       animation: none;
     }
@@ -2184,7 +2184,7 @@ PanelSeparator {
   &:checked {
     background-image: none;
     color: $inverted_fg_color;
-    box-shadow: inset 0 -2px $selected_bg_color;
+    box-shadow: inset 0 -2px $blue_color;
   }
 }
 
@@ -2200,7 +2200,7 @@ PanelSeparator {
       // almost covers :hover pseudo-class
       &:checked {
         background-color: transparent;
-        color: $selected_bg_color;
+        color: $blue_color;
       }
 
       image { padding: rem(8px) 0; }
@@ -2318,7 +2318,7 @@ PanelSeparator {
 
       &:selected { // FIXME: selection node doesn't work?
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $blue_color;
       }
     }
   }
@@ -2342,7 +2342,7 @@ PanelSeparator {
         background-color: transparent;
         // font-weight: 500;
         &:selected {
-          background-color: $selected_bg_color;
+          background-color: $blue_color;
           color: $selected_fg_color;
         }
       }
@@ -2426,7 +2426,7 @@ PanelSeparator {
       -gtk-outline-radius: 0;
       background-image: none;
       background-color: transparent;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $blue_color;
     }
   }
 
@@ -2458,7 +2458,7 @@ PanelSeparator {
 
       &:selected { // FIXME: selection node doesn't work?
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $blue_color;
       }
     }
   }
@@ -2597,7 +2597,7 @@ window#MyControlCenter > frame > box.horizontal {
       transition: none;
       &:selected,
       &:active {
-        background-color: $selected_bg_color;
+        background-color: $blue_color;
         color: $selected_fg_color;
       }
     }
@@ -2685,7 +2685,7 @@ window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
     -gtk-outline-radius: 2px;
     &:checked { // revert to Gtk+ 2.x styling
       border-image: none;
-      background-color: $selected_bg_color;
+      background-color: $blue_color;
       color: $selected_fg_color;
     }
   }
@@ -2841,7 +2841,7 @@ window.background:not(.csd):not(.ssd):not(.solid-csd) > box.vertical {
   > box.vertical widget {
     &:selected { // selected-row?
       color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      background-color: $blue_color;
     }
   }
 }
@@ -2936,7 +2936,7 @@ window#wb_main_window {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($blue_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;

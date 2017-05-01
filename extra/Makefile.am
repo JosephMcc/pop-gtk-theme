@@ -1,23 +1,23 @@
 themedir     = $(datadir)/themes
-adaptadir    = $(DESTDIR)$(themedir)/Pop
+popdir    = $(DESTDIR)$(themedir)/Pop
 noktodir     = $(DESTDIR)$(themedir)/Pop-Nokto
-adaptaetadir = $(DESTDIR)$(themedir)/Pop-Eta
+popetadir = $(DESTDIR)$(themedir)/Pop-Eta
 noktoetadir  = $(DESTDIR)$(themedir)/Pop-Nokto-Eta
 
 chromedir         = $(srcdir)/chrome
-chrome_file       = $(chromedir)/adapta-theme.crx
-chrome_nokto_file = $(chromedir)/adapta-nokto-theme.crx
+chrome_file       = $(chromedir)/pop-theme.crx
+chrome_nokto_file = $(chromedir)/pop-nokto-theme.crx
 
 plankdir   = $(srcdir)/plank
 plank_file = $(plankdir)/dock.theme
 
 telegramdir         = $(srcdir)/telegram
-telegram_file       = $(telegramdir)/adapta.tdesktop-theme
-telegram_nokto_file = $(telegramdir)/adapta-nokto.tdesktop-theme
+telegram_file       = $(telegramdir)/pop.tdesktop-theme
+telegram_nokto_file = $(telegramdir)/pop-nokto.tdesktop-theme
 
 geditdir   = $(srcdir)/gedit
 gedit_file = \
-	$(geditdir)/adapta.xml \
+	$(geditdir)/pop.xml \
 	$(geditdir)/README.md
 
 # ******************
@@ -32,53 +32,53 @@ all:
 
 install-data-local:
 if ENABLE_CHROME
-	$(MKDIR_P) $(adaptadir)/chrome
+	$(MKDIR_P) $(popdir)/chrome
 
-	cp -Rv $(chrome_file) $(adaptadir)/chrome
+	cp -Rv $(chrome_file) $(popdir)/chrome
 	cp -Rv $(chrome_nokto_file) $(noktodir)/chrome
 
-	cd $(adaptadir)
-	ln -sf ../Pop/chrome $(adaptaetadir)/chrome
+	cd $(popdir)
+	ln -sf ../Pop/chrome $(popetadir)/chrome
 
 	
 if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/chrome
-	cd $(adaptadir)
+	cd $(popdir)
 	ln -sf ../Pop-Nokto/chrome $(noktoetadir)/chrome
 endif
 endif
 
 if ENABLE_PLANK
-	$(MKDIR_P) $(adaptadir)/plank
-	cp -Rv $(plank_file) $(adaptadir)/plank
-	cd $(adaptadir)
-	ln -sf ../Pop/plank $(adaptaetadir)/plank
+	$(MKDIR_P) $(popdir)/plank
+	cp -Rv $(plank_file) $(popdir)/plank
+	cd $(popdir)
+	ln -sf ../Pop/plank $(popetadir)/plank
 	
 if ENABLE_NOKTO
-	cd $(adaptadir)
+	cd $(popdir)
 	ln -sf ../Pop/plank $(noktodir)/plank
 	ln -sf ../Pop/plank $(noktoetadir)/plank
 endif
 endif
 
 if ENABLE_TELEGRAM
-	$(MKDIR_P) $(adaptadir)/telegram
-	cp -Rv $(telegram_file) $(adaptadir)/telegram
+	$(MKDIR_P) $(popdir)/telegram
+	cp -Rv $(telegram_file) $(popdir)/telegram
 
-	cd $(adaptadir)
-	ln -sf ../Pop/telegram $(adaptaetadir)/telegram
+	cd $(popdir)
+	ln -sf ../Pop/telegram $(popetadir)/telegram
 	
 if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/telegram
 	cp -Rv $(telegram_nokto_file) $(noktodir)/telegram
-	cd $(adaptadir)
+	cd $(popdir)
 	ln -sf ../Pop-Nokto/telegram $(noktoetadir)/telegram
 endif
 endif
 
-	$(MKDIR_P) $(adaptadir)/gedit
-	cp -Rv $(gedit_file) $(adaptadir)/gedit
-	cd $(adaptadir)
+	$(MKDIR_P) $(popdir)/gedit
+	cp -Rv $(gedit_file) $(popdir)/gedit
+	cd $(popdir)
 #	ln -sf ../Pop/gedit $(noktodir)/gedit
 
 # *******************
@@ -88,27 +88,27 @@ endif
 uninstall-local:
 if ENABLE_CHROME
 	test -e $(noktodir)/chrome && rm -rfv $(noktodir)/chrome
-	test -e $(adaptadir)/chrome && rm -rfv $(adaptadir)/chrome
+	test -e $(popdir)/chrome && rm -rfv $(popdir)/chrome
 	test -e $(noktoetadir)/chrome && rm -rfv $(noktoetadir)/chrome
-	test -e $(adaptaetadir)/chrome && rm -rfv $(adaptaetadir)/chrome
+	test -e $(popetadir)/chrome && rm -rfv $(popetadir)/chrome
 endif
 
 if ENABLE_PLANK
 	test -e $(noktodir)/plank && rm -rfv $(noktodir)/plank
-	test -e $(adaptadir)/plank && rm -rfv $(adaptadir)/plank
+	test -e $(popdir)/plank && rm -rfv $(popdir)/plank
 	test -e $(noktoetadir)/plank && rm -rfv $(noktoetadir)/plank
-	test -e $(adaptaetadir)/plank && rm -rfv $(adaptaetadir)/plank
+	test -e $(popetadir)/plank && rm -rfv $(popetadir)/plank
 endif
 
 if ENABLE_TELEGRAM
 	test -e $(noktodir)/telegram && rm -rfv $(noktodir)/telegram
-	test -e $(adaptadir)/telegram && rm -rfv $(adaptadir)/telegram
+	test -e $(popdir)/telegram && rm -rfv $(popdir)/telegram
 	test -e $(noktoetadir)/telegram && rm -rfv $(noktoetadir)/telegram
-	test -e $(adaptaetadir)/telegram && rm -rfv $(adaptaetadir)/telegram
+	test -e $(popetadir)/telegram && rm -rfv $(popetadir)/telegram
 endif
 
 	test -e $(noktodir)/gedit && rm -rfv $(noktodir)/gedit
-	test -e $(adaptadir)/gedit && rm -rfv $(adaptadir)/gedit
+	test -e $(popdir)/gedit && rm -rfv $(popdir)/gedit
 
 # ****************************
 # * Clean up generated files *

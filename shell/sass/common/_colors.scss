@@ -52,7 +52,23 @@ $panel_bg_color: mix(#574F4A, #000000, 50%);
 $panel_hidden_fill_color: rgba(19, 25, 28, 0.01);
 $panel_fill_color: rgba(19, 25, 28, 1.0);
 
-$selected_bg_color: $key_selection_color;
+$blue_color: $key_selection_color;
+
+$blue_label_color: if($nokto == 'false',
+                        mix($blue_color, $fg_color, 80%),
+                        mix($blue_color, $fg_color, 60%));
+$secondary_blue_color: shellopacity($blue_color, 0.8);
+$secondary_blue_label_color: shellopacity($blue_label_color, 0.8);
+$insensitive_blue_label_color: shellopacity($blue_label_color, 0.4);
+
+$blue_fill_color: shellopacity($blue_color, 0.1);
+$blue_active_fill_color: shellopacity($blue_color, 0.25);
+
+$inverted_blue_label_color: if($nokto == 'false',
+                              mix($blue_color, $inverted_fg_color, 60%),
+                              mix($blue_color, $fg_color, 60%));
+$inverted_secondary_blue_label_color:
+  shellopacity($inverted_blue_label_color, 0.8);
 
 $insensitive_bg_color: mix($bg_color, $base_color, 60%);
 $insensitive_fill_color: shellopacity($fill_color, 0.4);
@@ -71,22 +87,22 @@ $inverted_dim_bg_color: shellopacity($inverted_bg_color, 0.2);
 // Accent colors
 //
 
-$accent_color: $key_accent_color;
-$accent_label_color: if($nokto == 'false',
-                        mix($key_accent_color, $fg_color, 80%),
-                        mix($key_accent_color, $fg_color, 60%));
-$secondary_accent_color: shellopacity($accent_color, 0.8);
-$secondary_accent_label_color: shellopacity($accent_label_color, 0.8);
-$insensitive_accent_label_color: shellopacity($accent_label_color, 0.4);
+$orange_color: $key_accent_color;
+$orange_label_color: if($nokto == 'false',
+                        mix($orange_color, $fg_color, 80%),
+                        mix($orange_color, $fg_color, 60%));
+$secondary_orange_color: shellopacity($orange_color, 0.8);
+$secondary_orange_label_color: shellopacity($orange_label_color, 0.8);
+$insensitive_orange_label_color: shellopacity($orange_label_color, 0.4);
 
-$accent_fill_color: shellopacity($accent_color, 0.1);
-$accent_active_fill_color: shellopacity($accent_color, 0.25);
+$orange_fill_color: shellopacity($orange_color, 0.1);
+$orange_active_fill_color: shellopacity($orange_color, 0.25);
 
-$inverted_accent_label_color: if($nokto == 'false',
-                              mix($key_accent_color, $inverted_fg_color, 60%),
-                              mix($key_accent_color, $fg_color, 60%));
-$inverted_secondary_accent_label_color:
-  shellopacity($inverted_accent_label_color, 0.8);
+$inverted_orange_label_color: if($nokto == 'false',
+                              mix($orange_color, $inverted_fg_color, 60%),
+                              mix($orange_color, $fg_color, 60%));
+$inverted_secondary_orange_label_color:
+  shellopacity($inverted_orange_label_color, 0.8);
 
 
 //
@@ -134,7 +150,7 @@ $osd_fill_color: shellopacity($osd_fg_color, 0.4);
 $osd_semi_fill_color: shellopacity($osd_fg_color, 0.2);
 $osd_slight_fill_color: shellopacity($osd_fg_color, 0.12);
 
-$osd_indicator_color: $selected_bg_color;
+$osd_indicator_color: $orange_color;
 
 $osd_borders_color: $borders_color;
 $osd_outer_borders_color: transparent;

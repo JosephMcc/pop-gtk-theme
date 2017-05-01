@@ -273,7 +273,7 @@ Extra Telegram Support
 
  > **Note:**
  >
- >   * The `adapta.tdesktop-theme` is for light-variant, and `adapta-nokto.tdesktop-theme` is for dark-variant.
+ >   * The `pop.tdesktop-theme` is for light-variant, and `pop-nokto.tdesktop-theme` is for dark-variant.
  >   * Bundled noise-texture images are for *tiled* mode.
  >   * Telegram support is a W.I.P currently.
 
@@ -298,4 +298,4 @@ Public License
 Special Thanks to
 --------------
  Nana-4, the developer of Flat-Plat.
- tista500 and the Adapta Theme Project: https://github.com/adapta-project
+ tista500 and the Pop Theme Project: https://github.com/system76

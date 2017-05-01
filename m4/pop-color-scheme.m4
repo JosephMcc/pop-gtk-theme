@@ -1,6 +1,6 @@
-# ADAPTA_COLOR_SCHEME ()
+# POP_COLOR_SCHEME ()
 # -----------------------------------------------------------
-AC_DEFUN([ADAPTA_COLOR_SCHEME], [
+AC_DEFUN([POP_COLOR_SCHEME], [
 
     selection_default="#FAA41A"
     second_selection_default="#FFB13D"
