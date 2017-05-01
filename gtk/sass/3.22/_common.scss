@@ -375,14 +375,14 @@ entry {
   .background & {
     @include entry(normal);
     border-radius: 3px;
-    background-color: gtkopacity(#FFFFFF, 0.18);
+    background-color: gtkopacity(#F6F6F6, 0.18);
     &:focus {
       @include entry(focus);
-      background-color: gtkopacity(#FFFFFF, 0.18);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: gtkopacity(#FFFFFF, 0.18);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
 
     selection {
@@ -393,14 +393,14 @@ entry {
   .background &.flat {
     @include entry(flat-normal);
     border-radius: 3px;
-    background-color: gtkopacity(#FFFFFF, 0.18);
+    background-color: gtkopacity(#F6F6F6, 0.18);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity(#FFFFFF, 0.18);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity(#FFFFFF, 0.18);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
   }
 
@@ -430,14 +430,14 @@ entry {
     @include entry(flat-normal);
     border-radius: 3px;
     -gtk-outline-radius: 3px;
-    background-color: gtkopacity(#FFFFFF, 0.18);
+    background-color: gtkopacity(#F6F6F6, 0.18);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity(#FFFFFF, 0.18);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity(#FFFFFF, 0.18);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
   }
 
@@ -1411,14 +1411,14 @@ combobox {
   .background & entry.combo {
     @include entry(normal);
     border-radius: 3px;
-    background-color: gtkopacity(#FFFFFF, 0.18);
+    background-color: gtkopacity(#F6F6F6, 0.18);
     &:focus {
       @include entry(focus);
-      background-color: gtkopacity(#FFFFFF, 0.18);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: gtkopacity(#FFFFFF, 0.18);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
 
     selection {
