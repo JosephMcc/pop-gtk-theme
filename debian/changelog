@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.0.10) zesty; urgency=medium
+
+  * Fix backwards initial color definitions
+
+ -- Ian Santopietro <ian@system76.com>  Mon, 01 May 2017 16:01:03 -0600
+
 system76-pop-gtk-theme (1.0.9) zesty; urgency=medium
 
   * Refactor most colors in the theme to easier-to-understand components
