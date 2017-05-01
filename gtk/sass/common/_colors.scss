@@ -119,13 +119,13 @@ $secondary_selected_bg_color: $secondary_blue_color;
 //$accent_color: $key_accent_color;
 $orange_color: $key_accent_color;
 //$accent_label_color: if($variant == 'light',
-$blue_label_color: if($variant == 'light',
-                        mix($key_selection_color, $fg_color, 80%),
-                        mix($key_selection_color, $fg_color, 60%));
+$orange_label_color: if($variant == 'light',
+                        mix($key_accent_color, $fg_color, 80%),
+                        mix($key_accent_color, $fg_color, 60%));
 
 //TODO: Remove fallbacks
 $accent_color: $orange_color;
-$accent_label_color: $blue_label_color;
+$accent_label_color: $orange_label_color;
 
 //$secondary_accent_color: gtkopacity($accent_color, 0.9);
 //$secondary_accent_label_color: gtkopacity($accent_label_color, 0.9);
@@ -133,8 +133,8 @@ $accent_label_color: $blue_label_color;
 //$drop_target_color: $accent_color;
 //$drop_target_fill_color: gtkopacity($drop_target_color, 0.2);
 
-$secondary_accent_color: gtkopacity($blue_color, 0.9);
-$secondary_accent_label_color: gtkopacity($secondary_blue_color, 0.9);
+$secondary_accent_color: gtkopacity($orange_color, 0.9);
+$secondary_accent_label_color: gtkopacity($secondary_accent_color, 0.9);
 $accent_fill_color: gtkopacity($inverted_fg_color, 0.1);
 $drop_target_color: $blue_color;
 $drop_target_fill_color: gtkopacity($drop_target_color, 0.2);

@@ -127,10 +127,10 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   font-weight: 500;
   &:hover { color: $fg_color; }
   &:selected {
-    color: $blue_color;
+    color: $orange_color;
     background-color: transparent;
 
-    label { color: $blue_color; }
+    label { color: $orange_color; }
   }
 }
 

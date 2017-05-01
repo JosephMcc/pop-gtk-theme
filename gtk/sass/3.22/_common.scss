@@ -51,10 +51,10 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   // and we don't use any outlines for now.
 
   outline-style: solid;
-  outline-width: 4px;
+  outline-width: 2px;
   outline-color: $track_color;
-  outline-offset: rem(-4px);
-  -gtk-outline-radius: 4px;
+  outline-offset: rem(-2px);
+  -gtk-outline-radius: 2px;
 
   -gtk-secondary-caret-color: $orange_color;
 
@@ -118,7 +118,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   &:active,
   &:selected {
     border-radius: 4px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
   }
   &:disabled { color: $insensitive_fg_color; }
   &:backdrop {
@@ -158,13 +158,13 @@ flowbox {
   rubberband { @extend rubberband; }
 
   flowboxchild {
-    margin: rem(4px, $sw: 1.0);
-    padding: rem(4px, $sw: 1.0);
+    margin: rem(2px, $sw: 1.0);
+    padding: rem(2px, $sw: 1.0);
     border-radius: 4px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
     &:selected {
       @extend %selected_items;
-      outline-offset: -4px;
+      outline-offset: -2px;
     }
   }
 }
@@ -474,7 +474,7 @@ entry {
     &, &.flat {
       &, &:focus {
         margin-bottom: -1px;
-        padding: 1px 1px 4px; // add extra 1px padding at bottom
+        padding: 1px 1px 2px; // add extra 1px padding at bottom
         border-radius: 0;
         border-image: none;
         border: 1px solid $base_color;
@@ -514,7 +514,7 @@ button {
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(13.3px) rem(10.7px);
   border-radius: 4px;
-  -gtk-outline-radius: 4px;
+  -gtk-outline-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
   font-weight: 500;
@@ -549,7 +549,7 @@ button {
     &:checked:disabled { @include button(flat-checked-insensitive); }
     .linked > & {
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
       &.image-button {
         border-radius: 100px;
         -gtk-outline-radius: 100px;
@@ -637,7 +637,7 @@ button {
   &.text-button {
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border-radius: 4px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
     font-weight: 700;
   }
 
@@ -653,7 +653,7 @@ button {
     // its position inside the button
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border-radius: 4px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
 
     label {
       padding-left: rem(4px);
@@ -726,7 +726,7 @@ button {
       padding-left: rem(13.3px);
       padding-right: rem(13.3px);
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
     }
 
     &.image-button {
@@ -817,7 +817,7 @@ button {
       min-height: $icon_size;
       padding: rem(5.3px) rem(8px);
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
     }
 
     &.image-button.toggle {
@@ -877,7 +877,7 @@ button {
 
     &.text-button {
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
     }
   }
 
@@ -907,7 +907,7 @@ button {
                                 center bottom, 0.5,
                                 to($track_color),
                                 to(transparent))
-                                0 0 2 / 0 0 4px;
+                                0 0 2 / 0 0 2px;
   }
   &:active {
     @extend %button_flat_active;
@@ -918,7 +918,7 @@ button {
                                 center bottom, 0.5,
                                 to($orange_color),
                                 to(transparent))
-                                0 0 2 / 0 0 4px;
+                                0 0 2 / 0 0 2px;
   }
   &:checked {
     @extend %button_flat_checked;
@@ -929,7 +929,7 @@ button {
                                 center bottom, 0.5,
                                 to($orange_color),
                                 to(transparent))
-                                0 0 2 / 0 0 4px;
+                                0 0 2 / 0 0 2px;
     &:disabled {
       color: $insensitive_fg_color;
       background-color: transparent;
@@ -938,7 +938,7 @@ button {
                                   center bottom, 0.5,
                                   to(gtkopacity($orange_color, 0.2)),
                                   to(transparent))
-                                  0 0 2 / 0 0 4px;
+                                  0 0 2 / 0 0 2px;
 
       > label { color: inherit; }
     }
@@ -1108,7 +1108,7 @@ toolpalette {
   toolbutton {
     > button.toggle { // use square buttons
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
     }
   }
 }
@@ -1298,7 +1298,7 @@ spinbutton {
       margin: rem(2.7px, $sw: 1.0);
       padding: 0;
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
       background: none;
       background-size: contain;
       color: $secondary_fg_color;
@@ -1489,7 +1489,7 @@ combobox {
                                   center bottom, 0.5,
                                   to($orange_color),
                                   to(transparent))
-                                  0 0 2 / 0 0 4px;
+                                  0 0 2 / 0 0 2px;
     }
     &:disabled,
     &:checked:disabled {
@@ -1507,7 +1507,7 @@ combobox {
 }
 
 // workaround for LibreOffice with fallback-mode liked-buttons
-@each $order, $radius, $edge in (first-child, 4px 0 0 4px, right),
+@each $order, $radius, $edge in (first-child, 4px 0 0 2px, right),
                                 (last-child, 0 4px 4px 0, left) {
   .linked:not(combobox) > button.combo:#{$order} {
     border-radius: #{$radius};
@@ -1610,7 +1610,7 @@ toolbar {
 
       &.text-button {
         border-radius: 4px;
-        -gtk-outline-radius: 4px;
+        -gtk-outline-radius: 2px;
       }
 
       label { margin: rem(-4px, $sw: 1.0) 0; }
@@ -1673,7 +1673,7 @@ toolbar {
                                   center bottom, 0.5,
                                   to($orange_color),
                                   to(transparent))
-                                  0 0 2 / 0 0 4px;
+                                  0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
       &:disabled {
@@ -1696,7 +1696,7 @@ toolbar {
       &.text-button,
       &.text-button.image-button {
         border-radius: 4px;
-        -gtk-outline-radius: 4px;
+        -gtk-outline-radius: 2px;
       }
       &.image-button {
         border-radius: 100px;
@@ -1759,7 +1759,7 @@ toolbar {
                                       center bottom, 0.5,
                                       to($orange_color),
                                       to(transparent))
-                                      0 0 2 / 0 0 4px;
+                                      0 0 2 / 0 0 2px;
         }
       }
     }
@@ -1776,7 +1776,7 @@ toolbar {
   .linked > button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
     border-radius: 4px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
   }
 
   // toolbar separators
@@ -1817,7 +1817,7 @@ searchbar,
     min-width: $icon_size;
     min-height: $icon_size;
     padding: rem(10.7px);
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
   }
 
   button.close {
@@ -1863,7 +1863,7 @@ actionbar {
                                   center bottom, 0.5,
                                   to($orange_color),
                                   to(transparent))
-                                  0 0 2 / 0 0 4px;
+                                  0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $fg_color;
       &:disabled {
@@ -1882,12 +1882,12 @@ actionbar {
 
     &.text-button { // revert to square
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
     }
   }
 
   // override circular outlines
-  .linked > button.popup.toggle { -gtk-outline-radius: 4px; }
+  .linked > button.popup.toggle { -gtk-outline-radius: 2px; }
 }
 
 
@@ -1969,7 +1969,7 @@ headerbar {
                                   center bottom, 0.5,
                                   to($orange_color),
                                   to(transparent))
-                                  0 0 2 / 0 0 4px;
+                                  0 0 2 / 0 0 2px;
       background-color: transparent;
       color: $inverted_fg_color;
       &:disabled {
@@ -1995,17 +1995,17 @@ headerbar {
 
     &.text-button {
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
 
       &.image-button {
         border-radius: 4px;
-        -gtk-outline-radius: 4px;
+        -gtk-outline-radius: 2px;
       }
     }
 
     &.lock {
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
       font-weight: 700;
     }
   }
@@ -2340,7 +2340,7 @@ headerbar {
                                     center bottom, 0.5,
                                     to($selected_fg_color),
                                     to(transparent))
-                                    0 0 2 / 0 0 4px;
+                                    0 0 2 / 0 0 2px;
         color: $selected_fg_color;
         background-color: transparent;
         &:disabled {
@@ -2380,7 +2380,7 @@ headerbar {
         padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
         padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
         border-radius: 4px;
-        -gtk-outline-radius: 4px;
+        -gtk-outline-radius: 2px;
 
         label { margin: rem(-4px) 0; }
 
@@ -2413,7 +2413,7 @@ headerbar {
                                       center bottom, 0.5,
                                       to($selected_fg_color),
                                       to(transparent))
-                                      0 0 2 / 0 0 4px;
+                                      0 0 2 / 0 0 2px;
           background-color: transparent;
           &:disabled {
             color: $insensitive_selected_fg_color;
@@ -2705,7 +2705,7 @@ dialog.background.csd > headerbar.titlebar {
   // enforce square shape in 'Cancel' and 'Open' button
   > button:not(.image-button):not(.text-button):not(.toggle):not(.popup) {
     border-radius: 4px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
  }
 }
 
@@ -2729,12 +2729,12 @@ dialog.background.csd > headerbar.titlebar {
   button {
     &, &.text-button {
       padding: 0 rem(1.3px) 0;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
     }
     &.image-button { padding: 0 rem(5.3px) 0; }
 
     &.text-button.image-button {
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
       label {
         padding-left: 0;
         padding-right: 0;
@@ -2755,7 +2755,7 @@ dialog.background.csd > headerbar.titlebar {
       min-height: $icon_size;
       padding: 0 rem(1.3px) 0;
       border-radius: 4px;
-      -gtk-outline-radius: 4px;
+      -gtk-outline-radius: 2px;
     }
   }
 }
@@ -3332,14 +3332,14 @@ notebook {
         border-#{$_border}-color: transparent;
         &:hover {
           border-color: $borders_color;
-          border-#{$_border}-width: 4px;
+          border-#{$_border}-width: 2px;
           border-#{$_border}-color: $track_color;
           background-color: $base_color;
           box-shadow: none;
         }
         &:checked {
           border-color: $borders_color;
-          border-#{$_border}-width: 4px;
+          border-#{$_border}-width: 2px;
           border-#{$_border}-color: $orange_color;
           background-color: $base_color;
           box-shadow: if($variant == 'light', $tab-shadow-light,
@@ -3379,7 +3379,7 @@ notebook {
                                         center bottom, 0.5,
                                         to($orange_color),
                                         to(transparent))
-                                        0 0 2 / 0 0 4px;
+                                        0 0 2 / 0 0 2px;
           }
         }
       }
@@ -4724,7 +4724,7 @@ row:selected { // special case to use raised GtkEntry
     min-height: rem(13.3px);
     padding: rem(8px);
     border-radius: 4px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
     border-style: none;
     border-image: none;
     background-color: $base_color;
@@ -4942,7 +4942,7 @@ messagedialog {
   .linked > button {
     border: 4px solid transparent;
     border-radius: 4px;
-    -gtk-outline-radius: 4px;
+    -gtk-outline-radius: 2px;
     border-image: none;
     box-shadow: none;
   }
@@ -5044,11 +5044,11 @@ messagedialog {
         }
 
         &:first-child {
-          border-radius: 0 0 0 4px;
+          border-radius: 0 0 0 2px;
           border-right-width: 0;
         }
         &:last-child {
-          border-radius: 0 0 4px 0;
+          border-radius: 0 0 2px 0;
           border-left-width: 0;
         }
       }
@@ -5103,7 +5103,8 @@ filechooserbutton:drop(active) {
   treeview.view {
     box-shadow: none;
     &:selected,
-    row:selected { @extend %selected_items; }
+    row:selected { @extend %selected_items;
+        color: $orange_color; }
   }
 
   // fill actual background
@@ -5428,7 +5429,7 @@ infobar {
         min-width: $icon_size;
         padding: rem(10.7px);
         border-radius: 4px;
-        -gtk-outline-radius: 4px;
+        -gtk-outline-radius: 2px;
       }
     }
 
