@@ -1,3 +1,11 @@
+system76-pop-gtk-theme (1.0.9) zesty; urgency=medium
+
+  * Refactor most colors in the theme to easier-to-understand components
+  * Improve consistency between plans and implelentation
+  * Increase most border radii to lighten up and humanize the theme
+
+ -- Ian Santopietro <ian@system76.com>  Mon, 01 May 2017 14:23:11 -0600
+
 system76-pop-gtk-theme (1.0.8) zesty; urgency=medium
 
   * GTK 2 Tweaks
