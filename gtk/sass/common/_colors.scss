@@ -23,17 +23,18 @@
 // Import key colour-scheme defined at build-time.
 @import 'key_colors';
 
+$sys76_warm_grey: #574f4A;
 
 //
 // Foreground colors
 //
 
-$fg_color: if($variant == 'light', #574F4A,                     // = BluGry900
-                                   #F6F6F6);                    // = BluGry50
+$fg_color: if($variant == 'light', $sys76_warm_grey,              // = BluGry900
+                                   #F6F6F6);                      // = BluGry50
 $secondary_fg_color: gtkopacity($fg_color, 0.8);
 $tertiary_fg_color: gtkopacity($fg_color, 0.7);
 
-$selected_fg_color: #F6F6F6;                                    // = White
+$selected_fg_color: #F6F6F6;                                      // = White
 $secondary_selected_fg_color: gtkopacity($selected_fg_color, 0.8);
 $tertiary_selected_fg_color: gtkopacity($selected_fg_color, 0.7);
 
@@ -54,55 +55,56 @@ $placeholder_text_color: if($variant == 'light', #F6F6F6,       // = BluGry100
 // Inverted foreground colors
 //
 
-$inverted_fg_color: #F6F6F6;                                    // = BluGry50
+$inverted_fg_color: #F6F6F6;                                      // = BluGry50
 $inverted_secondary_fg_color: gtkopacity($inverted_fg_color, 0.8);
 $inverted_tertiary_fg_color: gtkopacity($inverted_fg_color, 0.7);
 
 $insensitive_inverted_fg_color: gtkopacity($inverted_fg_color, 0.2);
 $insensitive_inverted_secondary_fg_color: gtkopacity($inverted_secondary_fg_color, 0.2);
 
-$fixed_fg_color: #574F4A;                                       // = BluGry900
+$fixed_fg_color: $sys76_warm_grey;                                // = BluGry900
 $secondary_fixed_fg_color: gtkopacity($fixed_fg_color, 0.8);
 $tertiary_fixed_fg_color: gtkopacity($fixed_fg_color, 0.7);
 $insensitive_fixed_fg_color: gtkopacity($fixed_fg_color, 0.2);
+
 
 
 //
 // Background colors
 //
 
-$bg_color: if($variant == 'light', mix(#F6F6F6, #F6F6F6, 75%),  // = W _ 50
-                                   mix(#574f4a, #333333, 50%)); // = 700 _ 800
-$base_color: if($variant == 'light', #f6f6f6,                   // = White
-                                     #574f4a);                  // = BluGry700
-$secondary_base_color: mix($base_color, $bg_color, 50%);        // = W _ 50
-$light_color: if($variant == 'light', $base_color,              // = White
-                                      #665D58);                 // = BluGry600
+$bg_color: if($variant == 'light', mix(#F6F6F6, #F6F6F6, 75%),    // = W _ 50
+                                   mix($sys76_warm_grey, #333333, 50%)); // = 700 _ 800
+$base_color: if($variant == 'light', #f6f6f6,                     // = White
+                                     $sys76_warm_grey);           // = BluGry700
+$secondary_base_color: mix($base_color, $bg_color, 50%);          // = W _ 50
+$light_color: if($variant == 'light', $base_color,                // = White
+                                      #665D58);                   // = BluGry600
 $dark_color: if($variant == 'light',
-                mix(#F6F6F6, #F6F6F6, 75%),                     // =  50 _ 100
-                mix(#574F4A, #333333, 75%));                    // = 900 _ 800
+                mix(#F6F6F6, #F6F6F6, 75%),                       // =  50 _ 100
+                mix($sys76_warm_grey, #333333, 75%));             // = 900 _ 800
 $secondary_dark_color: if($variant == 'light',
-                          mix(#F6F6F6, #F6F6F6, 60%),           // = W _ 50
-                          mix(#574f4a, #665D58, 25%));          // = 700 _ 800
+                          mix(#F6F6F6, #F6F6F6, 60%),             // = W _ 50
+                          mix($sys76_warm_grey, #665D58, 25%));   // = 700 _ 800
 
 
 //
 // Dark background colors on light variant
 //
 
-$inverted_bg_color: mix(#574f4a, #333333, 50%);                 // = 700 _ 800
-$inverted_base_color: #574f4a;                                  // = BluGry700
-$inverted_dark_color: #574F4A;               // = 900 _ 800
+$inverted_bg_color: mix($sys76_warm_grey, #333333, 50%);          // = 700 _ 800
+$inverted_base_color: $sys76_warm_grey;                           // = BluGry700
+$inverted_dark_color: $sys76_warm_grey;                           // = 900 _ 800
 
 
 //
 // Selection (primary) colors
 //
 
-// Default: #48B9C7                                             // = Teal300
+// Default: #48B9C7                                               // = Teal300
 //$selected_bg_color: $key_selection_color;
 $blue_color: $key_selection_color;
-// Default: #3DEFFF                                             // = Cyan300
+// Default: #3DEFFF                                               // = Cyan300
 //$secondary_selected_bg_color: $key_secondary_selection_color;
 $secondary_blue_color: $key_secondary_selection_color;
 
@@ -113,7 +115,7 @@ $secondary_selected_bg_color: $secondary_blue_color;
 // Accent (secondary) colors
 //
 
-// Default: #FAA41A                                             // = Cyan500
+// Default: #FAA41A                                               // = Cyan500
 //$accent_color: $key_accent_color;
 $orange_color: $key_accent_color;
 //$accent_label_color: if($variant == 'light',
@@ -125,10 +127,16 @@ $blue_label_color: if($variant == 'light',
 $accent_color: $orange_color;
 $accent_label_color: $blue_label_color;
 
-$secondary_accent_color: gtkopacity($accent_color, 0.9);
-$secondary_accent_label_color: gtkopacity($accent_label_color, 0.9);
+//$secondary_accent_color: gtkopacity($accent_color, 0.9);
+//$secondary_accent_label_color: gtkopacity($accent_label_color, 0.9);
+//$accent_fill_color: gtkopacity($inverted_fg_color, 0.1);
+//$drop_target_color: $accent_color;
+//$drop_target_fill_color: gtkopacity($drop_target_color, 0.2);
+
+$secondary_accent_color: gtkopacity($blue_color, 0.9);
+$secondary_accent_label_color: gtkopacity($secondary_blue_color, 0.9);
 $accent_fill_color: gtkopacity($inverted_fg_color, 0.1);
-$drop_target_color: $accent_color;
+$drop_target_color: $blue_color;
 $drop_target_fill_color: gtkopacity($drop_target_color, 0.2);
 
 $inverted_accent_label_color:
@@ -164,27 +172,27 @@ $highlight_color: gtkopacity(#F6F6F6, 0.07);
 // Misc colors
 //
 
-$link_color: #03A9F4;                                           // = LtBlu500
-$link_visited_color: #9C27B0;                                   // = Purple500
+$link_color: #03A9F4;                                             // = LtBlu500
+$link_visited_color: #9C27B0;                                     // = Purple500
 
-$warning_color: #FF9800;                                        // = Orange500
-$error_color: #F44336;                                          // = Red500
-$success_color: #00E676;                                        // = GreenA400
+$warning_color: #FF9800;                                          // = Orange500
+$error_color: #F44336;                                            // = Red500
+$success_color: #00E676;                                          // = GreenA400
 
-// Default: #009688                                             // = Teal500
-$suggested_color: $key_suggestion_color;
-// Default: #FF5252                                             // = RedA200
+// Default: #009688                                               // = Teal500
+$suggested_color: $key_suggestion_color;  
+// Default: #FF5252                                               // = RedA200
 $destructive_color: $key_destruction_color;
 
-$info_bg_color: #00E5FF;                                        // = CyanA400
-$question_bg_color: #FFEA00;                                    // = YellwA400
-$warning_bg_color: #FF9100;                                     // = OrangA400
-$error_bg_color: #FF1744;                                       // = RedA400
+$info_bg_color: #00E5FF;                                          // = CyanA400
+$question_bg_color: #FFEA00;                                      // = YellwA400
+$warning_bg_color: #FF9100;                                       // = OrangA400
+$error_bg_color: #FF1744;                                         // = RedA400
 
 
 //
 // Solid panel color
 //
 
-$panel_bg_color: mix(#574F4A, #000000, 50%);                    // = 900 _ B
+$panel_bg_color: mix($sys76_warm_grey, #000000, 50%);                    // = 900 _ B
 
