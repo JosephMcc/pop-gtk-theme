@@ -298,4 +298,4 @@ Public License
 Special Thanks to
 --------------
  Nana-4, the developer of Flat-Plat.
- tista500 and the Pop Theme Project: https://github.com/system76
+ tista500 and the Adapta Theme Project: https://github.com/adapta-project/

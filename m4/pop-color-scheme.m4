@@ -2,9 +2,9 @@
 # -----------------------------------------------------------
 AC_DEFUN([POP_COLOR_SCHEME], [
 
-    selection_default="#FAA41A"
+    selection_default="#48B9C7"
     second_selection_default="#FFB13D"
-    accent_default="#48B9C7"
+    accent_default="#FAA41A"
     suggestion_default="#73C48F"
     destruction_default="#F15D22"
 
