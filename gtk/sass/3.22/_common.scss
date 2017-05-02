@@ -259,7 +259,7 @@ buttonbox {
     &:not(.linked) button {
       @extend %button_flat_normal;
       background-color: transparent;
-      color: $secondary_accent_label_color;
+      color: $orange_color;
       font-weight: 700;
       &:hover {
         @extend %button_flat_hover;
@@ -602,7 +602,7 @@ button {
       }
       &:active {
         @extend %button_active;
-        background-color: $orange_color;
+        background-color: $b_color;
         color: $selected_fg_color;
       }
       &:checked { background-color: mix($selected_fg_color, $b_color, 20%); }
@@ -616,7 +616,7 @@ button {
         &:hover { @include button(flat-hover, $track_color, $b_color); }
         &:active {
           @extend %button_flat_active;
-          background-color: gtkalpha($orange_color, 0.2);
+          background-color: $b_color;
           color: $orange_color;
         }
         &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }

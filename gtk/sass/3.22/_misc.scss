@@ -1919,7 +1919,7 @@ window overlay > grid > frame > grid {
       &:hover { color: $fg_color; }
       &:selected,
       &:selected.activatable {
-        &, label { color: $blue_color; }
+        &, label { color: $orange_color; }
         background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                   rgba(18, 22, 0, 0.04));
       }
