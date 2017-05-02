@@ -53,7 +53,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   outline-style: solid;
   outline-width: 2px;
   outline-color: $track_color;
-  outline-offset: rem(-2px);
+  outline-offset: rem(-4px);
   -gtk-outline-radius: 2px;
 
   -gtk-secondary-caret-color: $orange_color;
@@ -158,8 +158,8 @@ flowbox {
   rubberband { @extend rubberband; }
 
   flowboxchild {
-    margin: rem(2px, $sw: 1.0);
-    padding: rem(2px, $sw: 1.0);
+    margin: rem(4px, $sw: 1.0);
+    padding: rem(4px, $sw: 1.0);
     border-radius: 4px;
     -gtk-outline-radius: 2px;
     &:selected {
@@ -259,7 +259,7 @@ buttonbox {
     &:not(.linked) button {
       @extend %button_flat_normal;
       background-color: transparent;
-      color: $orange_color;
+      color: $secondary_accent_label_color;
       font-weight: 700;
       &:hover {
         @extend %button_flat_hover;
@@ -514,7 +514,7 @@ button {
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(13.3px) rem(10.7px);
   border-radius: 4px;
-  -gtk-outline-radius: 2px;
+  -gtk-outline-radius: 4px;
   background-repeat: no-repeat;
   background-position: center, center;
   font-weight: 500;
@@ -549,7 +549,7 @@ button {
     &:checked:disabled { @include button(flat-checked-insensitive); }
     .linked > & {
       border-radius: 4px;
-      -gtk-outline-radius: 2px;
+      -gtk-outline-radius: 4px;
       &.image-button {
         border-radius: 100px;
         -gtk-outline-radius: 100px;
@@ -602,7 +602,7 @@ button {
       }
       &:active {
         @extend %button_active;
-        background-color: $b_color;
+        background-color: $orange_color;
         color: $selected_fg_color;
       }
       &:checked { background-color: mix($selected_fg_color, $b_color, 20%); }
@@ -616,7 +616,7 @@ button {
         &:hover { @include button(flat-hover, $track_color, $b_color); }
         &:active {
           @extend %button_flat_active;
-          background-color: $b_color;
+          background-color: gtkalpha($orange_color, 0.2);
           color: $orange_color;
         }
         &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }
@@ -637,7 +637,7 @@ button {
   &.text-button {
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border-radius: 4px;
-    -gtk-outline-radius: 2px;
+    -gtk-outline-radius: 4px;
     font-weight: 700;
   }
 
@@ -653,7 +653,7 @@ button {
     // its position inside the button
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border-radius: 4px;
-    -gtk-outline-radius: 2px;
+    -gtk-outline-radius: 4px;
 
     label {
       padding-left: rem(4px);
@@ -697,7 +697,7 @@ button {
   stackswitcher & { // do not shrink buton width
     &.text-button {
       min-height: rem(17.3px);
-      min-width: rem(114px);
+      min-width: rem(112px);
     }
   }
 
@@ -967,27 +967,27 @@ button {
   &:hover {
     @extend %button_flat_hover;
     color: $fg_color;
-    &:dir(ltr) { box-shadow: inset 4px 0 $track_color; }
-    &:dir(rtl) { box-shadow: inset -4px 0 $track_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $track_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $track_color; }
   }
   &:active {
     @extend %button_flat_active;
     color: $fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 4px 0 $orange_color; }
-    &:dir(rtl) { box-shadow: inset -4px 0 $orange_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $orange_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $orange_color; }
   }
   &:checked {
     @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 4px 0 $orange_color; }
-    &:dir(rtl) { box-shadow: inset -4px 0 $orange_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $orange_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $orange_color; }
     &:disabled {
       color: $insensitive_fg_color;
       background-color: $track_color;
-      &:dir(ltr) { box-shadow: inset 4px 0 gtkopacity($orange_color, 0.2); }
-      &:dir(rtl) { box-shadow: inset -4px 0 gtkopacity($orange_color, 0.2); }
+      &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($orange_color, 0.2); }
+      &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($orange_color, 0.2); }
 
       > label { color: inherit; }
     }
@@ -1507,7 +1507,7 @@ combobox {
 }
 
 // workaround for LibreOffice with fallback-mode liked-buttons
-@each $order, $radius, $edge in (first-child, 4px 0 0 2px, right),
+@each $order, $radius, $edge in (first-child, 4px 0 0 4px, right),
                                 (last-child, 0 4px 4px 0, left) {
   .linked:not(combobox) > button.combo:#{$order} {
     border-radius: #{$radius};
@@ -1613,7 +1613,7 @@ toolbar {
         -gtk-outline-radius: 2px;
       }
 
-      label { margin: rem(-4px, $sw: 1.0) 0; }
+      label { margin: rem(-2px, $sw: 1.0) 0; }
     }
 
     .linked > button {
@@ -2019,15 +2019,15 @@ headerbar {
       padding-bottom: rem(($widget_size - $icon_size - 1.3px) / 2);
 
       // prepare for tall and dense fonts
-      label { margin: rem(-4px) 0; }
+      label { margin: rem(-2px) 0; }
 
       dialog.background & { // modal-dialogs
         min-height: $icon_size * 1.5;
         padding-top: if($ref_weight < 1.0,
-                     rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+                     rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                      rem(($widget_size - $icon_size * 1.5) / 2));
         padding-bottom: if($ref_weight < 1.0,
-                        rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+                        rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                         rem(($widget_size - $icon_size * 1.5) / 2));
       }
     }
@@ -2036,10 +2036,10 @@ headerbar {
     &.destructive-action:not(.image-button) {
       min-height: $icon_size * 1.5;
       padding-top: if($ref_weight < 1.0,
-                   rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+                   rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                    rem(($widget_size - $icon_size * 1.5) / 2));
       padding-bottom: if($ref_weight < 1.0,
-                      rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+                      rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                       rem(($widget_size - $icon_size * 1.5) / 2));
     }
 
@@ -2048,7 +2048,7 @@ headerbar {
       padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
       padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
 
-      label { margin: rem(-4px) 0; }
+      label { margin: rem(-2px) 0; }
     }
   }
 
@@ -2057,7 +2057,7 @@ headerbar {
     padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
     padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
 
-    label { margin: rem(-4px) 0; }
+    label { margin: rem(-2px) 0; }
   }
 
   button:not(.image-button):not(.text-button):not(.title-button):not(.titlebutton):not(.slider-button),
@@ -2066,7 +2066,7 @@ headerbar {
     min-width: $icon_size * 1.5;
     min-height: $icon_size * 1.5;
     padding: if($ref_weight < 1.0,
-             rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
              rem(($widget_size - $icon_size * 1.5) / 2));
   }
 
@@ -2075,7 +2075,7 @@ headerbar {
       min-width: $icon_size * 1.5;
       min-height: $icon_size * 1.5;
       padding: if($ref_weight < 1.0,
-               rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+               rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                rem(($widget_size - $icon_size * 1.5) / 2));
     }
   }
@@ -2085,7 +2085,7 @@ headerbar {
     min-width: $icon_size * 1.5;
     min-height: $icon_size * 1.5;
     padding: if($ref_weight < 1.0,
-             rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
              rem(($widget_size - $icon_size * 1.5) / 2));
   }
 
@@ -2095,7 +2095,7 @@ headerbar {
     padding-top: rem(($widget_size - $icon_size - 5.3px) / 2);
     padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
 
-    label { margin: rem(-4px) 0; }
+    label { margin: rem(-2px) 0; }
 
     > radio { // FIXME: for gnome-clocks
       margin: unset;
@@ -2236,10 +2236,10 @@ headerbar {
   radiobutton.text-button {
     min-height: $icon_size * 1.5;
     padding-top: if($ref_weight < 1.0,
-                 rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+                 rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                  rem(($widget_size - $icon_size * 1.5) / 2));
     padding-bottom: if($ref_weight < 1.0,
-                    rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+                    rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                     rem(($widget_size - $icon_size * 1.5) / 2));
     color: $inverted_secondary_fg_color;
     &:hover,
@@ -2382,7 +2382,7 @@ headerbar {
         border-radius: 4px;
         -gtk-outline-radius: 2px;
 
-        label { margin: rem(-4px) 0; }
+        label { margin: rem(-2px) 0; }
 
         &.image-button {
           border-radius: 100px;
@@ -2445,7 +2445,7 @@ headerbar {
   &.default-decoration {
     min-height: $titlebutton_small;
     padding: 0 3px; // override scaling-unit
-    border-radius: 4px 4px 0 0;
+    border-radius: 4px 2px 0 0;
     border-width: 0;
 
     .title { // fade_effect doesn't work
@@ -2456,7 +2456,7 @@ headerbar {
     .titlebutton {
       min-width: $titlebutton_small;
       min-height: $titlebutton_small;
-      margin: 3px 0 4px; // concern top-edge border
+      margin: 3px 0 2px; // concern top-edge border
       padding: 0;
       color: $inverted_secondary_fg_color;
       &:hover,
@@ -2705,7 +2705,7 @@ dialog.background.csd > headerbar.titlebar {
   // enforce square shape in 'Cancel' and 'Open' button
   > button:not(.image-button):not(.text-button):not(.toggle):not(.popup) {
     border-radius: 4px;
-    -gtk-outline-radius: 2px;
+    -gtk-outline-radius: 4px;
  }
 }
 
@@ -2713,7 +2713,7 @@ dialog.background.csd > headerbar.titlebar {
 %tiled_integration {
   border-radius: 0;
   border-color: $panel_bg_color;
-  border-width: 4px 0 0 0;
+  border-width: 2px 0 0 0;
   border-top-color: $top_edge_border_color;
   background-color: $inverted_dark_color;
   &:backdrop { border-top-color: $track_color; }
@@ -2943,7 +2943,7 @@ menubar {
     color: $inverted_secondary_fg_color;
     &:hover { // Seems like it :hover even with keyboard focus
       color: $inverted_fg_color;
-      box-shadow: inset 0 -4px $orange_color;
+      box-shadow: inset 0 -2px $orange_color;
     }
     &:disabled {
       color: $insensitive_inverted_fg_color;
@@ -2956,7 +2956,7 @@ menubar {
       box-shadow: inset 0 -1px $track_color;
       &:hover {
         color: $fg_color;
-        box-shadow: inset 0 -4px $orange_color;
+        box-shadow: inset 0 -2px $orange_color;
       }
     }
   }
@@ -3104,7 +3104,7 @@ menuitem {
 //  ************/
 
 popover.background {
-  padding: 4px;
+  padding: 2px;
   background-color: $secondary_base_color;
   box-shadow:  $z-depth-3;
 
@@ -3236,7 +3236,7 @@ notebook {
   }
 
   > header {
-    $tab_indicator_size: 4px;
+    $tab_indicator_size: 2px;
     // vertical tab sizing
     $vt_vpadding: rem(5.3px);
     $vt_hpadding: rem(16px);
@@ -3328,7 +3328,7 @@ notebook {
                              (left, right),
                              (right, left) {
       &.#{$_tab} tab.reorderable-page {
-        border-#{$_border}-width: 4px;
+        border-#{$_border}-width: 2px;
         border-#{$_border}-color: transparent;
         &:hover {
           border-color: $borders_color;
@@ -3480,8 +3480,8 @@ notebook {
 //  * Scrollbars *
 //  **************/
 
-$_slider_min_width: rem(14px);
-$_slider_min_length: rem(34px);
+$_slider_min_width: rem(12px);
+$_slider_min_length: rem(32px);
 
 @keyframes slow_down_vert {
   from {min-width: $_slider_min_width - rem(6px); }
@@ -4238,8 +4238,8 @@ scale {
 
   // the backing bit sizing
   trough {
-    min-height: 4px;
-    min-width: 4px;
+    min-height: 2px;
+    min-width: 2px;
     border-radius: 0;
     border-width: 0;
   }
@@ -4535,12 +4535,12 @@ levelbar {
   }
 
   trough {
-    padding: 4px;
+    padding: 2px;
     border-radius: 4px;
     box-shadow: $z-depth-1;
     &:disabled { box-shadow: none; }
-    &.horizontal { padding: 4px 1px; }
-    &.vertical { padding: 1px 4px; }
+    &.horizontal { padding: 2px 1px; }
+    &.vertical { padding: 1px 2px; }
   }
 
   &.horizontal.discrete block { margin: 0 1px; }
@@ -4575,7 +4575,7 @@ printdialog {
     background-color: $dark_color;
   }
 
-  .dialog-action-box { margin: rem(14px); }
+  .dialog-action-box { margin: rem(12px); }
 }
 
 
@@ -4648,7 +4648,7 @@ list {
   background-color: $base_color;
 }
 
-row { padding: 4px; }
+row { padding: 2px; }
 
 row.activatable {
   // let's take care of background colors
@@ -4940,7 +4940,7 @@ messagedialog {
   }
 
   .linked > button {
-    border: 4px solid transparent;
+    border: 2px solid transparent;
     border-radius: 4px;
     -gtk-outline-radius: 2px;
     border-image: none;
@@ -5017,7 +5017,7 @@ messagedialog {
       button,
       .linked > button {
         @extend %button_flat_normal;
-        border: 4px solid transparent;
+        border: 2px solid transparent;
         border-radius: 0;
         background-color: transparent;
         color: $inverted_secondary_accent_label_color;
@@ -5044,11 +5044,11 @@ messagedialog {
         }
 
         &:first-child {
-          border-radius: 0 0 0 2px;
+          border-radius: 0 0 0 4px;
           border-right-width: 0;
         }
         &:last-child {
-          border-radius: 0 0 2px 0;
+          border-radius: 0 0 4px 0;
           border-left-width: 0;
         }
       }
@@ -5103,8 +5103,7 @@ filechooserbutton:drop(active) {
   treeview.view {
     box-shadow: none;
     &:selected,
-    row:selected { @extend %selected_items;
-        color: $orange_color; }
+    row:selected { @extend %selected_items; }
   }
 
   // fill actual background
@@ -5201,7 +5200,7 @@ placessidebar {
 
     // Using margins/padding directly in the row
     // will make the animation of the new bookmark row jump
-    > revealer { padding: rem(4px) rem(14px) rem(4px) rem(14px); }
+    > revealer { padding: rem(4px) rem(14px) rem(4px) rem(12px); }
 
     image.sidebar-icon {
       padding: rem(4px) 0;
@@ -5212,8 +5211,8 @@ placessidebar {
 
     label.sidebar-label {
       padding: rem(2.7px) 0 rem(4px);
-      &:dir(ltr) { padding-right: rem(4px); }
-      &:dir(rtl) { padding-left: rem(4px); }
+      &:dir(ltr) { padding-right: rem(2px); }
+      &:dir(rtl) { padding-left: rem(2px); }
     }
 
     button.image-button { // Eject button for removable storages
@@ -5810,7 +5809,7 @@ decoration {
     min-width: $icon_size * 1.5;
     min-height: $icon_size * 1.5;
     padding: if($ref_weight < 1.0,
-             rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+             rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
              rem(($widget_size - $icon_size * 1.5) / 2));
     border-radius: 100px;
     -gtk-outline-radius: 100px;
@@ -5836,7 +5835,7 @@ decoration {
         min-width: $icon_size * 1.5;
         min-height: $icon_size * 1.5;
         padding: if($ref_weight < 1.0,
-                 rem(($widget_size - $icon_size * 1.5 - 4px) / 2),
+                 rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                  rem(($widget_size - $icon_size * 1.5) / 2));
         border-radius: 100px;
         -gtk-outline-radius: 100px;
@@ -5983,7 +5982,7 @@ decoration {
       }
     }
 
-    // tiny 4px padding causes truncation of shadows,
+    // tiny 2px padding causes truncation of shadows,
     // so elevate down to depth-1 at hover/active.
     @each $_class,
           $_state,
