@@ -1613,7 +1613,7 @@ layouttabbar {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($blue_color),
+                                    to($orange_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1651,7 +1651,7 @@ layouttab {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($blue_color),
+                                    to($orange_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1742,7 +1742,7 @@ headerbar > omnibar.linked.horizontal {
     > entry.horizontal {
       &, &:focus {
         border-image: radial-gradient(circle farthest-corner at center,
-                                      $blue_color 100%,
+                                      $orange_color 100%,
                                       transparent)
                                       0 0 2 / 0 0 2px;
         color: $dark_text_color;
@@ -1775,7 +1775,7 @@ tabstrip {
     }
     &:checked {
       color: $text_color;
-      box-shadow: inset 0 -2px $blue_color;
+      box-shadow: inset 0 -2px $orange_color;
     }
   }
 }
