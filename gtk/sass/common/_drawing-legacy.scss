@@ -231,7 +231,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                 to($track_color),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
-    color: $secondary_fg_color;
+    color: $text80_color;
   }
   @if $t==focus {
     border-color: $solid_light_borders_color;
@@ -241,7 +241,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                 to($fc),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
-    color: $fg_color;
+    color: $text_color;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0;
   }
@@ -253,7 +253,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                 to($track_color),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
-    color: $insensitive_fg_color;
+    color: $insensitive_text_color;
   }
   @if $t==flat-normal {
     border-radius: 0;
@@ -266,7 +266,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
     background-color: transparent;
-    color: $secondary_fg_color;
+    color: $text80_color;
   }
   @if $t==flat-focus {
     border-color: $solid_light_borders_color;
@@ -276,7 +276,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                 to($fc),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
-    color: $fg_color;
+    color: $text_color;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0;
   }
@@ -289,7 +289,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
     background-color: transparent;
-    color: $insensitive_fg_color;
+    color: $insensitive_text_color;
   }
 }
 
@@ -298,7 +298,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
 // Buttons
 //
 
-@mixin button($t, $c:$light_color, $tc:$fg_color) {
+@mixin button($t, $c:$light_base_color, $tc:$text_color) {
 //
 // Button drawing function
 //
@@ -323,7 +323,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                     to(gtkalpha(currentColor, 0)),
                                     to(transparent)),
                       linear-gradient(to bottom, gtkalpha(currentColor, 0));
-    color: $secondary_fg_color;
+    color: $text80_color;
     box-shadow: $z-depth-1,
                 inset 0 1px $highlight_color;
   }
@@ -338,7 +338,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
                                     to(gtkalpha(currentColor, 0)),
                                     to(transparent)),
                       linear-gradient(to bottom, gtkalpha(currentColor, 0));
-    color: $fg_color;
+    color: $text_color;
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
@@ -347,7 +347,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
   //
   // pushed button
   //
-    color: $fg_color;
+    color: $text_color;
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
     transition-duration: 0;
@@ -358,8 +358,8 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
   // insensitive button
   //
     background-color: $track_color;
-    color: if($tc!=$fg_color, $insensitive_fg_color,
-                              $insensitive_secondary_fg_color);
+    color: if($tc!=$text_color, $insensitive_text_color,
+                              $insensitive_text80_color);
     box-shadow: none;
 
     > .label { color: inherit; }
@@ -369,7 +369,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
   // checked button
   //
     background-color: $blue_color;
-    color: $selected_fg_color;
+    color: $white_color;
     box-shadow: $z-depth-1,
                 inset 0 1px $highlight_color;
   }
@@ -428,7 +428,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.20),
   // checked flat button
   //
     background-color: $track_color;
-    color: $fg_color;
+    color: $text_color;
   }
   @else if $t==flat-checked-insensitive {
   //

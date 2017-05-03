@@ -269,31 +269,31 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 // templates for the fallback mode entries
 %entry_fallback_normal {
   border: 1px solid if($variant == 'light',
-                    mix($base_color, $fixed_fg_color, 90%),
+                    mix($base_color, $black_color, 90%),
                     $solid_light_borders_color);
   border-image: none;
   background-color: $base_color;
-  color: $secondary_fg_color;
+  color: $text80_color;
   box-shadow: none;
 }
 
 %entry_fallback_focus {
   border: 1px solid if($variant == 'light',
-                    mix($base_color, $fixed_fg_color, 80%),
+                    mix($base_color, $black_color, 80%),
                     $solid_light_borders_color);
   border-image: none;
-  background-color: mix($base_color, $fg_color, 90%);
-  color: $fg_color;
+  background-color: mix($base_color, $text_color, 90%);
+  color: $text_color;
   box-shadow: none;
 }
 
 %entry_fallback_insensitive {
   border: 1px solid if($variant == 'light',
-                    mix($base_color, $fixed_fg_color, 90%),
+                    mix($base_color, $black_color, 90%),
                     $solid_light_borders_color);
   border-image: none;
   background-color: $base_color;
-  color: $insensitive_fg_color;
+  color: $insensitive_text_color;
   box-shadow: none;
 }
 
@@ -316,7 +316,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   $track_color 100%,
                                   transparent)
                                   0 0 1 / 0 0 1px;
-    color: $secondary_fg_color;
+    color: $text80_color;
   }
   @if $t==focus {
     border-color: $solid_light_borders_color;
@@ -324,7 +324,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   $fc 100%,
                                   transparent)
                                   0 0 2 / 0 0 2px;
-    color: $fg_color;
+    color: $text_color;
     transition: all 0.2s $slope_medium,
                 box-shadow 0 $slope_medium 0.2s,
                 color 0;
@@ -335,7 +335,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   $track_color 100%,
                                   transparent)
                                   0 0 1 / 0 0 1px;
-    color: $insensitive_fg_color;
+    color: $insensitive_text_color;
   }
   @if $t==flat-normal {
     border-radius: 0;
@@ -346,7 +346,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   transparent)
                                   0 0 1 / 0 0 1px;
     background-color: transparent;
-    color: $secondary_fg_color;
+    color: $text80_color;
   }
   @if $t==flat-focus {
     border-color: $solid_light_borders_color;
@@ -354,7 +354,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   $fc 100%,
                                   transparent)
                                   0 0 2 / 0 0 2px;
-    color: $fg_color;
+    color: $text_color;
     transition: all 0.2s $slope_medium,
                 box-shadow 0 $slope_medium 0.2s,
                 color 0;
@@ -366,7 +366,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                                   transparent)
                                   0 0 1 / 0 0 1px;
     background-color: transparent;
-    color: $insensitive_fg_color;
+    color: $insensitive_text_color;
   }
 }
 
@@ -453,26 +453,26 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 // templates for the fallback mode buttons
 %button_fallback_normal {
   border: 1px solid if($variant == 'light',
-                    mix($base_color, $fixed_fg_color, 90%),
+                    mix($base_color, $black_color, 90%),
                     $solid_light_borders_color);
   background-color: $base_color;
-  color: $secondary_fg_color;
+  color: $text80_color;
   box-shadow: none;
 }
 
 %button_fallback_hover {
   border: 1px solid if($variant == 'light',
-                    mix($base_color, $fixed_fg_color, 80%),
+                    mix($base_color, $black_color, 80%),
                     $solid_light_borders_color);
-  background-color: mix($base_color, $fg_color, 90%);
-  color: $fg_color;
+  background-color: mix($base_color, $text_color, 90%);
+  color: $text_color;
   box-shadow: none;
 }
 
 %button_fallback_active {
   border: 1px solid $orange_color;
   background-color: $orange_color;
-  color: $fg_color; // do not use inverted colours
+  color: $text_color; // do not use inverted colours
   box-shadow: none;
   animation: none;
 }
@@ -480,18 +480,18 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 %button_fallback_insensitive {
   border: none;
   background-color: $base_color;
-  color: $insensitive_fg_color;
+  color: $insensitive_text_color;
   box-shadow: none;
 }
 
 %button_fallback_checked_insensitive {
   border: none;
-  background-color: mix($orange_color, $light_color, 20%);
-  color: mix($orange_color, $light_color, 40%);
+  background-color: mix($orange_color, $light_base_color, 20%);
+  color: mix($orange_color, $light_base_color, 40%);
   box-shadow: none;
 }
 
-@mixin button($t, $c:$light_color, $tc:$fg_color) {
+@mixin button($t, $c:$light_base_color, $tc:$text_color) {
 //
 // Button drawing function
 //
@@ -511,7 +511,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   //
     @extend %button_normal;
     background-color: $c;
-    color: $secondary_fg_color;
+    color: $text80_color;
   }
 
   @else if $t==hover {
@@ -519,7 +519,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   // hovered button
   //
     @extend %button_hover;
-    color: $fg_color;
+    color: $text_color;
   }
 
   @else if $t==active {
@@ -527,7 +527,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   // pushed button
   //
     @extend %button_active;
-    color: $fg_color;
+    color: $text_color;
   }
   @else if $t==insensitive {
   //
@@ -535,8 +535,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   //
     @extend %button_disabled;
     background-color: $track_color;
-    color: if($tc!=$fg_color, $insensitive_fg_color,
-                              $insensitive_secondary_fg_color);
+    color: if($tc!=$text_color, $insensitive_text_color,
+                              $insensitive_text80_color);
   }
   @else if $t==checked {
   //
@@ -544,7 +544,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   //
     @extend %button_checked;
     background-color: $orange_color;
-    color: $selected_fg_color;
+    color: $white_color;
   }
   @else if $t==checked-insensitive {
   //
@@ -587,7 +587,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   //
     @extend %button_flat_checked;
     background-color: $track_color;
-    color: $fg_color;
+    color: $text_color;
   }
   @else if $t==flat-checked-insensitive {
   //
