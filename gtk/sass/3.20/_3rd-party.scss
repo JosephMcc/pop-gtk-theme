@@ -6,21 +6,21 @@
 @keyframes budgie_ripple_effect {
   0% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0.2) 0%,
+                                      gtkalpha($dark_text_color, 0.2) 0%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.2));
+                      image(gtkalpha($dark_text_color, 0.2));
   }
   66% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0.2) 100%,
+                                      gtkalpha($dark_text_color, 0.2) 100%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.2));
+                      image(gtkalpha($dark_text_color, 0.2));
   }
   100% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0) 100%,
+                                      gtkalpha($dark_text_color, 0) 100%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.2));
+                      image(gtkalpha($dark_text_color, 0.2));
   }
 }
 
@@ -47,7 +47,7 @@ $budgie_transition: opacity 0.2s $slope_medium,
   // panel styling
   // always use dark-color of dark variant
   background-color: $panel_bg_color;
-  color: $inverted_fg_color;
+  color: $dark_text_color;
   font-weight: 700;
 
   // used to indicate unread notifications
@@ -101,9 +101,9 @@ box.horizontal.pinned { // drop-target
     padding: 0;
     border: 2px solid transparent;
     background-image: radial-gradient(circle farthest-corner at center,
-                                      gtkalpha($inverted_fg_color, 0) 100%,
+                                      gtkalpha($dark_text_color, 0) 100%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0));
+                      image(gtkalpha($dark_text_color, 0));
     background-position: center center;
     transition: $budgie_transition;
 
@@ -144,7 +144,7 @@ box.horizontal.pinned { // drop-target
     button.flat.launcher {
       border: 2px solid transparent;
       &:hover {
-        border-#{$along_side}: 2px solid gtkalpha($inverted_fg_color, 0.4);
+        border-#{$along_side}: 2px solid gtkalpha($dark_text_color, 0.4);
       }
       &:active,
       &:checked {
@@ -244,7 +244,7 @@ box.horizontal.pinned { // drop-target
   row.activatable { // reset background
     background-image: none;
     background-color: $secondary_base_color;
-    color: $secondary_fg_color;
+    color: $text80_color;
     transition: none;
 
     // FIXME: enlarge vertical spacing with padding of icons
@@ -255,7 +255,7 @@ box.horizontal.pinned { // drop-target
       background-image: none;
       background-color: $secondary_base_color;
       // child button node has hover state already
-      color: $secondary_fg_color;
+      color: $text80_color;
       transition: none;
     }
   }
@@ -311,12 +311,12 @@ box.horizontal.pinned { // drop-target
     &.activatable {
       background-image: none;
       background-color: $secondary_base_color;
-      color: $secondary_fg_color;
+      color: $text80_color;
       transition: none;
 
       .indicator-item {
         label,
-        image { color: $secondary_fg_color; }
+        image { color: $text80_color; }
       }
 
       // FIXME: enlarge vertical spacing with padding of icons
@@ -335,18 +335,18 @@ box.horizontal.pinned { // drop-target
     &.activatable:selected {
       background-image: none;
       background-color: $secondary_base_color;
-      color: $secondary_fg_color;
+      color: $text80_color;
       transition: none;
 
       .indicator-item {
         label,
-        image { color: $secondary_fg_color; }
+        image { color: $text80_color; }
 
         &:hover,
         &:active,
         &:checked {
           label,
-          image { color: $fg_color; }
+          image { color: $text_color; }
         }
       }
     }
@@ -381,14 +381,14 @@ box.horizontal.pinned { // drop-target
         }
 
         label {
-          color: $inverted_secondary_fg_color;
+          color: $dark_text80_color;
 
           &:dir(ltr) { padding-left: rem(8px); }
           &:dir(rtl) { padding-right: rem(8px); }
         }
 
         image {
-          color: $inverted_secondary_fg_color;
+          color: $dark_text80_color;
 
           &:first-child { // avatar image
             min-width: 24px;
@@ -405,10 +405,10 @@ box.horizontal.pinned { // drop-target
           transition-property: box-shadow;
           transition-duration: 0.2s;
 
-          label { color: $inverted_fg_color; }
+          label { color: $dark_text_color; }
 
           image {
-            color: $inverted_fg_color;
+            color: $dark_text_color;
 
             &:first-child { opacity: 1.0; }
           }
@@ -428,27 +428,27 @@ box.horizontal.pinned { // drop-target
 .raven {
   padding: 0;
   border: none;
-  color: $secondary_fg_color;
+  color: $text80_color;
   background-color: $secondary_dark_color;
 
   .raven-header {
     border: none;
-    color: $tertiary_fg_color;
+    color: $text70_color;
     background-color: transparent;
     font-weight: 700;
 
     &.top { // always use dark variant
       background-color: $inverted_dark_color;
-      color: $inverted_fg_color;
+      color: $dark_text_color;
       box-shadow: $z-depth-2;
 
       button.image-button,
       button.text-button {
-        color: $inverted_secondary_fg_color;
+        color: $dark_text80_color;
         &:hover,
         &:active,
-        &:checked { color: $inverted_fg_color; }
-        &:disabled { color: $insensitive_inverted_fg_color; }
+        &:checked { color: $dark_text_color; }
+        &:disabled { color: $insensitive_dark_text_color; }
       }
 
       > image { // gear icon in settings-view
@@ -464,7 +464,7 @@ box.horizontal.pinned { // drop-target
     &:not(.top):not(.bottom):not(:last-child) {
       > label,
       > box > label,
-      > box > image { color: $tertiary_fg_color; }
+      > box > image { color: $text70_color; }
     }
   }
 
@@ -486,8 +486,8 @@ box.horizontal.pinned { // drop-target
     background-color: $secondary_dark_color;
     background-image: linear-gradient(to top,
                       if($variant == 'light',
-                        $dark_color,
-                        mix($dark_color, $secondary_dark_color, 50%)) 50%,
+                        $dark_base_color,
+                        mix($dark_base_color, $secondary_dark_color, 50%)) 50%,
                       if($variant == 'light',
                         gtkalpha($top_edge_border_color, 0.01),
                         gtkalpha($solid_dark_borders_color, 0.4)) calc(50% + 1px),
@@ -499,31 +499,31 @@ box.horizontal.pinned { // drop-target
       @extend %button_normal;
       margin: rem(2px) rem(8px);
       padding: rem(5.3px);
-      color: $inverted_secondary_fg_color;
+      color: $dark_text80_color;
       background-color: $suggested_color;
       &:hover {
         @extend %button_hover;
-        color: $inverted_fg_color;
+        color: $dark_text_color;
       }
       &:active {
         @extend %button_active;
-        color: $selected_fg_color;
+        color: $white_color;
         background-color: $blue_color;
       }
       &:checked {
         @extend %button_checked;
-        color: $inverted_fg_color;
-        background-color: mix($selected_fg_color, $suggested_color, 20%);
+        color: $dark_text_color;
+        background-color: mix($white_color, $suggested_color, 20%);
       }
       &:disabled {
         @include button(flat-insensitive, $secondary_dark_color,
-                                          $insensitive_inverted_fg_color);
+                                          $insensitive_dark_text_color);
       }
     }
   }
 
   .option-subtitle {
-    color: $insensitive_secondary_fg_color;
+    color: $insensitive_text80_color;
     font-size: 90%;
   }
 
@@ -532,7 +532,7 @@ box.horizontal.pinned { // drop-target
 
   row.activatable {
     background-color: transparent;
-    &:hover { color: $fg_color; }
+    &:hover { color: $text_color; }
     &:selected {
       &, label {
         color: $blue_color;
@@ -548,7 +548,7 @@ box.horizontal.pinned { // drop-target
       color: transparent;
       background-color: transparent;
       background-image: linear-gradient(to bottom,
-                                        gtkopacity($fg_color, 0.1));
+                                        gtkopacity($text_color, 0.1));
       background-position: center;
       background-repeat: no-repeat;
       background-size: auto 1px;
@@ -581,19 +581,19 @@ box.horizontal.pinned { // drop-target
       min-width: $widget_size - if($ref_weight < 1.0, 2.7px, 0);
       min-height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
       padding: 0;
-      color: $secondary_selected_fg_color;
+      color: $white80_color;
       background-color: $suggested_color;
-      &:hover { color: $selected_fg_color; }
+      &:hover { color: $white_color; }
       &:active {
-        color: $selected_fg_color;
+        color: $white_color;
         background-color: $blue_color;
       }
       &:checked {
-        color: $secondary_selected_fg_color;
-        background-color: mix($selected_fg_color, $suggested_color, 20%);
+        color: $white80_color;
+        background-color: mix($white_color, $suggested_color, 20%);
       }
       &:disabled {
-        @include button(flat-insensitive, $track_color, $insensitive_fg_color);
+        @include button(flat-insensitive, $track_color, $insensitive_text_color);
       }
 
       label { padding-bottom: rem(1.3px); }
@@ -605,9 +605,9 @@ box.horizontal.pinned { // drop-target
       padding: rem(8px);
       border-radius: 100px;
       -gtk-outline-radius: 100px;
-      color: $tertiary_fg_color;
+      color: $text70_color;
       &:hover,
-      &:active { color: $fg_color; }
+      &:active { color: $text_color; }
 
       &:dir(ltr) { margin-right: rem(2.7px); }
       &:dir(rtl) { margin-left: rem(2.7px); }
@@ -654,12 +654,12 @@ box.horizontal.pinned { // drop-target
 
           > grid > label {
             &, &.dim-label {
-              color: $fg_color;
+              color: $text_color;
               opacity: 1.0;
             }
           }
 
-          > grid > image { color: $fg_color; }
+          > grid > image { color: $text_color; }
         }
       }
     }
@@ -669,8 +669,8 @@ box.horizontal.pinned { // drop-target
 // MPRIS Applet
 .raven-mpris {
   border: none;
-  color: $fg_color;
-  background-color: gtkopacity($dark_color, 0.9);
+  color: $text_color;
+  background-color: gtkopacity($dark_base_color, 0.9);
 
   button.image-button { padding: rem(8px); }
 }
@@ -720,13 +720,13 @@ popover.places-menu {
     padding: rem(4px);
 
     > label {
-      color: $secondary_fg_color;
+      color: $text80_color;
       font-weight: 700;
     }
 
     > image {
       padding-left: 4px;
-      color: $accent_color;
+      color: $orange_color;
 
       &:dir(rtl) { padding-right: 4px; }
     }
@@ -765,13 +765,13 @@ popover.places-menu {
       transition: none;
       &:hover,
       &:active {
-        color: $fg_color;
+        color: $text_color;
 
         .name-button { // = 'toolbutton > button'
           &,
           &:hover,
           &:active {
-            color: $fg_color;
+            color: $text_color;
             background-color: transparent;
             background-image: none;
             transition: none;
@@ -847,18 +847,18 @@ widget.keyboard-indicator >  widget > box.horizontal {
 // separator applet
 .budgie-panel > box > widget > separator {
   // borders_color -> track_color
-  background-color: gtkopacity($inverted_fg_color, 0.2);
+  background-color: gtkopacity($dark_text_color, 0.2);
 }
 
 // workspace-switcher applet
 wnck-pager {
   .top & {
-    &:hover { box-shadow: inset 0 2px gtkalpha($inverted_fg_color, 0.4); }
+    &:hover { box-shadow: inset 0 2px gtkalpha($dark_text_color, 0.4); }
     &:selected { box-shadow: inset 0 2px $blue_color; }
   }
 
   .bottom & {
-    &:hover { box-shadow: inset 0 -2px gtkalpha($inverted_fg_color, 0.4); }
+    &:hover { box-shadow: inset 0 -2px gtkalpha($dark_text_color, 0.4); }
     &:selected { box-shadow: inset 0 -2px $blue_color; }
   }
 }
@@ -876,23 +876,23 @@ wnck-pager {
 .budgie-notification,
 .budgie-osd {
   // always use dark-variant
-  color: $inverted_fg_color;
+  color: $dark_text_color;
   background-color: transparent;
 
   .notification-title {
-    color: $inverted_secondary_fg_color;
+    color: $dark_text80_color;
     font-size: 110%;
     font-weight: 500;
   }
 
   .notification-body {
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     font-size: 90%;
     font-weight: 400;
   }
 
   .budgie-osd-text {
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     font-size: 110%;
   }
 
@@ -904,7 +904,7 @@ wnck-pager {
     box-shadow: $z-depth-1;
 
     trough {
-      color: $inverted_fg_color;
+      color: $dark_text_color;
       background-color: $track_color;
     }
 
@@ -918,11 +918,11 @@ wnck-pager {
   button,
   .linked > button { // OSD-style buttons
     border-image: none; // hide underlines
-    color: $inverted_secondary_accent_label_color;
+    color: $inverted_orange90_label_color;
     &:hover,
     &:active,
-    &:checked { color: $inverted_accent_label_color; }
-    &:disabled { color: gtkopacity($inverted_accent_label_color, 0.4); }
+    &:checked { color: $inverted_orange_label_color; }
+    &:disabled { color: gtkopacity($inverted_orange_label_color, 0.4); }
   }
 }
 
@@ -941,20 +941,20 @@ wnck-pager {
 
       row.activatable {
         background-color: transparent;
-        color: $inverted_secondary_fg_color;
+        color: $dark_text80_color;
         transition: none;
 
         .dim-label {
-          color: $inverted_secondary_fg_color;
+          color: $dark_text80_color;
           opacity: 1.0;
         }
 
         &:hover,
         &:active {
-          color: $inverted_fg_color;
+          color: $dark_text_color;
 
           .dim-label {
-            color: $inverted_fg_color;
+            color: $dark_text_color;
             opacity: 1.0;
           }
         }
@@ -965,19 +965,19 @@ wnck-pager {
   box > box {
     entry {
       min-height: rem($widget_size, $sw: 1.0);
-      color: $inverted_fg_color;
-      caret-color: $inverted_fg_color;
+      color: $dark_text_color;
+      caret-color: $dark_text_color;
       font-size: 110%;
       &:focus {
-        color: $selected_fg_color;
-        caret-color: $selected_fg_color;
+        color: $white_color;
+        caret-color: $white_color;
       }
-      &:disabled { color: $insensitive_inverted_fg_color; }
+      &:disabled { color: $insensitive_dark_text_color; }
 
       image {
-        &:not(:hover):not(:active) { color: $inverted_fg_color; }
+        &:not(:hover):not(:active) { color: $dark_text_color; }
         &:active { color: $blue_color; }
-        &:disabled { color: $insensitive_inverted_fg_color; }
+        &:disabled { color: $insensitive_dark_text_color; }
       }
     }
   }
@@ -987,11 +987,11 @@ wnck-pager {
     background: none;
 
     slider {
-      background-color: gtkopacity($inverted_tertiary_fg_color, 0.55);
+      background-color: gtkopacity($dark_text70_color, 0.55);
       &:hover {
-        background-color: gtkopacity($inverted_secondary_fg_color, 0.55);
+        background-color: gtkopacity($dark_text80_color, 0.55);
       }
-      &:active { background-color: $inverted_fg_color; }
+      &:active { background-color: $dark_text_color; }
       &:disabled { opacity: 0.4; }
     }
   }
@@ -1004,7 +1004,7 @@ wnck-pager {
   border-width: 0;
   // Always use dark-color of dark variant
   background-color: gtkopacity($inverted_dark_color, 0.9);
-  color: $inverted_fg_color;
+  color: $dark_text_color;
   font-weight: 700;
 
   decoration { // composite with drop-shadows
@@ -1018,10 +1018,10 @@ wnck-pager {
 
   entry {
     &, &:focus {
-      color: $inverted_fg_color;
-      caret-color: $inverted_fg_color;
+      color: $dark_text_color;
+      caret-color: $dark_text_color;
     }
-    &:disabled { color: $insensitive_inverted_fg_color; }
+    &:disabled { color: $insensitive_dark_text_color; }
   }
 
   button,
@@ -1030,22 +1030,22 @@ wnck-pager {
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
     border: 2px solid transparent;
     border-radius: 0;
-    color: $inverted_secondary_accent_label_color;
+    color: $inverted_orange90_label_color;
     background-color: transparent;
     &:hover {
       @extend %button_flat_hover;
       background-color: transparent;
-      color: $inverted_accent_label_color;
+      color: $inverted_orange_label_color;
     }
     &:active {
       @extend %button_flat_active;
       background-color: transparent;
-      color: $inverted_accent_label_color;
+      color: $inverted_orange_label_color;
     }
     &:checked {
       @extend %button_flat_checked;
       background-color: transparent;
-      color: $inverted_secondary_accent_label_color;
+      color: $inverted_orange90_label_color;
     }
     &:disabled { @include button(flat-insensitive); }
 
@@ -1062,7 +1062,7 @@ wnck-pager {
 
 // polkit-dialog specific styling
 .budgie-polkit-dialog {
-  .message { color: $inverted_secondary_fg_color; }
+  .message { color: $dark_text80_color; }
 
   .failure {
     color: $error_color;
@@ -1078,18 +1078,18 @@ wnck-pager {
     min-height: $icon_size + 8px;
     padding: 4px 0;
     border-radius: 0;
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     &:hover {
-      color: $selected_fg_color;
+      color: $white_color;
       background: none;
       background-image: none;
 
-      .top & { box-shadow: inset 0 2px gtkalpha($inverted_fg_color, 0.4); }
-      .bottom & { box-shadow: inset 0 -2px gtkalpha($inverted_fg_color, 0.4); }
+      .top & { box-shadow: inset 0 2px gtkalpha($dark_text_color, 0.4); }
+      .bottom & { box-shadow: inset 0 -2px gtkalpha($dark_text_color, 0.4); }
     }
     &:active,
     &:checked {
-      color: $selected_fg_color;
+      color: $white_color;
       background: none;
       background-image: none;
 
@@ -1136,13 +1136,13 @@ UnityDecoration {
     border-radius: 2px 2px 0 0;
     background-image: linear-gradient(to bottom, $inverted_dark_color);
     // The foreground color will be used to paint the text
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     box-shadow: inset 0 1px $highlight_color;
     &:hover { // for L.I.M's selected menuitem
-      color: $selected_fg_color;
+      color: $white_color;
       box-shadow: inset 0 -2px $blue_color;
     }
-    &:backdrop { color: $insensitive_inverted_fg_color; }
+    &:backdrop { color: $insensitive_dark_text_color; }
   }
 
   .left,
@@ -1162,7 +1162,7 @@ UnityPanelWidget,
 .unity-panel {
   &, &:backdrop {
     border-bottom: 1px solid $panel_bg_color;
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     background-image: linear-gradient(to bottom, $panel_bg_color);
     box-shadow: none;
   }
@@ -1183,10 +1183,10 @@ UnityPanelWidget,
       padding: 0 6px;
       border-radius: 0;
       border-bottom: none;
-      color: $inverted_fg_color;
+      color: $dark_text_color;
       background-color: transparent;
       &:hover {
-        color: $selected_fg_color;
+        color: $white_color;
         box-shadow: inset 0 2px $blue_color;
       }
     }
@@ -1220,7 +1220,7 @@ UnityPanelWidget,
   // top-panel styling
   #panel_window {
     background-image: image($panel_bg_color);
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     box-shadow: none;
     font-weight: 700;
     text-shadow: none;
@@ -1231,20 +1231,20 @@ UnityPanelWidget,
     menubar {
       @extend .gnome-panel-menu-bar;
       background-color: transparent;
-      color: $inverted_fg_color;
+      color: $dark_text_color;
 
       label,
       image {
         padding: 0 rem(6.7px, $sw: 1.0);
-        color: $inverted_fg_color;
+        color: $dark_text_color;
       }
 
       &:hover {
-        color: $selected_fg_color;
+        color: $white_color;
         box-shadow: inset 0 2px $blue_color;
 
         label,
-        image { color: $selected_fg_color; }
+        image { color: $white_color; }
       }
 
       // flip underline-indicator vertically
@@ -1261,11 +1261,11 @@ UnityPanelWidget,
           text-shadow: none;
 
           // override above hacks
-          &, label { color: $secondary_fg_color; }
+          &, label { color: $text80_color; }
           &:hover,
-          &:hover label { color: $fg_color; }
+          &:hover label { color: $text_color; }
           &:disabled,
-          &:disabled label { color: $insensitive_fg_color; }
+          &:disabled label { color: $insensitive_text_color; }
         }
       }
     }
@@ -1282,10 +1282,10 @@ UnityPanelWidget,
 
     button {
       padding: rem(9.3px, $sw: 1.0) rem(13.3px, $sw: 1.0) rem(10.7px, $sw: 1.0);
-      color: $inverted_secondary_fg_color;
+      color: $dark_text80_color;
       &:hover,
-      &:active { color: $inverted_fg_color; }
-      &:disabled { color: $insensitive_inverted_fg_color; }
+      &:active { color: $dark_text_color; }
+      &:disabled { color: $insensitive_dark_text_color; }
 
       &#login_button { @extend button.suggested-action; }
 
@@ -1301,7 +1301,7 @@ UnityPanelWidget,
                                     to($track_color),
                                     to(transparent))
                                     0 0 1 / 0 0 1px;
-        color: $inverted_fg_color;
+        color: $dark_text_color;
         font-weight: 500;
         &:hover,
         &:active {
@@ -1311,7 +1311,7 @@ UnityPanelWidget,
                                       to($blue_color),
                                       to(transparent))
                                       0 0 2 / 0 0 2px;
-          color: $selected_fg_color;
+          color: $white_color;
         }
         &:disabled,
         &:checked:disabled {
@@ -1321,7 +1321,7 @@ UnityPanelWidget,
                                       to($track_color),
                                       to(transparent))
                                       0 0 1 / 0 0 1px;
-          color: $insensitive_inverted_fg_color;
+          color: $insensitive_dark_text_color;
         }
       }
     }
@@ -1360,7 +1360,7 @@ UnityPanelWidget,
 
 // use normal foreground colour
 stack button.profile-button {
-  &:checked { color: $fg_color; }
+  &:checked { color: $text_color; }
 }
 
 headerbar.titlebar box {
@@ -1491,7 +1491,7 @@ window.background > popover.background > frame > list > row.activatable {
       transition: none;
 
       &:selected { // FIXME: selection node doesn't work?
-        color: $selected_fg_color;
+        color: $white_color;
         background-color: $blue_color;
       }
     }
@@ -1598,12 +1598,12 @@ window.background > popover.background > frame > list > row.activatable {
                                   to(transparent))
                                   0 0 0 / 0 0 0px;
       background-color: transparent;
-      color: $secondary_fg_color;
+      color: $text80_color;
       &:hover {
         @extend %button_flat_hover;
         border-image: none;
         background-color: transparent;
-        color: $fg_color;
+        color: $text_color;
       }
       &:checked {
         @extend %button_flat_checked;
@@ -1614,19 +1614,19 @@ window.background > popover.background > frame > list > row.activatable {
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
-        color: $fg_color;
+        color: $text_color;
         &:disabled {
           @extend %button_flat_checked_disabled;
           border-image: none;
           background-color: transparent;
-          color: $insensitive_fg_color;
+          color: $insensitive_text_color;
         }
       }
       &:disabled {
         @extend %button_flat_disabled;
         border-image: none;
         background-color: transparent;
-        color: $insensitive_secondary_fg_color;
+        color: $insensitive_text80_color;
       }
     }
 
@@ -1714,10 +1714,10 @@ window.background:not(.csd) > box.vertical > stack {
       &, &.view {
         background-color: transparent;
         &:selected {
-          color: $selected_fg_color;
+          color: $white_color;
           background-color: $blue_color;
 
-          label { color: $selected_fg_color; }
+          label { color: $white_color; }
         }
       }
     }
@@ -1729,7 +1729,7 @@ window.background:not(.csd) > box.vertical > stack {
 
       *:not(button) > label {
         padding: rem(5.3px, $sw: 1.0);
-        color: $tertiary_fg_color;
+        color: $text70_color;
       }
     }
 
@@ -1745,7 +1745,7 @@ window.background:not(.csd) > box.vertical > stack {
         }
         &:selected {
           background-color: $blue_color;
-          color: $selected_fg_color;
+          color: $white_color;
         }
       }
     }
@@ -1759,20 +1759,20 @@ window.background:not(.csd) > box.vertical > stack {
 
 .csstage {
   .unlockbox {
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     font-size: 110%;
     font-weight: 400;
   }
 
   .clock {
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     font-size: rem(112px, $sw: 1.0);
     font-weight: 300;
   }
 
   .toppanel {
     border: none;
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     background-color: transparent;
   }
 
@@ -1789,7 +1789,7 @@ window.background:not(.csd) > box.vertical > stack {
   .notificationwidget,
   .powerwidget {
     padding: 6px;
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     background-color: transparent;
     font-size: 100%;
     font-weight: 500;
@@ -1811,23 +1811,23 @@ window.background:not(.csd) > box.vertical > stack {
     min-height: 150px;
     border-radius: 2px;
     border: none;
-    background-color: gtkopacity($inverted_fg_color, 0.1);
+    background-color: gtkopacity($dark_text_color, 0.1);
   }
 
   .passwordentry {
     @include entry(flat-normal);
     border-radius: 0;
-    color: $inverted_secondary_fg_color;
-    caret-color: $inverted_secondary_fg_color;
+    color: $dark_text80_color;
+    caret-color: $dark_text80_color;
     font-family: monospace;
     &:focus {
       @include entry(flat-focus);
-      color: $inverted_fg_color;
-      caret-color: $inverted_fg_color;
+      color: $dark_text_color;
+      caret-color: $dark_text_color;
     }
     &:disabled {
       @include entry(flat-insensitive);
-      color: $insensitive_inverted_fg_color;
+      color: $insensitive_dark_text_color;
     }
     &:backdrop { // for alt-text keyboard layout?
       color: $blue_color;
@@ -1845,31 +1845,31 @@ window.background:not(.csd) > box.vertical > stack {
     background-color: transparent;
     &:not(:active):not(:disabled):not(hover) {
       background-color: transparent;
-      color: $secondary_accent_color;
+      color: $orange90_color;
     }
     &:hover {
       @extend %button_flat_hover;
       background-color: transparent;
-      color: $accent_color;
+      color: $orange_color;
     }
     &:active {
       @extend %button_flat_active;
       border-image: none;
       background-color: transparent;
-      color: $accent_color;
+      color: $orange_color;
       box-shadow: none;
     }
     &:checked {
       @extend %button_flat_checked;
       border-image: none;
       background-color: transparent;
-      color: $accent_color;
+      color: $orange_color;
       box-shadow: none;
     }
     &:disabled {
       @extend %button_flat_disabled;
-      background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
-      color: gtkopacity($inverted_secondary_fg_color, 0.4);
+      background-color: gtkopacity($dark_text80_color, 0.1);
+      color: gtkopacity($dark_text80_color, 0.4);
 
       label,
       image { color: inherit; }
@@ -1880,7 +1880,7 @@ window.background:not(.csd) > box.vertical > stack {
     min-height: 24px;
     min-width: 100px;
     padding: 3px 0px;
-    background-color: gtkopacity($inverted_fg_color, 0.2);
+    background-color: gtkopacity($dark_text_color, 0.2);
     color: $success_color;
     &:disabled { background-color: gtkopacity($success_color, 0.2); }
 
@@ -1893,14 +1893,14 @@ window.background:not(.csd) > box.vertical > stack {
 
   .trackname {
     font-size: 90%;
-    color: $inverted_secondary_fg_color;
+    color: $dark_text80_color;
     background-image: none;
     background-color: transparent;
   }
 
   .albumartist {
     font-size: 80%;
-    color: $insensitive_inverted_fg_color;
+    color: $insensitive_dark_text_color;
     background-image: none;
     background-color: transparent;
   }
@@ -1926,7 +1926,7 @@ window.background:not(.csd) > box.vertical > stack {
   border-width: 0;
   background-image: none;
   background-color: $base_color;
-  color: $fg_color;
+  color: $text_color;
   text-shadow: none;
 }
 
@@ -1936,7 +1936,7 @@ window.background:not(.csd) > box.vertical > stack {
   frame > border { border: 0 none transparent; }
 
   background-color: $panel_bg_color;
-  color: $inverted_fg_color;
+  color: $dark_text_color;
   font-weight: 700;
   text-shadow: none;
   -gtk-icon-shadow: none;
@@ -1951,13 +1951,13 @@ window.background:not(.csd) > box.vertical > stack {
     border-radius: 0;
     background-color: transparent;
     background-image: none;
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     font-weight: 700;
     transition: none;
     &:hover {
       background-color: transparent;
       background-image: none;
-      color: $selected_fg_color;
+      color: $white_color;
       box-shadow: inset 0 -2px $track_color;
       transition: none;
     }
@@ -1967,7 +1967,7 @@ window.background:not(.csd) > box.vertical > stack {
     &:disabled:checked { // 'checked' = 'active'
       background-color: transparent;
       background-image: none;
-      color: $selected_fg_color;
+      color: $white_color;
       box-shadow: inset 0 -2px $blue_color;
       transition: none;
       animation: none;
@@ -1983,14 +1983,14 @@ window.background:not(.csd) > box.vertical > stack {
 
 TopMenuAppMenuBar {
   background-color: $panel_bg_color; // do not use transparent
-  color: $inverted_fg_color;
+  color: $dark_text_color;
   box-shadow: none;
 
   > menuitem {
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     background-color: transparent;
     &:hover {
-      color: $selected_fg_color;
+      color: $white_color;
       box-shadow: inset 0 -2px $blue_color;
       transition: none;
     }
@@ -2048,7 +2048,7 @@ window > box.vertical > box.horizontal {
         font-size: 90%;
       }
 
-      > label { color: $insensitive_fg_color; }
+      > label { color: $insensitive_text_color; }
     }
   }
 
@@ -2062,7 +2062,7 @@ window > box.vertical > box.horizontal {
 
 window.background > box.vertical {
   > menubar { // force setting foreground colour
-    color: $inverted_secondary_fg_color;
+    color: $dark_text80_color;
   }
 
   > scrolledwindow widget > toolbar { // remove inline-shadows
@@ -2095,7 +2095,7 @@ window.background > box.vertical {
     margin-right: rem(2.7px);
   }
 
-  scale > value.bottom { color: $fg_color; } // use standard foreground-colour
+  scale > value.bottom { color: $text_color; } // use standard foreground-colour
 
   // stop using 'with-marks' sliders
   scale contents > trough > slider {
@@ -2156,16 +2156,16 @@ window.background > box.vertical {
 // FIXME: Gtk+3 firefox needs this!
 window.background:not(.csd):not(.solid-csd) {
   > widget > menubar {
-    color: $inverted_secondary_fg_color;
+    color: $dark_text80_color;
     &:hover {
       // underline-indicator doesn't work at all...
-      color: $inverted_fg_color;
+      color: $dark_text_color;
     }
-    &:disabled { color: $insensitive_inverted_fg_color; }
+    &:disabled { color: $insensitive_dark_text_color; }
   }
 
   > menu { // needs to override?
-    > menuitem > label:disabled { color: $insensitive_fg_color; }
+    > menuitem > label:disabled { color: $insensitive_text_color; }
   }
 
   // revert to standard separators
@@ -2224,17 +2224,17 @@ window.background {
   -gtk-outline-radius: 0;
   background-image: none;
   background-color: transparent;
-  color: $inverted_secondary_fg_color;
+  color: $dark_text80_color;
   font-weight: 700;
   &:hover {
     background-image: none;
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     box-shadow: inset 0 -2px $track_color;
   }
   &:active { animation: none; }
   &:checked {
     background-image: none;
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     box-shadow: inset 0 -2px $blue_color;
   }
 }
@@ -2297,7 +2297,7 @@ window.background {
 #PanelApplet,
 PanelToplevel.background {
   // Always use dark-color of dark variant
-  color: $inverted_secondary_fg_color;
+  color: $dark_text80_color;
   background-color: $panel_bg_color;
   box-shadow: none;
 }
@@ -2325,7 +2325,7 @@ PanelSeparator {
   // &.background,
   // vte-terminal {
   //   background-color: $inverted_dark_color;
-  //   color: $inverted_fg_color;
+  //   color: $dark_text_color;
   // }
 
   notebook > header.top { // show drop-shadows
@@ -2354,27 +2354,27 @@ PanelSeparator {
     }
 
     tab {
-      label { color: $inverted_tertiary_fg_color; }
+      label { color: $dark_text70_color; }
       &:hover label,
-      &:checked label { color: $inverted_fg_color; }
+      &:checked label { color: $dark_text_color; }
 
       button {
         &,
-        image { color: $inverted_tertiary_fg_color; }
+        image { color: $dark_text70_color; }
       }
 
       &:hover button,    // hover tab close button
       &:checked button { // active tab close button
         &,
-        image { color: $inverted_fg_color; }
+        image { color: $dark_text_color; }
       }
     }
 
     tabs > arrow {
-      color: $inverted_tertiary_fg_color;
+      color: $dark_text70_color;
       &:hover,
-      &:active { color: $inverted_fg_color; }
-      &:disabled { color: $insensitive_inverted_secondary_fg_color; }
+      &:active { color: $dark_text_color; }
+      &:disabled { color: $insensitive_dark_text80_color; }
     }
   }
 
@@ -2383,9 +2383,9 @@ PanelSeparator {
     // border: 1px none transparent;
 
     slider { // always use dark variant
-      background-color: gtkopacity($inverted_tertiary_fg_color, 0.55);
-      &:hover { background-color: gtkopacity($inverted_secondary_fg_color, 0.55); }
-      &:active { background-color: $inverted_fg_color; }
+      background-color: gtkopacity($dark_text70_color, 0.55);
+      &:hover { background-color: gtkopacity($dark_text80_color, 0.55); }
+      &:active { background-color: $dark_text_color; }
       &:disabled { opacity: 0.4; }
     }
   }
@@ -2404,7 +2404,7 @@ PanelSeparator {
       transition: none;
 
       &:selected { // FIXME: selection node doesn't work?
-        color: $selected_fg_color;
+        color: $white_color;
         background-color: $blue_color;
       }
     }
@@ -2430,7 +2430,7 @@ PanelSeparator {
         // font-weight: 500;
         &:selected {
           background-color: $blue_color;
-          color: $selected_fg_color;
+          color: $white_color;
         }
       }
     }
@@ -2544,7 +2544,7 @@ PanelSeparator {
       transition: none;
 
       &:selected { // FIXME: selection node doesn't work?
-        color: $selected_fg_color;
+        color: $white_color;
         background-color: $blue_color;
       }
     }
@@ -2623,22 +2623,22 @@ window#MyControlCenter > frame > box.horizontal {
     margin: 0 -10px; // hide weird lateral gaps
     padding: 0 rem(6.7px);
     background-color: $inverted_bg_color;
-    color: $inverted_fg_color;
+    color: $dark_text_color;
     box-shadow: $inline-shadow-dark;
   }
 
   // toolbar.horizontal { // when will devs implement symbolic-icons?
   //   background-color: $inverted_bg_color;
-  //   color: $inverted_secondary_fg_color;
+  //   color: $dark_text80_color;
   //   box-shadow: $toolbar-shadow-dark;
 
   //   button {
   //     background-color: transparent;
-  //     color: $inverted_secondary_fg_color;
+  //     color: $dark_text80_color;
   //     &:hover,
   //     &:active,
-  //     &:checked { color: $inverted_fg_color; }
-  //     &:disabled { color: $insensitive_inverted_fg_color; }
+  //     &:checked { color: $dark_text_color; }
+  //     &:disabled { color: $insensitive_dark_text_color; }
   //   }
   // }
 }
@@ -2700,7 +2700,7 @@ window#MyControlCenter > frame > box.horizontal {
       &:selected,
       &:active {
         background-color: $blue_color;
-        color: $selected_fg_color;
+        color: $white_color;
       }
     }
   }
@@ -2749,12 +2749,12 @@ MsdOsdWindow {
     box-shadow: none;
 
     // FIXME: seems images have inverted fore/back colours?
-    image { color: $inverted_fg_color; }
+    image { color: $dark_text_color; }
 
     .trough {
       border-radius: 0;
       border: none;
-      background-color: gtkopacity($inverted_fg_color, 0.2);
+      background-color: gtkopacity($dark_text_color, 0.2);
     }
 
     .progressbar {
@@ -2788,7 +2788,7 @@ MsdOsdWindow {
     &:checked { // revert to Gtk+ 2.x styling
       border-image: none;
       background-color: $blue_color;
-      color: $selected_fg_color;
+      color: $white_color;
     }
   }
 }
@@ -2869,17 +2869,17 @@ window.popup:not(.csd) {
 
     menuitem {
       background-color: $secondary_base_color;
-      color: mix($fg_color, $secondary_base_color, 75%);
+      color: mix($text_color, $secondary_base_color, 75%);
       &:hover {
-        background-color: mix($fg_color, $secondary_base_color, 10%);
-        color: $fg_color;
+        background-color: mix($text_color, $secondary_base_color, 10%);
+        color: $text_color;
       }
       &:disabled { // popup frame pulls this fg colours?
         background-color: $secondary_base_color;
-        color: mix($fixed_fg_color, $secondary_base_color, 30%);
+        color: mix($black_color, $secondary_base_color, 30%);
 
         label, // reset for generic non-composited Gtk+ apps
-        arrow { color: mix($fg_color, $secondary_base_color, 30%); }
+        arrow { color: mix($text_color, $secondary_base_color, 30%); }
       }
     }
   }
@@ -2917,13 +2917,13 @@ window.background:not(.csd):not(.ssd):not(.solid-csd) {
       > entry,
       > entry.default { // .default is added when focused only? crazy...
         // always use inverted colours
-        color: $inverted_secondary_fg_color;
-        caret-color: $inverted_secondary_fg_color;
+        color: $dark_text80_color;
+        caret-color: $dark_text80_color;
         &:focus {
-          color: $inverted_fg_color;
-          caret-color: $inverted_fg_color;
+          color: $dark_text_color;
+          caret-color: $dark_text_color;
         }
-        &:disabled { color: $insensitive_inverted_secondary_fg_color; }
+        &:disabled { color: $insensitive_dark_text80_color; }
       }
 
       // hide unneeded separator
@@ -2941,7 +2941,7 @@ window.background:not(.csd):not(.ssd):not(.solid-csd) > box.vertical {
   > widget widget,
   > box.vertical widget {
     &:selected { // selected-row?
-      color: $selected_fg_color;
+      color: $white_color;
       background-color: $blue_color;
     }
   }
@@ -2959,29 +2959,29 @@ window#wb_main_window {
 
       tabs {
         arrow {
-          color: $inverted_tertiary_fg_color;
+          color: $dark_text70_color;
           &:hover,
-          &:active { color: $inverted_fg_color; }
+          &:active { color: $dark_text_color; }
           &:disabled { color: transparent; }
         }
 
         tab {
           &,
           label,
-          button.flat { color: $inverted_tertiary_fg_color; }
+          button.flat { color: $dark_text70_color; }
 
           &:hover,
           &:checked {
             &,
             label,
-            button.flat { color: $inverted_fg_color; }
+            button.flat { color: $dark_text_color; }
 
-            > image { background-color: $inverted_fg_color; }
+            > image { background-color: $dark_text_color; }
           }
           &:disabled {
             &,
             label,
-            button.flat { color: $insensitive_inverted_fg_color; }
+            button.flat { color: $insensitive_dark_text_color; }
           }
 
           > image { // 'Home' icon
@@ -2989,7 +2989,7 @@ window#wb_main_window {
             min-width: $icon_size;
             padding: rem(4px, $sw: 1.0);
             border-radius: 2px;
-            background-color: $inverted_tertiary_fg_color;
+            background-color: $dark_text70_color;
           }
         }
       }
@@ -3007,13 +3007,13 @@ window#wb_main_window {
           > image {
             border-radius: 100px;
             background-color: $track_color;
-            color: $inverted_secondary_fg_color;
+            color: $dark_text80_color;
           }
 
           &:hover > image,
           &:checked > image {
             background-color: $track_color;
-            color: $inverted_fg_color;
+            color: $dark_text_color;
           }
         }
       }

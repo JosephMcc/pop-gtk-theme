@@ -16,7 +16,7 @@ $font-family: Noto Sans, Cantarell, Sans-Serif;
 
 stage {
   @include fontscaling($ref_size);
-  color: $fg_color;
+  color: $text_color;
   font-family: $font-family;
   font-weight: 400;
 }
@@ -74,10 +74,10 @@ stage {
   caret-size: 1px;
   border-radius: 0;
   border-width: 0;
-  color: $fg_color;
+  color: $text_color;
   transition: none;
   selection-background-color: $blue_color;
-  selected-color: $selected_fg_color;
+  selected-color: $white_color;
   &:focus,
   &:focus:hover { @include entry(focus); }
   &:hover { @include entry(hover); }
@@ -99,7 +99,7 @@ stage {
   caret-size: 1px;
   caret-color: $osd_fg_color;
   selection-background-color: $blue_color;
-  selected-color: $selected_fg_color;
+  selected-color: $white_color;
   &:hover { @include entry(hover); }
   &:focus { @include entry(focus); }
   &:insensitive { @include entry(insensitive); }
@@ -132,9 +132,9 @@ StScrollBar {
   StButton#vhandle, StButton#hhandle {
     margin: 0;
     border-radius: 0;
-    background-color: shellopacity($fg_color, 0.28);
-    &:hover { background-color: shellopacity($fg_color, 0.41); }
-    &:active { background-color: shellopacity($fg_color, 1); }
+    background-color: shellopacity($text_color, 0.28);
+    &:hover { background-color: shellopacity($text_color, 0.41); }
+    &:active { background-color: shellopacity($text_color, 1); }
   }
 }
 
@@ -168,7 +168,7 @@ StScrollBar {
   -slider-height: 2px;
    // background of the trough
   -slider-background-color: if($nokto == 'false',
-                               shellopacity($fg_color, 0.1),
+                               shellopacity($text_color, 0.1),
                                $fill_color);
   -slider-border-color: transparent; // trough border color
   -slider-active-background-color: $blue_color; // active trough fill
@@ -305,7 +305,7 @@ StScrollBar {
 .menu {
   padding: 0;
   background-color: $secondary_base_color;
-  color: $secondary_fg_color;
+  color: $text80_color;
 }
 
 .popup-menu,
@@ -314,7 +314,7 @@ StScrollBar {
   padding: 0;
   border-width: 3px; // same value as padding embedded in the pixmaps
   border-image: url("assets/menu/menu.svg") 9 9 9 9;
-  color: $secondary_fg_color;
+  color: $text80_color;
 
   &-arrow { icon-size: 16px; }
 
@@ -344,22 +344,22 @@ StScrollBar {
     padding: 0.4em 1.75em;
     spacing: 1em;
     border-width: 0 1px;
-    color: $secondary_fg_color;
+    color: $text80_color;
     &:active {
       border-image: url("assets/menu/menu-hover.svg") 9 9 0 0;
-      color: $fg_color;
+      color: $text_color;
       background-color: transparent;
     }
     &:insensitive {
-      color: shellopacity($fg_color, 0.5);
+      color: shellopacity($text_color, 0.5);
       background: none;
     }
   }
 
   // all icons and other graphical elements
   .popup-inactive-menu-item {
-    color: $secondary_fg_color;
-    &:insensitive { color: $insensitive_fg_color; }
+    color: $text80_color;
+    &:insensitive { color: $insensitive_text_color; }
   }
 
   &-icon { icon-size: 16px; }
@@ -507,7 +507,7 @@ $icon_size: 16px;
     border-width: 0;
     font-weight: 700;
     color: $osd_secondary_fg_color;
-    &:hover { color: $selected_fg_color; }
+    &:hover { color: $white_color; }
   }
 
   &-button {
@@ -518,7 +518,7 @@ $icon_size: 16px;
     transition-duration: 0.2s;
     &:hover,
     &:active {
-      color: $selected_fg_color;
+      color: $white_color;
       background-color: $hidden_fill_color;
     }
   }
@@ -718,7 +718,7 @@ $icon_size: 16px;
     @include fontscaling($ref_size * 0.8);
     margin: 8px 2px;
     padding: 0.2em 0 0; // adjust base-line
-    color: $fg_color;
+    color: $text_color;
     font-weight: 400;
   }
 
@@ -754,14 +754,14 @@ $icon_size: 16px;
   @include fontscaling($ref_size * 0.8);
   padding: 0.4em 1.75em;
   border-radius: 2px;
-  color: $fg_color;
+  color: $text_color;
   font-weight: 700;
   text-align: center;
 }
 
 .calendar-day {
   border-width: 0;
-  color: $fg_color;
+  color: $text_color;
 
   &-base {
     @include fontscaling($ref_size * 0.8);
@@ -810,14 +810,14 @@ $icon_size: 16px;
 }
 
 .calendar-nonwork-day {
-  color: $secondary_fg_color;
+  color: $text80_color;
   background-color: transparent;
 }
 
 .calendar {
   &-today {
     border-width: 0;
-    color: $selected_fg_color;
+    color: $white_color;
     background-color: $blue_color;
     font-weight: 700;
   }
@@ -844,7 +844,7 @@ $icon_size: 16px;
   .popup-menu & {
     &, &.multi-line-notification {
       border-image: url("assets/misc/message.svg") 9 9 9 9;
-      color: $fg_color;
+      color: $text_color;
     }
 
     .notification-button,
@@ -950,7 +950,7 @@ $icon_size: 16px;
   color: $osd_fg_color;
   &:highlighted {
     border-color: transparent;
-    color: $selected_fg_color;
+    color: $white_color;
   }
 }
 
@@ -1071,7 +1071,7 @@ $icon_size: 16px;
     border-radius: 0;
     color: $osd_fg_color;
     caret-color: $osd_fg_color;
-    selected-color: $selected_fg_color;
+    selected-color: $white_color;
     selection-background-color: $blue_color;
     &:focus { @include entry(osd-focus); }
   }
@@ -1131,7 +1131,7 @@ $icon_size: 16px;
 
   &-item {
     color: $osd_secondary_fg_color;
-    &:hover { color: $selected_fg_color; }
+    &:hover { color: $white_color; }
 
     &:ltr { padding-right: 1em; }
     &:rtl { padding-left: 1em; }
@@ -1254,7 +1254,7 @@ $icon_size: 16px;
   &-application-button {
     padding: 7px;
     border: 1px solid transparent;
-    color: $secondary_fg_color;
+    color: $text80_color;
 
     // This style is used in menu application buttons
     // for applications which were newly installed
@@ -1264,7 +1264,7 @@ $icon_size: 16px;
       @extend %button:hover;
       padding: 7px;
       border: 1px solid transparent;
-      color: $fg_color;
+      color: $text_color;
       &:highlighted { font-weight: 700; }
     }
 
@@ -1275,7 +1275,7 @@ $icon_size: 16px;
   &-category-button {
     padding: 7px;
     border: 1px solid transparent;
-    color: $secondary_fg_color;
+    color: $text80_color;
 
     &-selected {
       padding: 7px;
@@ -1289,13 +1289,13 @@ $icon_size: 16px;
       padding: 7px;
       border: 1px solid transparent;
       border-radius: 2px;
-      color: $fg_color;
+      color: $text_color;
     }
 
     &-greyed {
       padding: 7px;
       border: 1px solid transparent;
-      color: $insensitive_fg_color;
+      color: $insensitive_text_color;
     }
 
     &-label {
@@ -1309,7 +1309,7 @@ $icon_size: 16px;
   &-selected-app-box {
     height: 30px;
     padding: 0 30px;
-    color: $insensitive_fg_color;
+    color: $insensitive_text_color;
     text-align: right;
   }
 
@@ -1325,13 +1325,13 @@ $icon_size: 16px;
   @extend %entry;
   width: 24em;
   height: 1.2em;
-  caret-color: $fg_color;
+  caret-color: $text_color;
   font-weight: 500;
 }
 
 .menu-search-entry-icon {
   icon-size: 16px;
-  color: $fg_color;
+  color: $text_color;
 }
 
 // Context menu (at the moment only for favorites)
@@ -1568,7 +1568,7 @@ $icon_size: 16px;
     -slider-height: 2px;
      // background of the trough
     -slider-background-color: if($nokto == 'false',
-                                 shellopacity($fg_color, 0.1),
+                                 shellopacity($text_color, 0.1),
                                  $fill_color);
     -slider-border-color: transparent; // trough border color
     -slider-active-background-color: $blue_color; // active trough fill
@@ -1860,7 +1860,7 @@ $icon_size: 16px;
   &-label {
     @include fontscaling($ref_size * 1.0);
     margin: 0;
-    color: $fg_color;
+    color: $text_color;
     font-weight: 700;
   }
 }
@@ -1998,7 +1998,7 @@ $icon_size: 16px;
   caret-color: $osd_dim_fg_color;
   caret-size: 1px;
   selection-background-color: $blue_color;
-  selected-color: $selected_fg_color;
+  selected-color: $white_color;
   font-weight: 700;
   &:focus { @include entry(osd-focus); }
 
@@ -2032,7 +2032,7 @@ $icon_size: 16px;
   &-container { max-height: 100px; }
 }
 
-.flashspot { background-color: $selected_fg_color; }
+.flashspot { background-color: $white_color; }
 
 
 // /****************
