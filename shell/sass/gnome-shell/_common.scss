@@ -2483,7 +2483,7 @@ StScrollBar {
   min-height: if($eta == 'false', 4.5em, 3.6em);
   margin: 5px;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: shellopacity($osd_bg_color, 0.9);
   color: $osd_fg_color;
   box-shadow: $z-depth-2;
