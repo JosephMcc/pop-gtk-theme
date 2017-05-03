@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.1.1) zesty; urgency=medium
+
+  * Darken Terminal Background.
+
+ -- Ian Santopietro <ian@system76.com>  Wed, 03 May 2017 17:21:04 -0600
+
 system76-pop-gtk-theme (1.1.0) zesty; urgency=medium
 
   * Color names refactored throughout the whole theme
