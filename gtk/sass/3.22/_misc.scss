@@ -1800,6 +1800,7 @@ headerbar > box > box.linked {
 }
 
 popover {
+  transition: none;
   > list > row.activatable > box.horizontal {
     > label { // add lateral gaps
       &:dir(ltr) { margin-left: rem(8px); }
@@ -2089,7 +2090,7 @@ window > box.vertical > box.vertical > widget > grid.vertical {
 terminal-window {
   &.background,
   vte-terminal { // set the same background with decorations
-    background-color: gtkopacity($dark_base_color, 0.85);
+    background-color: gtkopacity($dark_neutral_gray, 0.85);
     color: $dark_text_color;
   }
 
