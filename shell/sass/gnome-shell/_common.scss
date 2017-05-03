@@ -2503,43 +2503,43 @@ StScrollBar {
 
   .secondary-icon { icon-size: 14px; }
 
-  * > StIcon { color: $inverted_secondary_orange_label_color; }
+  * > StIcon { color: $inverted_secondary_blue_label_color; }
 
   *:hover > StIcon,
   *:focus > StIcon {
-    color: $inverted_orange_label_color;
-    background-color: $orange_fill_color;
+    color: $inverted_blue_label_color;
+    background-color: $blue_fill_color;
   }
   *:active > StIcon {
-    color: $inverted_orange_label_color;
-    background-color: $orange_active_fill_color;
+    color: $inverted_blue_label_color;
+    background-color: $blue_active_fill_color;
   }
 
   .notification-actions {
     padding-top: 0;
     border: transparent;
     spacing: 1px;
-    color: $inverted_secondary_orange_label_color;
+    color: $inverted_secondary_blue_label_color;
     background-color: transparent;
   }
 
   .notification-button {
     padding: if($eta == 'false', 9px 4px 10px, 6px 3px 7px);
     background-color: transparent;
-    color: $inverted_secondary_orange_label_color;
+    color: $inverted_secondary_blue_label_color;
     font-weight: 700;
 
     &:first-child { border-radius: 0 0 0 2px; }
     &:last-child { border-radius: 0 0 2px 0; }
 
     &:hover {
-      color: $inverted_orange_label_color;
-      background-color: $orange_fill_color;
+      color: $inverted_blue_label_color;
+      background-color: $blue_fill_color;
     }
-    &:focus { color: $inverted_orange_label_color; }
+    &:focus { color: $inverted_blue_label_color; }
     &:active {
-      color: $inverted_orange_label_color;
-      background-color: $orange_active_fill_color;
+      color: $inverted_blue_label_color;
+      background-color: $blue_active_fill_color;
     }
   }
 }
@@ -2553,7 +2553,7 @@ StScrollBar {
   font-weight: 700;
   -shell-counter-overlap-x: 3px;
   -shell-counter-overlap-y: 3px;
-  background-color: $orange_color;
+  background-color: $blue_color;
   color: $white_color;
   box-shadow: $z-depth-2;
 }
@@ -2604,19 +2604,19 @@ StScrollBar {
 
   &-notification-item {
     padding: 2px 10px;
-    color: $inverted_secondary_orange_label_color;
+    color: $inverted_secondary_blue_label_color;
     font-weight: 700;
     &:hover {
-      color: $inverted_orange_label_color;
-      background-color: $orange_fill_color;
+      color: $inverted_blue_label_color;
+      background-color: $blue_fill_color;
     }
     &:active {
-      color: $inverted_orange_label_color;
-      background-color: $orange_active_fill_color;
+      color: $inverted_blue_label_color;
+      background-color: $blue_active_fill_color;
     }
     &:focus {
       // padding: 1px 71px 1px 11px;
-      color: $inverted_orange_label_color;
+      color: $inverted_blue_label_color;
     }
     &:insensitive { @include button(osd-insensitive); }
 
