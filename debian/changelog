@@ -1,3 +1,10 @@
+system76-pop-gtk-theme (1.1.0) zesty; urgency=medium
+
+  * Color names refactored throughout the whole theme
+  * Subtle changes in colors to warm up the theme 
+
+ -- Ian Santopietro <ian@system76.com>  Tue, 02 May 2017 21:19:58 -0600
+
 system76-pop-gtk-theme (1.0.10) zesty; urgency=medium
 
   * Fix backwards initial color definitions
