@@ -210,7 +210,8 @@ frame.content-view flowbox > flowboxchild.tile {
 label {
   caret-color: currentColor; // this shouldn't be needed.
 
-  &.separator { color: $text70_color; }
+  &.separator { color: $text70_color;
+  		transition: none; }
 
   &:selected,
   row:selected & { @extend %nobg_selected_items; }
@@ -692,6 +693,7 @@ button {
     border-color: transparent;
     background-color: transparent;
     color: transparent;
+    transition: none;
   }
 
   stackswitcher & { // do not shrink buton width
@@ -1378,6 +1380,7 @@ combobox {
   }
 
   > window.popup { // context-menu popup
+    decoration { transition: none; } // do not set transitions
     > menu {
       padding: rem(3.3px) 0;
       transition: none; // do not set transitions
@@ -3193,7 +3196,8 @@ popover.background {
 
   &.osd { @extend %osd; }
 
-  separator { margin: rem(3px) 0; }
+  separator { margin: rem(3px) 0;
+  	      transition: none; }
 }
 
 
