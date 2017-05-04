@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.2.0) zesty; urgency=medium
+
+  * Merge in upstream Adapta.
+
+ -- Ian Santopietro <ian@system76.com>  Thu, 04 May 2017 17:34:23 -0600
+
 system76-pop-gtk-theme (1.1.1) zesty; urgency=medium
 
   * Darken Terminal Background.
