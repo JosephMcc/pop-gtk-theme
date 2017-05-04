@@ -1246,7 +1246,7 @@ window.background {
         @each $s,$as in ('',''),
                         (':hover','-hover'),
                         (':active','-active'),
-                        (':disabled','-insensitive') {
+                        ( ':disabled','-insensitive') {
           &#{$s} {
             $_url: 'assets/equal#{$as}#{$asset_suffix}';
             @include button(normal#{$as});
@@ -1551,6 +1551,9 @@ frame.gb-search-frame {
 
   border { border: none; }
 }
+
+//don't have transitions on omnisearchrows to prevent flashing in dark variant
+list > omnisearchrow { transition: none; }
 
 .gb-search-entry-occurrences-tag {
   color: $insensitive_text_color;

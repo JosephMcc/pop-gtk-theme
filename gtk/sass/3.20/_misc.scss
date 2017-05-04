@@ -1053,7 +1053,7 @@ window.background {
         @each $s,$as in ('',''),
                         (':hover','-hover'),
                         (':active','-active'),
-                        (':disabled','-insensitive') {
+                        ( ':disabled','-insensitive') {
           &#{$s} {
             $_url: 'assets/equal#{$as}#{$asset_suffix}';
             @include button(normal#{$as});
@@ -1363,6 +1363,9 @@ frame.gb-search-frame {
   border-bottom-width: 1px;
   border-radius: 0;
 }
+
+//don't have transitions on omnisearchrows to prevent flashing in dark variant
+list > omnisearchrow { transition: none; }
 
 frame.gb-search-frame border { border: none; }
 
