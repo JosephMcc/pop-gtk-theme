@@ -585,7 +585,7 @@ MathWindow {
         @each $s,$as in ('',''),
                         (':hover','-hover'),
                         (':active','-active'),
-                        (':insensitive','-insensitive') {
+                        ( ':insensitive','-insensitive') {
           &#{$s} {
             $_url: 'assets/equal#{$as}#{$asset_suffix}';
             @include button(normal#{$as});

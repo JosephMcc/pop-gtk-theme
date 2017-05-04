@@ -168,6 +168,7 @@ sudo apt install system76-pop-gtk-theme
  --disable-unity         disable unity support (type: bool)
  --disable-xfce          disable xfce support (type: bool)
  --disable-mate          disable mate support (type: bool)
+ --disable-openbox       disable openbox support (type: bool)
  ```
 
  > **Note:**

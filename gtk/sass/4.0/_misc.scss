@@ -77,7 +77,7 @@ wnck-pager {
 
 na-tray-applet {
   -NaTrayApplet-icon-padding: 0 2px;
-  -NaTrayApplet-icon-size: 16px;
+  -NaTrayApplet-icon-size: 24px;
 }
 
 gp-arrow-button {
@@ -965,15 +965,19 @@ window.background box.vertical > paned.horizontal > box.vertical {
 
 // FIXME: can not override Polari 3.20.2
 // style in 10 years ago...
-.sidebar {
-  row.activatable.inactive {
-    color: $text80_color;
-    background-color: transparent;
-    font-weight: 500;
-    &:hover { color: $text_color; }
-    &:selected {
-      color: $white_color;
-      background-color: $blue_color;
+.polari-room-list list.sidebar {
+  > row.activatable {
+    &, &.inactive {
+      &, &:backdrop {
+        color: $text80_color;
+        background-color: transparent;
+        font-weight: 500;
+        &:hover { color: $text_color; }
+        &:selected {
+          color: $white_color;
+          background-color: $blue_color;
+        }
+      }
     }
   }
 }
@@ -1246,7 +1250,7 @@ window.background {
         @each $s,$as in ('',''),
                         (':hover','-hover'),
                         (':active','-active'),
-                        (':disabled','-insensitive') {
+                        ( ':disabled','-insensitive') {
           &#{$s} {
             $_url: 'assets/equal#{$as}#{$asset_suffix}';
             @include button(normal#{$as});
@@ -1844,24 +1848,12 @@ greeter > box.vertical > stack > box.vertical > stack {
     // FIXME: swapped left/right?
     box-shadow: if($variant == 'light', $sub-header-shadow-light-rtl,
                                         $sub-header-shadow-dark-rtl);
-
-    .tiled &  {
-      @extend %tiled_integration;
-      box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                          $tiled-header-shadow-dark-rtl);
-    }
   }
   &:dir(rtl) {
     border-left-width: 0;
     border-left-style: none;
     box-shadow: if($variant == 'light', $sub-header-shadow-light-ltr,
                                         $sub-header-shadow-dark-ltr);
-
-    .tiled &  {
-      @extend %tiled_integration;
-      box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                          $tiled-header-shadow-dark-ltr);
-    }
   }
 
   &.selection-mode {
@@ -1870,24 +1862,12 @@ greeter > box.vertical > stack > box.vertical > stack {
       border-right-style: none;
       box-shadow: if($variant == 'light', $selected-header-shadow-light-rtl,
                                           $selected-header-shadow-dark-rtl);
-
-      .tiled &  {
-        @extend %tiled_integration;
-        box-shadow: if($variant == 'light', $tiled-header-shadow-light-rtl,
-                                            $tiled-header-shadow-dark-rtl);
-      }
     }
     &:dir(rtl) {
       border-left-width: 0;
       border-left-style: none;
       box-shadow: if($variant == 'light', $selected-header-shadow-light-ltr,
                                           $selected-header-shadow-dark-ltr);
-
-      .tiled &  {
-        @extend %tiled_integration;
-        box-shadow: if($variant == 'light', $tiled-header-shadow-light-ltr,
-                                            $tiled-header-shadow-dark-ltr);
-      }
     }
   }
 }
@@ -2110,7 +2090,12 @@ window > box.vertical > box.vertical > widget > grid.vertical {
 //  ******************/
 
 terminal-window {
-  &.background,
+  // FIXME: In XWayland mode, downstream 'transparency' patch causes
+  // solid outer margin artifact when users keep enabling transparent
+  // background.
+  &.csd.background { background-color: transparent; }
+
+  &.background:not(.csd),
   vte-terminal { // set the same background with decorations
     background-color: $inverted_dark_color;
     color: $dark_text_color;
@@ -2491,7 +2476,7 @@ window.background > grid.horizontal.titlebar {
   // search-bar revealer
   searchbar {
     background-color: $inverted_dark_color;
-    box-shadow: $menubar-shadow;
+    box-shadow: $toolbar-shadow-dark;
   }
 }
 
