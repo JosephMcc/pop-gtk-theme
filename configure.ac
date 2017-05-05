@@ -1,6 +1,6 @@
 m4_define([pop_major_version], [1])
-m4_define([pop_minor_version], [2])
-m4_define([pop_micro_version], [0])
+m4_define([pop_minor_version], [1])
+m4_define([pop_micro_version], [1])
 m4_define([pop_version], [pop_major_version.pop_minor_version.pop_micro_version])
 m4_define([pop_git_url], [https://github.com/system76/pop-gtk-theme])
 

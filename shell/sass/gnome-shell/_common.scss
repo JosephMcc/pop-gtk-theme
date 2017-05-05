@@ -127,8 +127,8 @@ StScrollBar {
   padding: 0;
 
   StScrollView & {
-    min-width: if($eta == 'false', 0.45em, 0.3em);
-    min-height: if($eta == 'false', 0.45em, 0.3em);
+    min-width: if($eta == 'false', 6px, 4px);
+    min-height: if($eta == 'false', 6px, 4px);
   }
 
   StBin#trough {
@@ -724,7 +724,7 @@ StScrollBar {
   -arrow-box-shadow: $empty_shadow; // dreaming. bug #689995
   margin: 0.1em 0.3em 0.5em;
   border-radius: 2px;
-  border-top: 1px solid $menu_highlight;
+  border-top: 1px solid $base_color;
   background-color: $secondary_base_color;
   box-shadow: $z-depth-3;
 }
@@ -2055,6 +2055,7 @@ StScrollBar {
 }
 
 .dash-item-container {
+  margin: 2px;
   background: transparent;
 
   > StWidget { padding: 0; }
@@ -2109,16 +2110,17 @@ StScrollBar {
     &-running-dot { background: transparent; }
 
     .overview-icon {
-      padding: 9px;
+      padding: 9px - 2px; // remove margin of parent StWidget
       background-size: contain;
     }
   }
 
   .show-apps .overview-icon {
-    padding: 9px;
+    padding: 9px - 2px; // remove margin of parent StWidget
   }
 
   .dash-item-container { // actual parent container
+    margin: 2px;
     background: transparent;
 
     > StWidget { background-size: contain; }
@@ -2342,7 +2344,8 @@ StScrollBar {
   &-bin {
     padding: 5px;
     border-radius: 2px;
-    border-top: 1px solid $menu_highlight;
+    border-top: 1px solid if($nokto == 'false', $borders_highlight,
+                                                $base_color);
     background-color: if($nokto == 'false', $inverted_bg_color,
                                             $bg_color);
     box-shadow: $z-depth-1;

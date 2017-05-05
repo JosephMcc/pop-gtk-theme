@@ -50,7 +50,7 @@ fi
 # Generate CSSs #
 #################
 
-SASSC="`command -v sassc` -M -t compact"
+SASSC="`command -v sassc` -t compact"
 
 case "$1" in
     -a)

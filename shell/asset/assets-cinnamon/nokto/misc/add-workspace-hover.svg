@@ -13,7 +13,7 @@
    height="200"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.1 r15371"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="add-workspace-hover.svg">
   <defs
      id="defs4">
@@ -39,15 +39,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="8"
-     inkscape:cx="17.469019"
-     inkscape:cy="93.929781"
+     inkscape:cx="-15.718481"
+     inkscape:cy="23.929781"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="710"
+     inkscape:window-width="1280"
+     inkscape:window-height="734"
      inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="false"
      inkscape:guide-bbox="true"
@@ -65,13 +65,11 @@
     <sodipodi:guide
        orientation="0,1"
        position="20,100"
-       id="guide3893"
-       inkscape:locked="false" />
+       id="guide3893" />
     <sodipodi:guide
        orientation="1,0"
        position="18,190"
-       id="guide3895"
-       inkscape:locked="false" />
+       id="guide3895" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -81,7 +79,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
       </cc:Work>

@@ -13,7 +13,7 @@
    height="120"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.1 r15371"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="trash-icon.svg">
   <defs
      id="defs4">
@@ -39,15 +39,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.56"
-     inkscape:cx="104.21789"
+     inkscape:cx="172.38195"
      inkscape:cy="49.159692"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="710"
+     inkscape:window-width="1280"
+     inkscape:window-height="734"
      inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -65,8 +65,7 @@
     <sodipodi:guide
        orientation="1,0"
        position="200,105"
-       id="guide3920"
-       inkscape:locked="false" />
+       id="guide3920" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -76,7 +75,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
       </cc:Work>

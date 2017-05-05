@@ -119,8 +119,8 @@ StScrollBar {
   padding: 0;
 
   StScrollView & {
-    min-width: 0.45em;
-    min-height: 0.45em;
+    min-width: 6px;
+    min-height: 6px;
   }
 
   StBin#trough {
@@ -590,10 +590,6 @@ $icon_size: 16px;
   spacing: 0;
   padding-left: 0;
   padding-right: 0;
-
-  &.warning { color: $warning_color; }
-
-  &.error { color: $error_color; }
 }
 
 
@@ -1223,6 +1219,7 @@ $icon_size: 16px;
 
 .menu {
   &-favorites-box {
+    margin: auto;
     padding: 7px;
     border-radius: 2px;
     border: 1px solid transparent;
@@ -1241,6 +1238,7 @@ $icon_size: 16px;
 
   &-places {
     &-box {
+      margin: auto;
       padding: 7px;
       border: 0 solid transparent;
     }
@@ -1370,17 +1368,12 @@ $icon_size: 16px;
 
   .osd-monitor-label { @include fontscaling($ref_size * 3.0); }
 
-  .level { // for legacy
+  .level {
     height: 3px;
     padding: 0;
     border-radius: 0;
     background-color: $osd_semi_fill_color;
     color: $success_color;
-  }
-
-  .level-bar {
-    border-radius: 0;
-    background-color: $success_color;
   }
 }
 
@@ -1838,7 +1831,7 @@ $icon_size: 16px;
   }
 
   &-icon {
-    icon-size: 16px;
+    icon-size: 22px;
     color: $osd_secondary_fg_color;
 
     &:hover,
@@ -2065,12 +2058,5 @@ $icon_size: 16px;
   border: none;;
   border-radius: 0;
   background-color: transparent;
-}
-
-// /******************
-//  * Systray Applet *
-//  ******************/
-.systray {
-  spacing: 2px;
 }
 

@@ -2998,6 +2998,30 @@ window#wb_main_window {
     > stack > box.vertical > menubar { margin: 0 -1px; } // hide weird gap
   }
 
+  &.tiled {
+    notebook#model_tabs {
+      > header.top {
+        background-color: $panel_bg_color;
+
+        button.flat#wbtab-close-button { // for pitch black icon
+          > image {
+            border-radius: 100px;
+            background-color: $track_color;
+            color: $dark_text80_color;
+          }
+
+          &:hover > image,
+          &:checked > image {
+            background-color: $track_color;
+            color: $dark_text_color;
+          }
+        }
+      }
+
+      > stack > box.vertical > menubar { box-shadow: none; }
+    }
+  }
+
   box#dbquery,
   box#db.query.QueryBuffer,
   paned.vertical > box.horizontal > box.vertical > box.horizontal,

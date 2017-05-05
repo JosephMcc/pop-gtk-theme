@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Pop Theme",
-  "version": "1.1",
+  "version": "1",
   "description": "",
   "theme": {
     "images": {
