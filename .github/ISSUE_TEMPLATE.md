@@ -6,7 +6,7 @@
  * Desktop environment - 
  ```
 
-**Pop version (if you knew)**
+**Adapta version (if you knew)**
 
 
 
@@ -18,15 +18,11 @@
 
 
 
-**Steps to reproduce (if possible please provide screenshots/video)**
+**Steps to reproduce (if you knew)**
 
 
 
-**Expected behavior**
-
-
-
-**Behavior of the widget in Adwaita (if possible please provide screenshots/video)**
+**Expected behaviour**
 
 
 
