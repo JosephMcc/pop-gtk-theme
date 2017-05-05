@@ -176,9 +176,6 @@ box.horizontal.pinned { // drop-target
 }
 
 .budgie-panel .end-region {
-  // dim symbolic icons to get better uniformity same as NaTray icons
-  * > image { opacity: 0.9; }
-
   // tweak lateral spacing when 16px icons are used
   > widget > widget {
     > box.horizontal { // 'Stats Indicator'
@@ -489,8 +486,8 @@ box.horizontal.pinned { // drop-target
                         $dark_base_color,
                         mix($dark_base_color, $secondary_dark_color, 50%)) 50%,
                       if($variant == 'light',
-                        gtkalpha($top_edge_border_color, 0.01),
-                        gtkalpha($solid_dark_borders_color, 0.4)) calc(50% + 1px),
+                        gtkalpha($top_edge_borders_color, 0.005),
+                        gtkalpha($solid_dark_borders_color, 0.02)) calc(50% + 1px),
                       transparent 1px,
                       transparent);
     box-shadow: none;
@@ -580,22 +577,28 @@ box.horizontal.pinned { // drop-target
       min-width: $widget_size - if($ref_weight < 1.0, 2.7px, 0);
       min-height: $widget_size - if($ref_weight < 1.0, 10.7px, 5.3px);
       padding: 0;
-      color: $white80_color;
       background-color: $suggested_color;
-      &:hover { color: $white_color; }
+      &:hover {
+        &, label { color: $white_color; }
+      }
       &:active {
-        color: $white_color;
         background-color: $blue_color;
+
+        &, label { color: $white_color; }
       }
       &:checked {
-        color: $white80_color;
         background-color: mix($white_color, $suggested_color, 20%);
+
+        &, label { color: $white80_color; }
       }
       &:disabled {
         @include button(flat-insensitive, $track_color, $insensitive_text_color);
       }
 
-      label { padding-bottom: rem(1.3px); }
+      label {
+        padding-bottom: rem(1.3px);
+        color: $white80_color;
+      }
     }
 
     button.flat.expander-button { // expander arrow buttons
@@ -713,7 +716,10 @@ box.horizontal.pinned { // drop-target
 
 // places-indicator styling
 popover.places-menu {
-  padding: 0;
+  &.background {
+    padding: 2px 0 0; // remove side/bottom padding
+    border-style: solid none none; // remove side/bottom borders
+  }
 
   .places-section-header {
     padding: rem(4px);
@@ -766,7 +772,7 @@ popover.places-menu {
       &:active {
         color: $text_color;
 
-        .name-button { // = 'toolbutton > button'
+        button.text-button.name-button { // = 'toolbutton > button'
           &,
           &:hover,
           &:active {
@@ -780,11 +786,6 @@ popover.places-menu {
         }
       }
 
-      .unmount-button {
-        margin: rem(1.3px) rem(5.3px);
-        padding: rem(4px);
-      }
-
       button.image-button { // revive button transitions
         &:not(:active) {
           transition: opacity 0.2s $slope_medium,
@@ -793,6 +794,20 @@ popover.places-menu {
                       background-image 0.2s $slope_slow,
                       box-shadow 0.2s $slope_slow;
         }
+      }
+
+      button.text-button.name-button {
+        > box.horizontal { // adjust spacing
+          > image,
+          > spinner { margin: rem(5.3px) 0; }
+
+          > label { padding-bottom: rem(1.3px, $sw: 1.0); }
+        }
+      }
+
+      button.unmount-button {
+        margin: rem(1.3px) rem(5.3px);
+        padding: rem(4px);
       }
     }
 
@@ -923,6 +938,63 @@ wnck-pager {
     &:checked { color: $inverted_orange_label_color; }
     &:disabled { color: gtkopacity($inverted_orange_label_color, 0.4); }
   }
+}
+
+// alt-tab apps switcher styling
+$min_child_width: 60px;
+$min_spacing: 6px;
+$max_childs: 8;
+
+window.budgie-switcher-window {
+  border-radius: 2px;
+  background-color: transparent;
+
+  // draw actual backgrounds and shadows
+  .drop-shadow {
+    margin: 8px 8px 12px; // reserve area for shadows
+    border-radius: 2px;
+    background-color: gtkopacity($inverted_dark_color, 0.9);
+    box-shadow: $z-depth-4; // raise to level-4
+
+    label.budgie-switcher-title { // bottom label for app titles
+      // default max_children_per_line = 8
+      // keep the minimum width defined by tabswitcher.ui
+      min-width: ($min_child_width + $min_spacing) * $max_childs
+                 + $min_spacing * ($max_childs - 1);
+      color: $inverted_orange_label_color;
+      font-weight: 500;
+      &:dir(ltr) { padding: 0 0 3px 6px; }
+      &:dir(rtl) { padding: 0 6px 3px 0; }
+    }
+  }
+
+  flowbox > flowboxchild { // icon-tiles
+    margin: $min_spacing / 2;
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    color: $inverted_orange90_label_color;
+    background-color: transparent;
+    &:hover,
+    &:active {
+      background-color: gtkopacity($orange_color, 0.1);
+      color: $inverted_orange_label_color;
+    }
+    &:selected { // use the same values with Gnome-Shell
+      background-color: gtkopacity($orange_color, 0.25);
+      color: $inverted_orange_label_color;
+      -gtk-icon-effect: highlight;
+      &:disabled {
+        background-color: gtkopacity($dark_text_color, 0.1);
+        -gtk-icon-effect: dim;
+
+        &, label { color: $insensitive_dark_text_color; }
+      }
+    }
+  }
+}
+
+// an internal of the parent switcher-window
+.budgie-switcher {
 }
 
 // run-dialog styling
@@ -1691,6 +1763,13 @@ window.background > grid.vertical > stack > paned.horizontal {
         border-radius: 2px;
         -gtk-outline-radius: 2px;
       }
+    }
+  }
+
+  .trackrow {
+    &, &playing {
+      // lollypop can not understand outer marigns
+      button.image-button { margin: 0; }
     }
   }
 
@@ -2639,13 +2718,25 @@ MsdOsdWindow {
 //  * Libre-Office *
 //  ****************/
 
-// for 'Notebookbar' toolbar
-window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
-  > notebook {
-    border-top: 1px solid $borders_color;
+window.background:not(.csd):not(.solid-csd) {
+  // reserved area at the most-right side of GtkMenuBar
+  > grid.horizontal > grid.horizontal {
+    background-color: $inverted_dark_color;
+
+    > button.flat.small-button { // 'close' button
+      color: $dark_text80_color;
+      &:hover,
+      &:active,
+      &:checked { color: $dark_text_color; }
+      &:disabled { color: $insensitive_dark_text_color; }
+    }
+  }
+
+  // for 'Notebookbar' toolbar
+  > notebook:not(.frame) {
+    border: 0 none transparent; // unset borders
     background-color: $bg_color;
 
-    &.frame,
     > stack {
       border: none;
       background-color: $bg_color;
@@ -2653,11 +2744,34 @@ window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
     }
 
     > header.top {
+      border: 0 none transparent; // unset borders
       background-color: $bg_color;
-      box-shadow: none;
+      box-shadow: $toolbar-shadow-light,
+                  inset 0 -1px $borders_color;
+      @if $variant = 'dark' {
+        box-shadow: $toolbar-shadow-dark,
+                    inset 0 -1px $borders_color;
+      }
 
       tabs {
-        &, > tab { background-color: $bg_color; }
+        &, > tab {
+          background-color: transparent;
+
+          &, // FIXME: this does not work
+          label,
+          image { color: $text70_color; }
+
+          &:checked {
+            &,
+            label,
+            image { color: $text_color; }
+          }
+          &:not(:checked) {
+            &,
+            label,
+            image { color: $text70_color; }
+          }
+        }
       }
     }
   }
@@ -2897,30 +3011,6 @@ window#wb_main_window {
     > stack > box.vertical > menubar { margin: 0 -1px; } // hide weird gap
   }
 
-  &.tiled {
-    notebook#model_tabs {
-      > header.top {
-        background-color: $panel_bg_color;
-
-        button.flat#wbtab-close-button { // for pitch black icon
-          > image {
-            border-radius: 100px;
-            background-color: $track_color;
-            color: $dark_text80_color;
-          }
-
-          &:hover > image,
-          &:checked > image {
-            background-color: $track_color;
-            color: $dark_text_color;
-          }
-        }
-      }
-
-      > stack > box.vertical > menubar { box-shadow: none; }
-    }
-  }
-
   box#dbquery,
   box#db.query.QueryBuffer,
   paned.vertical > box.horizontal > box.vertical > box.horizontal,
@@ -2961,15 +3051,25 @@ window#wb_main_window {
 //  * Chrome(ium) *
 //  ***************/
 
-// ver.59.x or higher
-window.background:not(.csd):not(.solid-csd):not(.default-decoration) {
-  > toolbar:not(.primary-toolbar) {
-    > entry {
-      &, &:focus { // overrides standard borders
-        border-image: none;
-        border: 1px solid $borders_color;
-      }
+window.background:not(.csd):not(.solid-csd) {
+  > toolbar:not(.primary-toolbar) > entry, // ver.59.0.3053 or lower
+  > entry { // ver.59.0.3067 or higher
+    &, &:focus { // overrides standard borders
+      border-image: none;
+      border: 1px solid $borders_color;
     }
+  }
+
+  // internal region of toolbar's entry widget
+  > textview.view { background-color: $light_base_color; }
+
+  // ver.59.0.3067 or higher
+  // override default @theme_bg_color in their own tooltip widgets
+  > tooltip:not(.background):not(.csd) {
+    border-radius: 0; // roundness does not work
+    // RGBA does not work, use solid colours instead
+    background-color: $inverted_dark_color;
+    color: $dark_text_color;
   }
 }
 
