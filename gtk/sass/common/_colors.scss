@@ -88,19 +88,19 @@ $light_orange: mix($orange, $white, 50%);
 
 $bg_color:              if($variant == 'light',
                             mix($almost_white,  $white,     50%), // = W _ 50
-                            mix($black, $dark_neutral_gray, 50%));// = 700 _ 800
+                            mix($black, $dark_neutral_gray, 10%));// = 700 _ 800
 $base_color:            if($variant == 'light', $almost_white,    // = White
-                                               $black);           // = BluGry700
+                            mix($black, $dark_neutral_gray, 40%));// = BluGry700
 $secondary_base_color:  mix($base_color, $bg_color, 50%);         // = W _ 50
 $light_base_color:      if($variant == 'light',
                             mix($base_color, $white, 75%),        // = White
-                            mix($base_color, $black, 75%));       // = BluGry600
+                            mix($base_color, $literally_black, 90%));
 $dark_base_color:       if($variant == 'light',
                             mix($light_orange, $almost_white, 3%),// =  50 _ 100
-                            mix($black, $dark_neutral_gray, 70%));// = 900 _ 800
+                            mix($black, $dark_neutral_gray, 60%));// = 900 _ 800
 $secondary_dark_color:  if($variant == 'light',
                             mix($light_orange,  $almost_white, 3%),// = W _ 50
-                            mix($black, $dark_neutral_gray, 70%)); // = 700 _ 800
+                            mix($black, $dark_neutral_gray, 60%)); // = 700 _ 800
 
 
 //

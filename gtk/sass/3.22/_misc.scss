@@ -2774,6 +2774,19 @@ dialog.background {
   }
 }
 
+//Correct colors of items in the Calendar View
+calendar-view.start-header {
+  color: $orange_color;
+}
+
+calendar-view > scrolledwindow > viewport > widget {
+  color: $orange_color;
+}
+
+calendar-view > box > label.start-header {
+  color: $orange_color;
+}
+
 
 // /*****************
 //  * Gnome-Recipes *
