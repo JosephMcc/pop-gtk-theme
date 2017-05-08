@@ -376,14 +376,14 @@ entry {
   .background & {
     @include entry(normal);
     border-radius: 3px;
-    background-color: gtkopacity(#F6F6F6, 0.12);
+    background-color: gtkopacity(#F6F6F6, 0.18);
     &:focus {
       @include entry(focus);
-      background-color: gtkopacity(#F6F6F6, 0.12);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: gtkopacity(#F6F6F6, 0.12);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
 
     selection {
@@ -394,14 +394,14 @@ entry {
   .background &.flat {
     @include entry(flat-normal);
     border-radius: 3px;
-    background-color: gtkopacity(#F6F6F6, 0.12);
+    background-color: gtkopacity(#F6F6F6, 0.18);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity(#F6F6F6, 0.12);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity(#F6F6F6, 0.12);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
   }
 
@@ -431,14 +431,14 @@ entry {
     @include entry(flat-normal);
     border-radius: 3px;
     -gtk-outline-radius: 3px;
-    background-color: gtkopacity(#F6F6F6, 0.12);
+    background-color: gtkopacity(#F6F6F6, 0.18);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity(#F6F6F6, 0.12);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity(#F6F6F6, 0.12);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
   }
 
@@ -1414,14 +1414,14 @@ combobox {
   .background & entry.combo {
     @include entry(normal);
     border-radius: 3px;
-    background-color: gtkopacity(#F6F6F6, 0.12);
+    background-color: gtkopacity(#F6F6F6, 0.18);
     &:focus {
       @include entry(focus);
-      background-color: gtkopacity(#F6F6F6, 0.12);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: gtkopacity(#F6F6F6, 0.12);
+      background-color: gtkopacity(#F6F6F6, 0.18);
     }
 
     selection {
@@ -4519,7 +4519,7 @@ progressbar {
   padding: 0;
   border: none;
   border-radius: 0;
-  background-color: gtkopacity($blue_color, .5);
+  background-color: gtkopacity($blue_color, 0.2);
   background-image: none;
 }
 
