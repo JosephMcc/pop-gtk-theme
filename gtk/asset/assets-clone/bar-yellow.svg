@@ -14,7 +14,7 @@
    viewBox="0 0 128 128"
    id="svg4614"
    version="1.1"
-   inkscape:version="0.92.1 r15371"
+   inkscape:version="0.92+devel unknown"
    sodipodi:docname="bar-yellow.svg">
   <defs
      id="defs4616" />
@@ -37,7 +37,8 @@
      inkscape:window-height="1016"
      inkscape:window-x="960"
      inkscape:window-y="30"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="0"
+     inkscape:document-rotation="0" />
   <metadata
      id="metadata4619">
     <rdf:RDF>
@@ -73,7 +74,7 @@
      id="layer1"
      transform="translate(0,-924.3622)">
     <rect
-       style="fill:#ffce51;fill-opacity:1;stroke:none"
+       style="fill:#faa41a;fill-opacity:1;stroke:none"
        id="use4517-2-4-9-5"
        width="128"
        height="16"
