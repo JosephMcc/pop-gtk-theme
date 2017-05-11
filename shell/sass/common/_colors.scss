@@ -3,6 +3,29 @@
 // it gets @if ed depending on $variant
 //
 
+//
+// A Color palette
+//
+// Pop uses the System76 palette
+
+$almost_white:      #f2f2f2;
+$warm_gray:         #574f4a;
+$dark_gray:         #574e4a;
+$dark_neutral_gray: #333;
+$light_gray:        #999;
+$literally_black:   #000;
+$medium_gray:       #888;
+$white:             #fff;
+
+
+// Brand Colors
+$orange: #faa41a; // Pantone 137c  #eaa124
+$blue:   #48b9c7; // Pantone 7709c #62b5bb
+$yellow: #ffce51; // Pantone 1225c #f2c150
+$red:    #f15d22; // Pantone 1665c #df6426
+$green:  #73c48f; // Confirmation/success
+
+$black: $key_background_color;
 
 @function shellopacity($c, $a) {
   @return scale-color($c, $alpha: percentage(-1 + $a));
@@ -15,7 +38,7 @@
 // Foreground colors
 //
 
-$text_color: if($nokto == 'false', #574F4A, #F6F6F6);
+$text_color: if($nokto == 'false', $black, $almost_white);
 $text80_color: shellopacity($text_color, 0.75);
 
 $dim_fg_color: shellopacity($text_color, 0.4);
@@ -30,7 +53,7 @@ $insensitive_text80_color: shellopacity($text80_color, 0.4);
 // Inverted foreground colors
 //
 
-$dark_text_color: if($nokto == 'false', #F6F6F6, #574F4A);
+$dark_text_color: if($nokto == 'false', $almost_white, $black);
 $dark_text80_color: shellopacity($dark_text_color, 0.75);
 $inverted_dim_fg_color: shellopacity($dark_text_color, 0.4);
 
@@ -39,18 +62,19 @@ $inverted_dim_fg_color: shellopacity($dark_text_color, 0.4);
 // Background colors
 //
 
-$bg_color: if($nokto == 'false', #FAFBFC, #333333);
-$base_color: if($nokto == 'false', #F6F6F6, #445A64);
-$secondary_base_color: if($nokto == 'false', #FDFDFE, #42565F);
-$secondary_dark_color: if($nokto == 'false', #F6F6F6, #888888);
+$bg_color: if($nokto == 'false', $almost_white, $dark_neutral_gray);
+$base_color: if($nokto == 'false', $almost_white, $black);
+$secondary_base_color: if($nokto == 'false', lighten($almost_white, 0.1),
+                                             lighten($black, 0.1));
+$secondary_dark_color: if($nokto == 'false', $almost_white, $medium_gray);
 
 $fill_color: shellopacity($text_color, 0.15);
 $semi_fill_color: shellopacity($text_color, 0.07);
 $hidden_fill_color: rgba(0, 0, 0, 0.01);
 
-$panel_bg_color: mix(#574F4A, #000000, 50%);
-$panel_hidden_fill_color: rgba(19, 25, 28, 0.01);
-$panel_fill_color: rgba(19, 25, 28, 1.0);
+$panel_bg_color: mix($black, $literally_black, 50%);
+$panel_hidden_fill_color: rgba(22, 22, 22, 0.01);
+$panel_fill_color: rgba(22, 22, 22, 1.0);
 
 $blue_color: $key_selection_color;
 
@@ -78,8 +102,8 @@ $insensitive_fill_color: shellopacity($fill_color, 0.4);
 // Inverted background colors
 //
 
-$inverted_bg_color: if($nokto == 'false', #333333, #FAFBFC);
-$inverted_base_color: #574f4a;
+$inverted_bg_color: if($nokto == 'false', $dark_neutral_gray, $almost_white);
+$inverted_base_color: $black;
 $inverted_dim_bg_color: shellopacity($inverted_bg_color, 0.2);
 
 
@@ -109,19 +133,19 @@ $inverted_secondary_orange_label_color:
 // Misc colors
 //
 
-$borders_color: if($nokto == 'false', shellopacity(#000000, 0.09),
-                                      shellopacity(#000000, 0.11));
-$borders_edge: shellopacity(#000000, 0.05);
+$borders_color: if($nokto == 'false', shellopacity($literally_black, 0.09),
+                                      shellopacity($literally_black, 0.11));
+$borders_edge: shellopacity($literally_black, 0.05);
 $top_hilight: $borders_edge;
-$borders_highlight: shellopacity(#F6F6F6, 0.07);
+$borders_highlight: shellopacity($almost_white, 0.07);
 $insensitive_borders_color: $borders_color;
 
-$link_color: #03A9F4;
-$link_visited_color: #9C27B0;
+$link_color: $orange;
+$link_visited_color: darken($orange, 0.5);
 
-$warning_color: #FF9800;
-$error_color: #F44336;
-$success_color: #00E676;
+$warning_color: $red;
+$error_color: $yellow;
+$success_color: $blue;
 
 $suggested_color: $key_suggestion_color;
 
@@ -143,7 +167,7 @@ $insensitive_osd_secondary_fg_color: shellopacity($osd_secondary_fg_color, 0.4);
 // OSD Background colors
 //
 
-$osd_bg_color: mix(#574F4A, #888888, 75%);
+$osd_bg_color: mix($black, $medium_gray, 75%);
 $osd_base_color: if($nokto == 'false', $inverted_base_color, $bg_color);
 
 $osd_fill_color: shellopacity($osd_fg_color, 0.4);
