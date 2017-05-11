@@ -25,7 +25,7 @@ $yellow: #ffce51; // Pantone 1225c #f2c150
 $red:    #f15d22; // Pantone 1665c #df6426
 $green:  #73c48f; // Confirmation/success
 
-$black: $key_background_color;
+$black: $warm_gray;
 
 @function shellopacity($c, $a) {
   @return scale-color($c, $alpha: percentage(-1 + $a));
