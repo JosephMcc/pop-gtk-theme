@@ -7,13 +7,14 @@ AC_DEFUN([POP_COLOR_SCHEME], [
     accent_default="#FAA41A"
     suggestion_default="#73C48F"
     destruction_default="#F15D22"
+    background_default="#574f4a"
 
     AC_ARG_WITH(
         [selection_color],
         [AS_HELP_STRING(
             [--with-selection_color],
             [Primary color for selected-items \
-             (Default: #574F4A (Cyan500))]
+             (Default: #574F4A)]
         )],
         [SELECTION="$withval"],
         [SELECTION=$selection_default]
@@ -25,7 +26,7 @@ AC_DEFUN([POP_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-second_selection_color],
             [Primary color for 'select' effects \
-             (Default: #4DD0E1 (Cyan300))]
+             (Default: #4DD0E1)]
         )],
         [SECOND_SELECTION="$withval"],
         [SECOND_SELECTION=$second_selection_default]
@@ -37,7 +38,7 @@ AC_DEFUN([POP_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-accent_color],
             [Secondary color for notifications and OSDs \
-             (Default: #48B9C7 (Teal300))]
+             (Default: #48B9C7)]
         )],
         [ACCENT="$withval"],
         [ACCENT=$accent_default]
@@ -49,7 +50,7 @@ AC_DEFUN([POP_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-suggestion_color],
             [Secondary color for 'suggested' buttons \
-             (Default: #009688 (Teal500))]
+             (Default: #009688)]
         )],
         [SUGGESTION="$withval"],
         [SUGGESTION=$suggestion_default]
@@ -61,12 +62,24 @@ AC_DEFUN([POP_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-destruction_color],
             [Tertiary color for 'destructive' buttons \
-             (Default: #FF5252 (RedA200))]
+             (Default: #FF5252)]
         )],
         [DESTRUCTION="$withval"],
         [DESTRUCTION=$destruction_default]
     )
     AC_SUBST([DESTRUCTION])
+
+    AC_ARG_WITH(
+        [background_color],
+        [AS_HELP_STRING(
+            [--with-background_color],
+            [Background color for titlebars \
+             (Default: #FF5252)]
+        )],
+        [BACKGROUND="$withval"],
+        [BACKGROUND=$background_default]
+    )
+    AC_SUBST([BACKGROUND])
 
 # Store defined key color-scheme into SCSS file
 echo \
@@ -83,7 +96,10 @@ echo \
 \$key_suggestion_color: `echo $SUGGESTION`;
 
 // Destruction (Tertiary) color
-\$key_destruction_color: `echo $DESTRUCTION`;" \
+\$key_destruction_color: `echo $DESTRUCTION`;
+
+// Background color
+\$key_background_color: `echo $BACKGROUND`;" \
 > ./gtk/sass/common/_key_colors.scss
 
 # Copy SCSS to shell SASS directory

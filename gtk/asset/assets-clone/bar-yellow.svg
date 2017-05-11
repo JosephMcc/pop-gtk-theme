@@ -25,18 +25,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="79.427627"
-     inkscape:cy="90.410218"
+     inkscape:zoom="3.959798"
+     inkscape:cx="13.965793"
+     inkscape:cy="49.063028"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      width="1px"
-     inkscape:window-width="960"
-     inkscape:window-height="1016"
-     inkscape:window-x="960"
-     inkscape:window-y="30"
+     inkscape:window-width="1113"
+     inkscape:window-height="794"
+     inkscape:window-x="696"
+     inkscape:window-y="58"
      inkscape:window-maximized="0"
      inkscape:document-rotation="0" />
   <metadata
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
       </cc:Work>
@@ -79,6 +79,7 @@
        width="128"
        height="16"
        x="0"
-       y="980.36218" />
+       y="980.36218"
+       ry="8" />
   </g>
 </svg>
