@@ -113,7 +113,8 @@ sudo apt install system76-pop-gtk-theme
  You can install them using:
  ```
  sudo apt install -y autoconf automake inkscape libgdk-pixbuf2.0-dev \
-    libglib2.0-dev librsvg2-dev libsass0 libxml2-utils pkg-config sassc
+    libglib2.0-dev librsvg2-dev libsass0 libxml2-utils pkg-config sassc \
+    parallel
  ```
 
  > **Note:**
