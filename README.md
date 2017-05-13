@@ -50,21 +50,21 @@ Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
  > **Note:**
  >
  >   * Mate-Desktop and Pantheon support are W.I.P.
- 
- 
+
+
 
 ### Recommendations
 
 - For GTK, use icons alongside [Pop Icon Theme](https://github.com/system76/pop-icon-theme)
-- For fonts, use: 
+- For fonts, use:
  > Window Titles: Fira Sans SemiBold 10
- 
+
  > Interface: Fira Sans Book 10
- 
+
  > Documents: Roboto Slab Regular 11
- 
+
  > Monospace: Fira Mono Regular 11
- 
+
 
 ### Installation
 
@@ -109,10 +109,10 @@ sudo apt install system76-pop-gtk-theme
  * sassc                                     >= 3.3.2
  * parallel                                  (Optional, for faster builds)
  ```
- 
+
  You can install them using:
  ```
- sudo apt install -y autoconf automake inkscape libgdk-pixbuff2.0-dev \
+ sudo apt install -y autoconf automake inkscape libgdk-pixbuf2.0-dev \
     libglib2.0-dev librsvg2-dev libsass0 libxml2-utils pkg-config sassc
  ```
 
