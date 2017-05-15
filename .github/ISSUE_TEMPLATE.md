@@ -6,7 +6,7 @@
  * Desktop environment - 
  ```
 
-**Adapta version (if you knew)**
+**Pop version (if you knew)**
 
 
 
@@ -23,6 +23,10 @@
 
 
 **Expected behaviour**
+
+
+
+**Behaviour in Adwaita**
 
 
 
