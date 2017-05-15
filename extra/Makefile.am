@@ -33,16 +33,12 @@ all:
 install-data-local:
 if ENABLE_CHROME
 	$(MKDIR_P) $(popdir)/chrome
-
 	cp -Rv $(chrome_file) $(popdir)/chrome
-	cp -Rv $(chrome_nokto_file) $(noktodir)/chrome
-
 	cd $(popdir)
 	ln -sf ../Pop/chrome $(popetadir)/chrome
-
-	
 if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/chrome
+	cp -Rv $(chrome_nokto_file) $(noktodir)/chrome
 	cd $(popdir)
 	ln -sf ../Pop-Nokto/chrome $(noktoetadir)/chrome
 endif
