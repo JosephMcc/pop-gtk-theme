@@ -1,12 +1,10 @@
 **Reporter info**
 
- ```
- * Distribution -
- * Gtk+ 3.0 version -
+ * Distribution - (run ```lsb_release -a```)
+ * Gtk+ 3.0 version - (run ```apt policy libgtk-3-0```)
  * Desktop environment - 
- ```
 
-**Adapta version (if you knew)**
+**Pop version (if you knew)**
 
 
 
@@ -23,6 +21,10 @@
 
 
 **Expected behaviour**
+
+
+
+**Behaviour in Adwaita**
 
 
 
