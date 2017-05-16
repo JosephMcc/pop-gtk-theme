@@ -6,13 +6,12 @@ An adaptive Gtk+ theme based on Material Design Guidelines.
 Before using Adapta
 -------------------
 
-#### Typography
-
 Adapta strongly depends on Material Design resources, especially its **fonts**.
 
+#### Typography
  1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
    - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
-   - Developed by Monotype and Adobe.
+   - Developed by Google and Adobe.
    - Weight used in Adapta: 400, (500), 700
 
  2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
@@ -61,8 +60,18 @@ Variant Matrix
 
 > **Note:**
 >
->   * **Nokto** is a dark variant.
->   * **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
+>   **Nokto** is a dark variant.
+>
+>   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
+>
+>   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool.
+>     Or add this porperty to `[Settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
+>
+>     ```
+>     [Settings]
+>     gtk-application-prefer-dark-theme=1
+>     ```
+>
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
@@ -209,7 +218,7 @@ Installation from Git Source
  >   * The installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-6. To enable extra Gtk+ release support, pass these options:
+6. To enable extra Gtk+ release support, pass this option:
 
  ```
  --enable-gtk_legacy    enable Gtk+ 3.18 support (type: bool)
@@ -323,7 +332,6 @@ Work in Progress
 
 TODO
 ----
-* Prepare for FlatPak packaging (priority: mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 

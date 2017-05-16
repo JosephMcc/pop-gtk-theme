@@ -92,7 +92,7 @@ $bg_color:              if($variant == 'light',
 $base_color:            if($variant == 'light', $almost_white,    // = White
                             mix($black, $dark_neutral_gray, 40%));// = BluGry700
 $secondary_base_color:  mix($base_color, $bg_color, 50%);         // = W _ 50
-$light_base_color:      if($variant == 'light',
+$light_color:      if($variant == 'light',
                             mix($base_color, $white, 75%),        // = White
                             mix($base_color, $black, 10%));       // = BluGry600
 $dark_color: if($variant == 'light',
@@ -116,9 +116,9 @@ $inverted_dark_color:   $black;                                   // = 900 _ 800
 // Selection (content) colors
 //
 
-// Default: #48B9C7                                               // = Cyan500
+// Default: #48B9C7                                         // = Content1
 $selected_bg_color:                    $key_selection_color;
-// Default: #48B9C7                                               // = Cyan300
+// Default: #48B9C7                                               // = Content2
 $secondary_selected_bg_color:          $key_secondary_selection_color;
 $selected_bg_label_color:           if($variant == 'light',
                                            mix($selected_bg_color, $fg_color, 80%),
@@ -134,7 +134,7 @@ $inverted_secondary_selected_bg_label_color:   gtkopacity($inverted_selected_bg_
 // Accent (context) colors
 //
 
-// Default: #FAA41A                                             // = Teal300
+// Default: #FAA41A                                             // = Context
 $accent_color: $key_accent_color;
 $accent_label_color: if($variant == 'light',
                         mix($key_accent_color, $fg_color, 80%),
@@ -193,9 +193,9 @@ $warning_color: $yellow;                          // = Orange500
 $error_color:   $red;                                             // = Red500
 $success_color: $green;                                           // = GreenA400
 
-// Default: #009688                                             // = Teal500
+// Default: #73C48F                                             // = Suggest
 $suggested_color: $key_suggestion_color;
-// Default: #FF5252                                             // = RedA200
+// Default: #F15D22                                             // = Destruct
 $destructive_color: $key_destruction_color;
 
 $info_bg_color:     $blue;                                  // = CyanA400
