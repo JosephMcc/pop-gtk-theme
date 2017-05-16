@@ -1,5 +1,5 @@
 #
-# This file is part of pop-gtk-theme
+# This file is part of adapta-gtk-theme
 #
 # Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
 #
@@ -31,8 +31,8 @@ style "notify-button"
   # bg[PRELIGHT] = "#222D32"
   # bg[ACTIVE] = "#222D32"
   fg[NORMAL] = "#20BC98"
-  fg[PRELIGHT] = "#48B9C7"
-  fg[ACTIVE] = "#48B9C7"
+  fg[PRELIGHT] = "#4DB6AC"
+  fg[ACTIVE] = "#4DB6AC"
 
   engine "pixmap" {
     image {
@@ -81,8 +81,8 @@ style "notify-progressbar"
 
   bg[NORMAL]   = "#F0F2F3"
   bg[SELECTED] = "#F0F2F3"
-  bg[ACTIVE]   = "#48B9C7"
-  fg[PRELIGHT] = "#574F4A"
+  bg[ACTIVE]   = "#4DB6AC"
+  fg[PRELIGHT] = "#263238"
 }
 
 class "XfceNotifyWindow"                           style "notify-window"

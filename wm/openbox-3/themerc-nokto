@@ -120,7 +120,7 @@ osd.inactive.label.bg.color: #222D32
 osd.inactive.label.text.color: #677176
 
 osd.hilight.bg: flat solid
-osd.hilight.bg.color: #48B9C7
+osd.hilight.bg.color: #4DB6AC
 
 osd.unhilight.bg: flat solid
 osd.unhilight.bg.color: #323D42

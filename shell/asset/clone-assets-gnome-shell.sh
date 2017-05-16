@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# This file is part of pop-gtk-theme
+# This file is part of adapta-gtk-theme
 #
 # Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
 #
@@ -19,9 +19,9 @@ INDEX="assets-gnome-shell.txt"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
+selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
                    cut -d' ' -f3`"
-accent1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
+accent1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
                 cut -d' ' -f3`"
 destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
                      cut -d' ' -f3`"
@@ -81,12 +81,6 @@ do
     f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.svg" # file name
     v="`echo $i | cut -c1`"                           # variant type
     d="`echo $i | cut -d' ' -f2`"                     # target directory
-    
-    echo $i
-    echo $s
-    echo $f
-    echo $v
-    echo $d
 
     if [ $v = "c" ]; then # 'commmon'
         if [ -f $ASSETS_DIR/$d/$f ] && \
@@ -95,7 +89,6 @@ do
             echo $ASSETS_DARK_DIR/$d/$f exists.
             echo $ASSETS_ETA_DIR/$d/$f exists.
             echo $ASSETS_DARK_ETA_DIR/$d/$f exists.
-            
         elif [ $i = "common/noise-texture.png ." ]; then # PNG special case
             f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.png"
             echo Cloning $ASSETS_DIR/$d/$f
@@ -106,7 +99,6 @@ do
             cp -f $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
             echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
-            
         else
             echo Cloning $ASSETS_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f

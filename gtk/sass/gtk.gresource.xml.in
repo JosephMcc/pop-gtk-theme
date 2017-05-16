@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/system76/gtk-@VERSION@">
+  <gresource prefix="/org/adapta-project/gtk-@VERSION@">
     <file preprocess='to-pixdata'>assets/bar-blue.svg</file>
     <file preprocess='to-pixdata'>assets/bar-green.svg</file>
     <file preprocess='to-pixdata'>assets/bar-red.svg</file>

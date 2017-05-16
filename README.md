@@ -1,9 +1,9 @@
-## Pop-gtk-theme
+<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/logo_thumb.png" alt="Logo" align="left" /> Adapta-gtk-theme
 ======
 
-An adaptive Gtk+ theme based on the Adapta GTK+ theme.
+An adaptive Gtk+ theme based on Material Design Guidelines.
 
-#### Before using Pop
+Before using Adapta
 -------------------
 
 #### Typography
@@ -66,7 +66,11 @@ Variant Matrix
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
-### Required Components
+Elements
+--------
+![Materials](https://github.com/adapta-project/adapta-github-resources/blob/master/images/Materials.png)
+
+Required Components
 -------------------
 Adapta supports Gtk+ 3.22.x and 3.20.x
 
@@ -77,7 +81,7 @@ Adapta supports Gtk+ 3.22.x and 3.20.x
  * gtk2-engines-murrine >= 0.98.1
  ```
 
-#### Supported Desktop Environments
+Supported Desktop Environments
 ------------------------------
 
  ```
@@ -93,51 +97,42 @@ Adapta supports Gtk+ 3.22.x and 3.20.x
 
  > **Note:**
  >
- >   * Mate-Desktop and Pantheon support are W.I.P.
+ >   * Mate-Desktop support is a W.I.P.
 
+Unsupported Gtk+ Based Desktop(s)
+-------------------------------
+ * Pantheon
 
+ > **Note:**
+ >
+ >   * Adapta does NOT support elementaryOS.
 
-### Recommendations
-
-- For GTK, use icons alongside [Pop Icon Theme](https://github.com/system76/pop-icon-theme)
-- For fonts, use:
- > Window Titles: Fira Sans SemiBold 10
-
- > Interface: Fira Sans Book 10
-
- > Documents: Roboto Slab Regular 11
-
- > Monospace: Fira Mono Regular 11
-
-
-### Installation
-
-Pop is intended to be installed through the package manager. Packages for Ubuntu are available in PPA:
-```
-sudo add-apt-repository ppa:system76-dev/stable
-sudo apt update
-sudo apt install system76-pop-theme
-```
-It's recomended to use the `system76-pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
-```
-sudo apt install system76-pop-gtk-theme
-```
-
-
-### Installation from Git Source
+Installation from Package(s)
 ----------------------------
+ * AUR: https://aur.archlinux.org/packages/adapta-gtk-theme/
 
+ * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
+
+ * OBS (openSUSE Tumbleweed): https://build.opensuse.org/package/show/home:Ronis_BR/adapta-gtk-theme
+
+ * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
+
+ > **Note:**
+ >
+ >   * Solus OS has an eopkg (ypkg) in main repository.
+
+Installation from Git Source
+----------------------------
 1. If previous versions were installed/existed, remove them first.
 
  ```
- sudo apt remove system76-pop-gtk-theme
- sudo rm -rf /usr/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
- rm -rf ~/.local/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
- rm -rf ~/.themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
+ sudo rm -rf /usr/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ rm -rf ~/.local/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ rm -rf ~/.themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
  ```
 
 2. Check build-requirements:
- Currently Pop bundles neither pre-generated stylesheets nor PNG images.
+ Currently Adapta bundles neither pre-generated stylesheets nor PNG images.
  So users and/or contributors should generate proper CSSs, PNGs and gresources at build-time.
 
  ```
@@ -163,14 +158,14 @@ sudo apt install system76-pop-gtk-theme
  >     librsvg-devel           >= 2.40.13
  >     ```
  >
- >   * Pop employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
- >   * Pop uses `inkscape` to generate installable PNG files.
- >   * Pop uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
+ >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
+ >   * Adapta uses `inkscape` to generate installable PNG files.
+ >   * Adapta uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
 
 3. Build and install system-wide:
 
  ```
- ./autogen.sh \
+ ./autogen.sh
  make
  sudo make install
  ```
@@ -195,16 +190,18 @@ sudo apt install system76-pop-gtk-theme
  >   * This feature requires GNU `parallel`, so please add `parallel` to build-requirements.
  >     Parallel can execute multiple scripts and binaries to be suitable for multi-threading.
  >     It could especially shorten the rendering-time via `inkscape`.
- >   * `-jN` option to be passed to GNU `make` is surely usable, but Pop currently employs `parallel`.
+ >   * `-jN` option to be passed to GNU `make` is surely usable, but Adapta currently employs `parallel`.
  >   * This feature should not be applied when packaging on remote/shared build-servers.
 
 5. To disable some DE supports, pass these specific options to `autogen.sh`:
 
  ```
+ --disable-cinnamon      disable cinnamon support (type: bool)
  --disable-flashback     disable flashback support (type: bool)
  --disable-unity         disable unity support (type: bool)
  --disable-xfce          disable xfce support (type: bool)
  --disable-mate          disable mate support (type: bool)
+ --disable-openbox       disable openbox support (type: bool)
  ```
 
  > **Note:**
@@ -222,27 +219,33 @@ sudo apt install system76-pop-gtk-theme
 7. To change the default 5 **Key-Colors**, pass these options:
 
  ```
- --with-selection_color        Primary color for highlighted items in the UI (Default: #faa41a)
- --with-second_selection_color Primary color for 'select' effects (Default: #ffb13d = Cyan300, type: int)
- --with-accent_color           Secondary color for notifications and OSDs, and selected items (Default: #48B9C7)
- --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #73C48F)
- --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #F15D22)
+ --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500, type: int)
+ --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300, type: int)
+ --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300, type: int)
+ --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: int)
+ --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: int)
  ```
 
  > **Note:**
  >
  >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
+ >     Uppercases are strongly recommended in Adapta code-base.
+ >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
- >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#48B9C7```
+ >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#4DB6AC```
  >
  >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
  >     and `second_selection_color` and `accent_color` should use `300` colors.
- >   * While doing `make`, Pop changes those 5 colors in all stylesheets and images,
+ >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
+GtkSourceView/Gedit Color Scheme Support
+---------------------------------------
+ A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory.
+ See details in [`README.md`](/extra/gedit/README.md).
 
  > **Note:**
  >
@@ -257,7 +260,7 @@ Extra Browser Support
  --enable-chrome         enable Chrome(ium) support (type: bool)
  ```
 
- The compressed `crx` files will be installed into `Pop/chrome` and `Pop-Nokto/chrome`.
+ The compressed `crx` files will be installed into `Adapta/chrome` and `Adapta-Nokto/chrome`.
 
  > **Note:**
  >
@@ -288,14 +291,14 @@ Extra Dock Support
 
  > **Note:**
  >
- >   * Both Pop and Pop-Nokto shares the same theming.
+ >   * Both Adapta and Adapta-Nokto shares the same theming.
  >   * Don't expect too much. Plank is NOT a themeable widget for me!
 
 Extra Compositor Support
 ------------------------
- Compton is the famous stand-alone compositor that works well with the Openbox window-manager. The installer installs recommended configuration file `compton.conf` into `Pop/openbox-3` directory if Openbox support is enabled.
+ Compton is the famous stand-alone compositor that works well with the Openbox window-manager. The installer installs recommended configuration file `compton.conf` into `Adapta/openbox-3` directory if Openbox support is enabled.
 
- Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Pop, however.
+ Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Adapta, however.
 
 Extra Telegram Support
 ----------------------
@@ -305,12 +308,12 @@ Extra Telegram Support
  --enable-telegram      enable Telegram 1.0 support (type: bool)
  ```
 
- The installer installs compressed `tdesktop-theme` files into `Pop/telegram` and `Pop-Nokto/telegram` directories if Telegram support is enabled.
+ The installer installs compressed `tdesktop-theme` files into `Adapta/telegram` and `Adapta-Nokto/telegram` directories if Telegram support is enabled.
  Then open the file via Telegram > Main Menu > Settings > Chat background > Choose from file.
 
  > **Note:**
  >
- >   * The `pop.tdesktop-theme` is for light-variant, and `pop-nokto.tdesktop-theme` is for dark-variant.
+ >   * The `adapta.tdesktop-theme` is for light-variant, and `adapta-nokto.tdesktop-theme` is for dark-variant.
  >   * Bundled noise-texture images are for *tiled* mode.
  >   * Telegram support is a W.I.P currently.
 
@@ -335,4 +338,3 @@ Public License
 Special Thanks to
 --------------
  Nana-4, the developer of Flat-Plat.
- tista500 and the Adapta Theme Project: https://github.com/adapta-project/

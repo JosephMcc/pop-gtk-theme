@@ -1,5 +1,5 @@
 //
-// This file is part of pop-gtk-theme
+// This file is part of adapta-gtk-theme
 //
 // Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
 //
@@ -43,8 +43,8 @@ SUGGESTED_ACTIVE_COLOR: #33ABA0;                // Active/ripple suggested actio
 DESTRUCTIVE_FILL_COLOR: #FF52521A;              // Hovered destructive action color
 DESTRUCTIVE_ACTIVE_FILL_COLOR: #FF525233;       // Active/ripple destructive action color
 
-SELECTED_BG_COLOR: #574F4A;                     // Primary color
-ACCENT_COLOR: #48B9C7;                          // Secondary color
+SELECTED_BG_COLOR: #00BCD4;                     // Primary color
+ACCENT_COLOR: #4DB6AC;                          // Secondary color
 SUGGESTED_COLOR: #009688;                       // Suggested action color
 DESTRUCTIVE_COLOR: #FF5252;                     // Destructive action color
 LINK_COLOR: #03A9F4;
@@ -58,7 +58,7 @@ SOLID_BLACK: #000000;
 30_BLACK: #0000004D;                            // Light shadows (30%)
 10_BLACK: #0000001A;                            // Frames and separator color (10%)
 TRANSPARENT: #00000000;
-SOLID_WHITE: #F6F6F6;
+SOLID_WHITE: #FFFFFF;
 
 SCROLLBAR_BG: #29353B8C;                        // Trough color (55%)
 SCROLLBAR_SLIDER_BG: #CFD8DC47;                 // Slider color (28%)

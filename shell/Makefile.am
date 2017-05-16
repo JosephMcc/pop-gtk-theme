@@ -1,8 +1,8 @@
 themedir     = $(datadir)/themes
-popdir    = $(DESTDIR)$(themedir)/Pop
-noktodir     = $(DESTDIR)$(themedir)/Pop-Nokto
-popetadir = $(DESTDIR)$(themedir)/Pop-Eta
-noktoetadir  = $(DESTDIR)$(themedir)/Pop-Nokto-Eta
+adaptadir    = $(DESTDIR)$(themedir)/Adapta
+noktodir     = $(DESTDIR)$(themedir)/Adapta-Nokto
+adaptaetadir = $(DESTDIR)$(themedir)/Adapta-Eta
+noktoetadir  = $(DESTDIR)$(themedir)/Adapta-Nokto-Eta
 
 shelldir   = $(srcdir)/gnome-shell
 shell_file = \
@@ -15,9 +15,7 @@ shell_file = \
 	$(shelldir)/toggle-off-hover.svg \
 	$(shelldir)/toggle-off.svg \
 	$(shelldir)/toggle-on-hover.svg \
-	$(shelldir)/toggle-on.svg \
-    $(shelldir)/activities.svg \
-    $(shelldir)/activities-active.svg 
+	$(shelldir)/toggle-on.svg
 shell_pad_osd_file = \
 	$(shelldir)/pad-osd.css
 shell_asset_file = \
@@ -114,9 +112,7 @@ shell_nokto_file = \
 	$(shellnoktodir)/toggle-off-hover.svg \
 	$(shellnoktodir)/toggle-off.svg \
 	$(shellnoktodir)/toggle-on-hover.svg \
-	$(shellnoktodir)/toggle-on.svg \
-    $(shellnoktodir)/activities.svg \
-    $(shellnoktodir)/activities-active.svg
+	$(shellnoktodir)/toggle-on.svg
 shell_nokto_asset_file = \
 	$(shellnoktodir)/assets/calendar-arrow-left-hover.svg \
 	$(shellnoktodir)/assets/calendar-arrow-left.svg \
@@ -138,7 +134,7 @@ shell_nokto_asset_file = \
 	$(shellnoktodir)/assets/show-apps.svg \
 	$(shellnoktodir)/assets/window-close-active.svg \
 	$(shellnoktodir)/assets/window-close-hover.svg \
-	$(shellnoktodir)/assets/window-close.svg 
+	$(shellnoktodir)/assets/window-close.svg
 
 shelletadir   = $(srcdir)/gnome-shell-eta
 shelleta_file = \
@@ -151,9 +147,7 @@ shelleta_file = \
 	$(shelletadir)/toggle-off-hover.svg \
 	$(shelletadir)/toggle-off.svg \
 	$(shelletadir)/toggle-on-hover.svg \
-	$(shelletadir)/toggle-on.svg \
-    $(shelletadir)/activities.svg \
-    $(shelletadir)/activities-active.svg 
+	$(shelletadir)/toggle-on.svg
 shelleta_asset_file = \
 	$(shelletadir)/assets/calendar-arrow-left-hover.svg \
 	$(shelletadir)/assets/calendar-arrow-left.svg \
@@ -188,9 +182,7 @@ shell_nokto_eta_file = \
 	$(shellnoktoetadir)/toggle-off-hover.svg \
 	$(shellnoktoetadir)/toggle-off.svg \
 	$(shellnoktoetadir)/toggle-on-hover.svg \
-	$(shellnoktoetadir)/toggle-on.svg \
-    $(shellnoktoetadir)/activities.svg \
-    $(shellnoktoetadir)/activities-active.svg
+	$(shellnoktoetadir)/toggle-on.svg
 shell_nokto_eta_asset_file = \
 	$(shellnoktoetadir)/assets/calendar-arrow-left-hover.svg \
 	$(shellnoktoetadir)/assets/calendar-arrow-left.svg \
@@ -471,91 +463,24 @@ endif
 # *****************
 
 install-data-local:
-	$(MKDIR_P) $(popdir)/gnome-shell
-	$(MKDIR_P) $(popdir)/gnome-shell/assets
-	$(MKDIR_P) $(popdir)/gnome-shell/assets/dot
-	$(MKDIR_P) $(popdir)/gnome-shell/extensions
-	$(MKDIR_P) $(popdir)/gnome-shell/extensions/window-list
-	$(MKDIR_P) $(popdir)/gnome-shell/extensions/workspaces-to-dock
-	$(MKDIR_P) $(popdir)/gnome-shell/extensions/workspaces-to-dock/assets
-	cp -Rv $(shell_file) $(popdir)/gnome-shell
-	cp -Rv $(shell_pad_osd_file) $(popdir)/gnome-shell
-	cp -Rv $(shell_asset_file) $(popdir)/gnome-shell/assets
-	cp -Rv $(shell_asset_dot_file) $(popdir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(adaptadir)/gnome-shell
+	$(MKDIR_P) $(adaptadir)/gnome-shell/assets
+	$(MKDIR_P) $(adaptadir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions
+	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/window-list
+	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock
+	$(MKDIR_P) $(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
+	cp -Rv $(shell_file) $(adaptadir)/gnome-shell
+	cp -Rv $(shell_pad_osd_file) $(adaptadir)/gnome-shell
+	cp -Rv $(shell_asset_file) $(adaptadir)/gnome-shell/assets
+	cp -Rv $(shell_asset_dot_file) $(adaptadir)/gnome-shell/assets/dot
 	cp -Rv $(shell_extension_windowlist_file) \
-		$(popdir)/gnome-shell/extensions/window-list
+		$(adaptadir)/gnome-shell/extensions/window-list
 	cp -Rv $(shell_extension_workspace_file) \
-		$(popdir)/gnome-shell/extensions/workspaces-to-dock
+		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
-		$(popdir)/gnome-shell/extensions/workspaces-to-dock/assets
+		$(adaptadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
-	$(MKDIR_P) $(popetadir)/gnome-shell
-	$(MKDIR_P) $(popetadir)/gnome-shell/assets
-	$(MKDIR_P) $(popetadir)/gnome-shell/assets/dot
-	$(MKDIR_P) $(popetadir)/gnome-shell/extensions
-	$(MKDIR_P) $(popetadir)/gnome-shell/extensions/window-list
-	$(MKDIR_P) $(popetadir)/gnome-shell/extensions/workspaces-to-dock
-	$(MKDIR_P) $(popetadir)/gnome-shell/extensions/workspaces-to-dock/assets
-	cp -Rv $(shelleta_file) $(popetadir)/gnome-shell
-	cp -Rv $(shell_pad_osd_file) $(popetadir)/gnome-shell
-	cp -Rv $(shelleta_asset_file) $(popetadir)/gnome-shell/assets
-	cp -Rv $(shell_asset_dot_file) $(popetadir)/gnome-shell/assets/dot
-	cp -Rv $(shell_extension_windowlist_file) \
-		$(popetadir)/gnome-shell/extensions/window-list
-	cp -Rv $(shell_extension_workspace_file) \
-		$(popetadir)/gnome-shell/extensions/workspaces-to-dock
-	cp -Rv $(shell_extension_workspace_asset_file) \
-		$(popetadir)/gnome-shell/extensions/workspaces-to-dock/assets
-
-
-
-if ENABLE_CINNAMON
-	$(MKDIR_P) $(popdir)/cinnamon
-	$(MKDIR_P) $(popdir)/cinnamon/assets
-	$(MKDIR_P) $(popdir)/cinnamon/assets/checkbox
-	$(MKDIR_P) $(popdir)/cinnamon/assets/menu
-	$(MKDIR_P) $(popdir)/cinnamon/assets/misc
-	$(MKDIR_P) $(popdir)/cinnamon/assets/panel
-	$(MKDIR_P) $(popdir)/cinnamon/assets/switch
-	cp -Rv $(cinnamon_file) $(popdir)/cinnamon
-	cp -Rv $(cinnamon_asset_checkbox_file) \
-		$(popdir)/cinnamon/assets/checkbox
-	cp -Rv $(cinnamon_asset_menu_file) \
-		$(popdir)/cinnamon/assets/menu
-	cp -Rv $(cinnamon_asset_misc_file) \
-		$(popdir)/cinnamon/assets/misc
-	cp -Rv $(cinnamon_asset_panel_file) \
-		$(popdir)/cinnamon/assets/panel
-	cp -Rv $(cinnamon_asset_switch_file) \
-		$(popdir)/cinnamon/assets/switch
-	cp -Rv $(cinnamon_asset_thumb_file) \
-		$(popdir)/cinnamon/assets
-	cd $(popdir)/cinnamon && \
-		ln -sf ./assets/thumbnail.png thumbnail.png
-
-
-endif
-
-if ENABLE_UNITY
-	$(MKDIR_P) $(popdir)/unity
-	cp -Rv $(unity_file) $(popdir)/unity
-	cd $(popdir)
-	ln -sf ../Pop/unity $(popetadir)/unity
-endif
-
-if ENABLE_XFCE
-	$(MKDIR_P) $(popdir)/xfce-notify-4.0
-	$(MKDIR_P) $(popdir)/gtk-2.0/Xfce
-	$(MKDIR_P) $(popetadir)/gtk-2.0/Xfce
-	cp -Rv $(xfce_image_file) $(popdir)/xfce-notify-4.0
-	cp -Rv $(xfce_rc_file) $(popdir)/xfce-notify-4.0
-	cp -Rv $(xfce_image_file) $(popdir)/gtk-2.0/Xfce
-	cp -Rv $(xfce_image_file) $(popetadir)/gtk-2.0/Xfce
-endif
-
-
-
-if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/gnome-shell
 	$(MKDIR_P) $(noktodir)/gnome-shell/assets
 	$(MKDIR_P) $(noktodir)/gnome-shell/assets/dot
@@ -573,6 +498,24 @@ if ENABLE_NOKTO
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
+
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/assets
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/assets/dot
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/window-list
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock
+	$(MKDIR_P) $(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+	cp -Rv $(shelleta_file) $(adaptaetadir)/gnome-shell
+	cp -Rv $(shell_pad_osd_file) $(adaptaetadir)/gnome-shell
+	cp -Rv $(shelleta_asset_file) $(adaptaetadir)/gnome-shell/assets
+	cp -Rv $(shell_asset_dot_file) $(adaptaetadir)/gnome-shell/assets/dot
+	cp -Rv $(shell_extension_windowlist_file) \
+		$(adaptaetadir)/gnome-shell/extensions/window-list
+	cp -Rv $(shell_extension_workspace_file) \
+		$(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock
+	cp -Rv $(shell_extension_workspace_asset_file) \
+		$(adaptaetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
 	$(MKDIR_P) $(noktoetadir)/gnome-shell
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets
@@ -593,6 +536,29 @@ if ENABLE_NOKTO
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
 if ENABLE_CINNAMON
+	$(MKDIR_P) $(adaptadir)/cinnamon
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/checkbox
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/menu
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/misc
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/panel
+	$(MKDIR_P) $(adaptadir)/cinnamon/assets/switch
+	cp -Rv $(cinnamon_file) $(adaptadir)/cinnamon
+	cp -Rv $(cinnamon_asset_checkbox_file) \
+		$(adaptadir)/cinnamon/assets/checkbox
+	cp -Rv $(cinnamon_asset_menu_file) \
+		$(adaptadir)/cinnamon/assets/menu
+	cp -Rv $(cinnamon_asset_misc_file) \
+		$(adaptadir)/cinnamon/assets/misc
+	cp -Rv $(cinnamon_asset_panel_file) \
+		$(adaptadir)/cinnamon/assets/panel
+	cp -Rv $(cinnamon_asset_switch_file) \
+		$(adaptadir)/cinnamon/assets/switch
+	cp -Rv $(cinnamon_asset_thumb_file) \
+		$(adaptadir)/cinnamon/assets
+	cd $(adaptadir)/cinnamon && \
+		ln -sf ./assets/thumbnail.png thumbnail.png
+
 	$(MKDIR_P) $(noktodir)/cinnamon
 	$(MKDIR_P) $(noktodir)/cinnamon/assets
 	$(MKDIR_P) $(noktodir)/cinnamon/assets/checkbox
@@ -618,18 +584,27 @@ if ENABLE_CINNAMON
 endif
 
 if ENABLE_UNITY
-	ln -sf ../Pop/unity $(noktoetadir)/unity
-	ln -sf ../Pop/unity $(noktodir)/unity
+	$(MKDIR_P) $(adaptadir)/unity
+	cp -Rv $(unity_file) $(adaptadir)/unity
+	cd $(adaptadir)
+	ln -sf ../Adapta/unity $(noktodir)/unity
+	ln -sf ../Adapta/unity $(adaptaetadir)/unity
+	ln -sf ../Adapta/unity $(noktoetadir)/unity
 endif
 
 if ENABLE_XFCE
+	$(MKDIR_P) $(adaptadir)/xfce-notify-4.0
+	$(MKDIR_P) $(adaptadir)/gtk-2.0/Xfce
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Xfce
+	$(MKDIR_P) $(adaptaetadir)/gtk-2.0/Xfce
 	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Xfce
+	cp -Rv $(xfce_image_file) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfce_rc_file) $(adaptadir)/xfce-notify-4.0
+	cp -Rv $(xfce_image_file) $(adaptadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(noktodir)/gtk-2.0/Xfce
+	cp -Rv $(xfce_image_file) $(adaptaetadir)/gtk-2.0/Xfce
 	cp -Rv $(xfce_image_file) $(noktoetadir)/gtk-2.0/Xfce
 endif
-endif
-
 
 # *******************
 # * Uninstall files *
@@ -637,31 +612,31 @@ endif
 
 uninstall-local:
 	test -e $(noktodir)/gnome-shell && rm -rfv $(noktodir)/gnome-shell
-	test -e $(popdir)/gnome-shell && rm -rfv $(popdir)/gnome-shell
+	test -e $(adaptadir)/gnome-shell && rm -rfv $(adaptadir)/gnome-shell
 	test -e $(noktoetadir)/gnome-shell && rm -rfv $(noktoetadir)/gnome-shell
-	test -e $(popetadir)/gnome-shell && rm -rfv $(popetadir)/gnome-shell
+	test -e $(adaptaetadir)/gnome-shell && rm -rfv $(adaptaetadir)/gnome-shell
 
 if ENABLE_CINNAMON
 	test -e $(noktodir)/cinnamon && rm -rfv $(noktodir)/cinnamon
-	test -e $(popdir)/cinnamon && rm -rfv $(popdir)/cinnamon
+	test -e $(adaptadir)/cinnamon && rm -rfv $(adaptadir)/cinnamon
 endif
 
 if ENABLE_UNITY
 	test -e $(noktodir)/unity && rm -rfv $(noktodir)/unity
-	test -e $(popdir)/unity && rm -rfv $(popdir)/unity
+	test -e $(adaptadir)/unity && rm -rfv $(adaptadir)/unity
 	test -e $(noktoetadir)/unity && rm -rfv $(noktoetadir)/unity
-	test -e $(popetadir)/unity && rm -rfv $(popetadir)/unity
+	test -e $(adaptaetadir)/unity && rm -rfv $(adaptaetadir)/unity
 endif
 
 if ENABLE_XFCE
-	test -e $(popdir)/xfce-notify-4.0 && \
-		rm -rfv $(popdir)/xfce-notify-4.0
-	test -e $(popdir)/gtk-2.0/Xfce && \
-		rm -rfv $(popdir)/gtk-2.0/Xfce
+	test -e $(adaptadir)/xfce-notify-4.0 && \
+		rm -rfv $(adaptadir)/xfce-notify-4.0
+	test -e $(adaptadir)/gtk-2.0/Xfce && \
+		rm -rfv $(adaptadir)/gtk-2.0/Xfce
 	test -e $(noktodir)/gtk-2.0/Xfce && \
 		rm -rfv $(noktodir)/gtk-2.0/Xfce
-	test -e $(popetadir)/gtk-2.0/Xfce && \
-		rm -rfv $(popetadir)/gtk-2.0/Xfce
+	test -e $(adaptaetadir)/gtk-2.0/Xfce && \
+		rm -rfv $(adaptaetadir)/gtk-2.0/Xfce
 	test -e $(noktoetadir)/gtk-2.0/Xfce && \
 		rm -rfv $(noktoetadir)/gtk-2.0/Xfce
 endif

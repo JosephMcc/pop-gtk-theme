@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# This file is part of pop-gtk-theme
+# This file is part of adapta-gtk-theme
 #
 # Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
 #
@@ -14,12 +14,10 @@ SRC_FILE="colors.rc"
 SRC_DARK_FILE="colors-dark.rc"
 
 # Default colours
-selection1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
-                   cut -d' ' -f3`"
-accent1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
-                cut -d' ' -f3`"
-destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
-                     cut -d' ' -f3`"
+selection1="`grep 'Cyan500' ../sass/common/_colors.scss | \
+		cut -d' ' -f3`"
+accent1="`grep 'Teal300' ../sass/common/_colors.scss | \
+		cut -d' ' -f3`"
 
 # Check and re-color 'selection-color' and 'accent-color'
 if [ -e "../sass/common/_key_colors.scss" ]; then

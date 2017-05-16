@@ -5,10 +5,10 @@ m4_define([adapta_version], [adapta_major_version.adapta_minor_version.adapta_mi
 m4_define([adapta_git_url], [https://github.com/adapta-project/adapta-gtk-theme])
 
 AC_INIT(
-	[Pop ],
-	[pop_version],
-	[pop_git_url],
-	[pop-gtk-theme]
+	[Adapta ],
+	[adapta_version],
+	[adapta_git_url],
+	[adapta-gtk-theme]
 )
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([
@@ -62,7 +62,7 @@ if test x"$GLIB_COMPILE_RESOURCES" = x; then
 	AC_MSG_ERROR(['glib-compile-resources' not found.])
 fi
 
-POP_COLOR_SCHEME
+ADAPTA_COLOR_SCHEME
 
 AC_CONFIG_FILES([
 	Makefile \
@@ -73,15 +73,15 @@ AC_CONFIG_FILES([
 ])
 AC_OUTPUT
 AC_MSG_RESULT([
-        Pop Gtk+ Theme $VERSION
+        Adapta Gtk+ Theme $VERSION
         ===========================================================
 
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
-         target directories:     ${datarootdir}/themes/Pop
-                                 ${datarootdir}/themes/Pop-Nokto
-                                 ${datarootdir}/themes/Pop-Eta
-                                 ${datarootdir}/themes/Pop-Nokto-Eta
+         target directories:     ${datarootdir}/themes/Adapta
+                                 ${datarootdir}/themes/Adapta-Nokto
+                                 ${datarootdir}/themes/Adapta-Eta
+                                 ${datarootdir}/themes/Adapta-Nokto-Eta
 
          parallel-build:         $ENABLE_PARALLEL
          parallel:               $PARALLEL
@@ -95,7 +95,6 @@ AC_MSG_RESULT([
          accent-color:           $ACCENT (default: $accent_default)
          suggestion-color:       $SUGGESTION (default: $suggestion_default)
          destruction-color:      $DESTRUCTION (default: $destruction_default)
-         background-color:       $BACKGROUNF (Default: $background-default)
 
         -----------------------------------------------------------
         | Supported Gtk+ Version

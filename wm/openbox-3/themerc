@@ -1,5 +1,5 @@
 # Menu
-menu.border.color: #574f4a
+menu.border.color: #455A64
 
 menu.title.bg: flat solid
 menu.title.bg.color: #FDFDFE
@@ -13,7 +13,7 @@ menu.items.disabled.text.color: #A7ABAE
 
 menu.items.active.bg: flat solid
 menu.items.active.bg.color: #E7E9EA
-menu.items.active.text.color: #574F4A
+menu.items.active.text.color: #263238
 
 menu.separator.color: #E9EAEC
 menu.separator.width: 1
@@ -120,7 +120,7 @@ osd.inactive.label.bg.color: #222D32
 osd.inactive.label.text.color: #677176
 
 osd.hilight.bg: flat solid
-osd.hilight.bg.color: #48B9C7
+osd.hilight.bg.color: #4DB6AC
 
 osd.unhilight.bg: flat solid
 osd.unhilight.bg.color: #323D42

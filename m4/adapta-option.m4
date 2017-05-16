@@ -1,6 +1,6 @@
-# POP_OPTION(VARIABLE, FEATURE, HELP-NAME, DISABLE/ENABLE)
+# ADAPTA_OPTION(VARIABLE, FEATURE, HELP-NAME, DISABLE/ENABLE)
 # -----------------------------------------------------------
-AC_DEFUN([POP_OPTION], [
+AC_DEFUN([ADAPTA_OPTION], [
     AC_ARG_ENABLE(
         [$2],
         [AS_HELP_STRING(

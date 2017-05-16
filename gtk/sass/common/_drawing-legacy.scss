@@ -1,5 +1,5 @@
 /*
- *  This file is part of pop-gtk-theme
+ *  This file is part of adapta-gtk-theme
  *
  * Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
  *
@@ -201,7 +201,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
 // Entries
 //
 
-@mixin entry($t, $fc:$orange_color) {
+@mixin entry($t, $fc:$selected_bg_color) {
 //
 // Entries drawing function
 //
@@ -222,7 +222,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                 to($track_color),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
-    color: $text80_color;
+    color: $secondary_fg_color;
   }
   @if $t==focus {
     border-color: $solid_light_borders_color;
@@ -232,7 +232,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                 to($fc),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
-    color: $text_color;
+    color: $fg_color;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0;
   }
@@ -244,7 +244,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                 to($track_color),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
-    color: $insensitive_text_color;
+    color: $insensitive_fg_color;
   }
   @if $t==flat-normal {
     border-radius: 0;
@@ -257,7 +257,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
     background-color: transparent;
-    color: $text80_color;
+    color: $secondary_fg_color;
   }
   @if $t==flat-focus {
     border-color: $solid_light_borders_color;
@@ -267,7 +267,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                 to($fc),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
-    color: $text_color;
+    color: $fg_color;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0 cubic-bezier(0.4, 0, 0.2, 1) 0.2s, color 0;
   }
@@ -280,7 +280,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                 to(transparent))
                                 0 0 1 / 0 0 1px;
     background-color: transparent;
-    color: $insensitive_text_color;
+    color: $insensitive_fg_color;
   }
 }
 
@@ -289,7 +289,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
 // Buttons
 //
 
-@mixin button($t, $c:$light_base_color, $tc:$text_color) {
+@mixin button($t, $c:$light_color, $tc:$fg_color) {
 //
 // Button drawing function
 //
@@ -314,7 +314,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                     to(gtkalpha(currentColor, 0)),
                                     to(transparent)),
                       linear-gradient(to bottom, gtkalpha(currentColor, 0));
-    color: $text80_color;
+    color: $secondary_fg_color;
     box-shadow: $z-depth-1,
                 inset 0 1px $highlight_color;
   }
@@ -329,7 +329,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                                     to(gtkalpha(currentColor, 0)),
                                     to(transparent)),
                       linear-gradient(to bottom, gtkalpha(currentColor, 0));
-    color: $text_color;
+    color: $fg_color;
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
@@ -338,7 +338,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
   //
   // pushed button
   //
-    color: $text_color;
+    color: $fg_color;
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
     transition-duration: 0;
@@ -349,8 +349,8 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
   // insensitive button
   //
     background-color: $track_color;
-    color: if($tc!=$text_color, $insensitive_text_color,
-                              $insensitive_text80_color);
+    color: if($tc!=$fg_color, $insensitive_fg_color,
+                              $insensitive_secondary_fg_color);
     box-shadow: none;
 
     > .label { color: inherit; }
@@ -359,8 +359,8 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
   //
   // checked button
   //
-    background-color: $blue_color;
-    color: $white_color;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
     box-shadow: $z-depth-1,
                 inset 0 1px $highlight_color;
   }
@@ -369,7 +369,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
   // checked insensitive button
   //
     background-color: $track_color;
-    color: gtkopacity($blue_color, 0.4);
+    color: gtkopacity($selected_bg_color, 0.4);
     box-shadow: none;
 
     > .label { color: inherit; }
@@ -419,7 +419,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
   // checked flat button
   //
     background-color: $track_color;
-    color: $text_color;
+    color: $fg_color;
   }
   @else if $t==flat-checked-insensitive {
   //
@@ -446,7 +446,7 @@ $toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
 // Overshoot
 //
 
-@mixin overshoot($p, $t:normal, $c:$secondary_blue_color) {
+@mixin overshoot($p, $t:normal, $c:$secondary_selected_bg_color) {
 //
 // Overshoot drawing function
 //

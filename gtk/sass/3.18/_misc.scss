@@ -6,7 +6,7 @@ PanelWidget,
 PanelApplet,
 PanelToplevel {
   // Always use dark-color of dark variant
-  color: $dark_text80_color;
+  color: $inverted_secondary_fg_color;
   background-color: $panel_bg_color;
   box-shadow: none;
 }
@@ -21,7 +21,7 @@ PanelSeparator {
 PanelMenuButton,
 PanelApplet > GtkMenuBar.menubar,
 ClockBox {
-  color: $dark_text80_color;
+  color: $inverted_secondary_fg_color;
   background-color: transparent;
   box-shadow: none;
   font-weight: 700;
@@ -33,11 +33,11 @@ PanelApplet > GtkMenuBar.menubar {
 
   > .menuitem {
     padding: 0 4px;
-    color: $dark_text80_color;
+    color: $inverted_secondary_fg_color;
     background-color: transparent;
     &:hover {
-      color: $white_color;
-      box-shadow: inset 0 -2px $blue_color;
+      color: $selected_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
     }
   }
 }
@@ -57,19 +57,19 @@ PanelApplet {
       padding: 0px 4px;
       border-radius: 0;
       border: none;
-      color: $dark_text80_color;
+      color: $inverted_secondary_fg_color;
       background-color: transparent;
       &:hover {
-        color: $white_color;
+        color: $selected_fg_color;
         background-color: transparent;
         box-shadow: inset 0 -2px $track_color;
       }
       &:checked,
       &:hover:checked,
       &:insensitive:checked { // 'checked' = 'active'
-        color: $white_color;
+        color: $selected_fg_color;
         background-color: transparent;
-        box-shadow: inset 0 -2px $blue_color;
+        box-shadow: inset 0 -2px $selected_bg_color;
       }
     }
   }
@@ -81,31 +81,31 @@ TaskList TaskItem {
   padding: 0px 4px;
   border-radius: 0;
   border: none;
-  color: $dark_text80_color;
+  color: $inverted_secondary_fg_color;
   background-color: transparent;
   &:hover {
-    color: $white_color;
+    color: $selected_fg_color;
     background-color: transparent;
     box-shadow: inset 0 -2px $track_color;
   }
   &:checked,
   &:hover:checked,
   &:insensitive:checked { // 'checked' = 'active'
-    color: $white_color;
+    color: $selected_fg_color;
     background-color: transparent;
-    box-shadow: inset 0 -2px $blue_color;
+    box-shadow: inset 0 -2px $selected_bg_color;
   }
 }
 
 WpTaskTitle {
   background-color: transparent;
 
-  .label { color: $dark_text80_color; }
+  .label { color: $inverted_secondary_fg_color; }
 }
 
 WnckPager {
   background-color: transparent;
-  &:selected { box-shadow: inset 0 -2px $blue_color; }
+  &:selected { box-shadow: inset 0 -2px $selected_bg_color; }
 }
 
 NaTrayApplet {
@@ -121,7 +121,7 @@ NaTrayApplet {
 // sidebar
 .tweak-categories.list {
   background-image: linear-gradient(to bottom, $secondary_dark_color);
-  color: $text80_color;
+  color: $secondary_fg_color;
 
   &:dir(ltr) {
     box-shadow: if($variant == 'light', $sidebar-light-ltr,
@@ -137,11 +137,11 @@ NaTrayApplet {
 
 .tweak-category {
   @extend .list-row;
-  color: $text80_color;
+  color: $secondary_fg_color;
   font-weight: 500;
-  &:hover { color: $text_color; }
+  &:hover { color: $fg_color; }
   &:selected {
-    color: $blue_color;
+    color: $selected_bg_color;
     background-color: transparent;
   }
 }
@@ -165,20 +165,20 @@ NaTrayApplet {
       }
 
       > GtkGrid > .button { // 'remove' buttons
-        color: $white80_color;
+        color: $secondary_selected_fg_color;
         background-color: $suggested_color;
-        &:hover { color: $white_color; }
+        &:hover { color: $selected_fg_color; }
         &:active {
-          color: $white_color;
-          background-color: $blue_color;
+          color: $selected_fg_color;
+          background-color: $selected_bg_color;
         }
         &:checked {
-          color: $white80_color;
-          background-color: mix($white_color, $suggested_color, 20%);
+          color: $secondary_selected_fg_color;
+          background-color: mix($selected_fg_color, $suggested_color, 20%);
         }
         &:insensitive {
           @include button(flat-insensitive, $track_color,
-                                            $insensitive_text_color);
+                                            $insensitive_fg_color);
         }
       }
     }
@@ -208,19 +208,19 @@ GfPopupWindow {
   opacity: 0.9;
   &.background {
     background-color: $inverted_dark_color;
-    color: $dark_text_color;
+    color: $inverted_fg_color;
   }
 }
 
 GfInputSourcePopup {
   #input-source {
-    color: $dark_text_color;
+    color: $inverted_fg_color;
     font-size: 2em;
     font-weight: 700;
     &:selected {
       border-radius: 2px;
       background-color: $track_color;
-      color: $inverted_orange_label_color;
+      color: $inverted_accent_label_color;
     }
   }
 }
@@ -234,7 +234,7 @@ GfCandidatePopup {
   &, &.solid {
     border-radius: 2px;
     border: 1px solid $borders_color;
-    color: $dark_text_color;
+    color: $inverted_fg_color;
   }
 
   GfCandidateBox {
@@ -246,7 +246,7 @@ GfCandidatePopup {
     &:selected {
       border-radius: 0;
       background-color: $track_color;
-      color: $white_color;
+      color: $selected_fg_color;
     }
   }
 
@@ -259,7 +259,7 @@ GfCandidatePopup {
       border-radius: 0;
       border: none;
       background-color: transparent;
-      color: $inverted_orange90_label_color;
+      color: $inverted_secondary_accent_label_color;
       box-shadow: none;
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); }
@@ -291,7 +291,7 @@ EelEditableLabel.entry {
   }
 
   &-desktop.nautilus-canvas-item {
-    color: $white_color;
+    color: $selected_fg_color;
     text-shadow: $z-depth-1;
     &:selected { text-shadow: none; }
   }
@@ -300,17 +300,17 @@ EelEditableLabel.entry {
     border-radius: 2px;
 
     &.dim-label {
-      color: $text70_color;
+      color: $tertiary_fg_color;
       &:selected {
-        &, &:focus { color: mix($white_color, $blue_color, 50%); }
+        &, &:focus { color: mix($selected_fg_color, $selected_bg_color, 50%); }
       }
     }
   }
 
   &-list-dim-label {
-    color: $text70_color;
+    color: $tertiary_fg_color;
     &:selected {
-      &, &:focus { color: mix($white_color, $blue_color, 50%); }
+      &, &:focus { color: mix($selected_fg_color, $selected_bg_color, 50%); }
     }
   }
 
@@ -329,10 +329,10 @@ NautilusTrashBar {
 
   &.free {
     background-color: $track_color;
-    color: $insensitive_text_color;
+    color: $insensitive_fg_color;
   }
 
-  &.used { background-color: $blue_color; }
+  &.used { background-color: $selected_bg_color; }
 
   &.unknown { background-color: $warning_color; }
 }
@@ -344,8 +344,8 @@ NautilusTrashBar {
   border-radius: 2px;
   border: none;
   background-image: linear-gradient(to bottom, $suggested_color);
-  color: $white80_color;
-  &:hover { color: $white_color; }
+  color: $secondary_selected_fg_color;
+  &:hover { color: $selected_fg_color; }
 
   &.button {
     &,
@@ -358,7 +358,7 @@ NautilusTrashBar {
       box-shadow: none;
       animation: none;
     }
-    &:hover { color: $white_color; }
+    &:hover { color: $selected_fg_color; }
   }
 }
 
@@ -385,7 +385,7 @@ NautilusTrashBar {
 
 // reset inverted foreground colour
 EphyWindow {
-  .floating-bar { color: $text80_color; }
+  .floating-bar { color: $secondary_fg_color; }
 
   .search-bar {
     // set same padding with GtkEntry
@@ -585,7 +585,7 @@ MathWindow {
         @each $s,$as in ('',''),
                         (':hover','-hover'),
                         (':active','-active'),
-                        ( ':insensitive','-insensitive') {
+                        (':insensitive','-insensitive') {
           &#{$s} {
             $_url: 'assets/equal#{$as}#{$asset_suffix}';
             @include button(normal#{$as});
@@ -621,7 +621,7 @@ GeditViewFrame {
     border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
                               url("assets/osd-shadow#{$asset_suffix}@2.png"))
                   10 / 10px stretch;
-    color: $dark_text_color;
+    color: $inverted_fg_color;
     opacity: 0.9;
 
     .entry,
@@ -629,9 +629,9 @@ GeditViewFrame {
       &,
       &.error,
       &.warning {
-        color: $dark_text_color;
-        &:focus { color: $white_color; }
-        &:insensitive { color: $insensitive_dark_text_color; }
+        color: $inverted_fg_color;
+        &:focus { color: $selected_fg_color; }
+        &:insensitive { color: $insensitive_inverted_fg_color; }
       }
     }
   }
@@ -645,12 +645,12 @@ GeditViewFrame {
       outline-radius: 2px;
     }
 
-    .label.title { color: $dark_text80_color; }
+    .label.title { color: $inverted_secondary_fg_color; }
 
     &:hover,
     &:active,
     &:checked {
-      .label.title { color: $dark_text_color; }
+      .label.title { color: $inverted_fg_color; }
     }
   }
 }
@@ -729,7 +729,7 @@ GbTerminalView > GtkPaned > GtkScrolledWindow {
 
 GbTerminalView { // always use dark variant
   background-color: $inverted_dark_color;
-  color: $dark_text_color;
+  color: $inverted_fg_color;
 }
 
 // Disable various animations that are enabled by default and really annoying
@@ -754,10 +754,10 @@ GdMainView,
     &, &.list-row.activatable {
       padding: 0;
       background-color: transparent;
-      color: $text80_color;
+      color: $secondary_fg_color;
       font-weight: 500;
       box-shadow: none;
-      &:hover { color: $text_color; }
+      &:hover { color: $fg_color; }
       &:hover:selected,
       &:selected { @extend %selected_items; }
     }
@@ -783,31 +783,31 @@ GdMainView,
                                 to($track_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
-    color: $text80_color;
+    color: $secondary_fg_color;
     &:hover {
       @extend %button_flat_hover;
       border-image: none;
-      color: $text_color;
+      color: $fg_color;
     }
     &:checked {
       @extend %button_flat_checked;
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($blue_color),
+                                  to($selected_bg_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
-      color: $text_color;
+      color: $fg_color;
       &:insensitive {
         @extend %button_flat_checked_insensitive;
         border-image: none;
-        color: $insensitive_text_color;
+        color: $insensitive_fg_color;
       }
     }
     &:insensitive {
       @extend %button_flat_insensitive;
-      color: $insensitive_text80_color;
+      color: $insensitive_secondary_fg_color;
     }
   }
 }
@@ -830,13 +830,13 @@ ContactsWindow {
     }
 
     .list-row.activatable {
-      color: $text80_color;
+      color: $secondary_fg_color;
       background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                 rgba(18, 22, 0, 0.04));
 
-      &:hover { color: $text_color; }
+      &:hover { color: $fg_color; }
       &:selected {
-        color: $blue_color;
+        color: $selected_bg_color;
         background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                   rgba(18, 22, 0, 0.04));
       }
@@ -856,7 +856,7 @@ ContactsWindow {
 TerminalScreen,
 TerminalWindow.background { // dark variant as default
   background-color: $inverted_dark_color;
-  color: $white_color;
+  color: $selected_fg_color;
 }
 
 TerminalWindow {
@@ -890,50 +890,50 @@ TerminalWindow {
         }
       }
 
-      .label { color: $dark_text70_color; }
+      .label { color: $inverted_tertiary_fg_color; }
       .prelight-page .label,
       .active-page .label,
-      .label.active-page { color: $dark_text_color; }
+      .label.active-page { color: $inverted_fg_color; }
 
       .button {
-        color: $dark_text70_color;
+        color: $inverted_tertiary_fg_color;
         &:hover,
-        &:active { color: $dark_text_color; }
-        &:insensitive { color: $insensitive_dark_text_color; }
+        &:active { color: $inverted_fg_color; }
+        &:insensitive { color: $insensitive_inverted_fg_color; }
       }
 
       .prelight-page .button,
       &:hover .button { // hover tab close button
-        color: $dark_text_color;
+        color: $inverted_fg_color;
       }
       .active-page .button,
       &:active .button { // active tab close button
-        color: $dark_text_color;
+        color: $inverted_fg_color;
       }
 
       &.arrow {
-        color: $dark_text70_color;
+        color: $inverted_tertiary_fg_color;
         &:hover,
-        &:active { color: $dark_text_color; }
-        &:insensitive { color: $insensitive_dark_text80_color; }
+        &:active { color: $inverted_fg_color; }
+        &:insensitive { color: $insensitive_inverted_secondary_fg_color; }
       }
     }
 
     &.header.top { // button outside the tabs
       .button {
-        color: $dark_text70_color;
+        color: $inverted_tertiary_fg_color;
         &:hover,
-        &:active { color: $dark_text_color; }
-        &:insensitive { color: $insensitive_dark_text_color; }
+        &:active { color: $inverted_fg_color; }
+        &:insensitive { color: $insensitive_inverted_fg_color; }
       }
     }
   }
 
   .scrollbar {
     .slider { // always use dark variant
-      background-color: gtkopacity($dark_text70_color, 0.55);
-      &:hover { background-color: gtkopacity($dark_text80_color, 0.55); }
-      &:active { background-color: $dark_text_color; }
+      background-color: gtkopacity($inverted_tertiary_fg_color, 0.55);
+      &:hover { background-color: gtkopacity($inverted_secondary_fg_color, 0.55); }
+      &:active { background-color: $inverted_fg_color; }
       &:insensitive { opacity: 0.4; }
     }
 
@@ -954,7 +954,7 @@ EvAnnotationWindow {
 
   GtkBox {
     > GtkLabel {
-      color: $black_color;
+      color: $fixed_fg_color;
       font-weight: 700;
     }
 
@@ -963,7 +963,7 @@ EvAnnotationWindow {
       border: none;
       border-radius: 100px;
       outline-radius: 100px;
-      color: $black_color;
+      color: $fixed_fg_color;
     }
   }
 }
@@ -976,7 +976,7 @@ EvAnnotationWindow {
 Gjs_WeatherWidget {
   .frame > GtkGrid > GtkGrid > GtkGrid {
     .osd.linked.stack-switcher {
-      background-color: gtkopacity($dark_base_color, 0.9);
+      background-color: gtkopacity($dark_color, 0.9);
       box-shadow: $z-depth-1;
 
       > .button.text-button { // remove underlines
@@ -986,7 +986,7 @@ Gjs_WeatherWidget {
           border-image: -gtk-gradient(radial,
                                       center bottom, 0,
                                       center bottom, 0.5,
-                                      to($blue_color),
+                                      to($selected_bg_color),
                                       to(transparent))
                                       0 0 2 / 0 0 2px;
         }
@@ -997,14 +997,14 @@ Gjs_WeatherWidget {
       padding: 1em;
       border-radius: 100px;
       outline-radius: 100px;
-      background-color: gtkopacity($dark_base_color, 0.9);
+      background-color: gtkopacity($dark_color, 0.9);
     }
   }
 
   Gjs_WeeklyForecastFrame {
     background: transparent;
     background-image: linear-gradient(to bottom,
-                                      gtkopacity($dark_base_color, 0.9));
+                                      gtkopacity($dark_color, 0.9));
   }
 }
 

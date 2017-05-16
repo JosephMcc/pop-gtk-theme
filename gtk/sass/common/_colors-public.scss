@@ -18,7 +18,7 @@
 // Widget text/foreground color
 //
 
-@define-color theme_fg_color #{"" +$text_color};
+@define-color theme_fg_color #{"" +$fg_color};
 
 
 //
@@ -26,14 +26,14 @@
 // * used in wm/metacity-1/metacity-theme-3.xml
 //
 
-@define-color theme_inverted_fg_color #{"" +$dark_text_color};
+@define-color theme_inverted_fg_color #{"" +$inverted_fg_color};
 
 
 //
 // Text color for entries, views and content in general
 //
 
-@define-color theme_text_color #{"" +$text_color};
+@define-color theme_text_color #{"" +$fg_color};
 
 
 //
@@ -54,14 +54,14 @@
 // Base background color of selections
 //
 
-@define-color theme_selected_bg_color #{"" +$blue_color};
+@define-color theme_selected_bg_color #{"" +$selected_bg_color};
 
 
 //
 // Text/foreground color of selections
 //
 
-@define-color theme_selected_fg_color #{"" +$white_color};
+@define-color theme_selected_fg_color #{"" +$selected_fg_color};
 
 
 //
@@ -75,7 +75,7 @@
 // Text foreground color of insensitive widgets
 //
 
-@define-color insensitive_fg_color #{"" +$insensitive_text_color};
+@define-color insensitive_fg_color #{"" +$insensitive_fg_color};
 
 
 //
@@ -89,7 +89,7 @@
 // Widget text/foreground color on backdrop windows
 //
 
-@define-color theme_unfocused_fg_color #{"" +$insensitive_text_color};
+@define-color theme_unfocused_fg_color #{"" +$insensitive_fg_color};
 
 
 //
@@ -97,14 +97,14 @@
 // * used in wm/metacity-1/metacity-theme-3.xml
 //
 
-@define-color theme_unfocused_inverted_fg_color #{"" +$insensitive_dark_text_color};
+@define-color theme_unfocused_inverted_fg_color #{"" +$insensitive_inverted_fg_color};
 
 
 //
 // Text color for entries, views and content in general on backdrop windows
 //
 
-@define-color theme_unfocused_text_color #{"" +$insensitive_text_color};
+@define-color theme_unfocused_text_color #{"" +$insensitive_fg_color};
 
 
 //
@@ -112,7 +112,7 @@
 // * used in wm/metacity-1/metacity-theme-3.xml
 //
 
-@define-color theme_unfocused_inverted_text_color #{"" +$insensitive_dark_text_color};
+@define-color theme_unfocused_inverted_text_color #{"" +$insensitive_inverted_fg_color};
 
 
 //
@@ -133,21 +133,21 @@
 // Base background color of selections on backdrop windows
 //
 
-@define-color theme_unfocused_selected_bg_color #{"" +$blue_color};
+@define-color theme_unfocused_selected_bg_color #{"" +$selected_bg_color};
 
 
 //
 // Text/foreground color of selections on backdrop windows
 //
 
-@define-color theme_unfocused_selected_fg_color #{"" + $white_color};
+@define-color theme_unfocused_selected_fg_color #{"" + $selected_fg_color};
 
 
 //
 // Insensitive foreground color on backdrop windows
 //
 
-@define-color unfocused_insensitive_color #{"" + $insensitive_text_color};
+@define-color unfocused_insensitive_color #{"" + $insensitive_fg_color};
 
 
 //
