@@ -1,6 +1,11 @@
 #
 # XFce4
 #
+
+style "xfce-heading" {
+  base[NORMAL] = @bg_color
+}
+
 style "theme-panel" {
   xthickness = 2
   ythickness = 0
@@ -40,6 +45,7 @@ style "panelbuttons" {
   fg[ACTIVE] = @selected_fg_color
   fg[SELECTED] = @selected_fg_color
   fg[INSENSITIVE] = mix(0.4, @selected_fg_color, @bg_color)
+  bg[ACTIVE] = mix(0.1, @inverted_fg_color, @panel_bg_color)
 
   font_name = "Bold"
 
@@ -215,6 +221,7 @@ style "xfsm-label" {
   fg[NORMAL]   = mix(0.4, @fg_color, @bg_color)
 }
 
+widget_class "*XfceHeading*"                          style "xfce-heading"
 widget "*tasklist*"                                   style "panelbuttons"
 widget_class "*Xfce*Panel*.GtkToggleButton"           style "panelbuttons"
 widget_class "*Xfce*NetkTasklist*GtkToggleButton"     style "panelbuttons"
@@ -547,5 +554,37 @@ widget_class "*<FmMainWin>*<FmPathBar>*<GtkButton>*<GtkLabel>"    style "locatio
 # (He)XChat
 #
 
-widget "*xchat-inputbox"    style "entry"
-class  "SexySpellEntry"     style:highest "entry"
+#
+# (He)XChat
+#
+
+style "chat-entry" {
+  xthickness = 5
+  ythickness = 5
+
+  # enforce white backgrounds
+  bg[NORMAL] = @solid_white
+  bg[PRELIGHT] = @solid_white
+  bg[ACTIVE] = @solid_white
+  bg[SELECTED] = @selected_bg_color
+
+  engine "pixmap" {
+    image {
+      function = SHADOW
+      detail   = "entry"
+      file     = "Shadows/frame.png"
+      border   = { 1, 1, 1, 1 }
+      stretch  = TRUE
+    }
+    image {
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      file     = "Others/null.svg"
+      border   = { 0, 0, 0, 0 }
+      stretch  = TRUE
+    }
+  }
+}
+
+widget "*xchat-inputbox" style "chat-entry"
+class "SexySpellEntry"   style:highest "chat-entry"

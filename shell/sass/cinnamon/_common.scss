@@ -119,8 +119,8 @@ StScrollBar {
   padding: 0;
 
   StScrollView & {
-    min-width: 6px;
-    min-height: 6px;
+    min-width: 0.45em;
+    min-height: 0.45em;
   }
 
   StBin#trough {
@@ -590,6 +590,10 @@ $icon_size: 16px;
   spacing: 0;
   padding-left: 0;
   padding-right: 0;
+
+  &.warning { color: $warning_color; }
+
+  &.error { color: $error_color; }
 }
 
 
@@ -1219,10 +1223,9 @@ $icon_size: 16px;
 
 .menu {
   &-favorites-box {
-    margin: auto;
     padding: 7px;
     border-radius: 2px;
-    border: 1px solid transparent;
+    border: 1px solid $borders_color;
     background-color: $base_color;
     box-shadow: $z-depth-2;
 
@@ -1238,7 +1241,6 @@ $icon_size: 16px;
 
   &-places {
     &-box {
-      margin: auto;
       padding: 7px;
       border: 0 solid transparent;
     }
@@ -1368,12 +1370,17 @@ $icon_size: 16px;
 
   .osd-monitor-label { @include fontscaling($ref_size * 3.0); }
 
-  .level {
+  .level { // for legacy
     height: 3px;
     padding: 0;
     border-radius: 0;
     background-color: $osd_semi_fill_color;
     color: $success_color;
+  }
+
+  .level-bar {
+    border-radius: 0;
+    background-color: $success_color;
   }
 }
 
@@ -1444,8 +1451,18 @@ $icon_size: 16px;
   }
 
   &-item-demands-attention {
-    background-gradient-start: $orange_color;
-    background-gradient-end: $orange_color;
+    background-gradient-start: $accent_fill_color;
+    background-gradient-end: $accent_fill_color;
+    color: $selected_fg_color;
+
+    @each $position, $_indicator in (top, 0 2px),
+                                    (bottom, 0 -2px),
+                                    (left, 2px 0),
+                                    (right, -2px 0) {
+      .panel-#{$position} & {
+        box-shadow: inset #{$_indicator} $accent_color;
+      }
+    }
   }
 }
 
@@ -1831,7 +1848,7 @@ $icon_size: 16px;
   }
 
   &-icon {
-    icon-size: 22px;
+    icon-size: 16px;
     color: $osd_secondary_fg_color;
 
     &:hover,
@@ -2058,5 +2075,12 @@ $icon_size: 16px;
   border: none;;
   border-radius: 0;
   background-color: transparent;
+}
+
+// /******************
+//  * Systray Applet *
+//  ******************/
+.systray {
+  spacing: 2px;
 }
 

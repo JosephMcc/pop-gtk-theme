@@ -6,29 +6,72 @@ An adaptive Gtk+ theme based on the Adapta GTK+ theme.
 #### Before using Pop
 -------------------
 
+#### Typography
+
+Adapta strongly depends on Material Design resources, especially its **fonts**.
+
+ 1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
+   - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
+   - Developed by Monotype and Adobe.
+   - Weight used in Adapta: 400, (500), 700
+
+ 2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
+   - Very famous as the default truetype font in Android (English ver.).
+   - Multilingual support is not good.
+   - Weight used in Adapta: 400, 500, 700
+
 > **Note:**
 >
->   **Nokto** is a dark variant for GTK2 (Inkscape, Gimp). To have a Dark theme system wide, use the standard Dark Theme option.
+> * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
+> * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
+> * NotoSans CJK supports 500 weight.
+
+Adapta uses **NotoSans** as the primary font-family in Gnome-Shell and Cinnamon (Cantarell is for fallback).
+In some distributions, users may need to install `fonts-noto-hinted`.
+
+Adapta is designed with nominal **13px (or 14px)** Roboto font.
+In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
+  ```
+  13 [px] x 72 [pt/inch] / 96 [px/inch] = 9.75 [pt]
+  14 [px] x 72 [pt/inch] / 96 [px/inch] = 10.5 [pt]
+  ```
+That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x theming (In Gtk+ 3.18.x theming, em unit is directly used).
+
+> **Note:**
 >
->   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
+> NotoSans CJK (ChineseJapaneseKorean) opentype fonts are actually **0.1em taller than Roboto fonts**, so if 10pt Roboto was suitable on your LCDs, set 9pt for NotoSans CJK families.
+
+**Verify the fonts are rendered correctly via font-viewer tools like Gnome-Font-Viewer.**
+
+Variant Matrix
+--------------
+
+| |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight.png" align="left"/> Adapta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon.png" align="left"/> Adapta-Nokto|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight-eta.png" align="left"/> Adapta-Eta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon-eta.png" align="left"/> Adapta-Nokto-Eta|
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+|Gtk+ 2.24.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 3.20.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 3.22.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Mutter      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Metacity    |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
+|Muffin      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Compiz      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|XFwm4       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Marco       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Openbox-3   |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+
+> **Note:**
 >
->   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool.
->     Or add this porperty to `[Settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
->
->     ```
->     [Settings]
->     gtk-application-prefer-dark-theme=1
->     ```
->
->   * Eta variants are recommended if your LCD resolution is lower than 1920x1080 (LoDPI) or 3200x1800 (HiDPI). Eta draws widgets around -20% to -30% spacing.
+>   * **Nokto** is a dark variant.
+>   * **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
+>   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
 ### Required Components
 -------------------
-Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
+Adapta supports Gtk+ 3.22.x and 3.20.x
 
  ```
- * Gtk+-3.0             >= 3.18.9
+ * Gtk+-3.0             >= 3.20.0
  * Gtk+-2.0             >= 2.24.30
  * gtk2-engines-pixbuf  >= 2.24.30
  * gtk2-engines-murrine >= 0.98.1
@@ -41,7 +84,8 @@ Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
  * GNOME-Shell     >= 3.18.3
  * GNOME-Flashback >= 3.18.2
  * Budgie-Desktop  >= 10.2.7
- * Unity7          >= 7.4.0
+ * Cinnamon        >= 2.8.6
+ * Unity7          >= 7.4.0 (Gtk+ 3.x only)
  * XFce4           >= 4.12.2
  * Mate            >= 1.14.0 (Gtk+ 3.2x only)
  * LXDE            >= 0.99.1 (Gtk+ 2.x only)
@@ -99,22 +143,14 @@ sudo apt install system76-pop-gtk-theme
  ```
  * autoconf
  * automake
- * inkscape
+ * inkscape                                  >= 0.91
  * libgdk-pixbuf2.0-dev (gdk-pixbuf2-devel)  >= 2.32.2
  * libglib2.0-dev (glib2-devel)              >= 2.48.0
  * librsvg2-dev (librsvg2-devel)             >= 2.40.13
- * libsass0 (libsass)                        >= 3.3.6
+ * libsass0 (libsass)                        >= 3.3
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
- * sassc                                     >= 3.3.2
- * parallel                                  (Optional, for faster builds)
- ```
-
- You can install them using:
- ```
- sudo apt install -y autoconf automake inkscape libgdk-pixbuf2.0-dev \
-    libglib2.0-dev librsvg2-dev libsass0 libxml2-utils pkg-config sassc \
-    parallel
+ * sassc                                     >= 3.3
  ```
 
  > **Note:**
@@ -176,9 +212,10 @@ sudo apt install system76-pop-gtk-theme
  >   * The installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-6. To enable next Gtk+ release support, pass this option:
+6. To enable extra Gtk+ release support, pass these options:
 
  ```
+ --enable-gtk_legacy    enable Gtk+ 3.18 support (type: bool)
  --enable-gtk_next      enable Gtk+ 4.0 support (type: bool)
  ```
 
@@ -207,12 +244,10 @@ sudo apt install system76-pop-gtk-theme
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
 
-8. Enable Nokto Theme
-
-By default, the Nokto theme is not installed into the system. If you would like to add it, pass this option:
-```
---enable-nokto
-```
+ > **Note:**
+ >
+ >   * The color-scheme can be used in Gnome-Builder and Gedit if installed to `~/.local/share/gtksourceview-3.0/styles` directory.
+ >   * Currently only dark-variant is supported.
 
 Extra Browser Support
 ---------------------
@@ -227,13 +262,14 @@ Extra Browser Support
  > **Note:**
  >
  >   * Currently only Chrome(ium) theming is supported.
+ >   * Chrome(ium) 59.0.30xx or newer, theming is pulled from Gtk+ 3.x directly.
  >
  >   * Vivaldi can make custom themes via settings like these:
  >     ```
- >     Background: #FAFBFC (#333333)
- >     Foreground: #574F4A (#F6F6F6)
- >     Highlight:  #574F4A
- >     Accent:     #4E4844
+ >     Background: #FAFBFC (#263238)
+ >     Foreground: #263238 (#CFD8DC)
+ >     Highlight:  #00BCD4
+ >     Accent:     #222D32
  >     Accent Color from Active Page: [ ]
  >     Apply Accent Color to Window:  [*]
  >     Transparent Tabs:              [*]
@@ -284,7 +320,7 @@ Work in Progress
 
 TODO
 ----
-* Move Gtk+ 3.18.x theming to legacy (priority: Mid)
+* Prepare for FlatPak packaging (priority: mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 

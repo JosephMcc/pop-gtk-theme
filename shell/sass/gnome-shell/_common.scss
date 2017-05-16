@@ -127,8 +127,8 @@ StScrollBar {
   padding: 0;
 
   StScrollView & {
-    min-width: if($eta == 'false', 6px, 4px);
-    min-height: if($eta == 'false', 6px, 4px);
+    min-width: if($eta == 'false', 0.45em, 0.3em);
+    min-height: if($eta == 'false', 0.45em, 0.3em);
   }
 
   StBin#trough {
@@ -374,7 +374,7 @@ StScrollBar {
 .shell-mount-operation-icon { icon-size: 48px; }
 
 .mount-question-dialog-subject {
-  max-width: if($eta == 'false', 500px, 400px);
+  max-width: if($eta == 'false', 34em, 28em);
 }
 
 .show-processes,
@@ -435,7 +435,7 @@ StScrollBar {
 
 .prompt-dialog {
   // this is the width of the entire modal popup
-  width: 500px;
+  width: if($eta == 'false', 34em, 28em);
   border: none;
 
   &-main-layout {
@@ -724,7 +724,7 @@ StScrollBar {
   -arrow-box-shadow: $empty_shadow; // dreaming. bug #689995
   margin: 0.1em 0.3em 0.5em;
   border-radius: 2px;
-  border-top: 1px solid $base_color;
+  border-top: 1px solid $menu_highlight;
   background-color: $secondary_base_color;
   box-shadow: $z-depth-3;
 }
@@ -1773,9 +1773,9 @@ StScrollBar {
 //  *******************/
 
 .nm-dialog {
-  max-height: if($eta == 'false', 500px, 450px);
-  min-height: 450px;
-  min-width: 470px;
+  max-height: if($eta == 'false', 34em, 28em);
+  min-height: 28em;
+  min-width: if($eta == 'false', 34em, 28em);
 
   &-content {
     spacing: if($eta == 'false', 20px, 16px);
@@ -2055,7 +2055,6 @@ StScrollBar {
 }
 
 .dash-item-container {
-  margin: 2px;
   background: transparent;
 
   > StWidget { padding: 0; }
@@ -2110,17 +2109,16 @@ StScrollBar {
     &-running-dot { background: transparent; }
 
     .overview-icon {
-      padding: 9px - 2px; // remove margin of parent StWidget
+      padding: 9px;
       background-size: contain;
     }
   }
 
   .show-apps .overview-icon {
-    padding: 9px - 2px; // remove margin of parent StWidget
+    padding: 9px;
   }
 
   .dash-item-container { // actual parent container
-    margin: 2px;
     background: transparent;
 
     > StWidget { background-size: contain; }
@@ -2344,8 +2342,7 @@ StScrollBar {
   &-bin {
     padding: 5px;
     border-radius: 2px;
-    border-top: 1px solid if($nokto == 'false', $borders_highlight,
-                                                $base_color);
+    border-top: 1px solid $menu_highlight;
     background-color: if($nokto == 'false', $inverted_bg_color,
                                             $bg_color);
     box-shadow: $z-depth-1;
@@ -2921,17 +2918,15 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     }
     &:default { // raised button
       @include button(normal, $c: $suggested_color,
-                              $tc: if($nokto == 'false',
-                              $dark_text_color,
-                              $text_color));
+                              $tc: $secondary_selected_fg_color);
       &:hover,
       &:focus {
-        @include button(hover, $c:$suggested_color,
-                               $tc:$white_color);
+        @include button(hover, $c: $suggested_color,
+                               $tc: $selected_fg_color);
       }
       &:active {
-        @include button(active, $c:$orange_color,
-                                $tc:$white_color);
+        @include button(active, $c: $selected_bg_color,
+                                $tc: $selected_fg_color);
       }
       &:insensitive {
         @include button(flat-insensitive, $tc: if($nokto == 'false',
@@ -3300,13 +3295,13 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     padding: 4px;
     border-radius: 2px;
     background-color: $suggested_color;
-    color: $osd_secondary_fg_color;
+    color: $secondary_selected_fg_color;
     font-weight: 700;
     &:hover,
     &:focus {
       @include button(hover);
       background-color: $suggested_color;
-      color: $osd_fg_color;
+      color: $selected_fg_color;
     }
     &:active {
       @include button(active);
@@ -3342,12 +3337,18 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 
 #LookingGlassPropertyInspector {
   padding: 6px;
-  border-top: 1px solid $borders_highlight;
+  border: 1px solid $borders_color;
   background: $osd_bg_color;
   color: $osd_fg_color;
   box-shadow: $empty_shadow;
   // scroll-bar is included in the parent ScrollView widget
-  &:ltr { border-radius: 2px 0 0 2px; }
-  &:rtl { border-radius: 0 2px 2px 0; }
+  &:ltr {
+    border-radius: 2px 0 0 2px;
+    border-left-color: transparent;
+  }
+  &:rtl {
+    border-radius: 0 2px 2px 0;
+    border-right-color: transparent;
+  }
 }
 

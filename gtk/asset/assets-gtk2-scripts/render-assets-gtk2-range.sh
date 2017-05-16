@@ -17,7 +17,7 @@ ASSETS_DIR="../assets-gtk2"
 INDEX="assets-gtk2-range.txt"
 KEY_FILE="../../sass/common/_key_colors.scss"
 
-inkver="`$INKSCAPE --version | awk '{print $2}'`"
+inkver="`$INKSCAPE --version | awk '{print $2}' | cut -c 1-4`"
 if [ "$inkver" = 0.91 ]; then
     non_scale_dpi=90
 else
@@ -29,6 +29,7 @@ render-non-scale() {
     ID=`echo $i | tr '/' '_'`
     $INKSCAPE --export-id=$ID \
               --export-dpi="$non_scale_dpi" \
+              --export-id-only \
               --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
                                                         2>>../inkscape.log
 }

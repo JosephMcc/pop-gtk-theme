@@ -1,8 +1,8 @@
-m4_define([pop_major_version], [1])
-m4_define([pop_minor_version], [1])
-m4_define([pop_micro_version], [1])
-m4_define([pop_version], [pop_major_version.pop_minor_version.pop_micro_version])
-m4_define([pop_git_url], [https://github.com/system76/pop-gtk-theme])
+m4_define([adapta_major_version], [3])
+m4_define([adapta_minor_version], [90])
+m4_define([adapta_micro_version], [1])
+m4_define([adapta_version], [adapta_major_version.adapta_minor_version.adapta_micro_version])
+m4_define([adapta_git_url], [https://github.com/adapta-project/adapta-gtk-theme])
 
 AC_INIT(
 	[Pop ],
@@ -23,18 +23,18 @@ AM_INIT_AUTOMAKE([
 AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
-POP_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
-POP_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
-POP_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
-POP_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
-POP_OPTION([UNITY],     [unity],     [Unity],          [disable])
-POP_OPTION([XFCE],      [xfce],      [XFce],           [disable])
-POP_OPTION([MATE],      [mate],      [Mate],           [disable])
-POP_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
-POP_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
-POP_OPTION([PLANK],     [plank],     [Plank],          [disable])
-POP_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
-POP_OPTION([NOKTO],     [nokto],     [Nokto],          [disable])
+ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
+ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
+ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
+ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
+ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
+ADAPTA_OPTION([XFCE],      [xfce],      [XFce],           [disable])
+ADAPTA_OPTION([MATE],      [mate],      [Mate],           [disable])
+ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
+ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
+ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
+ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
+ADAPTA_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
@@ -76,10 +76,6 @@ AC_MSG_RESULT([
         Pop Gtk+ Theme $VERSION
         ===========================================================
 
-        -----------------------------------------------------------
-        | Supported Gtk+ version: 3.22 & 3.20 & 3.18
-        -----------------------------------------------------------
-
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
          target directories:     ${datarootdir}/themes/Pop
@@ -102,38 +98,36 @@ AC_MSG_RESULT([
          background-color:       $BACKGROUNF (Default: $background-default)
 
         -----------------------------------------------------------
-        | Default DE support
+        | Supported Gtk+ Version
         -----------------------------------------------------------
 
-         GNOME:                >= 3.22 (or 3.20 or 3.18)
-         Budgie-Desktop:       >= 10.2.7
+         Gtk+ 3.18:              $ENABLE_GTK_LEGACY
+         Gtk+ 3.20:              always
+         Gtk+ 3.22:              always
+         Gtk+ 4.0:               $ENABLE_GTK_NEXT
 
         -----------------------------------------------------------
-        | Extra DE and WM support
+        | DE and WM Support
         -----------------------------------------------------------
 
-         Cinnamon:             $ENABLE_CINNAMON
-         GNOME-Flashback:      $ENABLE_FLASHBACK
-         Unity:                $ENABLE_UNITY
-         XFce:                 $ENABLE_XFCE
-         Mate:                 $ENABLE_MATE
-         Openbox:              $ENABLE_OPENBOX
+         GNOME:                  always (>= 3.18.3)
+         Budgie-Desktop:         always (>= 10.2.7)
+
+         Cinnamon:               $ENABLE_CINNAMON
+         GNOME-Flashback:        $ENABLE_FLASHBACK
+         Unity:                  $ENABLE_UNITY
+         XFce:                   $ENABLE_XFCE
+         Mate:                   $ENABLE_MATE
+         Openbox:                $ENABLE_OPENBOX
 
         -----------------------------------------------------------
-        | Next Gtk+ support
+        | Extra Support
         -----------------------------------------------------------
 
-         Gtk+ 4.0:             $ENABLE_GTK_NEXT
-
-        -----------------------------------------------------------
-        | Extra support
-        -----------------------------------------------------------
-
-         Nokto:                $ENABLE_NOKTO
-         GtkSourceView/Gedit:  always
-         Chrome(ium):          $ENABLE_CHROME
-         Plank:                $ENABLE_PLANK
-         Telegram:             $ENABLE_TELEGRAM
+         GtkSourceView/Gedit:    always
+         Chrome(ium):            $ENABLE_CHROME
+         Plank:                  $ENABLE_PLANK
+         Telegram:               $ENABLE_TELEGRAM
 
         ===========================================================
                              =>> run 'make' and 'sudo make install'

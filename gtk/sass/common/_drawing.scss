@@ -56,17 +56,17 @@ $z-depth-2-backdrop: 0 6px 8px -4px transparent,
 $header-shadow-light: 0 1px 1px rgba(0, 0, 0, 0.16),
                       0 1px 2px rgba(0, 0, 0, 0.26),
                       0 2px 3px rgba(0, 0, 0, 0.32);
-$header-shadow-dark: 0 1px 1px rgba(0, 0, 0, 0.06),
-                     0 1px 2px rgba(0, 0, 0, 0.14),
-                     0 2px 3px rgba(0, 0, 0, 0.20);
+$header-shadow-dark: 0 1px 1px rgba(0, 0, 0, 0.02),
+                     0 1px 2px rgba(0, 0, 0, 0.11),
+                     0 2px 3px rgba(0, 0, 0, 0.10);
 $sub-header-shadow-light-ltr: 0 1px 1px rgba(0, 0, 0, 0.16),
                               0 1px 2px rgba(0, 0, 0, 0.26),
                               0 2px 3px rgba(0, 0, 0, 0.32),
                               -5px 0 0 -1px $inverted_dark_color,
                               -2px 0 0 -1px $borders_color;
-$sub-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.06),
-                             0 1px 2px rgba(0, 0, 0, 0.14),
-                             0 2px 3px rgba(0, 0, 0, 0.20),
+$sub-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.02),
+                             0 1px 2px rgba(0, 0, 0, 0.11),
+                             0 2px 3px rgba(0, 0, 0, 0.10),
                              -5px 0 0 -1px $inverted_dark_color,
                              -2px 0 0 -1px $borders_color;
 $sub-header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
@@ -74,35 +74,35 @@ $sub-header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
                               0 2px 3px rgba(0, 0, 0, 0.32),
                               5px 0 0 -1px $inverted_dark_color,
                               2px 0 0 -1px $borders_color;
-$sub-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.06),
-                             0 1px 2px rgba(0, 0, 0, 0.14),
-                             0 2px 3px rgba(0, 0, 0, 0.20),
+$sub-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.02),
+                             0 1px 2px rgba(0, 0, 0, 0.11),
+                             0 2px 3px rgba(0, 0, 0, 0.10),
                              5px 0 0 -1px $inverted_dark_color,
                              2px 0 0 -1px $borders_color;
 $selected-header-shadow-light-ltr: 0 1px 1px rgba(0, 0, 0, 0.16),
                                    0 1px 2px rgba(0, 0, 0, 0.26),
                                    0 2px 3px rgba(0, 0, 0, 0.32),
-                                   -5px 0 0 -1px $blue_color;
-$selected-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.06),
-                                  0 1px 2px rgba(0, 0, 0, 0.14),
-                                  0 2px 3px rgba(0, 0, 0, 0.20),
-                                  -5px 0 0 -1px $blue_color;
+                                   -5px 0 0 -1px $selected_bg_color;
+$selected-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.02),
+                                  0 1px 2px rgba(0, 0, 0, 0.11),
+                                  0 2px 3px rgba(0, 0, 0, 0.10),
+                                  -5px 0 0 -1px $selected_bg_color;
 $selected_header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
                                    0 1px 2px rgba(0, 0, 0, 0.26),
                                    0 2px 3px rgba(0, 0, 0, 0.32),
-                                   5px 0 0 -1px $blue_color;
-$selected-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.06),
-                                  0 1px 2px rgba(0, 0, 0, 0.14),
-                                  0 2px 3px rgba(0, 0, 0, 0.20),
-                                  5px 0 0 -1px $blue_color;
+                                   5px 0 0 -1px $selected_bg_color;
+$selected-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.02),
+                                  0 1px 2px rgba(0, 0, 0, 0.11),
+                                  0 2px 3px rgba(0, 0, 0, 0.10),
+                                  5px 0 0 -1px $selected_bg_color;
 $tiled-header-shadow-light-ltr: 0 1px 1px rgba(0, 0, 0, 0.16),
                                 0 1px 2px rgba(0, 0, 0, 0.26),
                                 0 2px 3px rgba(0, 0, 0, 0.32),
                                 -5px 0 0 -1px $panel_bg_color,
                                 -2px 0 0 -1px $borders_color;
-$tiled-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.06),
-                               0 1px 2px rgba(0, 0, 0, 0.14),
-                               0 2px 3px rgba(0, 0, 0, 0.20),
+$tiled-header-shadow-dark-ltr: 0 1px 1px rgba(0, 0, 0, 0.02),
+                               0 1px 2px rgba(0, 0, 0, 0.11),
+                               0 2px 3px rgba(0, 0, 0, 0.10),
                                -5px 0 0 -1px $panel_bg_color,
                                -2px 0 0 -1px $borders_color;
 $tiled-header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
@@ -110,9 +110,9 @@ $tiled-header-shadow-light-rtl: 0 1px 1px rgba(0, 0, 0, 0.16),
                                 0 2px 3px rgba(0, 0, 0, 0.32),
                                 5px 0 0 -1px $panel_bg_color,
                                 2px 0 0 -1px $borders_color;
-$tiled-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.06),
-                               0 1px 2px rgba(0, 0, 0, 0.14),
-                               0 2px 3px rgba(0, 0, 0, 0.20),
+$tiled-header-shadow-dark-rtl: 0 1px 1px rgba(0, 0, 0, 0.02),
+                               0 1px 2px rgba(0, 0, 0, 0.11),
+                               0 2px 3px rgba(0, 0, 0, 0.10),
                                5px 0 0 -1px $panel_bg_color,
                                2px 0 0 -1px $borders_color;
 
@@ -125,10 +125,10 @@ $sidebar-light-ltr: inset -2px 2px 2px -2px rgba(0, 0, 0, 0.05),
                     inset -3px 3px 3px -2px rgba(0, 0, 0, 0.05);
 $sidebar-light-rtl: inset 2px 2px 2px -2px rgba(0, 0, 0, 0.05),
                     inset 3px 3px 3px -2px rgba(0, 0, 0, 0.05);
-$sidebar-dark-ltr: inset -2px 2px 1px -2px rgba(0, 0, 0, 0.02),
-                   inset -3px 3px 3px -2px rgba(0, 0, 0, 0.06);
-$sidebar-dark-rtl: inset 2px 2px 1px -2px rgba(0, 0, 0, 0.02),
-                   inset 3px 3px 3px -2px rgba(0, 0, 0, 0.06);
+$sidebar-dark-ltr: inset -2px 2px 1px -2px rgba(0, 0, 0, 0.01),
+                   inset -3px 1px 3px -2px rgba(0, 0, 0, 0.05);
+$sidebar-dark-rtl: inset 2px 2px 1px -2px rgba(0, 0, 0, 0.01),
+                   inset 3px 1px 3px -2px rgba(0, 0, 0, 0.05);
 
 
 //
@@ -137,8 +137,8 @@ $sidebar-dark-rtl: inset 2px 2px 1px -2px rgba(0, 0, 0, 0.02),
 
 $inline-shadow-light: inset 0 1px 2px -1px rgba(0, 0, 0, 0.02),
                       inset 0 2px 3px -2px rgba(0, 0, 0, 0.07);
-$inline-shadow-dark: inset 0 1px 2px -1px rgba(0, 0, 0, 0.03),
-                     inset 0 3px 4px -3px rgba(0, 0, 0, 0.06);
+$inline-shadow-dark: inset 0 1px 2px -1px rgba(0, 0, 0, 0.12),
+                     inset 0 3px 4px -3px rgba(0, 0, 0, 0.05);
 
 
 //
@@ -163,24 +163,15 @@ $tab-shadow-dark: -1px 0 2px rgba(0, 0, 0, 0.02),
 
 
 //
-// Menubar shadows
-//
-
-$menubar-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.26),
-                 inset 0 5px 3px -5px rgba(0, 0, 0, 0.39),
-                 inset 0 -1px $borders_color;
-
-
-//
 // Toolbar shadows
 //
 
 $toolbar-shadow-light: inset 0 1px 1px rgba(0, 0, 0, 0.18),
                        inset 0 4px 2px -4px rgba(0, 0, 0, 0.20),
                        inset 0 8px 3px -5px rgba(0, 0, 0, 0.24);
-$toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.22),
-                      inset 0 4px 3px -4px rgba(0, 0, 0, 0.22),
-                      inset 0 8px 3px -5px rgba(0, 0, 0, 0.24);
+$toolbar-shadow-dark: inset 0 1px 1px rgba(0, 0, 0, 0.18),
+                      inset 0 4px 3px -4px rgba(0, 0, 0, 0.15),
+                      inset 0 8px 3px -5px rgba(0, 0, 0, 0.14);
 
 
 //
@@ -272,18 +263,16 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                     mix($base_color, $black_color, 90%),
                     $solid_light_borders_color);
   border-image: none;
-  background-color: $base_color;
-  color: $text80_color;
+  background-color: $light_color;
+  color: $secondary_fg_color;
   box-shadow: none;
 }
 
 %entry_fallback_focus {
-  border: 1px solid if($variant == 'light',
-                    mix($base_color, $black_color, 80%),
-                    $solid_light_borders_color);
+  border: 1px solid $selected_bg_color;
   border-image: none;
-  background-color: mix($base_color, $text_color, 90%);
-  color: $text_color;
+  background-color: $light_color;
+  color: $fg_color;
   box-shadow: none;
 }
 
@@ -292,8 +281,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
                     mix($base_color, $black_color, 90%),
                     $solid_light_borders_color);
   border-image: none;
-  background-color: $base_color;
-  color: $insensitive_text_color;
+  background-color: mix($bg_color, $fg_color, 96%);
+  color: $insensitive_fg_color;
   box-shadow: none;
 }
 
@@ -455,8 +444,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   border: 1px solid if($variant == 'light',
                     mix($base_color, $black_color, 90%),
                     $solid_light_borders_color);
-  background-color: $base_color;
-  color: $text80_color;
+  background-color: $light_color;
+  color: $secondary_fg_color;
   box-shadow: none;
 }
 
@@ -464,8 +453,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   border: 1px solid if($variant == 'light',
                     mix($base_color, $black_color, 80%),
                     $solid_light_borders_color);
-  background-color: mix($base_color, $text_color, 90%);
-  color: $text_color;
+  background-color: mix($light_color, $fg_color, 90%);
+  color: $fg_color;
   box-shadow: none;
 }
 
@@ -479,8 +468,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 
 %button_fallback_insensitive {
   border: none;
-  background-color: $base_color;
-  color: $insensitive_text_color;
+  background-color: mix($bg_color, $fg_color, 96%);
+  color: $insensitive_fg_color;
   box-shadow: none;
 }
 

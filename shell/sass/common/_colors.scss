@@ -38,12 +38,13 @@ $black: $warm_gray;
 // Foreground colors
 //
 
-$text_color: if($nokto == 'false', $black, $almost_white);
-$text80_color: shellopacity($text_color, 0.75);
+$fg_color: if($nokto == 'false', #263238, #CFD8DC);
+$secondary_fg_color: shellopacity($fg_color, 0.75);
 
 $dim_fg_color: shellopacity($text_color, 0.4);
 
-$white_color: #F6F6F6;
+$selected_fg_color: #FFFFFF;
+$secondary_selected_fg_color: shellopacity($selected_fg_color, 0.85);
 
 $insensitive_text_color: shellopacity($text_color, 0.4);
 $insensitive_text80_color: shellopacity($text80_color, 0.4);
@@ -53,20 +54,19 @@ $insensitive_text80_color: shellopacity($text80_color, 0.4);
 // Inverted foreground colors
 //
 
-$dark_text_color: if($nokto == 'false', $almost_white, $black);
-$dark_text80_color: shellopacity($dark_text_color, 0.75);
-$inverted_dim_fg_color: shellopacity($dark_text_color, 0.4);
+$inverted_fg_color: if($nokto == 'false', #CFD8DC, #263238);
+$inverted_secondary_fg_color: shellopacity($inverted_fg_color, 0.75);
+$inverted_dim_fg_color: shellopacity($inverted_fg_color, 0.4);
 
 
 //
 // Background colors
 //
 
-$bg_color: if($nokto == 'false', $almost_white, $dark_neutral_gray);
-$base_color: if($nokto == 'false', $almost_white, $black);
-$secondary_base_color: if($nokto == 'false', lighten($almost_white, 0.1),
-                                             lighten($black, 0.1));
-$secondary_dark_color: if($nokto == 'false', $almost_white, $medium_gray);
+$bg_color: if($nokto == 'false', #FAFBFC, #263238);
+$base_color: if($nokto == 'false', #FFFFFF, #29353B);
+$secondary_base_color: if($nokto == 'false', #FDFDFE, #28343A);
+$secondary_dark_color: if($nokto == 'false', #ECEFF1, #243035);
 
 $fill_color: shellopacity($text_color, 0.15);
 $semi_fill_color: shellopacity($text_color, 0.07);
@@ -102,8 +102,8 @@ $insensitive_fill_color: shellopacity($fill_color, 0.4);
 // Inverted background colors
 //
 
-$inverted_bg_color: if($nokto == 'false', $dark_neutral_gray, $almost_white);
-$inverted_base_color: $black;
+$inverted_bg_color: if($nokto == 'false', #263238, #FAFBFC);
+$inverted_base_color: #29353B;
 $inverted_dim_bg_color: shellopacity($inverted_bg_color, 0.2);
 
 
@@ -133,11 +133,14 @@ $inverted_secondary_orange_label_color:
 // Misc colors
 //
 
-$borders_color: if($nokto == 'false', shellopacity($literally_black, 0.09),
-                                      shellopacity($literally_black, 0.11));
-$borders_edge: shellopacity($literally_black, 0.05);
+$borders_color: if($nokto == 'false', shellopacity(#000000, 0.09),
+                                      shellopacity(#000000, 0.13));
+$borders_edge: shellopacity(#000000, 0.05);
 $top_hilight: $borders_edge;
-$borders_highlight: shellopacity($almost_white, 0.07);
+$borders_highlight: shellopacity(#FFFFFF, 0.07);
+$menu_highlight: if($nokto == 'false',
+                    $base_color,
+                    mix($secondary_base_color, #FFFFFF, 98%));
 $insensitive_borders_color: $borders_color;
 
 $link_color: $orange;
@@ -167,7 +170,7 @@ $insensitive_osd_secondary_fg_color: shellopacity($osd_secondary_fg_color, 0.4);
 // OSD Background colors
 //
 
-$osd_bg_color: mix($black, $medium_gray, 75%);
+$osd_bg_color: mix(#263238, #000000, 90%);
 $osd_base_color: if($nokto == 'false', $inverted_base_color, $bg_color);
 
 $osd_fill_color: shellopacity($osd_fg_color, 0.4);

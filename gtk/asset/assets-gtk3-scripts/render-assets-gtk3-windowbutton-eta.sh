@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# This file is part of pop-gtk-theme
+# This file is part of adapta-gtk-theme
 #
 # Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
 #
@@ -14,7 +14,7 @@ INKSCAPE="`command -v inkscape`"
 
 SRC_FILE="../assets-gtk3.svg"
 ASSETS_DIR="../assets-gtk3"
-INDEX="assets-gtk3-windowbutton.txt"
+INDEX="assets-gtk3-windowbutton-eta.txt"
 KEY_FILE="../../sass/common/_key_colors.scss"
 
 inkver="`$INKSCAPE --version | awk '{print $2}' | cut -c 1-4`"

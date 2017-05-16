@@ -32,11 +32,16 @@ style "default" {
   GtkButton::child-displacement-y = 0
   GtkButton::default-border = { 0, 0, 0, 0 }
   GtkButton::default-outside_border = { 0, 0, 0, 0 }
+  GtkButton::inner-border = { 4, 4, 4, 4 }
+
+  GtkEntry::state-hint   = 1
+  GtkEntry::inner-border = { 6, 6, 6, 6 }
 
   GtkScrollbar::trough-border = 0
   GtkRange::trough-border = 0
   GtkRange::slider-width = 13
   GtkRange::stepper-size = 0
+  GtkRange::activate-slider = 1
 
   GtkScrollbar::activate-slider = 1
   GtkScrollbar::has-backward-stepper = 0  
@@ -46,10 +51,8 @@ style "default" {
   GtkScrolledWindow::scrollbar-spacing = 0
   GtkScrolledWindow::scrollbars-within-bevel = 1
 
-  GtkVScale::slider_length = 16
-  GtkVScale::slider_width = 16
-  GtkHScale::slider_length = 16
-  GtkHScale::slider_width = 16
+  GtkScale::slider_length = 20
+  GtkScale::slider_width = 20
   GtkScale::trough-side-details = 1
 
   GtkStatusbar::shadow_type = GTK_SHADOW_NONE
@@ -653,11 +656,43 @@ style "progressbar" {
 }
 
 style "range" { 
-  # FIXME: thickness needed by Qt4/5 backend?
-  xthickness = 3
-  ythickness = 3
-
   engine "pixmap" {
+    image {
+      function    = BOX
+      state       = NORMAL
+      detail      = "trough-upper"
+      file        = "Range/h-scale-trough-dark.png"
+      border      = { 8, 8, 0, 0 }
+      stretch     = TRUE
+      orientation = HORIZONTAL
+    }
+    image {
+      function    = BOX
+      state       = NORMAL
+      detail      = "trough-lower"
+      file        = "Range/h-scale-trough-active.png"
+      border      = { 8, 8, 0, 0 }
+      stretch     = TRUE
+      orientation = HORIZONTAL
+    }
+    image {
+      function    = BOX
+      state       = PRELIGHT
+      detail      = "trough-upper"
+      file        = "Range/h-scale-trough-dark.png"
+      border      = { 8, 8, 0, 0 }
+      stretch     = TRUE
+      orientation = HORIZONTAL
+    }
+    image {
+      function    = BOX
+      state       = PRELIGHT
+      detail      = "trough-lower"
+      file        = "Range/h-scale-trough-active.png"
+      border      = { 8, 8, 0, 0 }
+      stretch     = TRUE
+      orientation = HORIZONTAL
+    }
     image {
       function    = BOX
       state       = ACTIVE
@@ -693,6 +728,42 @@ style "range" {
       border      = { 8, 8, 0, 0 }
       stretch     = TRUE
       orientation = HORIZONTAL
+    }
+    image {
+      function    = BOX
+      state       = NORMAL
+      detail      = "trough-upper"
+      file        = "Range/v-scale-trough-dark.png"
+      border      = { 0, 0, 8, 8 }
+      stretch     = TRUE
+      orientation = VERTICAL
+    }
+    image {
+      function    = BOX
+      state       = NORMAL
+      detail      = "trough-lower"
+      file        = "Range/v-scale-trough-active.png"
+      border      = { 0, 0, 8, 8 }
+      stretch     = TRUE
+      orientation = VERTICAL
+    }
+    image {
+      function    = BOX
+      state       = PRELIGHT
+      detail      = "trough-upper"
+      file        = "Range/v-scale-trough-dark.png"
+      border      = { 0, 0, 8, 8 }
+      stretch     = TRUE
+      orientation = VERTICAL
+    }
+    image {
+      function    = BOX
+      state       = PRELIGHT
+      detail      = "trough-lower"
+      file        = "Range/v-scale-trough-active.png"
+      border      = { 0, 0, 8, 8 }
+      stretch     = TRUE
+      orientation = VERTICAL
     }
     image {
       function    = BOX
@@ -737,32 +808,26 @@ style "range" {
     image {
       function        = SLIDER
       state           = NORMAL
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider.png"
-      overlay_stretch = FALSE
-      orientation     = HORIZONTAL
+      detail          = "hscale"
+      file            = "Range/scale-slider.png"
     }
     image {
       function        = SLIDER
       state           = PRELIGHT
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-hover.png"
-      overlay_stretch = FALSE
-      orientation     = HORIZONTAL
+      detail          = "hscale"
+      file            = "Range/scale-slider-hover.png"
+    }
+    image {
+      function        = SLIDER
+      state           = ACTIVE
+      detail          = "hscale"
+      file            = "Range/scale-slider-active.png"
     }
     image {
       function        = SLIDER
       state           = INSENSITIVE
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-insensitive-dark.png"
-      overlay_stretch = FALSE
-      orientation     = HORIZONTAL
+      detail          = "hscale"
+      file            = "Range/scale-slider-insensitive-dark.png"
     }
 
     #
@@ -771,40 +836,26 @@ style "range" {
     image {
       function        = SLIDER
       state           = NORMAL
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider.png"
-      overlay_stretch = FALSE
-      orientation     = VERTICAL
+      detail          = "vscale"
+      file            = "Range/scale-slider.png"
     }
     image {
       function        = SLIDER
       state           = PRELIGHT
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-hover.png"
-      overlay_stretch = FALSE
-      orientation     = VERTICAL
+      detail          = "vscale"
+      file            = "Range/scale-slider-hover.png"
+    }
+    image {
+      function        = SLIDER
+      state           = ACTIVE
+      detail          = "vscale"
+      file            = "Range/scale-slider-active.png"
     }
     image {
       function        = SLIDER
       state           = INSENSITIVE
-      file            = "Others/null.svg"
-      border          = { 0, 0, 0, 0 }
-      stretch         = TRUE
-      overlay_file    = "Range/scale-slider-insensitive-dark.png"
-      overlay_stretch = FALSE
-      orientation     = VERTICAL
-    }
-
-    # Function below removes ugly boxes
-    image {
-      function        = BOX
-      file            = "Others/null.svg"
-      border          = { 3, 3, 3, 3 }
-      stretch         = TRUE
+      detail          = "vscale"
+      file            = "Range/scale-slider-insensitive-dark.png"
     }
   }
 }
@@ -925,6 +976,13 @@ style "entry" {
   xthickness = 6
   ythickness = 6
 
+  bg[NORMAL] = @bg_color
+  bg[ACTIVE] = @bg_color
+  bg[INSENSITIVE] = @bg_color
+  base[NORMAL] = @bg_color
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = @bg_color
+
   engine "pixmap" {
     image {
       function = SHADOW
@@ -932,15 +990,16 @@ style "entry" {
       state    = NORMAL
       shadow   = IN
       file     = "Entry/entry-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
       function = SHADOW
       detail   = "entry"
       state    = ACTIVE
+      shadow   = IN
       file     = "Entry/entry-active-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -949,7 +1008,7 @@ style "entry" {
       state    = INSENSITIVE
       shadow   = IN
       file     = "Entry/entry-insensitive-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -962,55 +1021,29 @@ style "entry" {
       function        = FLAT_BOX
       detail          = "entry_bg"
       state           = ACTIVE
-      file            = "Entry/bg-dark.png"
+      file            = "Entry/bg-active-dark.png"
     }
     image {
       function        = FLAT_BOX
       detail          = "entry_bg"
       state           = INSENSITIVE
-      file            = "Entry/bg-dark.png"
+      file            = "Entry/bg-insensitive-dark.png"
     }
   }
 }
 
-style "notebook_entry" {
+style "notebook_entry" = "entry" {
   bg[NORMAL] = @bg_color
   bg[ACTIVE] = @bg_color
   bg[INSENSITIVE] = @bg_color
-
-  engine "pixmap" {
-    image {
-      function = SHADOW
-      detail   = "entry"
-      state    = NORMAL
-      shadow   = IN
-      file     = "Entry/base_entry-dark.png"
-      border   = { 5, 5, 5, 5 }
-      stretch  = TRUE
-    }
-    image {
-      function = SHADOW
-      detail   = "entry"
-      state    = ACTIVE
-      file     = "Entry/base_entry-active-dark.png"
-      border   = { 5, 5, 5, 5 }
-      stretch  = TRUE
-    }
-    image {
-      function = SHADOW
-      detail   = "entry"
-      state    = INSENSITIVE
-      shadow   = IN
-      file     = "Entry/base_entry-insensitive-dark.png"
-      border   = { 5, 5, 5, 5 }
-      stretch  = TRUE
-    }
-  }
+  base[NORMAL] = @bg_color
+  base[ACTIVE] = @selected_bg_color
+  base[INSENSITIVE] = @bg_color
 }
 
 style "button" {
-  xthickness = 5
-  ythickness = 5
+  xthickness = 6
+  ythickness = 6
 
   fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
@@ -1022,7 +1055,7 @@ style "button" {
       function = BOX
       state    = NORMAL
       file     = "Buttons/button-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -1030,7 +1063,7 @@ style "button" {
       state    = PRELIGHT
       shadow   = OUT
       file     = "Buttons/button-hover-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -1038,14 +1071,14 @@ style "button" {
       state    = INSENSITIVE
       shadow   = OUT
       file     = "Buttons/button-insensitive-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = ACTIVE
       file     = "Buttons/button-active-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -1053,7 +1086,7 @@ style "button" {
       state    = PRELIGHT
       shadow   = IN
       file     = "Buttons/button-active-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -1061,7 +1094,7 @@ style "button" {
       state    = INSENSITIVE
       shadow   = IN
       file     = "Buttons/button-insensitive-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
   }
@@ -1084,8 +1117,8 @@ style "misc_button_label" {
 }
 
 style "flat_button" {
-  xthickness = 5
-  ythickness = 5
+  xthickness = 6
+  ythickness = 6
 
   fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
   fg[PRELIGHT] = @fg_color
@@ -1097,7 +1130,7 @@ style "flat_button" {
       function = BOX
       state    = NORMAL
       file     = "Others/null.svg"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -1105,7 +1138,7 @@ style "flat_button" {
       state    = PRELIGHT
       shadow   = OUT
       file     = "Buttons/flat-button-hover-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -1113,14 +1146,14 @@ style "flat_button" {
       state    = INSENSITIVE
       shadow   = OUT
       file     = "Others/null.svg"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
       function = BOX
       state    = ACTIVE
       file     = "Buttons/flat-button-active-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -1128,7 +1161,7 @@ style "flat_button" {
       state    = PRELIGHT
       shadow   = IN
       file     = "Buttons/flat-button-hover-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
     image {
@@ -1136,7 +1169,7 @@ style "flat_button" {
       state    = INSENSITIVE
       shadow   = IN
       file     = "Buttons/button-insensitive-dark.png"
-      border   = { 5, 5, 5, 5 }
+      border   = { 6, 6, 6, 6 }
       stretch  = TRUE
     }
   }
@@ -1209,8 +1242,8 @@ style "button_separator" {
 }
 
 style "combobox_button" {
-  xthickness = 5
-  ythickness = 4
+  xthickness = 6
+  ythickness = 6
 }
 
 style "combobox_entry" {
@@ -1233,6 +1266,7 @@ style "combobox_entry" {
       function  = SHADOW
       detail    = "entry"
       state     = ACTIVE
+      shadow    = IN
       file      = "Entry/ltr-entry-active-dark.png"
       border    = { 6, 6, 6, 6 }
       stretch   = TRUE
@@ -1264,6 +1298,7 @@ style "combobox_entry" {
       function  = SHADOW
       detail    = "entry"
       state     = ACTIVE
+      shadow    = IN
       file      = "Entry/rtl-entry-active-dark.png"
       border    = { 6, 6, 6, 6 }
       stretch   = TRUE
@@ -1290,8 +1325,8 @@ style "notebook_combobox_entry" {
       detail    = "entry"
       state     = NORMAL
       shadow    = IN
-      file      = "Entry/ltr-base_entry-dark.png"
-      border    = { 5, 0, 5, 5 }
+      file      = "Entry/ltr-entry-dark.png"
+      border    = { 6, 0, 6, 6 }
       stretch   = TRUE
       direction = LTR
     }
@@ -1299,8 +1334,9 @@ style "notebook_combobox_entry" {
       function  = SHADOW
       detail    = "entry"
       state     = ACTIVE
-      file      = "Entry/ltr-base_entry-active-dark.png"
-      border    = { 5, 0, 5, 5 }
+      shadow    = IN
+      file      = "Entry/ltr-entry-active-dark.png"
+      border    = { 6, 0, 6, 6 }
       stretch   = TRUE
       direction = LTR
     }
@@ -1309,8 +1345,8 @@ style "notebook_combobox_entry" {
       detail    = "entry"
       state     = INSENSITIVE
       shadow    = IN
-      file      = "Entry/ltr-base_entry-insensitive-dark.png"
-      border    = { 5, 0, 5, 5 }
+      file      = "Entry/ltr-entry-insensitive-dark.png"
+      border    = { 6, 0, 6, 6 }
       stretch   = TRUE
       direction = LTR
     }
@@ -1321,8 +1357,8 @@ style "notebook_combobox_entry" {
       detail    = "entry"
       state     = NORMAL
       shadow    = IN
-      file      = "Entry/rtl-base_entry-dark.png"
-      border    = { 0, 5, 5, 5 }
+      file      = "Entry/rtl-entry-dark.png"
+      border    = { 0, 6, 6, 6 }
       stretch   = TRUE
       direction = RTL
     }
@@ -1330,8 +1366,9 @@ style "notebook_combobox_entry" {
       function  = SHADOW
       detail    = "entry"
       state     = ACTIVE
-      file      = "Entry/rtl-base_entry-active-dark.png"
-      border    = { 0, 5, 5, 5 }
+      shadow    = IN
+      file      = "Entry/rtl-entry-active-dark.png"
+      border    = { 0, 6, 6, 6 }
       stretch   = TRUE
       direction = RTL
     }
@@ -1340,8 +1377,8 @@ style "notebook_combobox_entry" {
       detail    = "entry"
       state     = INSENSITIVE
       shadow    = IN
-      file      = "Entry/rtl-base_entry-insensitive-dark.png"
-      border    = { 0, 5, 5, 5 }
+      file      = "Entry/rtl-entry-insensitive-dark.png"
+      border    = { 0, 6, 6, 6 }
       stretch   = TRUE
       direction = RTL
     }
@@ -1360,7 +1397,7 @@ style "combobox_entry_button" {
       function  = BOX
       state     = NORMAL
       file      = "Buttons/ltr-button-dark.png"
-      border    = { 2, 5, 5, 5 }
+      border    = { 2, 6, 6, 6 }
       stretch   = TRUE
       direction = LTR
     }
@@ -1368,7 +1405,7 @@ style "combobox_entry_button" {
       function  = BOX
       state     = PRELIGHT
       file      = "Buttons/ltr-button-hover-dark.png"
-      border    = { 2, 5, 5, 5 }
+      border    = { 2, 6, 6, 6 }
       stretch   = TRUE
       direction = LTR
     }
@@ -1376,7 +1413,7 @@ style "combobox_entry_button" {
       function  = BOX
       state     = ACTIVE
       file      = "Buttons/ltr-button-active-dark.png"
-      border    = { 2, 5, 5, 5 }
+      border    = { 2, 6, 6, 6 }
       stretch   = TRUE
       direction = LTR
     }
@@ -1384,7 +1421,7 @@ style "combobox_entry_button" {
       function  = BOX
       state     = INSENSITIVE
       file      = "Buttons/ltr-button-insensitive-dark.png"
-      border    = { 2, 5, 5, 5 }
+      border    = { 2, 6, 6, 6 }
       stretch   = TRUE
       direction = LTR
     }
@@ -1394,7 +1431,7 @@ style "combobox_entry_button" {
       function  = BOX
       state     = NORMAL
       file      = "Buttons/rtl-button-dark.png"
-      border    = { 5, 2, 5, 5 }
+      border    = { 6, 2, 6, 6 }
       stretch   = TRUE
       direction = RTL
     }
@@ -1402,7 +1439,7 @@ style "combobox_entry_button" {
       function  = BOX
       state     = PRELIGHT
       file      = "Buttons/rtl-button-hover-dark.png"
-      border    = { 5, 2, 5, 5 }
+      border    = { 6, 2, 6, 6 }
       stretch   = TRUE
       direction = RTL
     }
@@ -1410,7 +1447,7 @@ style "combobox_entry_button" {
       function  = BOX
       state     = ACTIVE
       file      = "Buttons/rtl-button-active-dark.png"
-      border    = { 5, 2, 5, 5 }
+      border    = { 6, 2, 6, 6 }
       stretch   = TRUE
       direction = RTL
     }
@@ -1418,7 +1455,7 @@ style "combobox_entry_button" {
       function  = BOX
       state     = INSENSITIVE
       file      = "Buttons/rtl-button-insensitive-dark.png"
-      border    = { 5, 2, 5, 5 }
+      border    = { 6, 2, 6, 6 }
       stretch   = TRUE
       direction = RTL
     }
@@ -1447,7 +1484,7 @@ style "spinbutton" {
       state           = NORMAL
       detail          = "spinbutton_up"
       file            = "Spin/ltr-up-dark.png"
-      border          = { 1, 5, 5, 0 }
+      border          = { 1, 6, 6, 0 }
       stretch         = TRUE
       overlay_file    = "Arrows/up-dark.png"
       overlay_stretch = FALSE
@@ -1458,7 +1495,7 @@ style "spinbutton" {
       state           = PRELIGHT
       detail          = "spinbutton_up"
       file            = "Spin/ltr-up-hover-dark.png"
-      border          = { 1, 5, 5, 0 }
+      border          = { 1, 6, 6, 0 }
       stretch         = TRUE
       overlay_file    = "Arrows/up-dark.png"
       overlay_stretch = FALSE
@@ -1469,7 +1506,7 @@ style "spinbutton" {
       state           = ACTIVE
       detail          = "spinbutton_up"
       file            = "Spin/ltr-up-active-dark.png"
-      border          = { 1, 5, 5, 0 }
+      border          = { 1, 6, 6, 0 }
       stretch         = TRUE
       overlay_file    = "Arrows/up-dark.png"
       overlay_stretch = FALSE
@@ -1480,7 +1517,7 @@ style "spinbutton" {
       state           = INSENSITIVE
       detail          = "spinbutton_up"
       file            = "Spin/ltr-up-insensitive-dark.png"
-      border          = { 1, 5, 5, 0 }
+      border          = { 1, 6, 6, 0 }
       stretch         = TRUE
       overlay_file    = "Arrows/up-insensitive-dark.png"
       overlay_stretch = FALSE
@@ -1493,7 +1530,7 @@ style "spinbutton" {
       state           = NORMAL
       detail          = "spinbutton_up"
       file            = "Spin/rtl-up-dark.png"
-      border          = { 5, 1, 5, 0 }
+      border          = { 6, 1, 6, 0 }
       stretch         = TRUE
       overlay_file    = "Arrows/up-dark.png"
       overlay_stretch = FALSE
@@ -1504,7 +1541,7 @@ style "spinbutton" {
       state           = PRELIGHT
       detail          = "spinbutton_up"
       file            = "Spin/rtl-up-hover-dark.png"
-      border          = { 5, 1, 5, 0 }
+      border          = { 6, 1, 6, 0 }
       stretch         = TRUE
       overlay_file    = "Arrows/up-dark.png"
       overlay_stretch = FALSE
@@ -1516,7 +1553,7 @@ style "spinbutton" {
       state           = ACTIVE
       detail          = "spinbutton_up"
       file            = "Spin/rtl-up-active-dark.png"
-      border          = { 5, 1, 5, 0 }
+      border          = { 6, 1, 6, 0 }
       stretch         = TRUE
       overlay_file    = "Arrows/up-dark.png"
       overlay_stretch = FALSE
@@ -1527,7 +1564,7 @@ style "spinbutton" {
       state           = INSENSITIVE
       detail          = "spinbutton_up"
       file            = "Spin/rtl-up-insensitive-dark.png"
-      border          = { 5, 1, 5, 0 }
+      border          = { 6, 1, 6, 0 }
       stretch         = TRUE
       overlay_file    = "Arrows/up-insensitive-dark.png"
       overlay_stretch = FALSE
@@ -1540,7 +1577,7 @@ style "spinbutton" {
       state           = NORMAL
       detail          = "spinbutton_down"
       file            = "Spin/ltr-down-dark.png"
-      border          = { 1, 5, 1, 5 }
+      border          = { 1, 6, 1, 6 }
       stretch         = TRUE
       overlay_file    = "Arrows/down-dark.png"
       overlay_stretch = FALSE
@@ -1551,7 +1588,7 @@ style "spinbutton" {
       state           = PRELIGHT
       detail          = "spinbutton_down"
       file            = "Spin/ltr-down-hover-dark.png"
-      border          = { 1, 5, 1, 5 }
+      border          = { 1, 6, 1, 6 }
       stretch         = TRUE
       overlay_file    = "Arrows/down-dark.png"
       overlay_stretch = FALSE
@@ -1562,7 +1599,7 @@ style "spinbutton" {
       state           = ACTIVE
       detail          = "spinbutton_down"
       file            = "Spin/ltr-down-active-dark.png"
-      border          = { 1, 5, 1, 5 }
+      border          = { 1, 6, 1, 6 }
       stretch         = TRUE
       overlay_file    = "Arrows/down-dark.png"
       overlay_stretch = FALSE
@@ -1573,7 +1610,7 @@ style "spinbutton" {
       state           = INSENSITIVE
       detail          = "spinbutton_down"
       file            = "Spin/ltr-down-insensitive-dark.png"
-      border          = { 1, 5, 1, 5 }
+      border          = { 1, 6, 1, 6 }
       stretch         = TRUE
       overlay_file    = "Arrows/down-insensitive-dark.png"
       overlay_stretch = FALSE
@@ -1586,7 +1623,7 @@ style "spinbutton" {
       state           = NORMAL
       detail          = "spinbutton_down"
       file            = "Spin/rtl-down-dark.png"
-      border          = { 5, 1, 1, 5 }
+      border          = { 6, 1, 1, 6 }
       stretch         = TRUE
       overlay_file    = "Arrows/down-dark.png"
       overlay_stretch = FALSE
@@ -1597,7 +1634,7 @@ style "spinbutton" {
       state           = PRELIGHT
       detail          = "spinbutton_down"
       file            = "Spin/rtl-down-hover-dark.png"
-      border          = { 5, 1, 1, 5 }
+      border          = { 6, 1, 1, 6 }
       stretch         = TRUE
       overlay_file    = "Arrows/down-dark.png"
       overlay_stretch = FALSE
@@ -1608,7 +1645,7 @@ style "spinbutton" {
       state           = ACTIVE
       detail          = "spinbutton_down"
       file            = "Spin/rtl-down-active-dark.png"
-      border          = { 5, 1, 1, 5 }
+      border          = { 6, 1, 1, 6 }
       stretch         = TRUE
       overlay_file    = "Arrows/down-dark.png"
       overlay_stretch = FALSE
@@ -1619,7 +1656,7 @@ style "spinbutton" {
       state           = INSENSITIVE
       detail          = "spinbutton_down"
       file            = "Spin/rtl-down-insensitive-dark.png"
-      border          = { 5, 1, 1, 5 }
+      border          = { 6, 1, 1, 6 }
       stretch         = TRUE
       overlay_file    = "Arrows/down-insensitive-dark.png"
       overlay_stretch = FALSE
@@ -1652,7 +1689,6 @@ style "standalone_entry" {
       function = SHADOW
       detail   = "entry"
       state    = NORMAL
-      shadow   = IN
       file     = "Others/null.svg"
       border   = { 0, 0, 0, 0 }
       stretch  = TRUE
