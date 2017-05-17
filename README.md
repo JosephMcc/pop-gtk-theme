@@ -1,66 +1,14 @@
-<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/logo_thumb.png" alt="Logo" align="left" /> Pop-gtk-theme
+## Pop-gtk-theme
 ======
 
-An adaptive Gtk+ theme based on Material Design Guidelines.
+An adaptive Gtk+ theme based on the Adapta GTK+ theme.
 
-Before using Pop
+#### Before using Pop
 -------------------
 
-Pop strongly depends on Material Design resources, especially its **fonts**.
-
-#### Typography
- 1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
-   - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
-   - Developed by Google and Adobe.
-   - Weight used in Pop: 400, (500), 700
-
- 2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
-   - Very famous as the default truetype font in Android (English ver.).
-   - Multilingual support is not good.
-   - Weight used in Pop: 400, 500, 700
-
 > **Note:**
 >
-> * Roboto is very nice with Pop, but in some locales, it causes Tofu.
-> * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
-> * NotoSans CJK supports 500 weight.
-
-Pop uses **NotoSans** as the primary font-family in Gnome-Shell and Cinnamon (Cantarell is for fallback).
-In some distributions, users may need to install `fonts-noto-hinted`.
-
-Pop is designed with nominal **13px (or 14px)** Roboto font.
-In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
-  ```
-  13 [px] x 72 [pt/inch] / 96 [px/inch] = 9.75 [pt]
-  14 [px] x 72 [pt/inch] / 96 [px/inch] = 10.5 [pt]
-  ```
-That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2x theming (In Gtk+ 3.18.x theming, em unit is directly used).
-
-> **Note:**
->
-> NotoSans CJK (ChineseJapaneseKorean) opentype fonts are actually **0.1em taller than Roboto fonts**, so if 10pt Roboto was suitable on your LCDs, set 9pt for NotoSans CJK families.
-
-**Verify the fonts are rendered correctly via font-viewer tools like Gnome-Font-Viewer.**
-
-Variant Matrix
---------------
-
-| |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/sunlight.png" align="left"/> Pop|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/moon.png" align="left"/> Pop-Nokto|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/sunlight-eta.png" align="left"/> Pop-Eta|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/moon-eta.png" align="left"/> Pop-Nokto-Eta|
-|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Gtk+ 2.24.x |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
-|Gtk+ 3.20.x |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
-|Gtk+ 3.22.x |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
-|Mutter      |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
-|Metacity    |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
-|Muffin      |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
-|Compiz      |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
-|XFwm4       |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
-|Marco       |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
-|Openbox-3   |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
-
-> **Note:**
->
->   **Nokto** is a dark variant.
+>   **Nokto** is a dark variant for GTK2 (Inkscape, Gimp). To have a Dark theme system wide, use the standard Dark Theme option.
 >
 >   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
 >
@@ -72,33 +20,28 @@ Variant Matrix
 >     gtk-application-prefer-dark-theme=1
 >     ```
 >
->   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
+>   * Eta variants are recommended if your LCD resolution is lower than 1920x1080 (LoDPI) or 3200x1800 (HiDPI). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
-Elements
---------
-![Materials](https://github.com/pop-project/pop-github-resources/blob/master/images/Materials.png)
-
-Required Components
+### Required Components
 -------------------
-Pop supports Gtk+ 3.22.x and 3.20.x
+Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
 
  ```
- * Gtk+-3.0             >= 3.20.0
+ * Gtk+-3.0             >= 3.18.9
  * Gtk+-2.0             >= 2.24.30
  * gtk2-engines-pixbuf  >= 2.24.30
  * gtk2-engines-murrine >= 0.98.1
  ```
 
-Supported Desktop Environments
+#### Supported Desktop Environments
 ------------------------------
 
  ```
  * GNOME-Shell     >= 3.18.3
  * GNOME-Flashback >= 3.18.2
  * Budgie-Desktop  >= 10.2.7
- * Cinnamon        >= 2.8.6
- * Unity7          >= 7.4.0 (Gtk+ 3.x only)
+ * Unity7          >= 7.4.0
  * XFce4           >= 4.12.2
  * Mate            >= 1.14.0 (Gtk+ 3.2x only)
  * LXDE            >= 0.99.1 (Gtk+ 2.x only)
@@ -106,35 +49,44 @@ Supported Desktop Environments
 
  > **Note:**
  >
- >   * Mate-Desktop support is a W.I.P.
+ >   * Mate-Desktop and Pantheon support are W.I.P.
 
-Unsupported Gtk+ Based Desktop(s)
--------------------------------
- * Pantheon
 
- > **Note:**
- >
- >   * Pop does NOT support elementaryOS.
 
-Installation from Package(s)
+### Recommendations
+
+- For GTK, use icons alongside [Pop Icon Theme](https://github.com/system76/pop-icon-theme)
+- For fonts, use:
+ > Window Titles: Fira Sans SemiBold 10
+
+ > Interface: Fira Sans Book 10
+
+ > Documents: Roboto Slab Regular 11
+
+ > Monospace: Fira Mono Regular 11
+
+
+### Installation
+
+Pop is intended to be installed through the package manager. Packages for Ubuntu are available in PPA:
+```
+sudo add-apt-repository ppa:system76-dev/stable
+sudo apt update
+sudo apt install system76-pop-theme
+```
+It's recomended to use the `system76-pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
+```
+sudo apt install system76-pop-gtk-theme
+```
+
+
+### Installation from Git Source
 ----------------------------
- * AUR: https://aur.archlinux.org/packages/pop-gtk-theme/
 
- * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
-
- * OBS (openSUSE Tumbleweed): https://build.opensuse.org/package/show/home:Ronis_BR/pop-gtk-theme
-
- * PPA: https://launchpad.net/~tista/+archive/ubuntu/pop
-
- > **Note:**
- >
- >   * Solus OS has an eopkg (ypkg) in main repository.
-
-Installation from Git Source
-----------------------------
 1. If previous versions were installed/existed, remove them first.
 
  ```
+ sudo apt remove system76-pop-gtk-theme
  sudo rm -rf /usr/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
  rm -rf ~/.local/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
  rm -rf ~/.themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
@@ -147,14 +99,22 @@ Installation from Git Source
  ```
  * autoconf
  * automake
- * inkscape                                  >= 0.91
+ * inkscape
  * libgdk-pixbuf2.0-dev (gdk-pixbuf2-devel)  >= 2.32.2
  * libglib2.0-dev (glib2-devel)              >= 2.48.0
  * librsvg2-dev (librsvg2-devel)             >= 2.40.13
- * libsass0 (libsass)                        >= 3.3
+ * libsass0 (libsass)                        >= 3.3.6
  * libxml2-utils (libxml2)
  * pkg-config (pkgconfig)
- * sassc                                     >= 3.3
+ * sassc                                     >= 3.3.2
+ * parallel                                  (Optional, for faster builds)
+ ```
+
+ You can install them using:
+ ```
+ sudo apt install -y autoconf automake inkscape libgdk-pixbuf2.0-dev \
+    libglib2.0-dev librsvg2-dev libsass0 libxml2-utils pkg-config sassc \
+    parallel
  ```
 
  > **Note:**
@@ -174,7 +134,7 @@ Installation from Git Source
 3. Build and install system-wide:
 
  ```
- ./autogen.sh
+ ./autogen.sh \
  make
  sudo make install
  ```
@@ -205,12 +165,10 @@ Installation from Git Source
 5. To disable some DE supports, pass these specific options to `autogen.sh`:
 
  ```
- --disable-cinnamon      disable cinnamon support (type: bool)
  --disable-flashback     disable flashback support (type: bool)
  --disable-unity         disable unity support (type: bool)
  --disable-xfce          disable xfce support (type: bool)
  --disable-mate          disable mate support (type: bool)
- --disable-openbox       disable openbox support (type: bool)
  ```
 
  > **Note:**
@@ -218,31 +176,28 @@ Installation from Git Source
  >   * The installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-6. To enable extra Gtk+ release support, pass this option:
+6. To enable next Gtk+ release support, pass this option:
 
  ```
- --enable-gtk_legacy    enable Gtk+ 3.18 support (type: bool)
  --enable-gtk_next      enable Gtk+ 4.0 support (type: bool)
  ```
 
 7. To change the default 5 **Key-Colors**, pass these options:
 
  ```
- --with-selection_color        Primary color for 'selected-items' (Default: #00BCD4 = Cyan500, type: int)
- --with-second_selection_color Primary color for 'select' effects (Default: #4DD0E1 = Cyan300, type: int)
- --with-accent_color           Secondary color for notifications and OSDs (Default: #4DB6AC = Teal300, type: int)
- --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #009688 = Teal500, type: int)
- --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #FF5252 = RedA200, type: int)
+ --with-selection_color        Primary color for highlighted items in the UI (Default: #faa41a)
+ --with-second_selection_color Primary color for 'select' effects (Default: #ffb13d = Cyan300, type: int)
+ --with-accent_color           Secondary color for notifications and OSDs, and selected items (Default: #48B9C7)
+ --with-suggestion_color       Secondary color for 'suggested' buttons (Default: #73C48F)
+ --with-destruction_color      Tertiary color for 'destructive' buttons (Default: #F15D22)
  ```
 
  > **Note:**
  >
  >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
- >     Uppercases are strongly recommended in Pop code-base.
- >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
- >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#4DB6AC```
+ >     ```./autogen.sh --with-selection_color=#009688 --with-second_selection_color=#48B9C7```
  >
  >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
@@ -251,15 +206,13 @@ Installation from Git Source
  >     and `make clean` cleans up all generated files from source directories.
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
-GtkSourceView/Gedit Color Scheme Support
----------------------------------------
- A theme file `pop.xml` is installed by default into `Pop(-Nokto)/gedit` directory.
- See details in [`README.md`](/extra/gedit/README.md).
 
- > **Note:**
- >
- >   * The color-scheme can be used in Gnome-Builder and Gedit if installed to `~/.local/share/gtksourceview-3.0/styles` directory.
- >   * Currently only dark-variant is supported.
+8. Enable Nokto Theme
+
+By default, the Nokto theme is not installed into the system. If you would like to add it, pass this option:
+```
+--enable-nokto
+```
 
 Extra Browser Support
 ---------------------
@@ -274,14 +227,13 @@ Extra Browser Support
  > **Note:**
  >
  >   * Currently only Chrome(ium) theming is supported.
- >   * Chrome(ium) 59.0.30xx or newer, theming is pulled from Gtk+ 3.x directly.
  >
  >   * Vivaldi can make custom themes via settings like these:
  >     ```
- >     Background: #FAFBFC (#263238)
- >     Foreground: #263238 (#CFD8DC)
- >     Highlight:  #00BCD4
- >     Accent:     #222D32
+ >     Background: #FAFBFC (#333333)
+ >     Foreground: #574F4A (#F6F6F6)
+ >     Highlight:  #574F4A
+ >     Accent:     #4E4844
  >     Accent Color from Active Page: [ ]
  >     Apply Accent Color to Window:  [*]
  >     Transparent Tabs:              [*]
@@ -332,6 +284,7 @@ Work in Progress
 
 TODO
 ----
+* Move Gtk+ 3.18.x theming to legacy (priority: Mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 
@@ -346,3 +299,5 @@ Public License
 Special Thanks to
 --------------
  Nana-4, the developer of Flat-Plat.
+ tista500 and the Adapta Theme Project: https://github.com/adapta-project/
+
