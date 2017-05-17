@@ -19,12 +19,9 @@ INDEX="assets-gnome-shell.txt"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
-                   cut -d' ' -f3`"
-accent1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
-                cut -d' ' -f3`"
-destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
-                     cut -d' ' -f3`"
+selection1="#00BCD4"
+accent1="#4DB6AC"
+destruction1="#FF5252"
 
 # Check and re-color SVG files
 if [ -e $KEY_FILE ]; then
