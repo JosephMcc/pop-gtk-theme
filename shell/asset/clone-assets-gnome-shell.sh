@@ -19,9 +19,9 @@ INDEX="assets-gnome-shell.txt"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="#4DB6AC"
-accent1="#00BCD4"
-destruction1="#FF5252"
+selection1="#4db6ac"
+accent1="#00bcd4"
+destruction1="#ff5252"
 
 # Check and re-color SVG files
 if [ -e $KEY_FILE ]; then
@@ -39,14 +39,14 @@ do
     s="`echo $i | cut -d' ' -f1`" # source
     r="`echo $i | cut -d' ' -f3`" # recolor flag
 
-    if [ "$r" = "r1" ]; then
+    if [ "$r" = "r2" ]; then
         cp -f $SRC_DIR/$s.in $SRC_DIR/$s
 
         if [ $selection1 != $selection2 ]; then
             sed -i "s/$selection1/$selection2/gi" $SRC_DIR/$s
             echo $s is re-colored with $selection2.
         fi
-    elif [ "$r" = "r2" ]; then
+    elif [ "$r" = "r1" ]; then
         cp -f $SRC_DIR/$s.in $SRC_DIR/$s
 
         if [ $accent1 != $accent2 ]; then
