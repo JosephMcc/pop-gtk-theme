@@ -1,14 +1,14 @@
-m4_define([adapta_major_version], [3])
-m4_define([adapta_minor_version], [90])
-m4_define([adapta_micro_version], [1])
-m4_define([adapta_version], [adapta_major_version.adapta_minor_version.adapta_micro_version])
-m4_define([adapta_git_url], [https://github.com/adapta-project/adapta-gtk-theme])
+m4_define([pop_major_version], [3])
+m4_define([pop_minor_version], [90])
+m4_define([pop_micro_version], [0])
+m4_define([pop_version], [pop_major_version.pop_minor_version.pop_micro_version])
+m4_define([pop_git_url], [https://github.com/pop-project/pop-gtk-theme])
 
 AC_INIT(
-	[Adapta ],
-	[adapta_version],
-	[adapta_git_url],
-	[adapta-gtk-theme]
+	[Pop ],
+	[pop_version],
+	[pop_git_url],
+	[pop-gtk-theme]
 )
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([
@@ -23,18 +23,18 @@ AM_INIT_AUTOMAKE([
 AC_PREFIX_DEFAULT(/usr)
 AM_SILENT_RULES([yes])
 
-ADAPTA_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
-ADAPTA_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
-ADAPTA_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
-ADAPTA_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
-ADAPTA_OPTION([UNITY],     [unity],     [Unity],          [disable])
-ADAPTA_OPTION([XFCE],      [xfce],      [XFce],           [disable])
-ADAPTA_OPTION([MATE],      [mate],      [Mate],           [disable])
-ADAPTA_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
-ADAPTA_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
-ADAPTA_OPTION([PLANK],     [plank],     [Plank],          [disable])
-ADAPTA_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
-ADAPTA_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
+POP_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
+POP_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
+POP_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
+POP_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
+POP_OPTION([UNITY],     [unity],     [Unity],          [disable])
+POP_OPTION([XFCE],      [xfce],      [XFce],           [disable])
+POP_OPTION([MATE],      [mate],      [Mate],           [disable])
+POP_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
+POP_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
+POP_OPTION([PLANK],     [plank],     [Plank],          [disable])
+POP_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
+POP_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
@@ -62,7 +62,7 @@ if test x"$GLIB_COMPILE_RESOURCES" = x; then
 	AC_MSG_ERROR(['glib-compile-resources' not found.])
 fi
 
-ADAPTA_COLOR_SCHEME
+POP_COLOR_SCHEME
 
 AC_CONFIG_FILES([
 	Makefile \
@@ -73,15 +73,15 @@ AC_CONFIG_FILES([
 ])
 AC_OUTPUT
 AC_MSG_RESULT([
-        Adapta Gtk+ Theme $VERSION
+        Pop Gtk+ Theme $VERSION
         ===========================================================
 
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
-         target directories:     ${datarootdir}/themes/Adapta
-                                 ${datarootdir}/themes/Adapta-Nokto
-                                 ${datarootdir}/themes/Adapta-Eta
-                                 ${datarootdir}/themes/Adapta-Nokto-Eta
+         target directories:     ${datarootdir}/themes/Pop
+                                 ${datarootdir}/themes/Pop-Nokto
+                                 ${datarootdir}/themes/Pop-Eta
+                                 ${datarootdir}/themes/Pop-Nokto-Eta
 
          parallel-build:         $ENABLE_PARALLEL
          parallel:               $PARALLEL

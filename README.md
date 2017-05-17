@@ -1,35 +1,34 @@
-<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/logo_thumb.png" alt="Logo" align="left" /> Adapta-gtk-theme
+<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/logo_thumb.png" alt="Logo" align="left" /> Pop-gtk-theme
 ======
 
 An adaptive Gtk+ theme based on Material Design Guidelines.
 
-Before using Adapta
+Before using Pop
 -------------------
 
+Pop strongly depends on Material Design resources, especially its **fonts**.
+
 #### Typography
-
-Adapta strongly depends on Material Design resources, especially its **fonts**.
-
  1. [**Noto Sans**](https://fonts.google.com/specimen/Noto+Sans)
    - Noto (NO TOfu) sans-serif truetype/opentype font covers a lot of languages.
-   - Developed by Monotype and Adobe.
-   - Weight used in Adapta: 400, (500), 700
+   - Developed by Google and Adobe.
+   - Weight used in Pop: 400, (500), 700
 
  2. [**Roboto**](https://fonts.google.com/specimen/Roboto)
    - Very famous as the default truetype font in Android (English ver.).
    - Multilingual support is not good.
-   - Weight used in Adapta: 400, 500, 700
+   - Weight used in Pop: 400, 500, 700
 
 > **Note:**
 >
-> * Roboto is very nice with Adapta, but in some locales, it causes Tofu.
+> * Roboto is very nice with Pop, but in some locales, it causes Tofu.
 > * NotoSans may work well in vairous locales, but NotoSans lacks 500 (Medium) weight. So elements defined with 500 will be drawn with 400 automatically.
 > * NotoSans CJK supports 500 weight.
 
-Adapta uses **NotoSans** as the primary font-family in Gnome-Shell and Cinnamon (Cantarell is for fallback).
+Pop uses **NotoSans** as the primary font-family in Gnome-Shell and Cinnamon (Cantarell is for fallback).
 In some distributions, users may need to install `fonts-noto-hinted`.
 
-Adapta is designed with nominal **13px (or 14px)** Roboto font.
+Pop is designed with nominal **13px (or 14px)** Roboto font.
 In Gnome, "window-scaling-factor = 1.0" means `-gtk-dpi = 96`, it also means:
   ```
   13 [px] x 72 [pt/inch] / 96 [px/inch] = 9.75 [pt]
@@ -46,33 +45,43 @@ That's the reason why `13.33px = 10pt` is used for rem/px conversion in Gtk+ 3.2
 Variant Matrix
 --------------
 
-| |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight.png" align="left"/> Adapta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon.png" align="left"/> Adapta-Nokto|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/sunlight-eta.png" align="left"/> Adapta-Eta|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/moon-eta.png" align="left"/> Adapta-Nokto-Eta|
+| |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/sunlight.png" align="left"/> Pop|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/moon.png" align="left"/> Pop-Nokto|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/sunlight-eta.png" align="left"/> Pop-Eta|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/moon-eta.png" align="left"/> Pop-Nokto-Eta|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-|Gtk+ 2.24.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Gtk+ 3.20.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Gtk+ 3.22.x |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Mutter      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Metacity    |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|
-|Muffin      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|Compiz      |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|XFwm4       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|Marco       |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
-|Openbox-3   |<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/adapta-project/adapta-github-resources/blob/master/images/check-off.png" align="center" />|
+|Gtk+ 2.24.x |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 3.20.x |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
+|Gtk+ 3.22.x |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
+|Mutter      |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
+|Metacity    |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|
+|Muffin      |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
+|Compiz      |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
+|XFwm4       |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
+|Marco       |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
+|Openbox-3   |<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-on.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|<img src="https://github.com/pop-project/pop-github-resources/blob/master/images/check-off.png" align="center" />|
 
 > **Note:**
 >
->   * **Nokto** is a dark variant.
->   * **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
+>   **Nokto** is a dark variant.
+>
+>   **Eta** is a tiny Gtk+ 2.x/3.2x Gtk+ widget variant for saving space.
+>
+>   * To enable global dark theme, you use proper tools like Gnome-Tweak-Tool.
+>     Or add this porperty to `[Settings]` section of `$HOME/.config/gtk-3.0/settings.ini`:
+>
+>     ```
+>     [Settings]
+>     gtk-application-prefer-dark-theme=1
+>     ```
+>
 >   * I suggest you use the Eta variants if your LCD resolution is lower than FHD (1080p). Eta draws widgets around -20% to -30% spacing.
 >   * Metacity theming supports Eta variants (>= 3.20.x or 3.22.x).
 
 Elements
 --------
-![Materials](https://github.com/adapta-project/adapta-github-resources/blob/master/images/Materials.png)
+![Materials](https://github.com/pop-project/pop-github-resources/blob/master/images/Materials.png)
 
 Required Components
 -------------------
-Adapta supports Gtk+ 3.22.x and 3.20.x
+Pop supports Gtk+ 3.22.x and 3.20.x
 
  ```
  * Gtk+-3.0             >= 3.20.0
@@ -105,17 +114,17 @@ Unsupported Gtk+ Based Desktop(s)
 
  > **Note:**
  >
- >   * Adapta does NOT support elementaryOS.
+ >   * Pop does NOT support elementaryOS.
 
 Installation from Package(s)
 ----------------------------
- * AUR: https://aur.archlinux.org/packages/adapta-gtk-theme/
+ * AUR: https://aur.archlinux.org/packages/pop-gtk-theme/
 
  * Copr: https://copr.fedorainfracloud.org/coprs/heikoada/gtk-themes/
 
- * OBS (openSUSE Tumbleweed): https://build.opensuse.org/package/show/home:Ronis_BR/adapta-gtk-theme
+ * OBS (openSUSE Tumbleweed): https://build.opensuse.org/package/show/home:Ronis_BR/pop-gtk-theme
 
- * PPA: https://launchpad.net/~tista/+archive/ubuntu/adapta
+ * PPA: https://launchpad.net/~tista/+archive/ubuntu/pop
 
  > **Note:**
  >
@@ -126,13 +135,13 @@ Installation from Git Source
 1. If previous versions were installed/existed, remove them first.
 
  ```
- sudo rm -rf /usr/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
- rm -rf ~/.local/share/themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
- rm -rf ~/.themes/{Adapta,Adapta-Eta,Adapta-Nokto,Adapta-Nokto-Eta}
+ sudo rm -rf /usr/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
+ rm -rf ~/.local/share/themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
+ rm -rf ~/.themes/{Pop,Pop-Eta,Pop-Nokto,Pop-Nokto-Eta}
  ```
 
 2. Check build-requirements:
- Currently Adapta bundles neither pre-generated stylesheets nor PNG images.
+ Currently Pop bundles neither pre-generated stylesheets nor PNG images.
  So users and/or contributors should generate proper CSSs, PNGs and gresources at build-time.
 
  ```
@@ -158,9 +167,9 @@ Installation from Git Source
  >     librsvg-devel           >= 2.40.13
  >     ```
  >
- >   * Adapta employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
- >   * Adapta uses `inkscape` to generate installable PNG files.
- >   * Adapta uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
+ >   * Pop employs **SassC** wrapper of `libsass` to generate CSS stylesheets.
+ >   * Pop uses `inkscape` to generate installable PNG files.
+ >   * Pop uses `glib-compile-resources` to compile the gresource files for Gtk+ and Gnome-Shell.
 
 3. Build and install system-wide:
 
@@ -190,7 +199,7 @@ Installation from Git Source
  >   * This feature requires GNU `parallel`, so please add `parallel` to build-requirements.
  >     Parallel can execute multiple scripts and binaries to be suitable for multi-threading.
  >     It could especially shorten the rendering-time via `inkscape`.
- >   * `-jN` option to be passed to GNU `make` is surely usable, but Adapta currently employs `parallel`.
+ >   * `-jN` option to be passed to GNU `make` is surely usable, but Pop currently employs `parallel`.
  >   * This feature should not be applied when packaging on remote/shared build-servers.
 
 5. To disable some DE supports, pass these specific options to `autogen.sh`:
@@ -209,7 +218,7 @@ Installation from Git Source
  >   * The installer installs GNOME/Budgie-Desktop support even if all of options above were applied.
  >   * Cinnamon/Unity/Mate support hooks `metacity-1` directory even if GNOME-Flashback support was disabled.
 
-6. To enable extra Gtk+ release support, pass these options:
+6. To enable extra Gtk+ release support, pass this option:
 
  ```
  --enable-gtk_legacy    enable Gtk+ 3.18 support (type: bool)
@@ -229,7 +238,7 @@ Installation from Git Source
  > **Note:**
  >
  >   * Color-codes are defined as `#` + 6-digit `HEX`s (Standard RGB definitions in HTML codes).
- >     Uppercases are strongly recommended in Adapta code-base.
+ >     Uppercases are strongly recommended in Pop code-base.
  >   * The Material Design Color Palette can be found [here](https://www.google.com/design/spec/style/color.html#color-color-palette).
  >   * Example: If you would like to use 'Teal500' as selection_color, use this:
  >
@@ -238,13 +247,13 @@ Installation from Git Source
  >     This switchese the theme to almost Teal key colors.
  >   * Basically `selection_color` and `suggestion_color` should use `500` colors,
  >     and `second_selection_color` and `accent_color` should use `300` colors.
- >   * While doing `make`, Adapta changes those 5 colors in all stylesheets and images,
+ >   * While doing `make`, Pop changes those 5 colors in all stylesheets and images,
  >     and `make clean` cleans up all generated files from source directories.
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
 GtkSourceView/Gedit Color Scheme Support
 ---------------------------------------
- A theme file `adapta.xml` is installed by default into `Adapta(-Nokto)/gedit` directory.
+ A theme file `pop.xml` is installed by default into `Pop(-Nokto)/gedit` directory.
  See details in [`README.md`](/extra/gedit/README.md).
 
  > **Note:**
@@ -260,7 +269,7 @@ Extra Browser Support
  --enable-chrome         enable Chrome(ium) support (type: bool)
  ```
 
- The compressed `crx` files will be installed into `Adapta/chrome` and `Adapta-Nokto/chrome`.
+ The compressed `crx` files will be installed into `Pop/chrome` and `Pop-Nokto/chrome`.
 
  > **Note:**
  >
@@ -291,14 +300,14 @@ Extra Dock Support
 
  > **Note:**
  >
- >   * Both Adapta and Adapta-Nokto shares the same theming.
+ >   * Both Pop and Pop-Nokto shares the same theming.
  >   * Don't expect too much. Plank is NOT a themeable widget for me!
 
 Extra Compositor Support
 ------------------------
- Compton is the famous stand-alone compositor that works well with the Openbox window-manager. The installer installs recommended configuration file `compton.conf` into `Adapta/openbox-3` directory if Openbox support is enabled.
+ Compton is the famous stand-alone compositor that works well with the Openbox window-manager. The installer installs recommended configuration file `compton.conf` into `Pop/openbox-3` directory if Openbox support is enabled.
 
- Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Adapta, however.
+ Next, copy that file into `~/.config/` and restart compton to read the settings.  That compositor still has some limitations in its features for Pop, however.
 
 Extra Telegram Support
 ----------------------
@@ -308,12 +317,12 @@ Extra Telegram Support
  --enable-telegram      enable Telegram 1.0 support (type: bool)
  ```
 
- The installer installs compressed `tdesktop-theme` files into `Adapta/telegram` and `Adapta-Nokto/telegram` directories if Telegram support is enabled.
+ The installer installs compressed `tdesktop-theme` files into `Pop/telegram` and `Pop-Nokto/telegram` directories if Telegram support is enabled.
  Then open the file via Telegram > Main Menu > Settings > Chat background > Choose from file.
 
  > **Note:**
  >
- >   * The `adapta.tdesktop-theme` is for light-variant, and `adapta-nokto.tdesktop-theme` is for dark-variant.
+ >   * The `pop.tdesktop-theme` is for light-variant, and `pop-nokto.tdesktop-theme` is for dark-variant.
  >   * Bundled noise-texture images are for *tiled* mode.
  >   * Telegram support is a W.I.P currently.
 
@@ -323,7 +332,6 @@ Work in Progress
 
 TODO
 ----
-* Prepare for FlatPak packaging (priority: mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 

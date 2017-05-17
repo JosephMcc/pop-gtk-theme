@@ -74,7 +74,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   outline-offset: rem(-4px);
   -gtk-outline-radius: 2px;
 
-  -gtk-secondary-caret-color: $selected_bg_color;
+  -gtk-secondary-caret-color: $accent_color;
 
   // disable drop-shadows as default
   text-shadow: none;
@@ -135,7 +135,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   &:hover,
   &:active,
   &:selected {
-    border-radius: 2px;
+    border-radius: 4px;
     -gtk-outline-radius: 2px;
   }
   &:disabled { color: $insensitive_fg_color; }
@@ -173,8 +173,8 @@ iconview { @extend .view; }
 
 rubberband,
 .rubberband {
-  border: 1px solid $secondary_selected_bg_color;
-  background-color: gtkopacity($secondary_selected_bg_color, 0.2);
+  border: 1px solid $secondary_accent_color;
+  background-color: gtkopacity($secondary_accent_color, 0.2);
 }
 
 flowbox {
@@ -252,7 +252,7 @@ assistant {
       &:active {
         @extend %button_active;
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
       }
       &:checked {
         @extend %button_checked;
@@ -270,17 +270,17 @@ buttonbox {
     &:not(.linked) button {
       @extend %button_flat_normal;
       background-color: transparent;
-      color: $secondary_accent_label_color;
+      color: $secondary_selected_bg_label_color;
       font-weight: 700;
       &:hover {
         @extend %button_flat_hover;
         background-color: transparent;
-        color: $accent_label_color;
+        color: $selected_bg_label_color;
       }
       &:active {
         @extend %button_flat_active;
         background-color: transparent;
-        color: $accent_label_color;
+        color: $selected_bg_label_color;
       }
       &:disabled {
         @extend %button_flat_disabled;
@@ -289,11 +289,11 @@ buttonbox {
       &:checked {
         @extend %button_flat_checked;
         background-color: transparent;
-        color: $accent_label_color;
+        color: $selected_bg_label_color;
         &:disabled {
           @extend %button_flat_checked_disabled;
           background-color: transparent;
-          color: gtkopacity($accent_label_color, 0.4);
+          color: gtkopacity($selected_bg_label_color, 0.4);
         }
       }
     }
@@ -377,7 +377,10 @@ entry {
   // fallback entries for non-native apps
   &, &.flat {
     @extend %entry_fallback_normal;
-    border-radius: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     &:focus { @extend %entry_fallback_focus; }
     &:disabled { @extend %entry_fallback_insensitive; }
   }
@@ -385,15 +388,18 @@ entry {
   // standard entries for native Gtk+ apps
   .background & {
     @include entry(normal);
-    border-radius: 0;
-    background-color: transparent;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: gtkopacity($almost_white, 0.1);
     &:focus {
       @include entry(focus);
-      background-color: transparent;
+      background-color: gtkopacity($almost_white, 0.1);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: transparent;
+      background-color: gtkopacity($almost_white, 0.1);
     }
 
     selection {
@@ -403,15 +409,18 @@ entry {
 
   .background &.flat {
     @include entry(flat-normal);
-    border-radius: 0;
-    background-color: transparent;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: gtkopacity($almost_white, 0.1);
     &:focus {
       @include entry(flat-focus);
-      background-color: transparent;
+      background-color: gtkopacity($almost_white, 0.1);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: transparent;
+      background-color: gtkopacity($almost_white, 0.1);
     }
   }
 
@@ -430,7 +439,10 @@ entry {
   .linked > &, &.flat,
   .linked.vertical > &, &.flat {
     @extend %entry_fallback_normal;
-    border-radius: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     &:focus { @extend %entry_fallback_focus; }
     &:disabled { @extend %entry_fallback_insensitive; }
   }
@@ -439,16 +451,19 @@ entry {
   .background .linked > &, &.flat,
   .background .linked.vertical > &, &.flat {
     @include entry(flat-normal);
-    border-radius: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     -gtk-outline-radius: 0;
-    background-color: transparent;
+    background-color: gtkopacity($almost_white, 0.1);
     &:focus {
       @include entry(flat-focus);
-      background-color: transparent;
+      background-color: gtkopacity($almost_white, 0.1);
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: transparent;
+      background-color: gtkopacity($almost_white, 0.1);
     }
   }
 
@@ -470,7 +485,7 @@ entry {
 
   image { // entry icons colors
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
-    &:active { color: $selected_bg_color; }
+    &:active { color: $accent_color; }
     &:disabled { color: gtkalpha(currentColor, 0.55); }
   }
 
@@ -536,7 +551,7 @@ button {
   min-height: rem(13.3px);
   min-width: rem(33.3px);
   padding: rem(9.3px) rem(13.3px) rem(10.7px);
-  border-radius: 2px;
+  border-radius: 4px;
   -gtk-outline-radius: 2px;
   background-repeat: no-repeat;
   background-position: center, center;
@@ -571,7 +586,7 @@ button {
     &:checked { @include button(flat-checked); }
     &:checked:disabled { @include button(flat-checked-insensitive); }
     .linked > & {
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
       &.image-button {
         border-radius: 100px;
@@ -588,16 +603,16 @@ button {
       padding: rem(17.3px);
       background-color: gtkopacity($inverted_dark_color, 0.9);
       &:not(:active):not(:disabled):not(hover) {
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
       }
       &:hover {
         @extend %button_flat_hover;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
         background-image: image($track_color);
       }
       &:active {
         @extend %button_flat_active;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
       }
     }
     &:disabled { opacity: 0; }
@@ -625,7 +640,7 @@ button {
       }
       &:active {
         @extend %button_active;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
         color: $selected_fg_color;
       }
       &:checked { background-color: mix($selected_fg_color, $b_color, 20%); }
@@ -639,8 +654,8 @@ button {
         &:hover { @include button(flat-hover, $track_color, $b_color); }
         &:active {
           @extend %button_flat_active;
-          background-color: gtkalpha($selected_bg_color, 0.2);
-          color: $selected_bg_color;
+          background-color: gtkalpha($accent_color, 0.2);
+          color: $accent_color;
         }
         &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }
         &:disabled {
@@ -659,7 +674,7 @@ button {
 
   &.text-button {
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
-    border-radius: 2px;
+    border-radius: 4px;
     -gtk-outline-radius: 2px;
     font-weight: 700;
   }
@@ -675,7 +690,7 @@ button {
     // one, so we're adding the missing padding to the label depending on
     // its position inside the button
     padding: rem(9.3px) rem(13.3px) rem(10.7px);
-    border-radius: 2px;
+    border-radius: 4px;
     -gtk-outline-radius: 2px;
 
     label {
@@ -748,7 +763,7 @@ button {
       // compensate text-button paddings
       padding-left: rem(13.3px);
       padding-right: rem(13.3px);
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
     }
 
@@ -834,7 +849,7 @@ button {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(5.3px) rem(8px);
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
     }
 
@@ -855,7 +870,7 @@ button {
         &:active {
           @extend %button_active;
           color: $selected_fg_color;
-          background-color: $selected_bg_color;
+          background-color: $accent_color;
         }
         &:checked {
           @extend %button_checked;
@@ -890,7 +905,7 @@ button {
     }
 
     &.text-button {
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
     }
   }
@@ -930,7 +945,7 @@ button {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
-                                to($selected_bg_color),
+                                to($accent_color),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
   }
@@ -941,7 +956,7 @@ button {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
-                                to($selected_bg_color),
+                                to($accent_color),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
     &:disabled {
@@ -950,7 +965,7 @@ button {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to(gtkopacity($selected_bg_color, 0.2)),
+                                  to(gtkopacity($accent_color, 0.2)),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
 
@@ -988,21 +1003,20 @@ button {
     @extend %button_flat_active;
     color: $fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
-    &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $accent_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $accent_color; }
   }
   &:checked {
     @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
-    &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $accent_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $accent_color; }
     &:disabled {
       color: $insensitive_fg_color;
       background-color: $track_color;
-      &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
-      &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2); }
-
+      &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($accent_color, 0.2); }
+      &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($accent_color, 0.2); }
       > label { color: inherit; }
     }
   }
@@ -1120,7 +1134,7 @@ toolpalette {
 
   toolbutton {
     > button.toggle { // use square buttons
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
     }
   }
@@ -1139,10 +1153,10 @@ toolpalette {
     color: $link_visited_color;
     &:hover,
     &:active { color: $link_visited_color; }
-    *:selected & { color: mix($selected_fg_color, $selected_bg_color, 60%); }
+    *:selected & { color: mix($selected_fg_color, $accent_color, 60%); }
   }
   &:selected,
-  *:selected & { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+  *:selected & { color: mix($selected_fg_color, $accent_color, 80%); }
   &:disabled { opacity: 0.4; }
 }
 
@@ -1309,7 +1323,7 @@ spinbutton {
       min-height: rem($widget_size - 9.3px, $sw: 1.0);
       margin: rem(2.7px, $sw: 1.0);
       padding: 0;
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
       background: none;
       background-size: contain;
@@ -1402,7 +1416,7 @@ combobox {
 
   // fallback combo node for non-native apps
   @extend %entry_fallback_normal;
-  border-radius: 2px;
+  border-radius: 4px;
 
   .background & { // unset all properties in combobox node
     border: unset;
@@ -1416,7 +1430,7 @@ combobox {
   // fallback combo-entries for non-native apps
   entry.combo {
     @extend %entry_fallback_normal;
-    border-radius: 2px;
+    border-radius: 4px;
     &:focus { @extend %entry_fallback_focus; }
     &:disabled { @extend %entry_fallback_insensitive; }
   }
@@ -1424,15 +1438,18 @@ combobox {
   // standard combo-entries for native Gtk+ apps
   .background & entry.combo {
     @include entry(normal);
-    border-radius: 0;
-    background-color: transparent;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: gtkopacity($almost_white, 0.1);
     &:focus {
       @include entry(focus);
-      background-color: transparent;
+      background-color: gtkopacity($almost_white, 0.1);
     }
     &:disabled {
       @include entry(insensitive);
-      background-color: transparent;
+      background-color: gtkopacity($almost_white, 0.1);
     }
 
     selection {
@@ -1468,7 +1485,7 @@ combobox {
   // fallback combo-buttons for non-native apps
   button.combo {
     @extend %button_fallback_normal;
-    border-radius: 2px;
+    border-radius: 4px;
     &:hover { @extend %button_fallback_hover; }
     &:active,
     &:checked { @extend %button_fallback_active; }
@@ -1501,7 +1518,7 @@ combobox {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
     }
@@ -1529,7 +1546,7 @@ combobox {
     border-#{$edge}-width: 0;
 
     &:only-child {
-      border-radius: 2px;
+      border-radius: 4px;
       border-width: 1px;
     }
   }
@@ -1570,7 +1587,7 @@ toolbar {
     padding: 3px;
     border-style: solid;
     border-width: 9px;
-    border-radius: 2px;
+    border-radius: 4px;
     border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
                               url("assets/osd-shadow#{$asset_suffix}@2.png"))
                   10 / 10px stretch;
@@ -1624,7 +1641,7 @@ toolbar {
       }
 
       &.text-button {
-        border-radius: 2px;
+        border-radius: 4px;
         -gtk-outline-radius: 2px;
       }
 
@@ -1686,7 +1703,7 @@ toolbar {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -1710,7 +1727,7 @@ toolbar {
       &,
       &.text-button,
       &.text-button.image-button {
-        border-radius: 2px;
+        border-radius: 4px;
         -gtk-outline-radius: 2px;
       }
       &.image-button {
@@ -1772,7 +1789,7 @@ toolbar {
           border-image: -gtk-gradient(radial,
                                       center bottom, 0,
                                       center bottom, 0.5,
-                                      to($selected_bg_color),
+                                      to($accent_color),
                                       to(transparent))
                                       0 0 2 / 0 0 2px;
         }
@@ -1790,7 +1807,7 @@ toolbar {
 
   .linked > button.text-button:not(.image-button) { // revive underlines
     @extend %button_array;
-    border-radius: 2px;
+    border-radius: 4px;
     -gtk-outline-radius: 2px;
   }
 
@@ -1876,7 +1893,7 @@ actionbar {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -1967,7 +1984,7 @@ headerbar {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
-                                to($selected_bg_color),
+                                to($accent_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
@@ -1981,7 +1998,7 @@ headerbar {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -2008,17 +2025,17 @@ headerbar {
     -gtk-outline-radius: 100px;
 
     &.text-button {
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
 
       &.image-button {
-        border-radius: 2px;
+        border-radius: 4px;
         -gtk-outline-radius: 2px;
       }
     }
 
     &.lock {
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
       font-weight: 700;
     }
@@ -2283,8 +2300,8 @@ headerbar {
     background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
     outline-offset: rem(-4px);
     &:checked {
-      background-color: gtkopacity($selected_bg_color, 0.2);
-      &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
+      background-color: gtkopacity($accent_color, 0.2);
+      &:disabled { background-color: gtkopacity($accent_color, 0.2); }
     }
     &:disabled {
       color: $insensitive_inverted_fg_color;
@@ -2303,7 +2320,7 @@ headerbar {
     }
     &:checked slider {
       margin: rem(-5px) rem(-5px) rem(-5px) 0;
-      background-color: $selected_bg_color;
+      background-color: $accent_color;
       &:disabled {
         background-color: mix($top_edge_borders_color,
                               $inverted_fg_color,
@@ -2404,7 +2421,7 @@ headerbar {
         min-height: $icon_size;
         padding-top: rem(($widget_size - $icon_size - 2.7px) / 2);
         padding-bottom: rem(($widget_size - $icon_size - 2.7px) / 2);
-        border-radius: 2px;
+        border-radius: 4px;
         -gtk-outline-radius: 2px;
 
         label { margin: rem(-2px) 0; }
@@ -2466,7 +2483,7 @@ headerbar {
   &.default-decoration {
     min-height: $titlebutton_small;
     padding: if($ref_weight < 1.0, 3px, 3px 2px 2px);
-    border-radius: 2px 2px 0 0;
+    border-radius: 4px 4px 0 0;
     border-width: 0;
 
     .title { // fade_effect doesn't work
@@ -2577,19 +2594,19 @@ headerbar.selection-mode { // selection-mode specific
 .background:not(.maximized):not(.tiled):not(.solid-csd) {
   headerbar,
   .titlebar { // set rounded corners
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
   }
 
   box headerbar {
     &:not(:last-child) {
       &:dir(ltr) {
-        border-top-left-radius: 2px;
+        border-top-left-radius: 4px;
         border-top-right-radius: 0;
       }
       &:dir(rtl) {
         border-top-left-radius: 0;
-        border-top-right-radius: 2px;
+        border-top-right-radius: 4px;
       }
     }
 
@@ -2604,26 +2621,26 @@ headerbar.selection-mode { // selection-mode specific
 window:not(.maximized):not(.tiled) {
   paned.titlebar,
   grid.titlebar {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 
     > headerbar:not(:last-child) {
       &:dir(ltr) {
-        border-top-left-radius: 2px;
+        border-top-left-radius: 4px;
         border-top-right-radius: 0;
       }
       &:dir(rtl) {
         border-top-left-radius: 0;
-        border-top-right-radius: 2px;
+        border-top-right-radius: 4px;
       }
     }
     > headerbar:last-child {
       &:dir(ltr) {
         border-top-left-radius: 0;
-        border-top-right-radius: 2px;
+        border-top-right-radius: 4px;
       }
       &:dir(rtl) {
-        border-top-left-radius: 2px;
+        border-top-left-radius: 4px;
         border-top-right-radius: 0;
       }
     }
@@ -2684,7 +2701,7 @@ headerbar.titlebar.default-decoration {
 dialog.background.csd > headerbar.titlebar {
   // enforce square shape in 'Cancel' and 'Open' button
   > button:not(.image-button):not(.text-button):not(.toggle):not(.popup) {
-    border-radius: 2px;
+    border-radius: 4px;
     -gtk-outline-radius: 2px;
  }
 }
@@ -2724,7 +2741,7 @@ dialog.background.csd > headerbar.titlebar {
     &.image-button.text-button.toggle {
       min-height: $icon_size;
       padding: 0 rem(1.3px) 0;
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
     }
   }
@@ -2805,12 +2822,12 @@ treeview.view {
   }
 
   &.progressbar { // progressbar bit in treeviews
-    box-shadow: inset 0 -4px $accent_color;
+    box-shadow: inset 0 -4px $selected_bg_color;
     &:selected { box-shadow: inset 0 -4px $selected_fg_color; }
   }
 
   &.trough { // progressbar trough in treeviews
-    box-shadow: inset 0 -4px gtkalpha($accent_color, 0.2);
+    box-shadow: inset 0 -4px gtkalpha($selected_bg_color, 0.2);
     &:selected { box-shadow: inset 0 -4px gtkalpha($selected_fg_color, 0.2); }
   }
 
@@ -2867,7 +2884,7 @@ treeview.view {
       padding: 0 rem(6.7px) 0;
       border: 1px solid $borders_color;
       border-radius: 0;
-      background-color: $selected_bg_color;
+      background-color: $accent_color;
       color: $selected_fg_color;
       box-shadow: none;
       font-weight: 400;
@@ -2876,7 +2893,7 @@ treeview.view {
   }
 
   // see tests/testaccel to test
-  acceleditor > label { background-color: $selected_bg_color; }
+  acceleditor > label { background-color: $accent_color; }
 }
 
 %column_header_button {
@@ -2911,7 +2928,7 @@ menubar {
     > label { color: $inverted_secondary_fg_color; }
 
     &:hover { // Seems like it :hover even with keyboard focus
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $accent_color;
 
       > label { color: $inverted_fg_color; }
     }
@@ -2928,7 +2945,7 @@ menubar {
       > label { color: $secondary_fg_color; }
 
       &:hover {
-        box-shadow: inset 0 -2px $selected_bg_color;
+        box-shadow: inset 0 -2px $accent_color;
 
         > label { color: $fg_color; }
       }
@@ -2947,7 +2964,7 @@ menu {
   background-color: $secondary_base_color;
 
   .csd & { // axes borders in a composited env
-    border-radius: 2px;
+    border-radius: 4px;
     border-width: 1px 0 0;
     border-style: solid none none;
     border-color: $menu_highlight_color transparent transparent;
@@ -3071,7 +3088,7 @@ menuitem {
 }
 
 // round corners for CSD menus
-.csd.popup { border-radius: 2px; }
+.csd.popup { border-radius: 4px; }
 
 
 // /************
@@ -3324,7 +3341,7 @@ notebook {
         &:checked {
           border-color: $borders_color;
           border-#{$_border}-width: 2px;
-          border-#{$_border}-color: $selected_bg_color;
+          border-#{$_border}-color: $accent_color;
           background-color: $base_color;
           box-shadow: if($variant == 'light', $tab-shadow-light,
                                               $tab-shadow-dark);
@@ -3377,7 +3394,7 @@ notebook {
             border-image: -gtk-gradient(radial,
                                         center bottom, 0,
                                         center bottom, 0.5,
-                                        to($selected_bg_color),
+                                        to($accent_color),
                                         to(transparent))
                                         0 0 2 / 0 0 2px;
           }
@@ -3407,7 +3424,7 @@ notebook {
     // here's the interesting stuff
     &:hover { border-color: $track_color; }
     &:checked { // draw ripples via transitions
-      border-color: $selected_bg_color;
+      border-color: $accent_color;
       background-image: radial-gradient(circle farthest-side at center,
                                         transparent 12.5%,
                                         transparent 0%);
@@ -3644,8 +3661,8 @@ switch {
 
   &:disabled { color: $insensitive_fg_color; }
   &:checked {
-    background-color: gtkopacity($selected_bg_color, 0.2);
-    &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
+    background-color: gtkopacity($accent_color, 0.2);
+    &:disabled { background-color: gtkopacity($accent_color, 0.2); }
   }
   &:disabled {
     color: $insensitive_fg_color;
@@ -3874,14 +3891,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(gtkalpha($accent_color, 0.1)),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(gtkalpha($accent_color, 0.1)),
                                     to(transparent));
   }
 }
@@ -3891,14 +3908,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.2)),
+                                    to(gtkalpha($accent_color, 0.2)),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0)),
+                                    to(gtkalpha($accent_color, 0)),
                                     to(transparent));
   }
 }
@@ -4163,7 +4180,7 @@ check {
 %scale_highlight {
   border: 1px solid transparent;
   border-radius: 0;
-  background-color: $accent_color;
+  background-color: $selected_bg_color;
   &:disabled {
     color: $insensitive_fg_color;
     background-color: $track_color;
@@ -4486,13 +4503,13 @@ progressbar {
   trough {
     box-shadow: none;
     border-radius: 0;
-    background-color: gtkopacity($accent_color, 0.2);
+    background-color: gtkopacity($selected_bg_color, 0.2);
   }
 
   progress {
     box-shadow: none;
     border-radius: 0;
-    background-color: $accent_color;
+    background-color: $selected_bg_color;
     &.left {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -4524,11 +4541,11 @@ progressbar {
     trough {
       border-style: none;
       box-shadow: none;
-      background-color: gtkopacity($accent_color, 0.2);
+      background-color: gtkopacity($selected_bg_color, 0.2);
     }
     progress {
       background-image: none;
-      background-color: $accent_color;
+      background-color: $selected_bg_color;
       border-style: none;
       border-radius: 0;
     }
@@ -4564,7 +4581,7 @@ levelbar {
 
   trough {
     padding: 2px;
-    border-radius: 2px;
+    border-radius: 100px;
     box-shadow: $z-depth-1;
     &:disabled { box-shadow: none; }
     &.horizontal { padding: 2px 1px; }
@@ -4757,7 +4774,7 @@ row:selected { // special case to use raised GtkEntry
     min-width: rem(33.3px);
     min-height: rem(13.3px);
     padding: rem(8px);
-    border-radius: 2px;
+    border-radius: 4px;
     -gtk-outline-radius: 2px;
     border-style: none;
     border-image: none;
@@ -4817,31 +4834,31 @@ row:selected { // special case to use raised GtkEntry
       background-color: transparent;
       &:not(:active):not(:disabled):not(hover) {
         background-color: transparent;
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
       }
       &:hover {
         @extend %button_flat_hover;
         background-color: transparent;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
       }
       &:active {
         @extend %button_flat_active;
         border-image: none;
         background-color: transparent;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
         box-shadow: none;
       }
       &:checked {
         @extend %button_flat_checked;
         border-image: none;
         background-color: transparent;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
         box-shadow: none;
       }
       &:disabled {
         @extend %button_flat_disabled;
         background-color: transparent;
-        color: gtkopacity($inverted_accent_label_color, 0.4);
+        color: gtkopacity($inverted_selected_bg_label_color, 0.4);
       }
     }
 
@@ -4942,8 +4959,8 @@ messagedialog {
   .titlebar {
     min-height: rem(20px);
     border-style: none;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     color: $inverted_secondary_fg_color;
     background-color: $inverted_dark_color;
   }
@@ -4958,16 +4975,16 @@ messagedialog {
   }
 
   button { // set foregrounds for fallback-mode
-    color: $inverted_secondary_accent_label_color;
+    color: $inverted_secondary_selected_bg_label_color;
     &:hover,
     &:active,
-    &:checked { color: $inverted_accent_label_color; }
+    &:checked { color: $inverted_selected_bg_label_color; }
     &:disabled { color: $insensitive_inverted_fg_color; }
   }
 
   .linked > button {
     border: 2px solid transparent;
-    border-radius: 2px;
+    border-radius: 4px;
     -gtk-outline-radius: 2px;
     border-image: none;
     box-shadow: none;
@@ -5027,8 +5044,8 @@ messagedialog {
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
     }
   }
 
@@ -5046,23 +5063,23 @@ messagedialog {
         border: 2px solid transparent;
         border-radius: 0;
         background-color: transparent;
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
         font-size: initial;
         font-weight: 700;
         &:hover {
           @extend %button_flat_hover;
           background-color: transparent;
-          color: $inverted_accent_label_color;
+          color: $inverted_selected_bg_label_color;
         }
         &:active {
           @extend %button_flat_active;
           background-color: transparent;
-          color: $inverted_accent_label_color;
+          color: $inverted_selected_bg_label_color;
         }
         &:checked {
           @extend %button_flat_checked;
           background-color: transparent;
-          color: $inverted_secondary_accent_label_color;
+          color: $inverted_secondary_selected_bg_label_color;
         }
         &:disabled {
           @extend %button_flat_disabled;
@@ -5148,10 +5165,10 @@ filechooserbutton:drop(active) {
     font-weight: 500;
     &:hover { color: $fg_color; }
     &:selected {
-      color: $selected_bg_color;
+      color: $accent_color;
       background-color: transparent;
 
-      label { color: $selected_bg_color; }
+      label { color: $accent_color; }
     }
   }
 
@@ -5176,10 +5193,10 @@ stacksidebar {
     font-weight: 500;
     &:hover { color: $fg_color; }
     &:selected {
-      color: $selected_bg_color;
+      color: $accent_color;
       background-color: transparent;
 
-      label { color: $selected_bg_color; }
+      label { color: $accent_color; }
     }
     &:backdrop { opacity: 1.0; }
 
@@ -5277,9 +5294,9 @@ placessidebar {
     //   @extend %selected_items:backdrop:disabled;
     // }
 
-    &.sidebar-placeholder-row { border: solid 1px $selected_bg_color; }
+    &.sidebar-placeholder-row { border: solid 1px $accent_color; }
 
-    &.sidebar-new-bookmark-row { color: $selected_bg_color; }
+    &.sidebar-new-bookmark-row { color: $accent_color; }
 
     &:drop(active):not(:disabled) {
       color: $drop_target_color;
@@ -5472,14 +5489,14 @@ infobar {
         min-height: $icon_size;
         min-width: $icon_size;
         padding: rem(10.7px);
-        border-radius: 2px;
+        border-radius: 4px;
         -gtk-outline-radius: 2px;
       }
     }
 
-    selection { background-color: darken($selected_bg_color, 10%); }
+    selection { background-color: darken($accent_color, 10%); }
 
-    *:link { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+    *:link { color: mix($selected_fg_color, $accent_color, 80%); }
 
     progressbar { // use 'white' bit and trough
       trough { background-color: gtkopacity($selected_fg_color, 0.2); }
@@ -5527,7 +5544,7 @@ tooltip {
   }
 
   // use roundness only for CSDs
-  &.csd { border-radius: 2px; }
+  &.csd { border-radius: 4px; }
 }
 
 
@@ -5591,7 +5608,7 @@ colorchooser .popover.osd {
   padding: 3px;
   border-style: solid;
   border-width: 9px;
-  border-radius: 2px;
+  border-radius: 4px;
   border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
                             url("assets/osd-shadow#{$asset_suffix}@2.png"))
                 10 / 10px stretch;
@@ -5770,7 +5787,7 @@ button.flat.scale { // standalone Speaker/Mic buttons
   // axes right border and border radius
   &.bottom.right {
     border-width: 1px 0 0 1px;
-    border-radius: 2px + 1px 0 0 0;
+    border-radius: 4px + 1px 0 0 0;
     // border-width: 8px 0 0 8px;
     // border-image-width: 10px 0 0 10px;
   }
@@ -5782,7 +5799,7 @@ button.flat.scale { // standalone Speaker/Mic buttons
 //  *********************/
 
 decoration {
-  border-radius: 2px 2px 0 0;
+  border-radius: 4px 4px 4px 4px; // Fix here if windows are weird
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0;
   box-shadow: $z-depth-4;
@@ -5823,17 +5840,17 @@ decoration {
   }
 
   .csd.popup & {
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: $z-depth-3;
   }
 
   tooltip.csd & {
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: $z-depth-2;
   }
 
   message-dialog.csd & {
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: $z-depth-4;
     &:backdrop { box-shadow: $z-depth-2-backdrop; }
   }
@@ -5924,7 +5941,7 @@ decoration {
       &:active {
         @extend %button_active;
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
 
         > image {
           background-image:
@@ -6286,7 +6303,7 @@ headerbar.titlebar.default-decoration {
 // touch selection handlebars for the Popover.osd above
 cursor-handle {
   border-style: none;
-  background-color: $accent_color;
+  background-color: $selected_bg_color;
   background-image: none;
   box-shadow: none;
 

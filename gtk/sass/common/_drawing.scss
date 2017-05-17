@@ -1,5 +1,5 @@
 /*
- *  This file is part of adapta-gtk-theme
+ *  This file is part of pop-gtk-theme
  *
  * Copyright (C) 2016-2017 Tista <tista.gma500@gmail.com>
  *
@@ -286,7 +286,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   box-shadow: none;
 }
 
-@mixin entry($t, $fc:$selected_bg_color) {
+@mixin entry($t, $fc:$accent_color) {
 //
 // Entries drawing function
 //
@@ -459,8 +459,8 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 }
 
 %button_fallback_active {
-  border: 1px solid $selected_bg_color;
-  background-color: $selected_bg_color;
+  border: 1px solid $accent_color;
+  background-color: $accent_color;
   color: $fg_color; // do not use inverted colours
   box-shadow: none;
   animation: none;
@@ -475,7 +475,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
 
 %button_fallback_checked_insensitive {
   border: none;
-  background-color: mix($selected_bg_color, $light_color, 20%);
+  background-color: mix($accent_color, $light_color, 20%);
   color: mix($selected_bg_color, $light_color, 40%);
   box-shadow: none;
 }
@@ -532,7 +532,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   // checked button
   //
     @extend %button_checked;
-    background-color: $selected_bg_color;
+    background-color: $accent_color;
     color: $selected_fg_color;
   }
   @else if $t==checked-insensitive {
@@ -541,7 +541,7 @@ $slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
   //
     @extend %button_checked_disabled;
     background-color: $track_color;
-    color: gtkopacity($selected_bg_color, 0.4);
+    color: gtkopacity($accent_color, 0.4);
   }
 
   @else if $t==flat-normal {

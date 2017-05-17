@@ -140,8 +140,8 @@ $asset_suffix: if($variant == 'dark', '-dark', '');
 }
 
 .rubberband {
-  border: 1px solid $secondary_selected_bg_color;
-  background-color: gtkopacity($secondary_selected_bg_color, 0.2);
+  border: 1px solid $secondary_accent_color;
+  background-color: gtkopacity($secondary_accent_color, 0.2);
 }
 
 .label {
@@ -350,7 +350,7 @@ GtkTextView {
 
   &.image { // entry icons colors
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
-    &:active { color: $selected_bg_color; }
+    &:active { color: $accent_color; }
     &:insensitive { color: gtkalpha(currentColor, 0.6); }
   }
 
@@ -514,17 +514,17 @@ GtkTextView {
       padding: 1.3em;
       background-color: gtkopacity($inverted_dark_color, 0.9);
       &:not(:active):not(:insensitive):not(hover) {
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
       }
       &:hover {
         @extend %button_flat_hover;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
         background-color: gtkopacity($inverted_dark_color, 0.9);
         background-image: linear-gradient(to bottom, $track_color);
       }
       &:active {
         @extend %button_flat_active;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
         background-color: gtkopacity($inverted_dark_color, 0.9);
         background-image: linear-gradient(to bottom, $accent_fill_color);
       }
@@ -549,7 +549,7 @@ GtkTextView {
       }
       &:active {
         @extend %button_active;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
         color: $selected_fg_color;
       }
       &:checked { background-color: mix($selected_fg_color, $b_color, 20%); }
@@ -565,8 +565,8 @@ GtkTextView {
         }
         &:active {
           @extend %button_flat_active;
-          background-color: gtkalpha($selected_bg_color, 0.2);
-          color: $selected_bg_color;
+          background-color: gtkalpha($accent_color, 0.2);
+          color: $accent_color;
         }
         &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }
         &:insensitive {
@@ -733,7 +733,7 @@ GtkTextView {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
-                                to($selected_bg_color),
+                                to($accent_color),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
     background-color: transparent;
@@ -744,7 +744,7 @@ GtkTextView {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to(gtkopacity($selected_bg_color, 0.2)),
+                                  to(gtkopacity($accent_color, 0.2)),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       color: $insensitive_fg_color;
@@ -783,15 +783,15 @@ GtkTextView {
     @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
-    &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $accent_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $accent_color; }
     &:hover { background-color: gtkalpha(currentColor, 0.1); }
     &:insensitive {
       @extend %button_flat_checked_insensitive;
       color: $insensitive_fg_color;
       background-color: transparent;
-      &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
-      &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2); }
+      &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($accent_color, 0.2); }
+      &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($accent_color, 0.2); }
     }
   }
   &:insensitive {
@@ -937,11 +937,11 @@ GtkButtonBox > .button {
   &:visited {
     color: $link_visited_color;
     &:hover, &:active { color: $link_visited_color; }
-    *:selected & { color: mix($selected_fg_color, $selected_bg_color, 60%); }
+    *:selected & { color: mix($selected_fg_color, $accent_color, 60%); }
   }
   &:selected,
   *:selected & {
-    color: mix($selected_fg_color, $selected_bg_color, 80%);
+    color: mix($selected_fg_color, $accent_color, 80%);
   }
   &:insensitive { opacity: 0.4; }
 }
@@ -1194,7 +1194,7 @@ GtkComboBox {
     padding: 3px;
     border-style: solid;
     border-width: 9px;
-    border-radius: 2px;
+    border-radius: 4px;
     border-image: -gtk-scaled(url("assets/osd-shadow#{$asset_suffix}.png"),
                               url("assets/osd-shadow#{$asset_suffix}@2.png"))
                   10 / 10px stretch;
@@ -1270,7 +1270,7 @@ GtkComboBox {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background: transparent;
@@ -1424,7 +1424,7 @@ GtkComboBox {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -1546,8 +1546,8 @@ GtkComboBox {
     &.trough {
       background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
       &:active {
-        background-color: gtkopacity($selected_bg_color, 0.2);
-        &:insensitive { background-color: gtkopacity($selected_bg_color, 0.2); }
+        background-color: gtkopacity($accent_color, 0.2);
+        &:insensitive { background-color: gtkopacity($accent_color, 0.2); }
       }
       &:insensitive {
         color: $insensitive_inverted_fg_color;
@@ -1869,13 +1869,13 @@ GtkTreeView.view {
 
   &.progressbar { // progress bar in treeviews
     @extend %treeview_progressbar;
-    border-color: $accent_color;
+    border-color: $selected_bg_color;
     &:selected { border-color: currentColor; }
   }
 
   &.trough { // progress bar trough in treeviews
     @extend %treeview_progressbar;
-    border-color: gtkopacity($accent_color, 0.2);
+    border-color: gtkopacity($selected_bg_color, 0.2);
     &:selected { border-color: $track_color; }
   }
 
@@ -1961,7 +1961,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     > .label { color: $inverted_secondary_fg_color; }
 
     &:hover { // Seems like it :hover even with keyboard focus
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $accent_color;
 
       > .label { color: $inverted_fg_color; }
     }
@@ -2225,7 +2225,7 @@ column-header.button.dnd { // for treeview-like derive widgets
     &:hover,
     &.prelight-page { border-color: $track_color; }
     &:active,
-    &.active-page { border-color: $selected_bg_color; }
+    &.active-page { border-color: $accent_color; }
 
     @each $_tab, $_border in (top, bottom),
                              (bottom, top),
@@ -2243,7 +2243,7 @@ column-header.button.dnd { // for treeview-like derive widgets
         &:active, &.active-page {
           border-color: $borders_color;
           border-#{$_border}-width: 2px;
-          border-#{$_border}-color: $selected_bg_color;
+          border-#{$_border}-color: $accent_color;
           background-color: $base_color;
           box-shadow: if($variant == 'light', $tab-shadow-light,
                                               $tab-shadow-dark);
@@ -2862,7 +2862,7 @@ GtkProgressBar {
 
   &.trough { // background
     border-radius: 0;
-    background-color: gtkopacity($accent_color, 0.2);
+    background-color: gtkopacity($selected_bg_color, 0.2);
 
     &.osd {
       border-style: none;
@@ -2875,7 +2875,7 @@ GtkProgressBar {
 // moving bit
 .progressbar {
   border-radius: 0;
-  background-color: $accent_color;
+  background-color: $selected_bg_color;
 
   &.left {
     border-top-left-radius: 0;
@@ -2903,7 +2903,7 @@ GtkProgressBar {
 
   &.osd {
     background-image: none;
-    background-color: $accent_color;
+    background-color: $selected_bg_color;
     border-style: none;
     border-radius: 0;
   }
@@ -2915,7 +2915,7 @@ GtkProgressBar {
   border-image: -gtk-gradient(radial,
                               center bottom, 0,
                               center bottom, 0.5,
-                              to($accent_color),
+                              to($selected_bg_color),
                               to(transparent))
                               0 0 2 / 0 0 2px;
   border-radius: 0;
@@ -2950,7 +2950,7 @@ GtkProgressBar {
 
   &.trough {
     padding: 2px;
-    border-radius: 2px;
+    border-radius: 100px;
     box-shadow: $z-depth-1;
     &:insensitive { box-shadow: none; }
     &.indicator-discrete {
@@ -2962,7 +2962,7 @@ GtkProgressBar {
   &.fill-block {
     // FIXME: it would be nice to set make fill blocks bigger, but we'd need
     // :nth-child working on discrete indicators
-    background-color: $accent_color;
+    background-color: $selected_bg_color;
     border-radius: 0;
     box-shadow: none;
     &.indicator-discrete {
@@ -3229,10 +3229,10 @@ GtkCalendar {
   }
 
   .button { // set foregrounds for fallback-mode
-    color: $inverted_secondary_accent_label_color;
+    color: $inverted_secondary_selected_bg_label_color;
     &:hover,
     &:active,
-    &:checked { color: $inverted_accent_label_color; }
+    &:checked { color: $inverted_selected_bg_label_color; }
     &:insensitive { color: $insensitive_inverted_fg_color; }
   }
   .linked > .button {
@@ -3290,8 +3290,8 @@ GtkCalendar {
   &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
     }
 
     .dialog-action-area {
@@ -3303,21 +3303,21 @@ GtkCalendar {
         border-radius: 0;
         background-size: 192px * 1 / 0.8 192px * 1 / 0.8, auto;
         background-color: transparent;
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
         &:hover {
           @extend %button_flat_hover;
           background-color: transparent;
-          color: $inverted_accent_label_color;
+          color: $inverted_selected_bg_label_color;
         }
         &:active {
           @extend %button_flat_active;
           background-color: transparent;
-          color: $inverted_accent_label_color;
+          color: $inverted_selected_bg_label_color;
         }
         &:checked {
           @extend %button_flat_checked;
           background-color: transparent;
-          color: $inverted_secondary_accent_label_color;
+          color: $inverted_secondary_selected_bg_label_color;
         }
         &:insensitive {
           @extend %button_flat_insensitive;
@@ -3394,7 +3394,7 @@ GtkSidebarRow {
     font-weight: 500;
     &:hover { color: $fg_color; }
     &:selected {
-      color: $selected_bg_color;
+      color: $accent_color;
       background-color: transparent;
     }
     &:backdrop { opacity: 1.0; }
@@ -3487,7 +3487,7 @@ GtkStackSidebar {
     font-weight: 500;
     &:hover { color: $fg_color; }
     &:selected {
-      color: $selected_bg_color;
+      color: $accent_color;
       background-color: transparent;
     }
     &:backdrop { opacity: 1.0; }
@@ -3982,7 +3982,7 @@ GtkVolumeButton.button {
       &:active {
         @extend %button_active;
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
 
         > GtkImage {
           background-image: -gtk-scaled(url("assets/window-close-active.png"),
@@ -4153,7 +4153,7 @@ GtkVolumeButton.button {
 .entry.cursor-handle,
 .cursor-handle {
   border-style: none;
-  background-color: $accent_color;
+  background-color: $selected_bg_color;
   background-image: none;
   box-shadow: none;
 
