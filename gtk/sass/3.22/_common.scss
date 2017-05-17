@@ -78,7 +78,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 // or better, just don't.
 // Everytime a wildcard is used a kitten dies, painfully.
 
-*:disabled { -gtk-icon-effect: dim; }
+*:disabled { -gtk-icon-filter: opacity(0.5); }
 
 // for backdrop, tone down element surfaces with transparentize
 %fade_effect {
@@ -1469,11 +1469,11 @@ combobox {
     background-color: gtkopacity($almost_white, 0.1);
     &:focus {
       @include entry(flat-focus);
-      background-color: gtkopacity($almost_white, 0.1);
+      background-color: transparent;
     }
     &:disabled {
       @include entry(flat-insensitive);
-      background-color: gtkopacity($almost_white, 0.1);
+      background-color: transparent;
     }
 
     selection {
