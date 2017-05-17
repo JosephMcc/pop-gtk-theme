@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.2.1) zesty; urgency=medium
+
+  * Re-write theme in more upstream-friendly way.
+
+ -- Ian Santopietro <ian@system76.com>  Wed, 17 May 2017 16:38:44 -0600
+
 system76-pop-gtk-theme (1.2.0) zesty; urgency=medium
 
   * Merge in upstream Adapta.
