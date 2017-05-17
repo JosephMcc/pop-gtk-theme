@@ -32,6 +32,10 @@ style "default" {
   GtkButton::child-displacement-y = 0
   GtkButton::default-border = { 0, 0, 0, 0 }
   GtkButton::default-outside_border = { 0, 0, 0, 0 }
+  GtkButton::inner-border = { 4, 4, 4, 4 }
+
+  GtkEntry::state-hint   = 1
+  GtkEntry::inner-border = { 6, 6, 6, 6 }
 
   GtkScrollbar::trough-border = 0
   GtkRange::trough-border = 0
@@ -976,7 +980,7 @@ style "entry" {
   bg[ACTIVE] = @bg_color
   bg[INSENSITIVE] = @bg_color
   base[NORMAL] = @bg_color
-  base[ACTIVE] = @bg_color
+  base[ACTIVE] = @selected_bg_color
   base[INSENSITIVE] = @bg_color
 
   engine "pixmap" {
@@ -1033,7 +1037,7 @@ style "notebook_entry" = "entry" {
   bg[ACTIVE] = @bg_color
   bg[INSENSITIVE] = @bg_color
   base[NORMAL] = @bg_color
-  base[ACTIVE] = @bg_color
+  base[ACTIVE] = @selected_bg_color
   base[INSENSITIVE] = @bg_color
 }
 

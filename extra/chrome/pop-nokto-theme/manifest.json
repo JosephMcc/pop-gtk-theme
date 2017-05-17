@@ -1,12 +1,7 @@
 {
   "manifest_version": 2,
-<<<<<<< HEAD:extra/chrome/adapta-nokto-theme/manifest.json
-  "name": "Adapta-Nokto Theme",
-  "version": "1.3",
-=======
   "name": "Pop-Nokto Theme",
-  "version": "1.2",
->>>>>>> downstream/master:extra/chrome/pop-nokto-theme/manifest.json
+  "version": "1.3",
   "description": "",
   "theme": {
     "images": {

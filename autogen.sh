@@ -13,9 +13,9 @@ autoreconf --force --install --warnings=all
 if test -z "${NOCONFIGURE}"; then
     set -x
     $srcdir/configure --prefix=/usr \
-                      --enable-gtk_next \
-                      --enable-parallel \
-                      --disable-nokto \
+                      --disable-gtk_legacy \
+                      --disable-gtk_next \
+                      --disable-parallel \
                       --disable-chrome \
                       --disable-plank \
                       --disable-telegram \

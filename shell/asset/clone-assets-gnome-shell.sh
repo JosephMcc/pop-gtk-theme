@@ -19,12 +19,9 @@ INDEX="assets-gnome-shell.txt"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
-                   cut -d' ' -f3`"
-accent1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
-                cut -d' ' -f3`"
-destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
-                     cut -d' ' -f3`"
+selection1="#4db6ac"
+accent1="#00bcd4"
+destruction1="#ff5252"
 
 # Check and re-color SVG files
 if [ -e $KEY_FILE ]; then
@@ -42,14 +39,14 @@ do
     s="`echo $i | cut -d' ' -f1`" # source
     r="`echo $i | cut -d' ' -f3`" # recolor flag
 
-    if [ "$r" = "r1" ]; then
+    if [ "$r" = "r2" ]; then
         cp -f $SRC_DIR/$s.in $SRC_DIR/$s
 
         if [ $selection1 != $selection2 ]; then
             sed -i "s/$selection1/$selection2/gi" $SRC_DIR/$s
             echo $s is re-colored with $selection2.
         fi
-    elif [ "$r" = "r2" ]; then
+    elif [ "$r" = "r1" ]; then
         cp -f $SRC_DIR/$s.in $SRC_DIR/$s
 
         if [ $accent1 != $accent2 ]; then
@@ -81,12 +78,6 @@ do
     f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.svg" # file name
     v="`echo $i | cut -c1`"                           # variant type
     d="`echo $i | cut -d' ' -f2`"                     # target directory
-    
-    echo $i
-    echo $s
-    echo $f
-    echo $v
-    echo $d
 
     if [ $v = "c" ]; then # 'commmon'
         if [ -f $ASSETS_DIR/$d/$f ] && \
@@ -95,7 +86,6 @@ do
             echo $ASSETS_DARK_DIR/$d/$f exists.
             echo $ASSETS_ETA_DIR/$d/$f exists.
             echo $ASSETS_DARK_ETA_DIR/$d/$f exists.
-            
         elif [ $i = "common/noise-texture.png ." ]; then # PNG special case
             f="`echo $i | cut -d'.' -f1 | cut -d'/' -f2`.png"
             echo Cloning $ASSETS_DIR/$d/$f
@@ -106,7 +96,6 @@ do
             cp -f $SRC_DIR/$s $ASSETS_DARK_DIR/$d/$f
             echo Cloning $ASSETS_DARK_ETA_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DARK_ETA_DIR/$d/$f
-            
         else
             echo Cloning $ASSETS_DIR/$d/$f
             cp -f $SRC_DIR/$s $ASSETS_DIR/$d/$f

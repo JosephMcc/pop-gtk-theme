@@ -2,18 +2,23 @@
 # -----------------------------------------------------------
 AC_DEFUN([POP_COLOR_SCHEME], [
 
-    selection_default="#48B9C7"
-    second_selection_default="#FFB13D"
-    accent_default="#FAA41A"
-    suggestion_default="#73C48F"
-    destruction_default="#F15D22"
+    selection_default="`grep 'Content1' ./gtk/sass/common/_colors.scss | \
+                        cut -d' ' -f3`"
+    second_selection_default="`grep 'Content2' ./gtk/sass/common/_colors.scss | \
+                               cut -d' ' -f3`"
+    accent_default="`grep 'Context' ./gtk/sass/common/_colors.scss | \
+                     cut -d' ' -f3`"
+    suggestion_default="`grep 'Suggest' ./gtk/sass/common/_colors.scss | \
+                         cut -d' ' -f3`"
+    destruction_default="`grep 'Destruct' ./gtk/sass/common/_colors.scss | \
+                          cut -d' ' -f3`"
 
     AC_ARG_WITH(
         [selection_color],
         [AS_HELP_STRING(
             [--with-selection_color],
             [Primary color for selected-items \
-             (Default: #574F4A (Cyan500))]
+             (Default: #48B9C7)]
         )],
         [SELECTION="$withval"],
         [SELECTION=$selection_default]
@@ -25,7 +30,7 @@ AC_DEFUN([POP_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-second_selection_color],
             [Primary color for 'select' effects \
-             (Default: #4DD0E1 (Cyan300))]
+             (Default: #48B9C7)]
         )],
         [SECOND_SELECTION="$withval"],
         [SECOND_SELECTION=$second_selection_default]
@@ -37,7 +42,7 @@ AC_DEFUN([POP_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-accent_color],
             [Secondary color for notifications and OSDs \
-             (Default: #48B9C7 (Teal300))]
+             (Default: #FAA41A)]
         )],
         [ACCENT="$withval"],
         [ACCENT=$accent_default]
@@ -49,7 +54,7 @@ AC_DEFUN([POP_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-suggestion_color],
             [Secondary color for 'suggested' buttons \
-             (Default: #009688 (Teal500))]
+             (Default: #73C48F)]
         )],
         [SUGGESTION="$withval"],
         [SUGGESTION=$suggestion_default]
@@ -61,7 +66,7 @@ AC_DEFUN([POP_COLOR_SCHEME], [
         [AS_HELP_STRING(
             [--with-destruction_color],
             [Tertiary color for 'destructive' buttons \
-             (Default: #FF5252 (RedA200))]
+             (Default: #F15D22)]
         )],
         [DESTRUCTION="$withval"],
         [DESTRUCTION=$destruction_default]

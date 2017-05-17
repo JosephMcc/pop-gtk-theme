@@ -25,25 +25,9 @@ metacity_file = \
 	$(metacitydir)/button_unshade_prelight.svg \
 	$(metacitydir)/button_unshade_pressed.svg \
 	$(metacitydir)/button_unshade.svg \
-	$(metacitydir)/max_button_close.svg \
-	$(metacitydir)/max_button_maximize_prelight.svg \
-	$(metacitydir)/max_button_maximize_pressed.svg \
-	$(metacitydir)/max_button_maximize.svg \
-	$(metacitydir)/max_button_menu_prelight.svg \
-	$(metacitydir)/max_button_menu_pressed.svg \
-	$(metacitydir)/max_button_menu.svg \
-	$(metacitydir)/max_button_minimize_prelight.svg \
-	$(metacitydir)/max_button_minimize_pressed.svg \
-	$(metacitydir)/max_button_minimize.svg \
-	$(metacitydir)/max_button_shade_prelight.svg \
-	$(metacitydir)/max_button_shade_pressed.svg \
-	$(metacitydir)/max_button_shade.svg \
 	$(metacitydir)/max_button_unmaximize_prelight.svg \
 	$(metacitydir)/max_button_unmaximize_pressed.svg \
 	$(metacitydir)/max_button_unmaximize.svg \
-	$(metacitydir)/max_button_unshade_prelight.svg \
-	$(metacitydir)/max_button_unshade_pressed.svg \
-	$(metacitydir)/max_button_unshade.svg \
 	$(metacitydir)/thumbnail.png \
 	$(metacitydir)/metacity-theme-2.xml \
 	$(metacitydir)/metacity-theme-3.xml
@@ -196,9 +180,9 @@ if ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
-#	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
 	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
-#	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 
 if ENABLE_CINNAMON
@@ -206,9 +190,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
-#	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
 	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
-#	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -217,9 +201,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
-#	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
 	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
-#	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -228,9 +212,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
-#	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
 	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
-#	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -238,17 +222,17 @@ if ENABLE_XFCE
 	$(MKDIR_P) $(popdir)/xfwm4
 	cp -Rv $(xfwm_file) $(popdir)/xfwm4
 	cd $(popdir)
-#	ln -sf ../Pop/xfwm4 $(noktodir)/xfwm4
+	ln -sf ../Pop/xfwm4 $(noktodir)/xfwm4
 endif
 
 if ENABLE_OPENBOX
 	$(MKDIR_P) $(popdir)/openbox-3
-#	$(MKDIR_P) $(noktodir)/openbox-3
+	$(MKDIR_P) $(noktodir)/openbox-3
 	cp -Rv $(openbox_file) $(popdir)/openbox-3
 	cp -Rv $(openbox_rc_file) $(popdir)/openbox-3/themerc
 	cp -Rv $(openbox_compton_file) $(popdir)/openbox-3/
-#	cp -Rv $(openbox_file) $(noktodir)/openbox-3
-#	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
+	cp -Rv $(openbox_file) $(noktodir)/openbox-3
+	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
 endif
 
 # *******************

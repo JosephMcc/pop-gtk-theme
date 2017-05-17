@@ -5,26 +5,27 @@
   <description>Gedit material theme matched for Pop GTK theme.</description>
 
   <!-- Color Palette -->
-  <color name="pop0"                     value="#4E4844" />
-  <color name="pop1"                     value="#3B4C54" />
+  <color name="pop0"                     value="#222D32" />
+  <color name="pop1"                     value="#243035" />
   <color name="pop2"                     value="#0B9BAF" />
-  <color name="pop3"                     value="#6A797F" />
-  <color name="pop4"                     value="#F6F6F6" />
+  <color name="pop3"                     value="#555F64" />
+  <color name="pop4"                     value="#CFD8DC" />
   <color name="pop5"                     value="#1DE9B6" />
   <color name="pop6"                     value="#F77669" />
-  <color name="pop7"                     value="#574F4A" />
+  <color name="pop7"                     value="#00BCD4" />
   <color name="pop8"                     value="#009587" />
   <color name="pop9"                     value="#AB7967" />
   <color name="pop10"                    value="#FFCB6B" />
   <color name="pop11"                    value="#C3E88D" />
   <color name="pop12"                    value="#C792EA" />
+  <color name="pop13"                    value="#29353B" />
 
   <!-- GUI Styling -->
   <style name="background-pattern"          background="pop1" />
   <style name="bookmark"                    background="pop4" />
   <style name="bracket-match"               foreground="pop4" background="pop2" />
   <style name="bracket-mismatch"            foreground="pop6" underline="true" />
-  <style name="current-line"                foreground="pop4" background="pop1" />
+  <style name="current-line"                foreground="pop4" background="pop13" />
   <style name="cursor"                      foreground="pop4" />
   <style name="draw-spaces"                 foreground="pop3" />
   <style name="line-numbers"                foreground="pop3" background="pop1" />

@@ -1,10 +1,8 @@
 **Reporter info**
 
- ```
- * Distribution -
- * Gtk+ 3.0 version -
+ * Distribution - (run ```lsb_release -a```)
+ * Gtk+ 3.0 version - (run ```apt policy libgtk-3-0```)
  * Desktop environment - 
- ```
 
 **Pop version (if you knew)**
 
@@ -18,15 +16,15 @@
 
 
 
-**Steps to reproduce (if possible please provide screenshots/video)**
+**Steps to reproduce (if you knew)**
 
 
 
-**Expected behavior**
+**Expected behaviour**
 
 
 
-**Behavior of the widget in Adwaita (if possible please provide screenshots/video)**
+**Behaviour in Adwaita**
 
 
 

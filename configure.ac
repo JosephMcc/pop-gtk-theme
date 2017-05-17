@@ -2,7 +2,7 @@ m4_define([pop_major_version], [1])
 m4_define([pop_minor_version], [2])
 m4_define([pop_micro_version], [0])
 m4_define([pop_version], [pop_major_version.pop_minor_version.pop_micro_version])
-m4_define([pop_git_url], [https://github.com/system76/pop-gtk-theme])
+m4_define([pop_git_url], [https://github.com/pop-project/pop-gtk-theme])
 
 AC_INIT(
 	[Pop ],
@@ -34,7 +34,7 @@ POP_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
 POP_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 POP_OPTION([PLANK],     [plank],     [Plank],          [disable])
 POP_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
-POP_OPTION([NOKTO],     [nokto],     [Nokto],          [disable])
+POP_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
@@ -76,10 +76,6 @@ AC_MSG_RESULT([
         Pop Gtk+ Theme $VERSION
         ===========================================================
 
-        -----------------------------------------------------------
-        | Supported Gtk+ version: 3.22 & 3.20 & 3.18
-        -----------------------------------------------------------
-
          prefix:                 ${prefix}
          datarootdir:            ${datarootdir}
          target directories:     ${datarootdir}/themes/Pop
@@ -101,38 +97,36 @@ AC_MSG_RESULT([
          destruction-color:      $DESTRUCTION (default: $destruction_default)
 
         -----------------------------------------------------------
-        | Default DE support
+        | Supported Gtk+ Version
         -----------------------------------------------------------
 
-         GNOME:                >= 3.22 (or 3.20 or 3.18)
-         Budgie-Desktop:       >= 10.2.7
+         Gtk+ 3.18:              $ENABLE_GTK_LEGACY
+         Gtk+ 3.20:              always
+         Gtk+ 3.22:              always
+         Gtk+ 4.0:               $ENABLE_GTK_NEXT
 
         -----------------------------------------------------------
-        | Extra DE and WM support
+        | DE and WM Support
         -----------------------------------------------------------
 
-         Cinnamon:             $ENABLE_CINNAMON
-         GNOME-Flashback:      $ENABLE_FLASHBACK
-         Unity:                $ENABLE_UNITY
-         XFce:                 $ENABLE_XFCE
-         Mate:                 $ENABLE_MATE
-         Openbox:              $ENABLE_OPENBOX
+         GNOME:                  always (>= 3.18.3)
+         Budgie-Desktop:         always (>= 10.2.7)
+
+         Cinnamon:               $ENABLE_CINNAMON
+         GNOME-Flashback:        $ENABLE_FLASHBACK
+         Unity:                  $ENABLE_UNITY
+         XFce:                   $ENABLE_XFCE
+         Mate:                   $ENABLE_MATE
+         Openbox:                $ENABLE_OPENBOX
 
         -----------------------------------------------------------
-        | Next Gtk+ support
+        | Extra Support
         -----------------------------------------------------------
 
-         Gtk+ 4.0:             $ENABLE_GTK_NEXT
-
-        -----------------------------------------------------------
-        | Extra support
-        -----------------------------------------------------------
-
-         Nokto:                $ENABLE_NOKTO
-         GtkSourceView/Gedit:  always
-         Chrome(ium):          $ENABLE_CHROME
-         Plank:                $ENABLE_PLANK
-         Telegram:             $ENABLE_TELEGRAM
+         GtkSourceView/Gedit:    always
+         Chrome(ium):            $ENABLE_CHROME
+         Plank:                  $ENABLE_PLANK
+         Telegram:               $ENABLE_TELEGRAM
 
         ===========================================================
                              =>> run 'make' and 'sudo make install'
