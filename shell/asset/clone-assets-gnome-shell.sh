@@ -19,8 +19,8 @@ INDEX="assets-gnome-shell.txt"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="#00BCD4"
-accent1="#4DB6AC"
+selection1="#4DB6AC"
+accent1="#00BCD4"
 destruction1="#FF5252"
 
 # Check and re-color SVG files

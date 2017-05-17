@@ -18,8 +18,8 @@
 
 $panel-corner-radius: 0;
 
-$font-family: Noto Sans, Cantarell, Sans-Serif;
-$mono-font-family: Noto Mono, Monospace;
+$font-family: Fira Sans, Cantarell, Sans-Serif;
+$mono-font-family: Fira Mono, Monospace;
 
 stage {
   @include fontscaling($ref_size);
@@ -53,25 +53,25 @@ stage {
 .modal-dialog-linked-button {
   padding: if($eta == 'false', 9px 16px 10px, 6px 12px 7px);
   border: none;
-  color: $inverted_secondary_accent_label_color;
+  color: $inverted_secondary_selected_bg_label_color;
   background-color: transparent;
   box-shadow: 0 0 0 2px transparent;
   text-shadow: none;
   icon-shadow: none;
   font-weight: 700;
   &:hover {
-    color: $inverted_accent_label_color;
-    background-color: $accent_fill_color;
+    color: $inverted_selected_bg_label_color;
+    background-color: $selected_bg_fill_color;
   }
   &:focus {
-    color: $inverted_accent_label_color;
+    color: $inverted_selected_bg_label_color;
     background-color: $hidden_fill_color;
-    box-shadow: inset 0 0 0 2px $accent_fill_color;
-    &:hover { background-color: $accent_fill_color; }
+    box-shadow: inset 0 0 0 2px $selected_bg_fill_color;
+    &:hover { background-color: $selected_bg_fill_color; }
   }
   &:active {
-    color: $inverted_accent_label_color;
-    background-color: $accent_active_fill_color;
+    color: $inverted_selected_bg_label_color;
+    background-color: $selected_bg_active_fill_color;
     box-shadow: $empty_shadow;
   }
   &:insensitive { @include button(osd-insensitive); }
@@ -98,7 +98,7 @@ StEntry {
   border-radius: 0;
   border-width: 0;
   color: if($nokto == 'false', $inverted_fg_color, $fg_color);
-  selection-background-color: $selected_bg_color;
+  selection-background-color: $accent_color;
   selected-color: $selected_fg_color;
   transition-duration: 0s;
   &:hover { @include entry(hover); }
@@ -154,13 +154,13 @@ StScrollBar {
 
 .slider {
   height: 16px;
-  color: $accent_color;
+  color: $selected_bg_color;
   -slider-height: 2px;
   -slider-background-color: if($nokto == 'false',
                             shellopacity($fg_color, 0.1),
                             $fill_color); // background of the trough
   -slider-border-color: transparent; // trough border color
-  -slider-active-background-color: $accent_color; // active trough fill
+  -slider-active-background-color: $selected_bg_color; // active trough fill
   -slider-active-border-color: transparent; // active trough border
   -slider-border-width: 0;
   -slider-handle-radius: 8px;
@@ -334,7 +334,7 @@ StScrollBar {
   &-shutdown-icon {
     width: 48px;
     height: 48px;
-    color: $dim_fg_color;
+    color: $almost_white;
   }
 
   &-inhibitor-layout {
@@ -524,7 +524,7 @@ StScrollBar {
     border-radius: 2px;
     &:hover,
     &:focus { background-color: $osd_fill_color; }
-    &:active { background-color: $selected_bg_color; }
+    &:active { background-color: $accent_color; }
   }
 
   &-device-box {
@@ -636,16 +636,16 @@ StScrollBar {
     }
 
     &:checked {
-      background-color: $selected_bg_color;
+      background-color: $accent_color;
       color: $selected_fg_color;
       box-shadow: $empty_shadow;
       font-weight: 500;
       &.selected {
-        background-color: mix($selected_bg_color, $selected_fg_color, 90%);
+        background-color: mix($accent_color, $selected_fg_color, 90%);
         color: $selected_fg_color;
       }
       &:active {
-        background-color: mix($selected_bg_color, $selected_fg_color, 80%);
+        background-color: mix($accent_color, $selected_fg_color, 80%);
         color: $selected_fg_color;
       }
       &:insensitive { color: shellopacity($selected_fg_color, 0.5); }
@@ -933,7 +933,7 @@ StScrollBar {
 .ws-switcher {
   &-active-up {
     height: if($eta == 'false', 50px, 36px);
-    background-color: $accent_active_fill_color;
+    background-color: $selected_bg_active_fill_color;
     background-image: url("assets/go-up.svg");
     background-size: 24px;
     border-radius: 2px;
@@ -941,7 +941,7 @@ StScrollBar {
 
   &-active-down {
     height: if($eta == 'false', 50px, 36px);
-    background-color: $accent_active_fill_color;
+    background-color: $selected_bg_active_fill_color;
     background-image: url("assets/go-down.svg");
     background-size: 24px;
     border-radius: 2px;
@@ -970,8 +970,8 @@ StScrollBar {
 //  *************************/
 
 .tile-preview {
-  border: 1px solid $selected_bg_color;
-  background-color: shellopacity($selected_bg_color, 0.2);
+  border: 1px solid $accent_color;
+  background-color: shellopacity($accent_color, 0.2);
 
   &-left.on-primary {
     border-radius: $panel-corner-radius $panel-corner-radius 0 0;
@@ -1258,7 +1258,7 @@ StScrollBar {
   &:selected {
     &, &:hover {
       color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      background-color: $accent_color;
       transition-duration: $duration_medium;
     }
   }
@@ -1305,7 +1305,7 @@ StScrollBar {
     &:selected {
       &, &:hover {
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
         border-color: transparent;
       }
     }
@@ -1332,7 +1332,7 @@ StScrollBar {
     &:selected {
       &, &:hover {
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
         border-color: transparent;
       }
     }
@@ -1361,7 +1361,7 @@ StScrollBar {
 
   &-clear-button.button { // 'Clear all' button
     margin:  if($eta == 'false', 1.5em 1.5em 0, 1.2em 1.2em 0);
-    color: $secondary_accent_label_color;
+    color: $medium_gray;
     background-color: transparent;
     font-weight: 700;
     &:hover,
@@ -1431,10 +1431,10 @@ StScrollBar {
 
     &:hover,
     &:focus {
-      background-color: $accent_fill_color;
+      background-color: $selected_bg_fill_color;
       color: $fg_color;
-      &:ltr { box-shadow: inset 4px 0 $secondary_accent_color; }
-      &:rtl { box-shadow: inset -4px 0 $secondary_accent_color; }
+      &:ltr { box-shadow: inset 4px 0 $secondary_selected_bg_color; }
+      &:rtl { box-shadow: inset -4px 0 $secondary_selected_bg_color; }
 
       .message-icon-bin > StIcon,
       .message-title,
@@ -1446,10 +1446,10 @@ StScrollBar {
       }
     }
     &:active {
-      background-color: $accent_active_fill_color;
+      background-color: $selected_bg_active_fill_color;
       color: $fg_color;
-      &:ltr { box-shadow: inset 4px 0 $accent_color; }
-      &:rtl { box-shadow: inset -4px 0 $accent_color; }
+      &:ltr { box-shadow: inset 4px 0 $selected_bg_color; }
+      &:rtl { box-shadow: inset -4px 0 $selected_bg_color; }
 
       .message-icon-bin > StIcon,
       .message-title,
@@ -1513,18 +1513,18 @@ StScrollBar {
       padding: 2px;
       border-radius: 100px;
       icon-size: 1.09em;
-      color: $secondary_accent_label_color;
+      color: $secondary_selected_bg_label_color;
     }
 
     // FIXME: how do you do this in sass?
     *:hover > StIcon,
     *:focus > StIcon {
-      color: $accent_label_color;
-      background-color: $accent_fill_color;
+      color: $selected_bg_label_color;
+      background-color: $selected_bg_fill_color;
     }
     *:active > StIcon {
-      color: $accent_label_color;
-      background-color: $accent_active_fill_color;
+      color: $selected_bg_label_color;
+      background-color: $selected_bg_active_fill_color;
     }
   }
 }
@@ -1533,21 +1533,21 @@ StScrollBar {
   padding: 0 8px;
   margin: 0 6px;
   border-radius: 100px;
-  color: $secondary_accent_label_color;
+  color: $medium_gray;
   background: transparent;
   background-size: 32px 32px;
   &:hover {
-    color: $accent_label_color;
+    color: $selected_bg_label_color;
     background-image: url("assets/media-control-hover.svg");
     background-size: 32px 32px;
   }
   &:active {
-    color: $accent_label_color;
+    color: $selected_bg_label_color;
     background-image: url("assets/media-control-active.svg");
     background-size: 32px 32px;
   }
   &:insensitive {
-    color: $insensitive_accent_label_color;
+    color: $insensitive_selected_bg_label_color;
     background-image: none;
     background: transparent;
   }
@@ -1623,7 +1623,7 @@ StScrollBar {
   padding: if($eta == 'false', 16px, 10px);
   border-radius: 100px;
   border: none;
-  color: $secondary_accent_label_color;
+  color: $medium_gray;
   &:hover,
   &:focus {
     padding: if($eta == 'false', 16px, 10px);
@@ -1775,16 +1775,16 @@ StScrollBar {
       spacing: if($eta == 'false', 12px, 9px);
 
       .button {
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
         background-color: transparent;
         font-weight: 700;
         &:hover {
-          color: $inverted_accent_label_color;
-          background-color: $accent_fill_color;
+          color: $inverted_selected_bg_label_color;
+          background-color: $selected_bg_fill_color;
         }
         &:active {
-          color: $inverted_accent_label_color;
-          background-color: $accent_active_fill_color;
+          color: $inverted_selected_bg_label_color;
+          background-color: $selected_bg_active_fill_color;
           box-shadow: $empty_shadow;
         }
         &:insensitive { @include button(osd-insensitive); }
@@ -1807,7 +1807,7 @@ StScrollBar {
     padding: if($eta == 'false', 12px, 8px);
     color: $osd_fg_color;
     &:selected {
-      background-color: $selected_bg_color;
+      background-color: $accent_color;
       color: $selected_fg_color;
     }
   }
@@ -1884,7 +1884,7 @@ StScrollBar {
   font-weight: 500;
   box-shadow: if($nokto == 'false', $z-depth-2, none);
 
-  selection-background-color: $selected_bg_color;
+  selection-background-color: $accent_color;
   selected-color: $selected_fg_color;
 
   StLabel { margin: 0 8px 7px; }
@@ -2471,43 +2471,43 @@ StScrollBar {
 
   .secondary-icon { icon-size: 14px; }
 
-  * > StIcon { color: $inverted_secondary_accent_label_color; }
+  * > StIcon { color: $inverted_secondary_selected_bg_label_color; }
 
   *:hover > StIcon,
   *:focus > StIcon {
-    color: $inverted_accent_label_color;
-    background-color: $accent_fill_color;
+    color: $inverted_selected_bg_label_color;
+    background-color: $selected_bg_fill_color;
   }
   *:active > StIcon {
-    color: $inverted_accent_label_color;
-    background-color: $accent_active_fill_color;
+    color: $inverted_selected_bg_label_color;
+    background-color: $selected_bg_active_fill_color;
   }
 
   .notification-actions {
     padding-top: 0;
     border: transparent;
     spacing: 1px;
-    color: $inverted_secondary_accent_label_color;
+    color: $inverted_secondary_selected_bg_label_color;
     background-color: transparent;
   }
 
   .notification-button {
     padding: if($eta == 'false', 9px 4px 10px, 6px 3px 7px);
     background-color: transparent;
-    color: $inverted_secondary_accent_label_color;
+    color: $inverted_secondary_selected_bg_label_color;
     font-weight: 700;
 
     &:first-child { border-radius: 0 0 0 2px; }
     &:last-child { border-radius: 0 0 2px 0; }
 
     &:hover {
-      color: $inverted_accent_label_color;
-      background-color: $accent_fill_color;
+      color: $inverted_selected_bg_label_color;
+      background-color: $selected_bg_fill_color;
     }
-    &:focus { color: $inverted_accent_label_color; }
+    &:focus { color: $inverted_selected_bg_label_color; }
     &:active {
-      color: $inverted_accent_label_color;
-      background-color: $accent_active_fill_color;
+      color: $inverted_selected_bg_label_color;
+      background-color: $selected_bg_active_fill_color;
     }
   }
 }
@@ -2572,19 +2572,19 @@ StScrollBar {
 
   &-notification-item {
     padding: 2px 10px;
-    color: $inverted_secondary_accent_label_color;
+    color: $inverted_secondary_selected_bg_label_color;
     font-weight: 700;
     &:hover {
-      color: $inverted_accent_label_color;
-      background-color: $accent_fill_color;
+      color: $inverted_selected_bg_label_color;
+      background-color: $selected_bg_fill_color;
     }
     &:active {
-      color: $inverted_accent_label_color;
-      background-color: $accent_active_fill_color;
+      color: $inverted_selected_bg_label_color;
+      background-color: $selected_bg_active_fill_color;
     }
     &:focus {
       // padding: 1px 71px 1px 11px;
-      color: $inverted_accent_label_color;
+      color: $inverted_selected_bg_label_color;
     }
     &:insensitive { @include button(osd-insensitive); }
 
@@ -2682,7 +2682,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 //  *************/
 
 .magnifier-zoom-region {
-  border: 2px solid $selected_bg_color;
+  border: 2px solid $accent_color;
   &.full-screen { border-width: 0; }
 }
 
@@ -2847,7 +2847,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   StEntry {
     min-height: 1.2em; // prevent unwanted shrinking
     color: $osd_fg_color;
-    selection-background-color: $selected_bg_color;
+    selection-background-color: $accent_color;
     selected-color: $selected_fg_color;
     font-family: $mono-font-family;
     transition-duration: 0s;
@@ -2896,7 +2896,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
                                $tc: $selected_fg_color);
       }
       &:active {
-        @include button(active, $c: $selected_bg_color,
+        @include button(active, $c: $accent_color,
                                 $tc: $selected_fg_color);
       }
       &:insensitive {
@@ -2976,21 +2976,21 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 
       &:logged-in {
         border-radius: 0;
-        background-color: shellopacity($selected_bg_color, 0.2);
+        background-color: shellopacity($accent_color, 0.2);
         &:focus,
         &:hover {
-          background-color: mix(shellopacity($selected_bg_color, 0.2),
+          background-color: mix(shellopacity($accent_color, 0.2),
                                 shellopacity($osd_semi_fill_color, 0.5),
                                 50%);
         }
         &:active {
-          background-color: mix(shellopacity($selected_bg_color, 0.2),
+          background-color: mix(shellopacity($accent_color, 0.2),
                                 shellopacity($osd_fill_color, 0.5),
                                 50%);
         }
 
-        &:ltr { box-shadow: inset 4px 0 $selected_bg_color; }
-        &:rtl { box-shadow: inset -4px 0 $selected_bg_color; }
+        &:ltr { box-shadow: inset 4px 0 $accent_color; }
+        &:rtl { box-shadow: inset -4px 0 $accent_color; }
       }
     }
 
@@ -3233,7 +3233,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 
 .lg-dialog {
   StEntry {
-    selection-background-color: $selected_bg_color;
+    selection-background-color: $accent_color;
     selected-color: $selected_fg_color;
     box-shadow: inset 0 -1px $osd_semi_fill_color;
     &:hover {
@@ -3242,7 +3242,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     }
     &:focus {
       color: $selected_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $accent_color;
     }
   }
 
@@ -3276,7 +3276,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     }
     &:active {
       @include button(active);
-      background-color: $selected_bg_color;
+      background-color: $accent_color;
       color: $selected_fg_color;
     }
     &:insensitive {
