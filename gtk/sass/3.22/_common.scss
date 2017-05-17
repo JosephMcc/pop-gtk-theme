@@ -56,7 +56,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
   outline-offset: rem(-4px);
   -gtk-outline-radius: 2px;
 
-  -gtk-secondary-caret-color: $selected_bg_color;
+  -gtk-secondary-caret-color: $accent_color;
 
   // disable drop-shadows as default
   text-shadow: none;
@@ -155,8 +155,8 @@ iconview { @extend .view; }
 
 .rubberband,
 rubberband {
-  border: 1px solid $secondary_selected_bg_color;
-  background-color: gtkopacity($secondary_selected_bg_color, 0.2);
+  border: 1px solid $secondary_accent_color;
+  background-color: gtkopacity($secondary_accent_color, 0.2);
 }
 
 flowbox {
@@ -263,17 +263,17 @@ buttonbox {
     &:not(.linked) button {
       @extend %button_flat_normal;
       background-color: transparent;
-      color: $secondary_accent_label_color;
+      color: $secondary_selected_bg_label_color;
       font-weight: 700;
       &:hover {
         @extend %button_flat_hover;
         background-color: transparent;
-        color: $accent_label_color;
+        color: $selected_bg_label_color;
       }
       &:active {
         @extend %button_flat_active;
         background-color: transparent;
-        color: $accent_label_color;
+        color: $selected_bg_label_color;
       }
       &:disabled {
         @extend %button_flat_disabled;
@@ -282,11 +282,11 @@ buttonbox {
       &:checked {
         @extend %button_flat_checked;
         background-color: transparent;
-        color: $accent_label_color;
+        color: $selected_bg_label_color;
         &:disabled {
           @extend %button_flat_checked_disabled;
           background-color: transparent;
-          color: gtkopacity($accent_label_color, 0.4);
+          color: gtkopacity($selected_bg_label_color, 0.4);
         }
       }
     }
@@ -463,7 +463,7 @@ entry {
 
   image { // entry icons colors
     &:not(:hover):not(:active) { color: gtkalpha(currentColor, 0.75); }
-    &:active { color: $selected_bg_color; }
+    &:active { color: $accent_color; }
     &:disabled { color: gtkalpha(currentColor, 0.55); }
   }
 
@@ -600,16 +600,16 @@ button {
       padding: rem(17.3px);
       background-color: gtkopacity($inverted_dark_color, 0.9);
       &:not(:active):not(:disabled):not(hover) {
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
       }
       &:hover {
         @extend %button_flat_hover;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
         background-image: image($track_color);
       }
       &:active {
         @extend %button_flat_active;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
       }
     }
     &:disabled { opacity: 0; }
@@ -637,7 +637,7 @@ button {
       }
       &:active {
         @extend %button_active;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
         color: $selected_fg_color;
       }
       &:checked { background-color: mix($selected_fg_color, $b_color, 20%); }
@@ -651,8 +651,8 @@ button {
         &:hover { @include button(flat-hover, $track_color, $b_color); }
         &:active {
           @extend %button_flat_active;
-          background-color: gtkalpha($selected_bg_color, 0.2);
-          color: $selected_bg_color;
+          background-color: gtkalpha($accent_color, 0.2);
+          color: $accent_color;
         }
         &:checked { @include button(flat-checked, $b_color, $selected_fg_color); }
         &:disabled {
@@ -874,7 +874,7 @@ button {
         &:active {
           @extend %button_active;
           color: $selected_fg_color;
-          background-color: $selected_bg_color;
+          background-color: $accent_color;
           box-shadow: $z-depth-2;
         }
         &:checked {
@@ -951,7 +951,7 @@ button {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
-                                to($selected_bg_color),
+                                to($accent_color),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
   }
@@ -962,7 +962,7 @@ button {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.5,
-                                to($selected_bg_color),
+                                to($accent_color),
                                 to(transparent))
                                 0 0 2 / 0 0 2px;
     &:disabled {
@@ -971,7 +971,7 @@ button {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to(gtkopacity($selected_bg_color, 0.2)),
+                                  to(gtkopacity($accent_color, 0.2)),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
 
@@ -1009,20 +1009,20 @@ button {
     @extend %button_flat_active;
     color: $fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
-    &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $accent_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $accent_color; }
   }
   &:checked {
     @extend %button_flat_checked;
     color: $fg_color;
     background-color: transparent;
-    &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
-    &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
+    &:dir(ltr) { box-shadow: inset 2px 0 $accent_color; }
+    &:dir(rtl) { box-shadow: inset -2px 0 $accent_color; }
     &:disabled {
       color: $insensitive_fg_color;
       background-color: $track_color;
-      &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($selected_bg_color, 0.2); }
-      &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($selected_bg_color, 0.2); }
+      &:dir(ltr) { box-shadow: inset 2px 0 gtkopacity($accent_color, 0.2); }
+      &:dir(rtl) { box-shadow: inset -2px 0 gtkopacity($accent_color, 0.2); }
 
       > label { color: inherit; }
     }
@@ -1161,10 +1161,10 @@ toolpalette {
     color: $link_visited_color;
     &:hover,
     &:active { color: $link_visited_color; }
-    *:selected & { color: mix($selected_fg_color, $selected_bg_color, 60%); }
+    *:selected & { color: mix($selected_fg_color, $accent_color, 60%); }
   }
   &:selected,
-  *:selected & { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+  *:selected & { color: mix($selected_fg_color, $accent_color, 80%); }
   &:disabled { opacity: 0.4; }
 }
 
@@ -1524,7 +1524,7 @@ combobox {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
     }
@@ -1709,7 +1709,7 @@ toolbar {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -1795,7 +1795,7 @@ toolbar {
           border-image: -gtk-gradient(radial,
                                       center bottom, 0,
                                       center bottom, 0.5,
-                                      to($selected_bg_color),
+                                      to($accent_color),
                                       to(transparent))
                                       0 0 2 / 0 0 2px;
         }
@@ -1899,7 +1899,7 @@ actionbar {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -1991,7 +1991,7 @@ headerbar {
     border-image: -gtk-gradient(radial,
                                 center bottom, 0,
                                 center bottom, 0.001,
-                                to($selected_bg_color),
+                                to($accent_color),
                                 to(transparent))
                                 0 0 0 / 0 0 0px;
     color: $inverted_secondary_fg_color;
@@ -2005,7 +2005,7 @@ headerbar {
       border-image: -gtk-gradient(radial,
                                   center bottom, 0,
                                   center bottom, 0.5,
-                                  to($selected_bg_color),
+                                  to($accent_color),
                                   to(transparent))
                                   0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -2307,8 +2307,8 @@ headerbar {
     background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
     outline-offset: rem(-4px);
     &:checked {
-      background-color: gtkopacity($selected_bg_color, 0.2);
-      &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
+      background-color: gtkopacity($accent_color, 0.2);
+      &:disabled { background-color: gtkopacity($accent_color, 0.2); }
     }
     &:disabled {
       color: $insensitive_inverted_fg_color;
@@ -2326,7 +2326,7 @@ headerbar {
     }
     &:checked slider {
       margin: rem(-5px) rem(-5px) rem(-5px) 0;
-      background-color: $selected_bg_color;
+      background-color: $accent_color;
       &:disabled {
         background-color: mix($top_edge_borders_color,
                               $inverted_fg_color,
@@ -2835,12 +2835,12 @@ treeview.view {
   }
 
   &.progressbar { // progressbar bit in treeviews
-    box-shadow: inset 0 -4px $accent_color;
+    box-shadow: inset 0 -4px $selected_bg_color;
     &:selected { box-shadow: inset 0 -4px $selected_fg_color; }
   }
 
   &.trough { // progressbar trough in treeviews
-    box-shadow: inset 0 -4px gtkalpha($accent_color, 0.2);
+    box-shadow: inset 0 -4px gtkalpha($selected_bg_color, 0.2);
     &:selected { box-shadow: inset 0 -4px gtkalpha($selected_fg_color, 0.2); }
   }
 
@@ -2897,7 +2897,7 @@ treeview.view {
       padding: 0 rem(6.7px) 0;
       border: 1px solid $borders_color;
       border-radius: 0;
-      background-color: $selected_bg_color;
+      background-color: $accent_color;
       color: $selected_fg_color;
       box-shadow: none;
       font-weight: 400;
@@ -2906,7 +2906,7 @@ treeview.view {
   }
 
   // see tests/testaccel to test
-  acceleditor > label { background-color: $selected_bg_color; }
+  acceleditor > label { background-color: $accent_color; }
 }
 
 %column_header_button {
@@ -2938,7 +2938,7 @@ menubar {
     color: $inverted_secondary_fg_color;
     &:hover { // Seems like it :hover even with keyboard focus
       color: $inverted_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $accent_color;
     }
     &:disabled {
       color: $insensitive_inverted_fg_color;
@@ -2951,7 +2951,7 @@ menubar {
       box-shadow: inset 0 -1px $track_color;
       &:hover {
         color: $fg_color;
-        box-shadow: inset 0 -2px $selected_bg_color;
+        box-shadow: inset 0 -2px $accent_color;
       }
     }
   }
@@ -3343,7 +3343,7 @@ notebook {
         &:checked {
           border-color: $borders_color;
           border-#{$_border}-width: 2px;
-          border-#{$_border}-color: $selected_bg_color;
+          border-#{$_border}-color: $accent_color;
           background-color: $base_color;
           box-shadow: if($variant == 'light', $tab-shadow-light,
                                               $tab-shadow-dark);
@@ -3380,7 +3380,7 @@ notebook {
             border-image: -gtk-gradient(radial,
                                         center bottom, 0,
                                         center bottom, 0.5,
-                                        to($selected_bg_color),
+                                        to($accent_color),
                                         to(transparent))
                                         0 0 2 / 0 0 2px;
           }
@@ -3410,7 +3410,7 @@ notebook {
     // here's the interesting stuff
     &:hover { border-color: $track_color; }
     &:checked { // draw ripples via transitions
-      border-color: $selected_bg_color;
+      border-color: $accent_color;
       background-image: radial-gradient(circle farthest-side at center,
                                         transparent 12.5%,
                                         transparent 0%);
@@ -3644,8 +3644,8 @@ switch {
 
   &:disabled { color: $insensitive_fg_color; }
   &:checked {
-    background-color: gtkopacity($selected_bg_color, 0.2);
-    &:disabled { background-color: gtkopacity($selected_bg_color, 0.2); }
+    background-color: gtkopacity($accent_color, 0.2);
+    &:disabled { background-color: gtkopacity($accent_color, 0.2); }
   }
   &:disabled {
     color: $insensitive_fg_color;
@@ -3871,14 +3871,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(gtkalpha($accent_color, 0.1)),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.1)),
+                                    to(gtkalpha($accent_color, 0.1)),
                                     to(transparent));
   }
 }
@@ -3888,14 +3888,14 @@ switch {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to(gtkalpha($selected_bg_color, 0.2)),
+                                    to(gtkalpha($accent_color, 0.2)),
                                     to(transparent));
   }
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to(gtkalpha($selected_bg_color, 0)),
+                                    to(gtkalpha($accent_color, 0)),
                                     to(transparent));
   }
 }
@@ -4169,7 +4169,7 @@ check {
 %scale_highlight {
   border: 1px solid transparent;
   border-radius: 0;
-  background-color: $accent_color;
+  background-color: $selected_bg_color;
   &:disabled {
     color: $insensitive_fg_color;
     background-color: $track_color;
@@ -4481,13 +4481,13 @@ progressbar {
   trough {
     box-shadow: none;
     border-radius: 0;
-    background-color: gtkopacity($accent_color, 0.2);
+    background-color: gtkopacity($selected_bg_color, 0.2);
   }
 
   progress {
     box-shadow: none;
     border-radius: 0;
-    background-color: $accent_color;
+    background-color: $selected_bg_color;
     &.left {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -4519,11 +4519,11 @@ progressbar {
     trough {
       border-style: none;
       box-shadow: none;
-      background-color: gtkopacity($accent_color, 0.2);
+      background-color: gtkopacity($selected_bg_color, 0.2);
     }
     progress {
       background-image: none;
-      background-color: $accent_color;
+      background-color: $selected_bg_color;
       border-style: none;
       border-radius: 0;
     }
@@ -4812,31 +4812,31 @@ row:selected { // special case to use raised GtkEntry
       background-color: transparent;
       &:not(:active):not(:disabled):not(hover) {
         background-color: transparent;
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
       }
       &:hover {
         @extend %button_flat_hover;
         background-color: transparent;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
       }
       &:active {
         @extend %button_flat_active;
         border-image: none;
         background-color: transparent;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
         box-shadow: none;
       }
       &:checked {
         @extend %button_flat_checked;
         border-image: none;
         background-color: transparent;
-        color: $inverted_accent_label_color;
+        color: $inverted_selected_bg_label_color;
         box-shadow: none;
       }
       &:disabled {
         @extend %button_flat_disabled;
         background-color: transparent;
-        color: gtkopacity($inverted_accent_label_color, 0.4);
+        color: gtkopacity($inverted_selected_bg_label_color, 0.4);
       }
     }
 
@@ -4961,10 +4961,10 @@ messagedialog {
   }
 
   button { // set foregrounds for fallback-mode
-    color: $inverted_secondary_accent_label_color;
+    color: $inverted_secondary_selected_bg_label_color;
     &:hover,
     &:active,
-    &:checked { color: $inverted_accent_label_color; }
+    &:checked { color: $inverted_selected_bg_label_color; }
     &:disabled { color: $insensitive_inverted_fg_color; }
   }
 
@@ -5049,23 +5049,23 @@ messagedialog {
         border: 2px solid transparent;
         border-radius: 0;
         background-color: transparent;
-        color: $inverted_secondary_accent_label_color;
+        color: $inverted_secondary_selected_bg_label_color;
         font-size: initial;
         font-weight: 700;
         &:hover {
           @extend %button_flat_hover;
           background-color: transparent;
-          color: $inverted_accent_label_color;
+          color: $inverted_selected_bg_label_color;
         }
         &:active {
           @extend %button_flat_active;
           background-color: transparent;
-          color: $inverted_accent_label_color;
+          color: $inverted_selected_bg_label_color;
         }
         &:checked {
           @extend %button_flat_checked;
           background-color: transparent;
-          color: $inverted_secondary_accent_label_color;
+          color: $inverted_secondary_selected_bg_label_color;
         }
         &:disabled {
           @extend %button_flat_disabled;
@@ -5147,10 +5147,10 @@ filechooserbutton:drop(active) {
     font-weight: 500;
     &:hover { color: $fg_color; }
     &:selected {
-      color: $selected_bg_color;
+      color: $accent_color;
       background-color: transparent;
 
-      label { color: $selected_bg_color; }
+      label { color: $accent_color; }
     }
   }
 
@@ -5175,10 +5175,10 @@ stacksidebar {
     font-weight: 500;
     &:hover { color: $fg_color; }
     &:selected {
-      color: $selected_bg_color;
+      color: $accent_color;
       background-color: transparent;
 
-      label { color: $selected_bg_color; }
+      label { color: $accent_color; }
     }
     &:backdrop { opacity: 1.0; }
 
@@ -5270,9 +5270,9 @@ placessidebar {
     // looks like the label doesn't get all the states so work around
     &:selected:disabled label { @extend %selected_items:disabled; }
 
-    &.sidebar-placeholder-row { border: solid 1px $selected_bg_color; }
+    &.sidebar-placeholder-row { border: solid 1px $accent_color; }
 
-    &.sidebar-new-bookmark-row { color: $selected_bg_color; }
+    &.sidebar-new-bookmark-row { color: $accent_color; }
 
     &:drop(active):not(:disabled) {
       color: $drop_target_color;
@@ -5469,9 +5469,9 @@ infobar {
       }
     }
 
-    selection { background-color: darken($selected_bg_color, 10%); }
+    selection { background-color: darken($accent_color, 10%); }
 
-    *:link { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+    *:link { color: mix($selected_fg_color, $accent_color, 80%); }
 
     progressbar { // use 'white' bit and trough
       trough { background-color: gtkopacity($selected_fg_color, 0.2); }
@@ -5913,7 +5913,7 @@ decoration {
       &:active {
         @extend %button_active;
         color: $selected_fg_color;
-        background-color: $selected_bg_color;
+        background-color: $accent_color;
 
         > image {
           background-image:
@@ -6268,7 +6268,7 @@ headerbar.titlebar.default-decoration {
 // touch selection handlebars for the Popover.osd above
 cursor-handle {
   border-style: none;
-  background-color: $accent_color;
+  background-color: $selected_bg_color;
   background-image: none;
   box-shadow: none;
 
