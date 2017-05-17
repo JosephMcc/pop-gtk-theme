@@ -98,7 +98,7 @@ $inverted_dim_bg_color: shellopacity($inverted_bg_color, 0.2);
 // Default: #48B9C7                                         // = Content1
 $selected_bg_color:                    $key_selection_color;
 // Default: #48B9C7                                               // = Content2
-$secondary_selected_bg_color:          $key_accent_color;
+$secondary_selected_bg_color:          shellopacity($selected_bg_color, 0.8);
 $selected_bg_label_color:           if($variant == 'light',
                                            mix($selected_bg_color, $fg_color, 80%),
                                            mix($selected_bg_color, $fg_color, 60%));

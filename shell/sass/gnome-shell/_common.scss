@@ -1433,8 +1433,8 @@ StScrollBar {
     &:focus {
       background-color: $selected_bg_fill_color;
       color: $fg_color;
-      &:ltr { box-shadow: inset 4px 0 $secondary_selected_bg_color; }
-      &:rtl { box-shadow: inset -4px 0 $secondary_selected_bg_color; }
+      &:ltr { box-shadow: inset 4px 0 $selected_bg_color; }
+      &:rtl { box-shadow: inset -4px 0 $selected_bg_color; }
 
       .message-icon-bin > StIcon,
       .message-title,
