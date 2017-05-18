@@ -180,9 +180,13 @@ if ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+endif
 	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
+if ENABLE_NOKTO
 	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+endif
 endif
 
 if ENABLE_CINNAMON
@@ -190,9 +194,13 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+endif
 	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
+if ENABLE_NOKTO
 	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+endif
 endif
 endif
 
@@ -201,9 +209,13 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+endif
 	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
+if ENABLE_NOKTO
 	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+endif
 endif
 endif
 
@@ -212,9 +224,13 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
+endif
 	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
+if ENABLE_NOKTO
 	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
+endif
 endif
 endif
 
@@ -222,17 +238,23 @@ if ENABLE_XFCE
 	$(MKDIR_P) $(popdir)/xfwm4
 	cp -Rv $(xfwm_file) $(popdir)/xfwm4
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/xfwm4 $(noktodir)/xfwm4
+endif
 endif
 
 if ENABLE_OPENBOX
 	$(MKDIR_P) $(popdir)/openbox-3
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/openbox-3
+endif
 	cp -Rv $(openbox_file) $(popdir)/openbox-3
 	cp -Rv $(openbox_rc_file) $(popdir)/openbox-3/themerc
 	cp -Rv $(openbox_compton_file) $(popdir)/openbox-3/
+if ENABLE_NOKTO
 	cp -Rv $(openbox_file) $(noktodir)/openbox-3
 	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
+endif
 endif
 
 # *******************

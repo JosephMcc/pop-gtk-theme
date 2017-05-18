@@ -33,39 +33,57 @@ all:
 install-data-local:
 if ENABLE_CHROME
 	$(MKDIR_P) $(popdir)/chrome
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/chrome
+endif
 	cp -Rv $(chrome_file) $(popdir)/chrome
+if ENABLE_NOKTO
 	cp -Rv $(chrome_nokto_file) $(noktodir)/chrome
+endif
 
 	cd $(popdir)
 	ln -sf ../Pop/chrome $(popetadir)/chrome
+if ENABLE_NOKTO
 	ln -sf ../Pop-Nokto/chrome $(noktoetadir)/chrome
+endif
 endif
 
 if ENABLE_PLANK
 	$(MKDIR_P) $(popdir)/plank
 	cp -Rv $(plank_file) $(popdir)/plank
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/plank $(noktodir)/plank
+endif
 	ln -sf ../Pop/plank $(popetadir)/plank
+if ENABLE_NOKTO
 	ln -sf ../Pop/plank $(noktoetadir)/plank
+endif
 endif
 
 if ENABLE_TELEGRAM
 	$(MKDIR_P) $(popdir)/telegram
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/telegram
+endif
 	cp -Rv $(telegram_file) $(popdir)/telegram
+if ENABLE_NOKTO
 	cp -Rv $(telegram_nokto_file) $(noktodir)/telegram
+endif
 
 	cd $(popdir)
 	ln -sf ../Pop/telegram $(popetadir)/telegram
+if ENABLE_NOKTO
 	ln -sf ../Pop-Nokto/telegram $(noktoetadir)/telegram
+endif
 endif
 
 	$(MKDIR_P) $(popdir)/gedit
 	cp -Rv $(gedit_file) $(popdir)/gedit
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/gedit $(noktodir)/gedit
+endif
 
 # *******************
 # * Uninstall files *

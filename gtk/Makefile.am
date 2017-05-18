@@ -512,9 +512,13 @@ install-data-local:
 	$(MKDIR_P) $(noktoetadir)
 
 	cp -Rv $(index_file) $(popdir)
+if ENABLE_NOKTO
 	cp -Rv $(index_nokto_file) $(noktodir)/index.theme
+endif
 	cp -Rv $(indexeta_file) $(popetadir)/index.theme
+if ENABLE_NOKTO
 	cp -Rv $(index_noktoeta_file) $(noktoetadir)/index.theme
+endif
 
 if ENABLE_GTK_LEGACY
 	$(MKDIR_P) $(popdir)/gtk-3.0
@@ -532,11 +536,13 @@ if ENABLE_GTK_LEGACY
 	cp -Rv $(gtk322eta_file) $(popetadir)/gtk-3.22
 
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/gtk-3.0 $(noktodir)/gtk-3.0
 	ln -sf ../Pop/gtk-3.20 $(noktodir)/gtk-3.20
 	ln -sf ../Pop/gtk-3.22 $(noktodir)/gtk-3.22
 	ln -sf ../Pop-Eta/gtk-3.20 $(noktoetadir)/gtk-3.20
 	ln -sf ../Pop-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
+endif
 else
 	$(MKDIR_P) $(popdir)/gtk-3.0
 	cp -Rv $(gtk320_file) $(popdir)/gtk-3.0
@@ -551,10 +557,12 @@ else
 	cp -Rv $(gtk322eta_file) $(popetadir)/gtk-3.22
 
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/gtk-3.0 $(noktodir)/gtk-3.0
 	ln -sf ../Pop/gtk-3.22 $(noktodir)/gtk-3.22
 	ln -sf ../Pop-Eta/gtk-3.0 $(noktoetadir)/gtk-3.0
 	ln -sf ../Pop-Eta/gtk-3.22 $(noktoetadir)/gtk-3.22
+endif
 endif
 
 	$(MKDIR_P) $(popdir)/gtk-2.0
@@ -621,6 +629,7 @@ endif
 	cp -Rv $(gtk2_spin_file) $(popetadir)/gtk-2.0/Spin
 	cp -Rv $(gtk2_toolbar_file) $(popetadir)/gtk-2.0/Toolbar
 
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/gtk-2.0
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Arrows
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Buttons
@@ -684,17 +693,22 @@ endif
 	cp -Rv $(gtk2_nokto_shadow_file) $(noktoetadir)/gtk-2.0/Shadows
 	cp -Rv $(gtk2_nokto_spin_file) $(noktoetadir)/gtk-2.0/Spin
 	cp -Rv $(gtk2_nokto_toolbar_file) $(noktoetadir)/gtk-2.0/Toolbar
+endif
 
 if ENABLE_GTK_NEXT
 	$(MKDIR_P) $(popdir)/gtk-4.0
 	$(MKDIR_P) $(popetadir)/gtk-4.0
 	cp -Rv $(gtknext_file) $(popdir)/gtk-4.0
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/gtk-4.0 $(noktodir)/gtk-4.0
+endif
 
 	cp -Rv $(gtknexteta_file) $(popetadir)/gtk-4.0
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop-Eta/gtk-4.0 $(noktoetadir)/gtk-4.0
+endif
 endif
 
 if ENABLE_XFCE

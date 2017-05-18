@@ -386,22 +386,30 @@ all:
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
 	$(MKDIR_P) $(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets
+if ENABLE_NOKTO
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets/dot
+endif
 	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets/dot
 	$(MKDIR_P) $(srcdir)/gnome-shell-eta/extensions/workspaces-to-dock/assets
+if ENABLE_NOKTO
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
+endif
 
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/gnome-shell.scss ../gnome-shell/gnome-shell.css
+if ENABLE_NOKTO
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
+endif
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
+if ENABLE_NOKTO
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
+endif
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/pad-osd.scss ../gnome-shell/pad-osd.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
@@ -415,21 +423,29 @@ all:
 
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shelldir) \
 		$(shelldir)/gnome-shell-theme.gresource.xml
+if ENABLE_NOKTO
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shellnoktodir) \
 		$(shellnoktodir)/gnome-shell-theme.gresource.xml
+endif
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shelletadir) \
 		$(shelletadir)/gnome-shell-theme.gresource.xml
+if ENABLE_NOKTO
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shellnoktoetadir) \
 		$(shellnoktoetadir)/gnome-shell-theme.gresource.xml
+endif
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(srcdir)/cinnamon
+if ENABLE_NOKTO
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto
+endif
 
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		cinnamon/cinnamon.scss ../cinnamon/cinnamon.css
+if ENABLE_NOKTO
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		cinnamon/cinnamon-dark.scss ../cinnamon-nokto/cinnamon.css
+endif
 
 	$(MKDIR_P) $(srcdir)/cinnamon/assets
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/checkbox
@@ -437,12 +453,14 @@ if ENABLE_CINNAMON
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/misc
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/panel
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/switch
+if ENABLE_NOKTO
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/checkbox
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/menu
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/misc
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/panel
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/switch
+endif
 	cd $(srcdir)/asset && ./clone-assets-cinnamon.sh
 	cd $(srcdir)/asset && ./render-assets-cinnamon-thumb.sh
 endif
@@ -479,6 +497,7 @@ install-data-local:
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(popdir)/gnome-shell/extensions/workspaces-to-dock/assets
 
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/gnome-shell
 	$(MKDIR_P) $(noktodir)/gnome-shell/assets
 	$(MKDIR_P) $(noktodir)/gnome-shell/assets/dot
@@ -496,6 +515,7 @@ install-data-local:
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
+endif
 
 	$(MKDIR_P) $(popetadir)/gnome-shell
 	$(MKDIR_P) $(popetadir)/gnome-shell/assets
@@ -515,6 +535,7 @@ install-data-local:
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(popetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktoetadir)/gnome-shell
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets/dot
@@ -532,6 +553,7 @@ install-data-local:
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+endif
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(popdir)/cinnamon
@@ -557,6 +579,7 @@ if ENABLE_CINNAMON
 	cd $(popdir)/cinnamon && \
 		ln -sf ./assets/thumbnail.png thumbnail.png
 
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/cinnamon
 	$(MKDIR_P) $(noktodir)/cinnamon/assets
 	$(MKDIR_P) $(noktodir)/cinnamon/assets/checkbox
@@ -580,28 +603,41 @@ if ENABLE_CINNAMON
 	cd $(noktodir)/cinnamon && \
 		ln -sf ./assets/thumbnail.png thumbnail.png
 endif
+endif
 
 if ENABLE_UNITY
 	$(MKDIR_P) $(popdir)/unity
 	cp -Rv $(unity_file) $(popdir)/unity
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/unity $(noktodir)/unity
+endif
 	ln -sf ../Pop/unity $(popetadir)/unity
+if ENABLE_NOKTO
 	ln -sf ../Pop/unity $(noktoetadir)/unity
+endif
 endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(popdir)/xfce-notify-4.0
 	$(MKDIR_P) $(popdir)/gtk-2.0/Xfce
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Xfce
+endif
 	$(MKDIR_P) $(popetadir)/gtk-2.0/Xfce
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Xfce
+endif
 	cp -Rv $(xfce_image_file) $(popdir)/xfce-notify-4.0
 	cp -Rv $(xfce_rc_file) $(popdir)/xfce-notify-4.0
 	cp -Rv $(xfce_image_file) $(popdir)/gtk-2.0/Xfce
+if ENABLE_NOKTO
 	cp -Rv $(xfce_image_file) $(noktodir)/gtk-2.0/Xfce
+endif
 	cp -Rv $(xfce_image_file) $(popetadir)/gtk-2.0/Xfce
+if ENABLE_NOKTO
 	cp -Rv $(xfce_image_file) $(noktoetadir)/gtk-2.0/Xfce
+endif
 endif
 
 # *******************
