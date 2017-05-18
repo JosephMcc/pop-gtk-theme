@@ -17,12 +17,18 @@ INDEX="assets-cinnamon.txt"
 KEY_FILE="../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Cyan500' ../../gtk/sass/common/_colors.scss | \
-                   cut -d' ' -f3`"
-accent1="`grep 'Teal300' ../../gtk/sass/common/_colors.scss | \
-                cut -d' ' -f3`"
-destruction1="`grep 'RedA200' ../../gtk/sass/common/_colors.scss | \
-                     cut -d' ' -f3`"
+selection1="#00BCD4"
+accent1="#4DB6AC"
+suggestion1="#009688"
+destruction1="#FF5252"
+background1="#263238"
+extra1="#2f3d44"
+switch1="#293338"
+tray1="#3b4c54"
+check1="#29353b"
+check2="#374248"
+button1="#222d32"
+equals1="#364249"
 
 # Check and re-color SVG files
 if [ -e $KEY_FILE ]; then
