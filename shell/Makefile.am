@@ -386,30 +386,22 @@ all:
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
 	$(MKDIR_P) $(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets
-if ENABLE_NOKTO
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto/assets/dot
-endif
 	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-eta/assets/dot
 	$(MKDIR_P) $(srcdir)/gnome-shell-eta/extensions/workspaces-to-dock/assets
-if ENABLE_NOKTO
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
-endif
 
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/gnome-shell.scss ../gnome-shell/gnome-shell.css
-if ENABLE_NOKTO
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
-endif
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
-if ENABLE_NOKTO
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
-endif
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		gnome-shell/pad-osd.scss ../gnome-shell/pad-osd.css
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
@@ -423,29 +415,21 @@ endif
 
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shelldir) \
 		$(shelldir)/gnome-shell-theme.gresource.xml
-if ENABLE_NOKTO
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shellnoktodir) \
 		$(shellnoktodir)/gnome-shell-theme.gresource.xml
-endif
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shelletadir) \
 		$(shelletadir)/gnome-shell-theme.gresource.xml
-if ENABLE_NOKTO
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shellnoktoetadir) \
 		$(shellnoktoetadir)/gnome-shell-theme.gresource.xml
-endif
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(srcdir)/cinnamon
-if ENABLE_NOKTO
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto
-endif
 
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		cinnamon/cinnamon.scss ../cinnamon/cinnamon.css
-if ENABLE_NOKTO
 	cd $(srcdir)/sass && $(SASSC) -M -t compact \
 		cinnamon/cinnamon-dark.scss ../cinnamon-nokto/cinnamon.css
-endif
 
 	$(MKDIR_P) $(srcdir)/cinnamon/assets
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/checkbox
@@ -453,14 +437,12 @@ endif
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/misc
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/panel
 	$(MKDIR_P) $(srcdir)/cinnamon/assets/switch
-if ENABLE_NOKTO
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/checkbox
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/menu
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/misc
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/panel
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto/assets/switch
-endif
 	cd $(srcdir)/asset && ./clone-assets-cinnamon.sh
 	cd $(srcdir)/asset && ./render-assets-cinnamon-thumb.sh
 endif
