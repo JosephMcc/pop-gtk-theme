@@ -407,9 +407,13 @@ index_noktoeta_file = $(srcdir)/index.theme-nokto-eta
 
 all:
 	$(MKDIR_P) $(srcdir)/gtk-3.20 && \
+	$(MKDIR_P) $(srcdir)/gtk-3.20-nokto && \
 	$(MKDIR_P) $(srcdir)/gtk-3.20-eta && \
+	$(MKDIR_P) $(srcdir)/gtk-3.20-nokto-eta && \
 	$(MKDIR_P) $(srcdir)/gtk-3.22 && \
+	$(MKDIR_P) $(srcdir)/gtk-3.22-nokto && \
 	$(MKDIR_P) $(srcdir)/gtk-3.22-eta && \
+	$(MKDIR_P) $(srcdir)/gtk-3.22-nokto-eta && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2 && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Arrows && \
 	$(MKDIR_P) $(srcdir)/asset/assets-gtk2/Buttons && \
@@ -506,6 +510,7 @@ endif
 # *****************
 
 install-data-local:
+	echo $(MKDIR_P)
 	$(MKDIR_P) $(popdir)
 	$(MKDIR_P) $(noktodir)
 	$(MKDIR_P) $(popetadir)

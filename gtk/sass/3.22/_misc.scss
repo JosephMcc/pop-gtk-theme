@@ -1232,7 +1232,7 @@ window.background {
         @each $s,$as in ('',''),
                         (':hover','-hover'),
                         (':active','-active'),
-                        (':disabled','-insensitive') {
+                        ( ':disabled','-insensitive') {
           &#{$s} {
             $_url: 'assets/equal#{$as}#{$asset_suffix}';
             @include button(normal#{$as});
@@ -1596,7 +1596,7 @@ layouttabbar {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1634,7 +1634,7 @@ layouttab {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1725,7 +1725,7 @@ headerbar > omnibar.linked.horizontal {
     > entry.horizontal {
       &, &:focus {
         border-image: radial-gradient(circle farthest-corner at center,
-                                      $selected_bg_color 100%,
+                                      $accent_color 100%,
                                       transparent)
                                       0 0 2 / 0 0 2px;
         color: $inverted_fg_color;
@@ -1758,7 +1758,7 @@ tabstrip {
     }
     &:checked {
       color: $fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $accent_color;
     }
   }
 }
@@ -1878,7 +1878,7 @@ window overlay > grid > frame > grid {
       &:hover { color: $fg_color; }
       &:selected,
       &:selected.activatable {
-        &, label { color: $selected_bg_color; }
+        &, label { color: $accent_color; }
         background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                   rgba(18, 22, 0, 0.04));
       }
