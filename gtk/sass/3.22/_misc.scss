@@ -127,11 +127,10 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   font-weight: 500;
   &:hover { color: $fg_color; }
   &:selected {
-    color: $selected_bg_color;
+    color: accent_color;
     background-color: transparent;
 
-    label { color: $selected_bg_color; }
-  }
+    label { color: $accent_color
 }
 
 row.tweak { // basic row node container in right-pane
@@ -186,15 +185,15 @@ row.tweak { // basic row node container in right-pane
 
         > button { // 'remove' buttons
           color: $secondary_selected_fg_color;
-          background-color: $suggested_color;
+          background-color: $destructive_color;
           &:hover { color: $selected_fg_color; }
           &:active {
             color: $selected_fg_color;
-            background-color: $selected_bg_color;
+            background-color: $destructive_color;
           }
           &:checked {
             color: $secondary_selected_fg_color;
-            background-color: mix($selected_fg_color, $suggested_color, 20%);
+            background-color: mix($selected_fg_color, $destructive_color, 20%);
           }
           &:disabled {
             @include button(flat-insensitive, $track_color,
