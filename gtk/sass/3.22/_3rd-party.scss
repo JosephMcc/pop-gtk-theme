@@ -2832,6 +2832,9 @@ window.background:not(.csd):not(.solid-csd) {
 //  * Inkscape *
 //  ************/
 
+// Globally reduce padding sizes
+#DesktopMainTable button.toggle, button.radio { padding: 4px; }
+
 // 2nd-row toolbars
 #SelectToolbar,
 #Kludge {
