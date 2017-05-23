@@ -186,15 +186,15 @@ row.tweak { // basic row node container in right-pane
 
         > button { // 'remove' buttons
           color: $secondary_selected_fg_color;
-          background-color: $destructive_color;
+          background-color: $suggested_color;
           &:hover { color: $selected_fg_color; }
           &:active {
             color: $selected_fg_color;
-            background-color: $destructive_color;
+            background-color: $selected_bg_color;
           }
           &:checked {
             color: $secondary_selected_fg_color;
-            background-color: mix($selected_fg_color, $destructive_color, 20%);
+            background-color: mix($selected_fg_color, $suggested_color, 20%);
           }
           &:disabled {
             @include button(flat-insensitive, $track_color,
@@ -665,7 +665,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
       font-weight: 400; // reset weight
       &:selected {
         &, &:focus {
-          background-color: $selected_bg_color;
+          background-color: gtkopacity($selected_bg_color, 0.2);
           color: $fg_color;
           &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
           &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
@@ -690,7 +690,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
       &:selected {
         &, &:focus {
           background-color: transparent;
-          color: $accent_color;
+          color: $selected_bg_color;
         }
       }
     }
