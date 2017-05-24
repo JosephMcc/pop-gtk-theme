@@ -998,7 +998,10 @@ StScrollBar {
   font-weight: 700;
 
   // remain top-edge solid part
-  &:overview,
+  &:overview {
+    background-color: $panel_fill_color;
+  }
+
   &.unlock-screen,
   &.login-screen,
   &.lock-screen {
@@ -1393,7 +1396,6 @@ StScrollBar {
       background-color: transparent;
     }
 
-    // FIXME: how do you do this in sass?
     &:hover > StIcon,
     &:focus > StIcon {
       color: $fg_color;
@@ -1463,8 +1465,7 @@ StScrollBar {
   }
 
   &-icon-bin {
-    padding: 0; // FIXME: needs to override the stock gresource
-                // (Since upstream still uses padding properties)
+    padding: 0;
 
     // subtruct .message-content's 'close' button padding
     &:ltr { margin: 4px - 2px 0 0 6px; }
@@ -1516,7 +1517,6 @@ StScrollBar {
       color: $secondary_selected_bg_label_color;
     }
 
-    // FIXME: how do you do this in sass?
     *:hover > StIcon,
     *:focus > StIcon {
       color: $selected_bg_label_color;
@@ -1644,7 +1644,6 @@ StScrollBar {
 //  * OpenWeather Extension *
 //  *************************/
 
-// FIXME: Why devs use 'system-menu-action' class? wrong place...
 .openweather-button,
 .openweather-menu-button-container,
 .openweather-button-box,
