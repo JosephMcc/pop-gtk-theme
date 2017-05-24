@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92+devel unknown"
-   sodipodi:docname="Logo.svg"
+   sodipodi:docname="logo.svg"
    inkscape:export-filename="/home/ian/Documents/System76/Pop/gtk-theme/Logo.png"
    inkscape:export-xdpi="135.47"
    inkscape:export-ydpi="135.47">
@@ -30,9 +30,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
      inkscape:cx="78.576777"
-     inkscape:cy="46.294683"
+     inkscape:cy="45.580397"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4334"
      inkscape:document-rotation="0"
      showgrid="false"
      fit-margin-top="5"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
