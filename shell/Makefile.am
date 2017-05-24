@@ -479,6 +479,7 @@ install-data-local:
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(popdir)/gnome-shell/extensions/workspaces-to-dock/assets
 
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/gnome-shell
 	$(MKDIR_P) $(noktodir)/gnome-shell/assets
 	$(MKDIR_P) $(noktodir)/gnome-shell/assets/dot
@@ -496,6 +497,7 @@ install-data-local:
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktodir)/gnome-shell/extensions/workspaces-to-dock/assets
+endif
 
 	$(MKDIR_P) $(popetadir)/gnome-shell
 	$(MKDIR_P) $(popetadir)/gnome-shell/assets
@@ -515,6 +517,7 @@ install-data-local:
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(popetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktoetadir)/gnome-shell
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets/dot
@@ -532,6 +535,7 @@ install-data-local:
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+endif
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(popdir)/cinnamon
@@ -557,6 +561,7 @@ if ENABLE_CINNAMON
 	cd $(popdir)/cinnamon && \
 		ln -sf ./assets/thumbnail.png thumbnail.png
 
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/cinnamon
 	$(MKDIR_P) $(noktodir)/cinnamon/assets
 	$(MKDIR_P) $(noktodir)/cinnamon/assets/checkbox
@@ -580,28 +585,41 @@ if ENABLE_CINNAMON
 	cd $(noktodir)/cinnamon && \
 		ln -sf ./assets/thumbnail.png thumbnail.png
 endif
+endif
 
 if ENABLE_UNITY
 	$(MKDIR_P) $(popdir)/unity
 	cp -Rv $(unity_file) $(popdir)/unity
 	cd $(popdir)
+if ENABLE_NOKTO
 	ln -sf ../Pop/unity $(noktodir)/unity
+endif
 	ln -sf ../Pop/unity $(popetadir)/unity
+if ENABLE_NOKTO
 	ln -sf ../Pop/unity $(noktoetadir)/unity
+endif
 endif
 
 if ENABLE_XFCE
 	$(MKDIR_P) $(popdir)/xfce-notify-4.0
 	$(MKDIR_P) $(popdir)/gtk-2.0/Xfce
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/gtk-2.0/Xfce
+endif
 	$(MKDIR_P) $(popetadir)/gtk-2.0/Xfce
+if ENABLE_NOKTO
 	$(MKDIR_P) $(noktoetadir)/gtk-2.0/Xfce
+endif
 	cp -Rv $(xfce_image_file) $(popdir)/xfce-notify-4.0
 	cp -Rv $(xfce_rc_file) $(popdir)/xfce-notify-4.0
 	cp -Rv $(xfce_image_file) $(popdir)/gtk-2.0/Xfce
+if ENABLE_NOKTO
 	cp -Rv $(xfce_image_file) $(noktodir)/gtk-2.0/Xfce
+endif
 	cp -Rv $(xfce_image_file) $(popetadir)/gtk-2.0/Xfce
+if ENABLE_NOKTO
 	cp -Rv $(xfce_image_file) $(noktoetadir)/gtk-2.0/Xfce
+endif
 endif
 
 # *******************
@@ -613,20 +631,12 @@ uninstall-local:
 	test -e $(popdir)/gnome-shell && rm -rfv $(popdir)/gnome-shell
 	test -e $(noktoetadir)/gnome-shell && rm -rfv $(noktoetadir)/gnome-shell
 	test -e $(popetadir)/gnome-shell && rm -rfv $(popetadir)/gnome-shell
-
-if ENABLE_CINNAMON
 	test -e $(noktodir)/cinnamon && rm -rfv $(noktodir)/cinnamon
 	test -e $(popdir)/cinnamon && rm -rfv $(popdir)/cinnamon
-endif
-
-if ENABLE_UNITY
 	test -e $(noktodir)/unity && rm -rfv $(noktodir)/unity
 	test -e $(popdir)/unity && rm -rfv $(popdir)/unity
 	test -e $(noktoetadir)/unity && rm -rfv $(noktoetadir)/unity
 	test -e $(popetadir)/unity && rm -rfv $(popetadir)/unity
-endif
-
-if ENABLE_XFCE
 	test -e $(popdir)/xfce-notify-4.0 && \
 		rm -rfv $(popdir)/xfce-notify-4.0
 	test -e $(popdir)/gtk-2.0/Xfce && \
@@ -637,7 +647,6 @@ if ENABLE_XFCE
 		rm -rfv $(popetadir)/gtk-2.0/Xfce
 	test -e $(noktoetadir)/gtk-2.0/Xfce && \
 		rm -rfv $(noktoetadir)/gtk-2.0/Xfce
-endif
 
 # ****************************
 # * Clean up generated files *

@@ -2026,7 +2026,7 @@ window.background:not(.csd) > box.vertical {
 
   // dashed outline indicator?
   // default -> 1px dashed #ff0000;
-  &.marching-ants { border: 1px dashed $destructive_color; }
+  &.marching-ants { border: 1px dashed $suggested_color; }
 
   button {
     padding: 0 4px;
@@ -2279,6 +2279,14 @@ PanelToplevel.background {
   color: $inverted_secondary_fg_color;
   background-color: $panel_bg_color;
   box-shadow: none;
+}
+
+/* the grid left from wnckpager and wncktasklist */
+MatePanelAppletFrameDBus {
+    background-image: -gtk-scaled(url("assets/panel-grid.svg"));
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: left;
 }
 
 PanelSeparator {
@@ -2831,6 +2839,9 @@ window.background:not(.csd):not(.solid-csd) {
 // /************
 //  * Inkscape *
 //  ************/
+
+// Globally reduce padding sizes
+#DesktopMainTable button.toggle, button.radio { padding: 4px; }
 
 // 2nd-row toolbars
 #SelectToolbar,

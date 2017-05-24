@@ -15,7 +15,8 @@ if test -z "${NOCONFIGURE}"; then
     $srcdir/configure --prefix=/usr \
                       --disable-gtk_legacy \
                       --disable-gtk_next \
-                      --disable-parallel \
+                      --disable-nokto \
+                      --enable-parallel \
                       --disable-chrome \
                       --disable-plank \
                       --disable-telegram \

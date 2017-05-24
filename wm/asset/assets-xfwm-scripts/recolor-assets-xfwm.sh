@@ -18,10 +18,18 @@ COL_FILE="../../../gtk/sass/common/_colors.scss"
 KEY_FILE="../../../gtk/sass/common/_key_colors.scss"
 
 # Default colours
-selection1="`grep 'Cyan500' $COL_FILE | \
-                   cut -d' ' -f3`"
-destruction1="`grep 'RedA200' $COL_FILE | \
-                     cut -d' ' -f3`"
+selection1="#00BCD4"
+accent1="#4DB6AC"
+suggestion1="#009688"
+destruction1="#FF5252"
+background1="#263238"
+extra1="#2f3d44"
+switch1="#293338"
+tray1="#3b4c54"
+check1="#655e59"
+check2="#374248"
+button1="#222d32"
+equals1="#364249"
 
 # Check and re-color 'close-pressed' and 'menu-pressed' button
 if [ -e $KEY_FILE ]; then

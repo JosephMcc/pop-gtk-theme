@@ -1,6 +1,6 @@
 m4_define([pop_major_version], [1])
 m4_define([pop_minor_version], [2])
-m4_define([pop_micro_version], [1])
+m4_define([pop_micro_version], [2])
 m4_define([pop_version], [pop_major_version.pop_minor_version.pop_micro_version])
 m4_define([pop_git_url], [https://github.com/pop-project/pop-gtk-theme])
 
@@ -35,6 +35,7 @@ POP_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 POP_OPTION([PLANK],     [plank],     [Plank],          [disable])
 POP_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
 POP_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
+POP_OPTION([NOKTO],     [nokto],     [Nokto],          [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
@@ -127,6 +128,7 @@ AC_MSG_RESULT([
          Chrome(ium):            $ENABLE_CHROME
          Plank:                  $ENABLE_PLANK
          Telegram:               $ENABLE_TELEGRAM
+         Nokto Theme:            $ENABLE_NOKTO
 
         ===========================================================
                              =>> run 'make' and 'sudo make install'

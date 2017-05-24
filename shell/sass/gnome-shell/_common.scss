@@ -41,7 +41,7 @@ stage {
 .button {
   @include button(flat-normal);
   padding: if($eta == 'false', 7px 16px 8px, 5px 12px 6px);
-  border-radius: 2px;
+  border-radius: 4px;
   border-width: 0;
   font-weight: 500;
   &:hover { @include button(flat-hover); }
@@ -76,14 +76,14 @@ stage {
   }
   &:insensitive { @include button(osd-insensitive); }
 
-  &:first-child { border-radius: 0 0 0 2px; }
+  &:first-child { border-radius: 0 0 0 4px; }
   &:last-child {
     border-right-width: 0;
-    border-radius: 0 0 2px 0;
+    border-radius: 0 0 4px 0;
   }
   &:first-child:last-child {
     border-right-width: 0;
-    border-radius: 0 0 2px 2px;
+    border-radius: 0 0 4px 4px;
   }
 }
 
@@ -230,7 +230,7 @@ StScrollBar {
 //  *********/
 
 .shell-link {
-  border-radius: 2px;
+  border-radius: 4px;
   color: $link_color;
   &:hover {
     color: $link_color;
@@ -255,7 +255,7 @@ StScrollBar {
 
 .modal-dialog {
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   color: if($nokto == 'false', $inverted_fg_color, $fg_color);
   background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-4;
@@ -327,7 +327,7 @@ StScrollBar {
   &-logout-icon {
     width: 48px;
     height: 48px;
-    border-radius: 2px;
+    border-radius: 4px;
     background-size: contain;
   }
 
@@ -494,7 +494,7 @@ StScrollBar {
   &-user-icon {
     width: 48px;
     height: 48px;
-    border-radius: 2px;
+    border-radius: 4px;
     background-size: contain;
   }
 }
@@ -521,7 +521,7 @@ StScrollBar {
 
   &-device {
     border: 1px solid $borders_color;
-    border-radius: 2px;
+    border-radius: 4px;
     &:hover,
     &:focus { background-color: $osd_fill_color; }
     &:active { background-color: $accent_color; }
@@ -715,7 +715,7 @@ StScrollBar {
 }
 
 .popup-menu-boxpointer {
-  -arrow-border-radius: 2px; // FIXME: need more than 2px
+  -arrow-border-radius: 4px;
   -arrow-background-color: $secondary_base_color; // fake arrows
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
@@ -723,14 +723,14 @@ StScrollBar {
   -arrow-rise: 0;
   -arrow-box-shadow: $empty_shadow; // dreaming. bug #689995
   margin: 0.1em 0.3em 0.5em;
-  border-radius: 2px;
+  border-radius: 4px;
   border-top: 1px solid $menu_highlight;
   background-color: $secondary_base_color;
   box-shadow: $z-depth-3;
 }
 
 .candidate-popup-boxpointer {
-  -arrow-border-radius: 2px;
+  -arrow-border-radius: 4px;
   -arrow-background-color: shellopacity($osd_bg_color, 0.9);
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
@@ -738,7 +738,7 @@ StScrollBar {
   -arrow-rise: 0;
   -arrow-box-shadow: $empty_shadow;
   margin: 0.1em 0.3em 0.5em;
-  border-radius: 2px;
+  border-radius: 4px;
   border-top: 1px solid transparent;
   background: transparent; // needs to reset?
   background-color: shellopacity($osd_bg_color, 0.9);
@@ -862,7 +862,7 @@ StScrollBar {
 
   .item-box {
     padding: if($eta == 'false', 8px, 6px);
-    border-radius: 2px;
+    border-radius: 4px;
 
     &:outlined {
       padding: if($eta == 'false', 6px, 4px);
@@ -908,7 +908,7 @@ StScrollBar {
 //  *****************/
 
 .cycler-highlight {
-  border-radius: 2px 2px 0 0;
+  border-radius: 4px 4px 0 0;
   border: 1px solid $selected_bg_color;
   background-color: shellopacity($selected_bg_color, 0.2);
 }
@@ -922,7 +922,7 @@ StScrollBar {
   padding: 0;
   spacing: if($eta == 'false', 8px, 6px);
   border: 0;
-  border-radius: 0;
+  border-radius: 4px;
   background: transparent;
 
   &-group { padding: if($eta == 'false', 12px, 8px); }
@@ -936,7 +936,7 @@ StScrollBar {
     background-color: $selected_bg_active_fill_color;
     background-image: url("assets/go-up.svg");
     background-size: 24px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
   &-active-down {
@@ -944,20 +944,20 @@ StScrollBar {
     background-color: $selected_bg_active_fill_color;
     background-image: url("assets/go-down.svg");
     background-size: 24px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
   &-box {
     height: if($eta == 'false', 50px, 36px);
     border: 2px solid $osd_semi_fill_color;
-    border-radius: 2px;
+    border-radius: 4px;
     background: transparent;
   }
 }
 
 %osd-panel {
   padding: if($eta == 'false', 12px, 8px);
-  border-radius: 2px;
+  border-radius: 4px;
   border: none;
   color: $osd_fg_color;
   background-color: shellopacity($osd_bg_color, 0.9);
@@ -998,7 +998,10 @@ StScrollBar {
   font-weight: 700;
 
   // remain top-edge solid part
-  &:overview,
+  &:overview {
+    background-color: $panel_fill_color;
+  }
+
   &.unlock-screen,
   &.login-screen,
   &.lock-screen {
@@ -1144,7 +1147,7 @@ StScrollBar {
 .message-list-section-title, // in 3.24 cycle, use .event-section-title
 .events-section-title {
   padding: 0.4em;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .message-list-section-list {
@@ -1393,7 +1396,6 @@ StScrollBar {
       background-color: transparent;
     }
 
-    // FIXME: how do you do this in sass?
     &:hover > StIcon,
     &:focus > StIcon {
       color: $fg_color;
@@ -1415,7 +1417,7 @@ StScrollBar {
   // if switched to scrolled-view mode.
   // So only padding property seems enough to control the spacing.
   padding: 6px;
-  border-radius: 0;
+  border-radius: 4px;
   background-color: transparent;
   color: $osd_fg_color;
 
@@ -1463,8 +1465,7 @@ StScrollBar {
   }
 
   &-icon-bin {
-    padding: 0; // FIXME: needs to override the stock gresource
-                // (Since upstream still uses padding properties)
+    padding: 0;
 
     // subtruct .message-content's 'close' button padding
     &:ltr { margin: 4px - 2px 0 0 6px; }
@@ -1516,7 +1517,6 @@ StScrollBar {
       color: $secondary_selected_bg_label_color;
     }
 
-    // FIXME: how do you do this in sass?
     *:hover > StIcon,
     *:focus > StIcon {
       color: $selected_bg_label_color;
@@ -1563,7 +1563,7 @@ StScrollBar {
     icon-size: if($eta == 'false', 24px, 16px) !important;
     padding: if($eta == 'false', 12px, 10px);
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
     color: $osd_dim_fg_color;
     background-color: $osd_semi_fill_color;
     box-shadow: $empty_shadow;
@@ -1644,7 +1644,6 @@ StScrollBar {
 //  * OpenWeather Extension *
 //  *************************/
 
-// FIXME: Why devs use 'system-menu-action' class? wrong place...
 .openweather-button,
 .openweather-menu-button-container,
 .openweather-button-box,
@@ -1848,7 +1847,7 @@ StScrollBar {
 
 .window-clone-border {
   border: 4px solid $osd_semi_fill_color;
-  border-radius: 2px 2px 0 0;
+  border-radius: 4px 4px 0 0;
   // For window decorations with round corners we can't match
   // the exact shape when the window is scaled. So apply a shadow
   // to fix that case
@@ -1858,7 +1857,7 @@ StScrollBar {
 .window-caption {
   spacing: if($eta == 'false', 25px, 19px);
   padding: if($eta == 'false', 4px 8px, 3px 6px);
-  border-radius: 2px;
+  border-radius: 4px;
   color: $osd_fg_color;
   background-color: shellopacity($osd_bg_color, 0.9);
   -shell-caption-spacing: if($eta == 'false', 12px, 8px);
@@ -2010,8 +2009,8 @@ StScrollBar {
   background-color: $osd_slight_fill_color;
   box-shadow: $empty_shadow;
 
-  &:ltr { border-radius: 0 2px 2px 0; }
-  &:rtl { border-radius: 2px 0 0 2px; }
+  &:ltr { border-radius: 0 4px 4px 0; }
+  &:rtl { border-radius: 4px 0 0 4px; }
 
   .placeholder {
     background-image: url("assets/dash-placeholder.svg");
@@ -2033,7 +2032,7 @@ StScrollBar {
 
 .dash-label { // osd tooltip
   padding: if($eta == 'false', 4px 12px, 3px 8px);
-  border-radius: 2px;
+  border-radius: 4px;
   color: if($nokto == 'false', $osd_fg_color, $fg_color);
   background-color: shellopacity($osd_bg_color, 0.9);
   box-shadow: $z-depth-2;
@@ -2054,10 +2053,10 @@ StScrollBar {
     box-shadow: $empty_shadow;
   }
 
-  @each $_dock, $_radius in (top, 0 0 2px 2px),
-                            (bottom, 2px 2px 0 0),
-                            (left, 0 2px 2px 0),
-                            (right, 2px 0 0 2px) {
+  @each $_dock, $_radius in (top, 0 0 4px 4px),
+                            (bottom, 4px 4px 0 0),
+                            (left, 0 4px 4px 0),
+                            (right, 4px 0 0 4px) {
     &.#{$_dock} #dash {
       border-radius: #{$_radius};
       background-color: $panel_fill_color;
@@ -2268,7 +2267,7 @@ StScrollBar {
 %icon_tile {
   padding: 9px;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   color: $osd_fg_color;
   transition-duration: $duration_medium;
   text-align: center;
@@ -2312,7 +2311,7 @@ StScrollBar {
 
   &-bin {
     padding: 5px;
-    border-radius: 2px;
+    border-radius: 4px;
     border-top: 1px solid $menu_highlight;
     background-color: if($nokto == 'false', $inverted_bg_color,
                                             $bg_color);
@@ -2451,7 +2450,7 @@ StScrollBar {
   min-height: if($eta == 'false', 4.5em, 3.6em);
   margin: 5px;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: shellopacity($osd_bg_color, 0.9);
   color: $osd_fg_color;
   box-shadow: $z-depth-2;
@@ -2497,8 +2496,8 @@ StScrollBar {
     color: $inverted_secondary_selected_bg_label_color;
     font-weight: 700;
 
-    &:first-child { border-radius: 0 0 0 2px; }
-    &:last-child { border-radius: 0 0 2px 0; }
+    &:first-child { border-radius: 0 0 0 4px; }
+    &:last-child { border-radius: 0 0 4px 0; }
 
     &:hover {
       color: $inverted_selected_bg_label_color;
@@ -2598,7 +2597,7 @@ StScrollBar {
 
   &-resident-mount {
     spacing: 8px;
-    border-radius: 2px;
+    border-radius: 4px;
     &:hover {
       background-color: if($nokto == 'false', $osd_semi_fill_color,
                                               $semi_fill_color);
@@ -2623,7 +2622,7 @@ StScrollBar {
 
   &-resident-eject-button {
     padding: 7px;
-    border-radius: 2px;
+    border-radius: 4px;
     color: $osd_fg_color;
   }
 }
@@ -2639,15 +2638,15 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   padding: 0;
   border: 0 none transparent;
   background-color: $panel_bg_color;
-  &:ltr { border-radius: 0 2px 0 0; }
-  &:rtl { border-radius: 2px 0 0 0; }
+  &:ltr { border-radius: 0 4px 0 0; }
+  &:rtl { border-radius: 4px 0 0 0; }
 
   &-handle,
   &-icon {
     width: $legacy_icon_size;
     height: $legacy_icon_size;
     padding: 4px 4px 2px;
-    border-radius: 2px;
+    border-radius: 4px;
     border: 2px solid $panel_bg_color;
     color: if($nokto == 'false', $inverted_secondary_fg_color,
                                  $secondary_fg_color);
@@ -2705,7 +2704,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   @include fontscaling($ref_size * 2.0);
   min-height: 2em;
   min-width: 2em;
-  border-radius: 2px;
+  border-radius: 4px;
   border-width: 1px;
   background-color: mix($panel_bg_color, $selected_fg_color, 95%);
   color: if($nokto == 'false', $inverted_secondary_fg_color,
@@ -2739,7 +2738,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 
 .keyboard-subkeys { //long press on a key popup
   padding: 5px;
-  border-radius: 2px;
+  border-radius: 4px;
   -arrow-border-radius: 0;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
@@ -2772,7 +2771,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   &-box {
     @include fontscaling($ref_size * 1.1);
     padding: 0.3em 0.5em 0.3em 0.5em;
-    border-radius: 2px;
+    border-radius: 4px;
     color: $osd_secondary_fg_color;
     transition-duration: 0s;
     &:hover,
@@ -2803,11 +2802,11 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     }
 
     &-previous {
-      border-radius: 2px;
+      border-radius: 4px;
       border-right-width: 0;
     }
 
-    &-next { border-radius: 2px; }
+    &-next { border-radius: 4px; }
 
     &-icon { icon-size: 14px; }
   }
@@ -2822,7 +2821,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   background-size: contain;
   border: none;
   color: $osd_fg_color;
-  border-radius: 2px;
+  border-radius: 4px;
   &:hover {
     border-color: $osd_fg_color;
     color: $osd_fg_color;
@@ -2933,7 +2932,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   &-not-listed-label {
     @include fontscaling($ref_size * 0.9);
     padding: 4px 4px 5px;
-    border-radius: 2px;
+    border-radius: 4px;
     color: $inverted_secondary_accent_label_color;
     font-weight: 700;
     text-align: center;
@@ -2999,7 +2998,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 
   &-user-list-item {
     padding: 4px 4px 0;
-    border-radius: 2px;
+    border-radius: 4px;
     color: $osd_secondary_fg_color;
     transition-duration: $duration_short;
 
@@ -3135,7 +3134,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
     .screen-shield-notification-source {
       padding: 12px 6px;
       border: none;
-      border-radius: 2px;
+      border-radius: 4px;
       background-color: shellopacity($osd_bg_color, 0.9);
       color: $osd_fg_color;
     }
@@ -3181,7 +3180,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   spacing: 4px;
   padding: 0;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: shellopacity($osd_base_color, 0.9);
   color: $osd_fg_color;
   box-shadow: $z-depth-4;
@@ -3264,7 +3263,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   &-button {
     @include button(normal);
     padding: 4px;
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: $suggested_color;
     color: $osd_secondary_fg_color;
     font-weight: 700;
@@ -3296,7 +3295,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
 .lg-extension {
   padding: 4px;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
 
   &-name {
     @include fontscaling($ref_size * 1.5);
@@ -3313,7 +3312,7 @@ $legacy_icon_size: if($eta == 'false', 24px, 16px);
   color: $osd_fg_color;
   box-shadow: $empty_shadow;
   // scroll-bar is included in the parent ScrollView widget
-  &:ltr { border-radius: 2px 0 0 2px; }
-  &:rtl { border-radius: 0 2px 2px 0; }
+  &:ltr { border-radius: 4px 0 0 4px; }
+  &:rtl { border-radius: 0 4px 4px 0; }
 }
 

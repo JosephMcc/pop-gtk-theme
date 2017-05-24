@@ -4,3 +4,4 @@ bar-red
 bar-yellow
 show-apps
 show-apps-active
+panel-grid
