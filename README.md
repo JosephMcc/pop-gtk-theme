@@ -1,7 +1,15 @@
 ## Pop-gtk-theme
-======
+-------------------
 
 An adaptive Gtk+ theme based on the Adapta GTK+ theme.
+
+![Pop GTK+ Theme](preview.png)
+
+
+## Screenshots
+-------------------
+![Pop GTK+ Theme](screenshots/main.png) ![GNOME Maps](screenshots/pop-maps.png) ![Dark Theme](screenshots/pop-builder.png)
+
 
 #### Before using Pop
 -------------------
