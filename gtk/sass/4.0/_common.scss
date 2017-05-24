@@ -961,7 +961,7 @@ button {
     color: $fg_color;
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
-                                  $selected_bg_color 100%,
+                                  $accent_color 100%,
                                   transparent)
                                   0 0 2 / 0 0 2px;
   }
@@ -970,14 +970,14 @@ button {
     color: $fg_color;
     background-color: transparent;
     border-image: radial-gradient(circle farthest-corner at center,
-                                  $selected_bg_color 100%,
+                                  $accent_color 100%,
                                   transparent)
                                   0 0 2 / 0 0 2px;
     &:disabled {
       color: $insensitive_fg_color;
       background-color: transparent;
       border-image: radial-gradient(circle farthest-corner at center,
-                                    gtkopacity($selected_bg_color, 0.2) 100%,
+                                    gtkopacity($accent_color, 0.2) 100%,
                                     transparent)
                                     0 0 2 / 0 0 2px;
 
@@ -1484,7 +1484,7 @@ combobox {
       color: $fg_color;
       background: transparent;
       border-image: radial-gradient(circle farthest-corner at center,
-                                    $selected_bg_color 100%,
+                                    $accent_color 100%,
                                     transparent)
                                     0 0 2 / 0 0 2px;
     }
@@ -1663,7 +1663,7 @@ toolbar {
     &:checked {
       @extend %button_flat_checked;
       border-image: radial-gradient(circle farthest-corner at center,
-                                    $selected_bg_color 100%,
+                                    $accent_color 100%,
                                     transparent)
                                     0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -1747,7 +1747,7 @@ toolbar {
       &.toggle { // revive underlines
         &:checked {
           border-image: radial-gradient(circle farthest-corner at center,
-                                        $selected_bg_color 100%,
+                                        $accent_color 100%,
                                         transparent)
                                         0 0 2 / 0 0 2px;
         }
@@ -1847,7 +1847,7 @@ actionbar {
     &:checked {
       @extend %button_flat_checked;
       border-image: radial-gradient(circle farthest-corner at center,
-                                    $selected_bg_color 100%,
+                                    $accent_color 100%,
                                     transparent)
                                     0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -1949,7 +1949,7 @@ headerbar {
     &:checked {
       @include button(flat-checked);
       border-image: radial-gradient(circle farthest-corner at center,
-                                    $selected_bg_color 100%,
+                                    $accent_color 100%,
                                     transparent)
                                     0 0 2 / 0 0 2px;
       background-color: transparent;
@@ -2624,7 +2624,7 @@ headerbar.titlebar.default-decoration {
   headerbar {
     &, &:not(:last-child) {
       padding: rem(5.3px);
-      border-radius: 0;
+      border-radius: 4px;
       border-top: 0 none transparent;
       box-shadow: none;
 
@@ -3318,7 +3318,7 @@ notebook {
           &:checked { // draw underlines
             background-color: transparent;
             border-image: radial-gradient(circle farthest-corner at center,
-                                          $selected_bg_color 100%,
+                                          $accent_color 100%,
                                           transparent)
                                           0 0 2 / 0 0 2px;
           }
@@ -3803,12 +3803,12 @@ switch {
 @keyframes check_radio_active {
   from {
     background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha($selected_bg_color, 0.1) 0%,
+                                      gtkalpha($accent_color, 0.1) 0%,
                                       transparent);
   }
   to {
     background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha($selected_bg_color, 0.1) 100%,
+                                      gtkalpha($accent_color, 0.1) 100%,
                                       transparent);
   }
 }
@@ -3816,12 +3816,12 @@ switch {
 @keyframes check_radio_active_reverse {
   from {
     background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha($selected_bg_color, 0.2) 100%,
+                                      gtkalpha($accent_color, 0.2) 100%,
                                       transparent);
   }
   to {
     background-image: radial-gradient(circle closest-side at center,
-                                      gtkalpha($selected_bg_color, 0.2) 0%,
+                                      gtkalpha($accent_color, 0.2) 0%,
                                       transparent);
   }
 }

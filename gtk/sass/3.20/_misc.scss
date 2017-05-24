@@ -127,10 +127,10 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   font-weight: 500;
   &:hover { color: $fg_color; }
   &:selected {
-    color: $selected_bg_color;
+    color: $accent_color;
     background-color: transparent;
 
-    label { color: $selected_bg_color; }
+    label { color: $accent_color; }
   }
 }
 
@@ -186,15 +186,15 @@ row.tweak { // basic row node container in right-pane
 
         > button { // 'remove' buttons
           color: $secondary_selected_fg_color;
-          background-color: $suggested_color;
+          background-color: $destructive_color;
           &:hover { color: $selected_fg_color; }
           &:active {
             color: $selected_fg_color;
-            background-color: $selected_bg_color;
+            background-color: $accent_color;
           }
           &:checked {
             color: $secondary_selected_fg_color;
-            background-color: mix($selected_fg_color, $suggested_color, 20%);
+            background-color: mix($selected_fg_color, $destructive_color, 20%);
           }
           &:disabled {
             @include button(flat-insensitive, $track_color,
@@ -568,7 +568,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
       font-weight: 400; // reset weight
       &:selected {
         &, &:focus {
-          background-color: gtkopacity($selected_bg_color, 0.2);
+          background-color: $selected_bg_color;
           color: $fg_color;
           &:dir(ltr) { box-shadow: inset 4px 0 $selected_bg_color; }
           &:dir(rtl) { box-shadow: inset -4px 0 $selected_bg_color; }
@@ -593,7 +593,7 @@ dialog.background.csd > box.dialog-vbox > grid.horizontal {
       &:selected {
         &, &:focus {
           background-color: transparent;
-          color: $selected_bg_color;
+          color: $accent_color;
         }
       }
     }
@@ -1066,7 +1066,7 @@ window.background {
         @each $s,$as in ('',''),
                         (':hover','-hover'),
                         (':active','-active'),
-                        (':disabled','-insensitive') {
+                        ( ':disabled','-insensitive') {
           &#{$s} {
             $_url: 'assets/equal#{$as}#{$asset_suffix}';
             @include button(normal#{$as});
@@ -1480,7 +1480,7 @@ layouttabbar {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1517,7 +1517,7 @@ layouttab {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -1614,7 +1614,7 @@ tabstrip {
     }
     &:checked {
       color: $fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+      box-shadow: inset 0 -2px $accent_color;
     }
   }
 }
@@ -1719,7 +1719,7 @@ window overlay > grid > frame > grid {
       &:hover { color: $fg_color; }
       &:selected,
       &:selected.activatable {
-        &, label { color: $selected_bg_color; }
+        &, label { color: $accent_color; }
         background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                                   rgba(18, 22, 0, 0.04));
       }

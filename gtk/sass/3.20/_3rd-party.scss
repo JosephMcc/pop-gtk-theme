@@ -1359,7 +1359,7 @@ UnityPanelWidget,
   #restart_dialog {
     @extend messagedialog;
     border: 1px solid $borders_color;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: none;
 
     button {
