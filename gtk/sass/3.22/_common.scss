@@ -2706,7 +2706,7 @@ headerbar.titlebar.default-decoration {
   headerbar {
     &, &:not(:last-child) {
       padding: rem(5.3px);
-      border-radius: 0;
+      border-radius: 4px;
       border-top: 0 none transparent;
       box-shadow: none;
 
