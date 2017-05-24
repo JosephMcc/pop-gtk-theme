@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.2.2) zesty; urgency=medium
+
+  * Fix color migration problems from rebase.
+
+ -- Ian Santopietro <ian@system76.com>  Wed, 24 May 2017 16:22:58 -0600
+
 system76-pop-gtk-theme (1.2.1) zesty; urgency=medium
 
   * Re-write theme in more upstream-friendly way.
