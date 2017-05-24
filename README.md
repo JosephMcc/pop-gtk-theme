@@ -1,4 +1,4 @@
-## Pop GTK+ Theme ![Pop GTK+ Theme](logo.png)
+![Pop GTK+ Theme](logo.png)
 -------------------
 
 An adaptive Gtk+ theme based on the Adapta GTK+ theme.
