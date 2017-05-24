@@ -727,70 +727,48 @@ endif
 # *******************
 
 uninstall-local:
-if ENABLE_GTK_LEGACY
 	test -e $(noktodir)/index.theme && rm -rfv $(noktodir)/index.theme
 	test -e $(noktodir)/gtk-3.0 && rm -rfv $(noktodir)/gtk-3.0
 	test -e $(noktodir)/gtk-3.20 && rm -rfv $(noktodir)/gtk-3.20
 	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
 	test -e $(noktodir)/gtk-2.0 && rm -rfv $(noktodir)/gtk-2.0
-else
 	test -e $(noktodir)/index.theme && rm -rfv $(noktodir)/index.theme
 	test -e $(noktodir)/gtk-3.0 && rm -rfv $(noktodir)/gtk-3.0
 	test -e $(noktodir)/gtk-3.22 && rm -rfv $(noktodir)/gtk-3.22
 	test -e $(noktodir)/gtk-2.0 && rm -rfv $(noktodir)/gtk-2.0
-endif
-
-if ENABLE_GTK_LEGACY
 	test -e $(popdir)/index.theme && rm -rfv $(popdir)/index.theme
 	test -e $(popdir)/gtk-3.0 && rm -rfv $(popdir)/gtk-3.0
 	test -e $(popdir)/gtk-3.20 && rm -rfv $(popdir)/gtk-3.20
 	test -e $(popdir)/gtk-3.22 && rm -rfv $(popdir)/gtk-3.22
 	test -e $(popdir)/gtk-2.0 && rm -rfv $(popdir)/gtk-2.0
-else
 	test -e $(popdir)/index.theme && rm -rfv $(popdir)/index.theme
 	test -e $(popdir)/gtk-3.0 && rm -rfv $(popdir)/gtk-3.0
 	test -e $(popdir)/gtk-3.22 && rm -rfv $(popdir)/gtk-3.22
 	test -e $(popdir)/gtk-2.0 && rm -rfv $(popdir)/gtk-2.0
-endif
-
-if ENABLE_GTK_LEGACY
 	test -e $(noktoetadir)/index.theme && rm -rfv $(noktoetadir)/index.theme
 	test -e $(noktoetadir)/gtk-3.0 && rm -rfv $(noktoetadir)/gtk-3.0
 	test -e $(noktoetadir)/gtk-3.20 && rm -rfv $(noktoetadir)/gtk-3.20
 	test -e $(noktoetadir)/gtk-3.22 && rm -rfv $(noktoetadir)/gtk-3.22
 	test -e $(noktoetadir)/gtk-2.0 && rm -rfv $(noktoetadir)/gtk-2.0
-else
 	test -e $(noktoetadir)/index.theme && rm -rfv $(noktoetadir)/index.theme
 	test -e $(noktoetadir)/gtk-3.0 && rm -rfv $(noktoetadir)/gtk-3.0
 	test -e $(noktoetadir)/gtk-3.22 && rm -rfv $(noktoetadir)/gtk-3.22
 	test -e $(noktoetadir)/gtk-2.0 && rm -rfv $(noktoetadir)/gtk-2.0
-endif
-
-if ENABLE_GTK_LEGACY
 	test -e $(popetadir)/index.theme && rm -rfv $(popetadir)/index.theme
 	test -e $(popetadir)/gtk-3.0 && rm -rfv $(popetadir)/gtk-3.0
 	test -e $(popetadir)/gtk-3.20 && rm -rfv $(popetadir)/gtk-3.20
 	test -e $(popetadir)/gtk-3.22 && rm -rfv $(popetadir)/gtk-3.22
 	test -e $(popetadir)/gtk-2.0 && rm -rfv $(popetadir)/gtk-2.0
-else
 	test -e $(popetadir)/index.theme && rm -rfv $(popetadir)/index.theme
 	test -e $(popetadir)/gtk-3.0 && rm -rfv $(popetadir)/gtk-3.0
 	test -e $(popetadir)/gtk-3.22 && rm -rfv $(popetadir)/gtk-3.22
 	test -e $(popetadir)/gtk-2.0 && rm -rfv $(popetadir)/gtk-2.0
-endif
-
-if ENABLE_GTK_NEXT
 	test -e $(noktodir)/gtk-4.0 && rm -rfv $(noktodir)/gtk-4.0
 	test -e $(popdir)/gtk-4.0 && rm -rfv $(popdir)/gtk-4.0
-
 	test -e $(noktoetadir)/gtk-4.0 && rm -rfv $(noktoetadir)/gtk-4.0
 	test -e $(popetadir)/gtk-4.0 && rm -rfv $(popetadir)/gtk-4.0
-endif
-
-if ENABLE_XFCE
 	test -e $(popdir)/xfce-notify-4.0/gtk.css && \
 		rm -rfv $(popdir)/xfce-notify-4.0/gtk.css
-endif
 
 # ****************************
 # * Clean up generated files *

@@ -90,27 +90,18 @@ endif
 # *******************
 
 uninstall-local:
-if ENABLE_CHROME
 	test -e $(noktodir)/chrome && rm -rfv $(noktodir)/chrome
 	test -e $(popdir)/chrome && rm -rfv $(popdir)/chrome
 	test -e $(noktoetadir)/chrome && rm -rfv $(noktoetadir)/chrome
 	test -e $(popetadir)/chrome && rm -rfv $(popetadir)/chrome
-endif
-
-if ENABLE_PLANK
 	test -e $(noktodir)/plank && rm -rfv $(noktodir)/plank
 	test -e $(popdir)/plank && rm -rfv $(popdir)/plank
 	test -e $(noktoetadir)/plank && rm -rfv $(noktoetadir)/plank
 	test -e $(popetadir)/plank && rm -rfv $(popetadir)/plank
-endif
-
-if ENABLE_TELEGRAM
 	test -e $(noktodir)/telegram && rm -rfv $(noktodir)/telegram
 	test -e $(popdir)/telegram && rm -rfv $(popdir)/telegram
 	test -e $(noktoetadir)/telegram && rm -rfv $(noktoetadir)/telegram
 	test -e $(popetadir)/telegram && rm -rfv $(popetadir)/telegram
-endif
-
 	test -e $(noktodir)/gedit && rm -rfv $(noktodir)/gedit
 	test -e $(popdir)/gedit && rm -rfv $(popdir)/gedit
 

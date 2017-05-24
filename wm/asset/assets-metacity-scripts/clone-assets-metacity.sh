@@ -27,9 +27,9 @@ background1="#263238"
 extra1="#2f3d44"
 switch1="#293338"
 tray1="#3b4c54"
-check1="#29353b"
+check1="#655e59"
 check2="#374248"
-button1="#222d32"
+button1="#574f4a"
 equals1="#364249"
 
 # Check and re-color 'button_close_pressed' button

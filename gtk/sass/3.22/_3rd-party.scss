@@ -2026,7 +2026,7 @@ window.background:not(.csd) > box.vertical {
 
   // dashed outline indicator?
   // default -> 1px dashed #ff0000;
-  &.marching-ants { border: 1px dashed $destructive_color; }
+  &.marching-ants { border: 1px dashed $suggested_color; }
 
   button {
     padding: 0 4px;
