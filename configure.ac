@@ -96,6 +96,7 @@ AC_MSG_RESULT([
          accent-color:           $ACCENT (default: $accent_default)
          suggestion-color:       $SUGGESTION (default: $suggestion_default)
          destruction-color:      $DESTRUCTION (default: $destruction_default)
+         background-color:       $BACKGROUND (Default: $background-default)
 
         -----------------------------------------------------------
         | Supported Gtk+ Version

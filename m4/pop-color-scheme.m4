@@ -12,6 +12,7 @@ AC_DEFUN([POP_COLOR_SCHEME], [
                          cut -d' ' -f3`"
     destruction_default="`grep 'Destruct' ./gtk/sass/common/_colors.scss | \
                           cut -d' ' -f3`"
+    background_default="#574f4a"
 
     AC_ARG_WITH(
         [selection_color],
@@ -73,6 +74,19 @@ AC_DEFUN([POP_COLOR_SCHEME], [
     )
     AC_SUBST([DESTRUCTION])
 
+
+    AC_ARG_WITH(
+        [background_color],
+        [AS_HELP_STRING(
+            [--with-background_color],
+            [Background color for titlebars \
+             (Default: #574f4a)]
+        )],
+        [BACKGROUND="$withval"],
+        [BACKGROUND=$background_default]
+    )
+    AC_SUBST([BACKGROUND])
+
 # Store defined key color-scheme into SCSS file
 echo \
 "// Selection (Primary) color
@@ -88,7 +102,10 @@ echo \
 \$key_suggestion_color: `echo $SUGGESTION`;
 
 // Destruction (Tertiary) color
-\$key_destruction_color: `echo $DESTRUCTION`;" \
+\$key_destruction_color: `echo $DESTRUCTION`;
+
+// Background color
+\$key_background_color: `echo $BACKGROUND`;" \
 > ./gtk/sass/common/_key_colors.scss
 
 # Copy SCSS to shell SASS directory
