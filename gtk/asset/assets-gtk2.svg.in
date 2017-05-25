@@ -7546,6 +7546,198 @@
          result="composite2"
          id="feComposite6706" />
     </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter6648-3">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood6638-6" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite6640-7" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1"
+         result="blur"
+         id="feGaussianBlur6642-5" />
+      <feOffset
+         dx="4.41314e-15"
+         dy="1"
+         result="offset"
+         id="feOffset6644-3" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite6646-5" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter6648-3-1">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood6638-6-2" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite6640-7-7" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1"
+         result="blur"
+         id="feGaussianBlur6642-5-0" />
+      <feOffset
+         dx="4.41314e-15"
+         dy="1"
+         result="offset"
+         id="feOffset6644-3-9" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite6646-5-3" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter6648-2">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood6638-61" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite6640-8" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1"
+         result="blur"
+         id="feGaussianBlur6642-7" />
+      <feOffset
+         dx="4.41314e-15"
+         dy="1"
+         result="offset"
+         id="feOffset6644-9" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite6646-2" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter6801">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood6791" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite6793" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1.7"
+         result="blur"
+         id="feGaussianBlur6795" />
+      <feOffset
+         dx="4.41314e-15"
+         dy="1"
+         result="offset"
+         id="feOffset6797" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite6799" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter6801-5">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood6791-9" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite6793-2" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1.7"
+         result="blur"
+         id="feGaussianBlur6795-2" />
+      <feOffset
+         dx="4.41314e-15"
+         dy="1"
+         result="offset"
+         id="feOffset6797-8" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite6799-9" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter6648-3-1-2">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood6638-6-2-9" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite6640-7-7-3" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1"
+         result="blur"
+         id="feGaussianBlur6642-5-0-1" />
+      <feOffset
+         dx="4.41314e-15"
+         dy="1"
+         result="offset"
+         id="feOffset6644-3-9-9" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite6646-5-3-4" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -7554,12 +7746,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.9999998"
-     inkscape:cx="170.71734"
-     inkscape:cy="213.95225"
+     inkscape:zoom="7.9999996"
+     inkscape:cx="245.1996"
+     inkscape:cy="391.53048"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="false"
+     showgrid="true"
      inkscape:window-width="1920"
      inkscape:window-height="1022"
      inkscape:window-x="0"
@@ -7586,7 +7778,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <cc:license
            rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
       </cc:Work>
@@ -7659,7 +7851,7 @@
        style="filter:url(#filter7927-9);enable-background:new"
        id="Buttons_button-7-7-5-1"
        inkscape:label="#g6542"
-       transform="translate(40,160.00001)">
+       transform="translate(40,161.01661)">
       <rect
          ry="4"
          rx="4"
@@ -7681,7 +7873,7 @@
        style="filter:url(#filter7894-4);enable-background:new"
        id="Buttons_button-7-9"
        inkscape:label="#g6542"
-       transform="translate(0,160.00001)">
+       transform="translate(0,161.00001)">
       <rect
          ry="4"
          rx="4"
@@ -11647,51 +11839,6 @@
          style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
     </g>
     <g
-       transform="translate(40,80.000015)"
-       id="Buttons_button-hover"
-       inkscape:label="#g6542"
-       style="filter:url(#filter6696)">
-      <rect
-         ry="4"
-         rx="4"
-         y="576.36218"
-         x="4"
-         height="32.000004"
-         width="32"
-         id="rect6536-6"
-         style="opacity:1;fill:#f9f9f9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99900007;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
-      <rect
-         y="572.36218"
-         x="0"
-         height="40"
-         width="40"
-         id="rect6538-7"
-         style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
-    </g>
-    <g
-       id="Buttons_button-active"
-       transform="translate(40,-39.999983)"
-       inkscape:label="#g4205"
-       style="filter:url(#filter6660)">
-      <rect
-         transform="translate(0,652.36218)"
-         y="40"
-         x="40"
-         height="40"
-         width="40"
-         id="rect4203-6"
-         style="fill:#000000;fill-opacity:0;stroke:none" />
-      <rect
-         style="opacity:1;fill:#00bcd4;fill-opacity:1;stroke:none;stroke-width:1"
-         id="rect3840-7"
-         width="32"
-         height="32"
-         x="44"
-         y="696.36218"
-         rx="4"
-         ry="4" />
-    </g>
-    <g
        transform="translate(0,120.00001)"
        id="Buttons_rtl-button"
        inkscape:label="#g6518">
@@ -12250,73 +12397,6 @@
          id="path8270-8-0"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc" />
-    </g>
-    <g
-       style="enable-background:new;filter:url(#filter6672)"
-       id="Buttons_button-dark"
-       inkscape:label="#g6542"
-       transform="translate(160,80.00002)">
-      <rect
-         ry="4"
-         rx="4"
-         y="576.36218"
-         x="4"
-         height="31.999998"
-         width="32"
-         id="rect6536-3"
-         style="opacity:1;fill:#2f3d44;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99924976;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
-      <rect
-         y="572.36218"
-         x="0"
-         height="40"
-         width="40"
-         id="rect6538-3"
-         style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
-    </g>
-    <g
-       style="enable-background:new;filter:url(#filter6708)"
-       transform="translate(200,80.00002)"
-       id="Buttons_button-hover-dark"
-       inkscape:label="#g6542">
-      <rect
-         ry="4"
-         rx="4"
-         y="576.36218"
-         x="4"
-         height="31.999998"
-         width="32"
-         id="rect6536-6-8"
-         style="opacity:1;fill:#3f4d53;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99900001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
-      <rect
-         y="572.36218"
-         x="0"
-         height="40"
-         width="40"
-         id="rect6538-7-6"
-         style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
-    </g>
-    <g
-       style="enable-background:new;filter:url(#filter6684)"
-       id="Buttons_button-active-dark"
-       transform="translate(200,-39.99998)"
-       inkscape:label="#g4205">
-      <rect
-         transform="translate(0,652.36218)"
-         y="40"
-         x="40"
-         height="40"
-         width="40"
-         id="rect4203-6-4"
-         style="fill:#000000;fill-opacity:0;stroke:none" />
-      <rect
-         style="opacity:1;fill:#00bcd4;fill-opacity:1;stroke:none;stroke-width:1"
-         id="rect3840-7-8"
-         width="32"
-         height="31.999998"
-         x="44"
-         y="696.36218"
-         rx="4"
-         ry="4" />
     </g>
     <g
        style="filter:url(#filter7894-15);enable-background:new"
@@ -13165,6 +13245,116 @@
          id="path8270-1-89"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       style="enable-background:new"
+       id="Buttons_button-hover"
+       inkscape:label="#g6542"
+       transform="translate(40,80.000017)">
+      <rect
+         ry="4"
+         rx="4"
+         y="576.36218"
+         x="4"
+         height="32"
+         width="32"
+         id="rect6536-2"
+         style="opacity:1;fill:#f9f9f9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99924982;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;filter:url(#filter6801)" />
+      <rect
+         y="572.36218"
+         x="0"
+         height="40"
+         width="40"
+         id="rect6538-9"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
+    </g>
+    <g
+       style="enable-background:new"
+       id="Buttons_button-active"
+       inkscape:label="#g6542"
+       transform="translate(80,80.000017)">
+      <rect
+         ry="4"
+         rx="4"
+         y="576.36218"
+         x="4"
+         height="32"
+         width="32"
+         id="rect6536-2-0"
+         style="opacity:1;fill:#00bcd4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99924982;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;filter:url(#filter6648-3-1)" />
+      <rect
+         y="572.36218"
+         x="0"
+         height="40"
+         width="40"
+         id="rect6538-9-6"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
+    </g>
+    <g
+       style="enable-background:new"
+       id="Buttons_button-dark"
+       inkscape:label="#g6542"
+       transform="translate(160,80.000017)">
+      <rect
+         ry="4"
+         rx="4"
+         y="576.36218"
+         x="4"
+         height="32"
+         width="32"
+         id="rect6536-23"
+         style="opacity:1;fill:#2f3d44;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99924982;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;filter:url(#filter6648-2)" />
+      <rect
+         y="572.36218"
+         x="0"
+         height="40"
+         width="40"
+         id="rect6538-7"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
+    </g>
+    <g
+       style="enable-background:new"
+       id="Buttons_button-hover-dark"
+       inkscape:label="#g6542"
+       transform="translate(200,80.000017)">
+      <rect
+         ry="4"
+         rx="4"
+         y="576.36218"
+         x="4"
+         height="32"
+         width="32"
+         id="rect6536-2-3"
+         style="opacity:1;fill:#3f4d53;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99924982;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;filter:url(#filter6801-5)" />
+      <rect
+         y="572.36218"
+         x="0"
+         height="40"
+         width="40"
+         id="rect6538-9-61"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
+    </g>
+    <g
+       style="enable-background:new"
+       id="Buttons_button-active-dark"
+       inkscape:label="#g6542"
+       transform="translate(240,80.000017)">
+      <rect
+         ry="4"
+         rx="4"
+         y="576.36218"
+         x="4"
+         height="32"
+         width="32"
+         id="rect6536-2-0-8"
+         style="opacity:1;fill:#00bcd4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99924982;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;filter:url(#filter6648-3-1-2)" />
+      <rect
+         y="572.36218"
+         x="0"
+         height="40"
+         width="40"
+         id="rect6538-9-6-4"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.08999999;paint-order:normal" />
     </g>
   </g>
 </svg>
