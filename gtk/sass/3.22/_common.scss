@@ -78,7 +78,7 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 // or better, just don't.
 // Everytime a wildcard is used a kitten dies, painfully.
 
-*:disabled { -gtk-icon-filter: opacity(0.5); }
+*:disabled { -gtk-icon-effect: dim; }
 
 // for backdrop, tone down element surfaces with transparentize
 %fade_effect {
