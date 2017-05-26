@@ -1,4 +1,7 @@
-![Pop GTK+ Theme](logo.png)
+<p align="center">
+<img src="https://github.com/system76/pop-gtk-theme/raw/master/logo.png"/>
+</p>
+
 -------------------
 
 An adaptive Gtk+ theme based on the Adapta GTK+ theme.
