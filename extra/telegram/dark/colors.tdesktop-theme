@@ -20,7 +20,7 @@ INSENSITIVE_FG_COLOR: #CFD8DC4D;                // Insensitive foreground color 
 SELECTED_FG_COLOR: #FFFFFF;                     // Selected foreground color
 2ND_SELECTED_FG_COLOR: #FFFFFFD9;               // Secondary selected foreground color (85%)
 OSD_FG_COLOR: #CFD8DC;                          // Tooltip foreground color
-PLACEHOLDER_COLOR: #546E7A;                     // Placeholder foreground color
+PLACEHOLDER_COLOR: #78909C;                     // Placeholder foreground color
 
 ACCENT_LABEL_COLOR: #8DCDC8;                    // Action-area foreground color
 2ND_ACCENT_LABEL_COLOR: #8DCDC8E5;              // Secondary action-area foreground color (90%)
@@ -59,6 +59,10 @@ SOLID_BLACK: #000000;
 10_BLACK: #0000001A;                            // Frames and separator color (10%)
 TRANSPARENT: #00000000;
 SOLID_WHITE: #FFFFFF;
+RED: #F44336;
+YELLOW: #FFEB3B;
+GREEN: #4CAF50;
+BLUE: #2196F3;
 
 SCROLLBAR_BG: #29353B8C;                        // Trough color (55%)
 SCROLLBAR_SLIDER_BG: #CFD8DC47;                 // Slider color (28%)
@@ -138,11 +142,11 @@ scrollBgOver: SCROLLBAR_BG;                     // Mouse over scrollbar (chats l
 smallCloseIconFg: SECONDARY_FG_COLOR;
 smallCloseIconFgOver: FG_COLOR;
 
-radialFg: SOLID_WHITE;
+radialFg: ACCENT_COLOR;
 radialBg: 30_BLACK;
 
 placeholderFg: PLACEHOLDER_COLOR;               // Inactive input box placeholder text
-placeholderFgActive: TERTIARY_FG_COLOR;         // Active input box placeholder text
+placeholderFgActive: SECONDARY_FG_COLOR;        // Active input box placeholder text
 inputBorderFg: 10_BLACK;
 filterInputBorderFg: 10_BLACK;                  // Search field border
 filterInputInactiveBg: DARK_COLOR;
@@ -411,15 +415,15 @@ msgFile4BgSelected: #b19d84;
 
 historyFileInIconFg: FG_COLOR;                     // Uploading/downloading icons?
 historyFileInIconFgSelected: SELECTED_FG_COLOR;
-historyFileInRadialFg: FG_COLOR;
+historyFileInRadialFg: ACCENT_COLOR;
 historyFileInRadialFgSelected: SELECTED_FG_COLOR;
 historyFileOutIconFg: historyFileInIconFg;
 historyFileOutIconFgSelected: historyFileInIconFgSelected;
 historyFileOutRadialFg: historyFileInIconFg;
 historyFileOutRadialFgSelected: historyFileInIconFgSelected;
-historyFileThumbIconFg: SOLID_WHITE;
+historyFileThumbIconFg: ACCENT_COLOR;
 historyFileThumbIconFgSelected: SOLID_WHITE;
-historyFileThumbRadialFg: SOLID_WHITE;
+historyFileThumbRadialFg: ACCENT_COLOR;
 historyFileThumbRadialFgSelected: SOLID_WHITE;
 
 msgWaveformInActive: windowBgActive;               // Incoming Voice "heard" part
@@ -479,12 +483,15 @@ overviewCheckFg: BASE_COLOR;
 overviewCheckFgActive: BASE_COLOR;
 overviewPhotoSelectOverlay: ACCENT_FILL_COLOR;
 profileStatusFgOver: PLACEHOLDER_COLOR;
+
+// notifications
+notificationBg: DARK_COLOR;                     // Notification background
 notificationsBoxMonitorFg: TERTIARY_FG_COLOR;
-notificationsBoxScreenBg: dialogsBgActive;
-notificationSampleUserpicFg: windowBgActive;
-notificationSampleCloseFg: #d7d7d7;
-notificationSampleTextFg: #d7d7d7;
-notificationSampleNameFg: #939393;
+notificationsBoxScreenBg: imageBg;
+notificationSampleUserpicFg: SECONDARY_FG_COLOR;
+notificationSampleCloseFg: ACCENT_LABEL_COLOR;
+notificationSampleTextFg: SECONDARY_FG_COLOR;
+notificationSampleNameFg: FG_COLOR;
 
 mainMenuBg: windowBg;                           // Left menu background (lower part, not buttons)
 mainMenuCoverBg: dialogsBgActive;               // Left menu background (upper part)
@@ -499,10 +506,10 @@ mediaPlayerDisabledFg: mediaPlayerInactiveFg;
 mediaviewFileBg: BG_COLOR;
 mediaviewFileNameFg: TERTIARY_FG_COLOR;
 mediaviewFileSizeFg: mediaviewFileNameFg;
-mediaviewFileRedCornerFg: #d55959;
-mediaviewFileYellowCornerFg: #e8a659;
-mediaviewFileGreenCornerFg: #49a957;
-mediaviewFileBlueCornerFg: #599dcf;
+mediaviewFileRedCornerFg: RED;
+mediaviewFileYellowCornerFg: YELLOW;
+mediaviewFileGreenCornerFg: GREEN;
+mediaviewFileBlueCornerFg: BLUE;
 mediaviewFileExtFg: activeButtonFg;
 mediaviewMenuBg: BG_COLOR;
 mediaviewMenuBgOver: SOLID_SEMI_FILL_COLOR;
@@ -526,5 +533,3 @@ mediaviewPlaybackIconFg: mediaviewPlaybackActive;
 mediaviewPlaybackIconFgOver: mediaviewPlaybackActiveOver;
 mediaviewTransparentBg: SOLID_WHITE;
 mediaviewTransparentFg: PLACEHOLDER_COLOR;
-
-notificationBg: DARK_COLOR;                     // Notification background

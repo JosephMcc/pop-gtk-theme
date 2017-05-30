@@ -2297,7 +2297,7 @@ headerbar {
     min-width: rem(30px);
     border: rem(10px) solid transparent;
     color: $inverted_secondary_fg_color;
-    background-color: gtkopacity($inverted_secondary_fg_color, 0.1);
+    background-color: gtkopacity($inverted_secondary_fg_color, 0.2);
     outline-offset: rem(-4px);
     &:checked {
       background-color: gtkopacity($accent_color, 0.2);
@@ -2305,14 +2305,14 @@ headerbar {
     }
     &:disabled {
       color: $insensitive_inverted_fg_color;
-      background-color: $track_color;
+      background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
     }
 
     slider {
       min-width: rem(20px);
       min-height: rem(20px);
       margin: rem(-5px) 0 rem(-5px) rem(-5px);
-      background-color: $inverted_bg_color;
+      background-color: $inverted_light_color;
     }
     &:hover slider {
       background-image: linear-gradient(to bottom,
@@ -2322,15 +2322,11 @@ headerbar {
       margin: rem(-5px) rem(-5px) rem(-5px) 0;
       background-color: $accent_color;
       &:disabled {
-        background-color: mix($top_edge_borders_color,
-                              $inverted_fg_color,
-                              95.5%);
+        background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
       }
     }
     &:disabled slider {
-      background-color: mix($top_edge_borders_color,
-                            $inverted_fg_color,
-                            95.5%);
+      background-color: mix($inverted_dark_color, $inverted_fg_color, 95%);
     }
   }
 
@@ -2844,7 +2840,6 @@ treeview.view {
       @extend %column_header_button;
       background-color: $bg_color;
       color: $tertiary_fg_color;
-
       &:hover {
         @extend %column_header_button;
         background-color: gtkalpha(currentColor, 0.1);
@@ -2860,12 +2855,6 @@ treeview.view {
         color: $insensitive_fg_color;
       }
     }
-  }
-
-  button:last-child,
-  &:last-child button { // treeview-like derived widgets in Banshee
-                        // and Evolution
-    border-right-style: none;
   }
 
   &.separator {
@@ -2890,6 +2879,12 @@ treeview.view {
       font-weight: 400;
       transition: none;
     }
+  }
+
+  header button:last-child,
+  &:last-child button { // treeview-like derived widgets in Banshee
+                        // and Evolution
+    border-right-style: none;
   }
 
   // see tests/testaccel to test
@@ -3597,10 +3592,12 @@ scrollbar,
       slider {
         margin: 0;
         border: 0 none transparent;
-        // FIXME: Ephy at dark-variant needs fixed colour
-        background-color: gtkopacity($fixed_fg_color, 0.55 * 0.5);
+        // FIXME: for WebKitGtk2
+        background-color: gtkopacity(
+                          mix($fixed_fg_color, $fixed_base_color, 50%),
+                          0.55);
 
-        .background & { // actual colour
+        .background & { // standard colour
           background-color: gtkopacity($tertiary_fg_color, 0.55);
         }
       }
@@ -3658,27 +3655,26 @@ switch {
   background-color: $track_color;
   font-size: 0;
   outline-offset: rem(-4px, $sw: 1.0);
-
-  &:disabled { color: $insensitive_fg_color; }
   &:checked {
     background-color: gtkopacity($accent_color, 0.2);
     &:disabled { background-color: gtkopacity($accent_color, 0.2); }
   }
-  &:disabled {
-    color: $insensitive_fg_color;
-    background-color: $track_color;
-  }
+  &:disabled { background-color: mix($bg_color, $fg_color, 95%); }
 
   // slider styling
   // switch slider doesn't respond to its own states
   // but relies on the switch ones
   slider {
-    @include button(normal);
     min-width: rem(20px, $sw: 1.0);
     min-height: rem(20px, $sw: 1.0);
     padding: 0;
     border-radius: 100px;
     -gtk-outline-radius: 100px;
+    background-color: $light_color;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
+    transition-timing-function: $slope_slow;
+    transition-duration: 0.2s;
   }
 
   // trough-based indentation
@@ -3692,32 +3688,32 @@ switch {
   }
 
   &:hover slider {
-    @include button(hover);
-    background-image: linear-gradient(to bottom,
-                                      gtkalpha($selected_fg_color, 0.1));
-  }
-  &:checked slider { @include button(checked); }
-  &:checked:hover slider {
-    @include button(checked);
-    background-image: linear-gradient(to bottom,
-                                      gtkalpha($selected_fg_color, 0.2));
+    background-image: image(gtkopacity($fixed_base_color, 0.1));
     box-shadow: $z-depth-2,
                 inset 0 1px $highlight_color;
   }
-  &:checked:disabled slider {
-    // do not use any transparentize
-    background-color: if($variant == 'light',
-                      mix($bg_color, $fg_color, 95.3%),
-                      mix($solid_light_borders_color, $fg_color, 95.5%));
+
+  &:checked slider {
+    background-color: $selected_bg_color;
     background-image: none;
-    box-shadow: none;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
   }
-  &:disabled slider {
-    background-color: if($variant == 'light',
-                      mix($bg_color, $fg_color, 95.3%),
-                      mix($solid_light_borders_color, $fg_color, 95.5%));
-    background-image: none;
-    box-shadow: none;
+
+  &:checked:hover slider {
+    background-image: image(gtkopacity($fixed_base_color, 0.2));
+    box-shadow: $z-depth-2,
+                inset 0 1px $highlight_color;
+  }
+
+  &:disabled {
+    slider,
+    &:checked slider {
+      // do not use any transparentize
+      background-color: mix($bg_color, $fg_color, 95%);
+      background-image: none;
+      box-shadow: none;
+    }
   }
 
   row:selected > & { // return to monochrome
@@ -3728,12 +3724,16 @@ switch {
     }
 
     slider { background-color: $bg_color; }
+
     &:hover slider {
-      background-image: linear-gradient(to bottom,
-                                        gtkalpha($selected_fg_color, 0.2));
+      background-image: image(gtkalpha($selected_fg_color, 0.2));
     }
-    &:checked slider { background-color: $base_color; }
-    &:checked:disabled slider { background-color: $secondary_dark_color; }
+
+    &:checked {
+      slider { background-color: $base_color; }
+
+      &:disabled slider { background-color: $secondary_dark_color; }
+    }
   }
 
   // special case inside the grid and row container,
@@ -4714,12 +4714,22 @@ row.activatable {
     transition-timing-function: $slope_slow;
     transition-duration: 0.1s;
   }
-
   &:active {
-    transition: all 0.2s $slope_slow,
-                background-image 0,
-                background-color 0;
-    animation: list_ripple_effect 0.2s $slope_slow forwards;
+    transition: opacity 0.2s $slope_slow,
+                border-color 0.2s $slope_slow,
+                border-image 0.2s $slope_slow,
+                background-color 0s $slope_slow,
+                background-image 0s $slope_slow,
+                box-shadow 0.2s $slope_slow;
+    animation: list_ripple_effect 0.3s $slope_slow forwards;
+  }
+  &:selected {
+    transition: opacity 0.2s $slope_slow,
+                border-color 0.2s $slope_slow,
+                border-image 0.2s $slope_slow,
+                background-color 0.2s $slope_slow,
+                background-image 0.2s $slope_slow,
+                box-shadow 0.2s $slope_slow;
   }
 }
 

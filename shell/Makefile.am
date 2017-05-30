@@ -35,7 +35,8 @@ shell_asset_file = \
 	$(shelldir)/assets/media-control-active.svg \
 	$(shelldir)/assets/media-control-hover.svg \
 	$(shelldir)/assets/more-results.svg \
-	$(shelldir)/assets/show-apps-active.svg \
+	$(shelldir)/assets/show-apps-checked.svg \
+	$(shelldir)/assets/show-apps-hover.svg \
 	$(shelldir)/assets/show-apps.svg \
 	$(shelldir)/assets/window-close-active.svg \
 	$(shelldir)/assets/window-close-hover.svg \
@@ -130,7 +131,8 @@ shell_nokto_asset_file = \
 	$(shellnoktodir)/assets/media-control-active.svg \
 	$(shellnoktodir)/assets/media-control-hover.svg \
 	$(shellnoktodir)/assets/more-results.svg \
-	$(shellnoktodir)/assets/show-apps-active.svg \
+	$(shellnoktodir)/assets/show-apps-checked.svg \
+	$(shellnoktodir)/assets/show-apps-hover.svg \
 	$(shellnoktodir)/assets/show-apps.svg \
 	$(shellnoktodir)/assets/window-close-active.svg \
 	$(shellnoktodir)/assets/window-close-hover.svg \
@@ -165,7 +167,8 @@ shelleta_asset_file = \
 	$(shelletadir)/assets/media-control-active.svg \
 	$(shelletadir)/assets/media-control-hover.svg \
 	$(shelletadir)/assets/more-results.svg \
-	$(shelletadir)/assets/show-apps-active.svg \
+	$(shelletadir)/assets/show-apps-checked.svg \
+	$(shelletadir)/assets/show-apps-hover.svg \
 	$(shelletadir)/assets/show-apps.svg \
 	$(shelletadir)/assets/window-close-active.svg \
 	$(shelletadir)/assets/window-close-hover.svg \
@@ -200,7 +203,8 @@ shell_nokto_eta_asset_file = \
 	$(shellnoktoetadir)/assets/media-control-active.svg \
 	$(shellnoktoetadir)/assets/media-control-hover.svg \
 	$(shellnoktoetadir)/assets/more-results.svg \
-	$(shellnoktoetadir)/assets/show-apps-active.svg \
+	$(shellnoktoetadir)/assets/show-apps-checked.svg \
+	$(shellnoktoetadir)/assets/show-apps-hover.svg \
 	$(shellnoktoetadir)/assets/show-apps.svg \
 	$(shellnoktoetadir)/assets/window-close-active.svg \
 	$(shellnoktoetadir)/assets/window-close-hover.svg \
@@ -378,11 +382,14 @@ xfce_image_file = \
 xfce_rc_file = \
 	$(xfcedir)/gtkrc
 
+sassc_option = -M -t compact
+
 # ****************************
 # * Generate CSS stylesheets *
 # ****************************
 
 all:
+if ENABLE_GNOME
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell/assets/dot
 	$(MKDIR_P) $(srcdir)/gnome-shell/extensions/workspaces-to-dock/assets
@@ -394,22 +401,22 @@ all:
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets
 	$(MKDIR_P) $(srcdir)/gnome-shell-nokto-eta/assets/dot
 
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
-		gnome-shell/gnome-shell.scss ../gnome-shell/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
-		gnome-shell/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
-		gnome-shell/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
-		gnome-shell/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
-		gnome-shell/pad-osd.scss ../gnome-shell/pad-osd.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
-		gnome-shell/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
-		gnome-shell/classic.scss ../gnome-shell/extensions/window-list/classic.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
-		gnome-shell/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell.scss ../gnome-shell/gnome-shell.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-dark.scss ../gnome-shell-nokto/gnome-shell.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-eta.scss ../gnome-shell-eta/gnome-shell.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/gnome-shell-dark-eta.scss ../gnome-shell-nokto-eta/gnome-shell.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/pad-osd.scss ../gnome-shell/pad-osd.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/stylesheet.scss ../gnome-shell/extensions/window-list/stylesheet.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/classic.scss ../gnome-shell/extensions/window-list/classic.css
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
+		gnome-shell/$(GNOME_SCSS_VERSION)/workspaces-to-dock.scss ../gnome-shell/extensions/workspaces-to-dock/workspaces-to-dock.css
 
 	cd $(srcdir)/asset && ./clone-assets-gnome-shell.sh
 
@@ -421,14 +428,15 @@ all:
 		$(shelletadir)/gnome-shell-theme.gresource.xml
 	$(GLIB_COMPILE_RESOURCES) --sourcedir=$(shellnoktoetadir) \
 		$(shellnoktoetadir)/gnome-shell-theme.gresource.xml
+endif
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(srcdir)/cinnamon
 	$(MKDIR_P) $(srcdir)/cinnamon-nokto
 
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		cinnamon/cinnamon.scss ../cinnamon/cinnamon.css
-	cd $(srcdir)/sass && $(SASSC) -M -t compact \
+	cd $(srcdir)/sass && $(SASSC) $(sassc_option) \
 		cinnamon/cinnamon-dark.scss ../cinnamon-nokto/cinnamon.css
 
 	$(MKDIR_P) $(srcdir)/cinnamon/assets
@@ -461,6 +469,7 @@ endif
 # *****************
 
 install-data-local:
+if ENABLE_GNOME
 	$(MKDIR_P) $(popdir)/gnome-shell
 	$(MKDIR_P) $(popdir)/gnome-shell/assets
 	$(MKDIR_P) $(popdir)/gnome-shell/assets/dot
@@ -517,7 +526,6 @@ endif
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(popetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 
-if ENABLE_NOKTO
 	$(MKDIR_P) $(noktoetadir)/gnome-shell
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets
 	$(MKDIR_P) $(noktoetadir)/gnome-shell/assets/dot
@@ -535,6 +543,7 @@ if ENABLE_NOKTO
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
+endif
 endif
 
 if ENABLE_CINNAMON

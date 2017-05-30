@@ -110,9 +110,17 @@ $secondary_dark_color: if($variant == 'light',
 
 $inverted_bg_color:     mix($black, $dark_neutral_gray, 50%);     // = 700 _ 800
 $inverted_base_color:   $black;                                   // = BluGry700
-$inverted_dark_color:   $black;                                   // = 900 _ 800
 
 
+$inverted_light_color: mix($black, $white, 95%);              // = 900 _ 800
+
+$inverted_dark_color: mix($black, $literally_black, 90%);               // = 900 _ Blk
+
+//
+// Light background colors on dark variant
+//
+
+$fixed_base_color: #FFFFFF;   
 //
 // Selection (content) colors
 //

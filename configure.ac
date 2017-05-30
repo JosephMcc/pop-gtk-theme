@@ -25,6 +25,7 @@ AM_SILENT_RULES([yes])
 
 POP_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
 POP_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
+POP_OPTION([GNOME},     [gnome],     [Gnome-Shell]     [disable])
 POP_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 POP_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 POP_OPTION([UNITY],     [unity],     [Unity],          [disable])
@@ -61,6 +62,14 @@ fi
 AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
 if test x"$GLIB_COMPILE_RESOURCES" = x; then
 	AC_MSG_ERROR(['glib-compile-resources' not found.])
+fi
+
+if test x"$ENABLE_GNOME" = xyes; then
+	AC_PATH_PROG([GNOME_SHELL], [gnome-shell])
+	if test x"$GNOME_SHELL" = x; then
+		AC_MSG_ERROR(['gnome-shell' not found.])
+	fi
+	ADAPTA_GNOME
 fi
 
 POP_COLOR_SCHEME
@@ -111,9 +120,9 @@ AC_MSG_RESULT([
         | DE and WM Support
         -----------------------------------------------------------
 
-         GNOME:                  always (>= 3.18.3)
          Budgie-Desktop:         always (>= 10.2.7)
 
+         GNOME:                  $ENABLE_GNOME (SCSS ver. : $GNOME_SCSS_VERSION)
          Cinnamon:               $ENABLE_CINNAMON
          GNOME-Flashback:        $ENABLE_FLASHBACK
          Unity:                  $ENABLE_UNITY
