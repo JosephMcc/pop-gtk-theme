@@ -1,6 +1,6 @@
 m4_define([pop_major_version], [1])
-m4_define([pop_minor_version], [2])
-m4_define([pop_micro_version], [2])
+m4_define([pop_minor_version], [3])
+m4_define([pop_micro_version], [0])
 m4_define([pop_version], [pop_major_version.pop_minor_version.pop_micro_version])
 m4_define([pop_git_url], [https://github.com/pop-project/pop-gtk-theme])
 
@@ -25,7 +25,7 @@ AM_SILENT_RULES([yes])
 
 POP_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
 POP_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
-POP_OPTION([GNOME},     [gnome],     [Gnome-Shell]     [disable])
+POP_OPTION([GNOME],     [gnome],     [Gnome-Shell],    [disable])
 POP_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 POP_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 POP_OPTION([UNITY],     [unity],     [Unity],          [disable])
@@ -69,7 +69,7 @@ if test x"$ENABLE_GNOME" = xyes; then
 	if test x"$GNOME_SHELL" = x; then
 		AC_MSG_ERROR(['gnome-shell' not found.])
 	fi
-	ADAPTA_GNOME
+	POP_GNOME
 fi
 
 POP_COLOR_SCHEME
@@ -120,9 +120,9 @@ AC_MSG_RESULT([
         | DE and WM Support
         -----------------------------------------------------------
 
+         GNOME:                  always (>= 3.18.3)
          Budgie-Desktop:         always (>= 10.2.7)
 
-         GNOME:                  $ENABLE_GNOME (SCSS ver. : $GNOME_SCSS_VERSION)
          Cinnamon:               $ENABLE_CINNAMON
          GNOME-Flashback:        $ENABLE_FLASHBACK
          Unity:                  $ENABLE_UNITY
@@ -143,3 +143,4 @@ AC_MSG_RESULT([
         ===========================================================
                              =>> run 'make' and 'sudo make install'
 ])
+

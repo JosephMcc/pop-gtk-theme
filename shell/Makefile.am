@@ -544,7 +544,7 @@ endif
 	cp -Rv $(shell_extension_workspace_asset_file) \
 		$(noktoetadir)/gnome-shell/extensions/workspaces-to-dock/assets
 endif
-endif
+
 
 if ENABLE_CINNAMON
 	$(MKDIR_P) $(popdir)/cinnamon
