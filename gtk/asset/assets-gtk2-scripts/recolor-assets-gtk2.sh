@@ -43,8 +43,8 @@ if [ -e $KEY_FILE ]; then
     destruction2="`grep 'key_destruction' $KEY_FILE | \
                    cut -d' ' -f2 | cut -d';' -f1`"
     background2="#574f4a"
-    extra2="#39322f"
-    switch2="#313131"
+    extra2="#554d49"
+    switch2="#554d49"
     tray2="#625c59"
 
     cp -f $SRC_FILE.in $SRC_FILE && sleep 1

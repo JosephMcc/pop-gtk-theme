@@ -20,6 +20,9 @@ background1="#222D32"
 scroll1="#A5AAAD"
 foreground1="#CFD8DC"
 text1="#263238"
+tebg1="#29353B"
+panel1="#13191C"
+secdark1="#243035"
 
 # Check and re-color 'selection-color' and 'accent-color'
 if [ -e "../sass/common/_key_colors.scss" ]; then
@@ -27,8 +30,10 @@ if [ -e "../sass/common/_key_colors.scss" ]; then
                  cut -d' ' -f2 | cut -d';' -f1`"
     accent2="`grep 'key_accent' ../sass/common/_key_colors.scss | \
                  cut -d' ' -f2 | cut -d';' -f1`"
-    background2="#574f4a"
+    background2="#45413f"
     foreground2="#F6F6F6"
+    tebg2="#413e3c"
+    panel2="#2c2825"
 
     cp -f $SRC_FILE.in $SRC_FILE && cp -f $SRC_DARK_FILE.in $SRC_DARK_FILE
 
@@ -63,6 +68,22 @@ if [ -e "../sass/common/_key_colors.scss" ]; then
         echo $foreground1 is re-colored with $foreground2 in $SRC_FILE.
         sed -i "s/$foreground1/$foreground2/gi" $SRC_DARK_FILE
         echo $foreground1 is re-colored with $foreground2 in $SRC_DARK_FILE.
+    fi
+    if [ $tebg1 != $tebg2 ]; then
+        sed -i "s/$tebg1/$tebg2/gi" $SRC_FILE
+        echo $tebg1 is re-colored with $tebg2 in $SRC_FILE.
+        sed -i "s/$tebg1/$tebg2/gi" $SRC_DARK_FILE
+        echo $tebg1 is re-colored with $tebg2 in $SRC_DARK_FILE
+    fi
+    if [ $panel1 != $panel2 ]; then
+        sed -i "s/$panel1/$panel2/gi" $SRC_FILE
+        echo $panel1 is re-colored with $panel2 in $SRC_FILE.
+        sed -i "s/$panel1/$panel2/gi" $SRC_DARK_FILE
+        echo $panel1 is re-colored with $panel2 in $SRC_DARK_FILE.
+        sed -i "s/$secdark1/$panel2/gi" $SRC_FILE
+        echo $secdark1 is re-colored with $panel2 in $SRC_FILE.
+        sed -i "s/$secdark1/$panel2/gi" $SRC_DARK_FILE
+        echo $secdark1 is re-colored with $panel2 in $SRC_DARK_FILE.
     fi
 else
     echo _key_colors.scss was not found. Stopped...

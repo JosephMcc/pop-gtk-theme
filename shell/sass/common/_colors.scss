@@ -34,7 +34,7 @@ $yellow: #ffce51; // Pantone 1225c #f2c150
 $red:    #f15d22; // Pantone 1665c #df6426
 $green:  #73c48f; // Confirmation/success
 
-$black: $warm_gray;
+$black: $key_background_color;
 $light_orange: mix($orange, $white, 50%);
 
 //
@@ -78,6 +78,9 @@ $secondary_dark_color: if($nokto == 'false', darken($almost_white, 0.1), darken(
 $fill_color: shellopacity($fg_color, 0.15);
 $semi_fill_color: shellopacity($fg_color, 0.07);
 $hidden_fill_color: rgba(0, 0, 0, 0.01);
+$menuentry_hidden_fill_color: if($nokto == 'false',
+                                 rgba(255, 255, 255, 0.01),
+                                 rgba(0, 0, 0, 0.01));
 
 $panel_bg_color: mix($black, $literally_black, 50%);
 $panel_hidden_fill_color: shellopacity($panel_bg_color, 0.01);

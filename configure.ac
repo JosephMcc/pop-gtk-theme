@@ -1,6 +1,6 @@
 m4_define([pop_major_version], [1])
-m4_define([pop_minor_version], [2])
-m4_define([pop_micro_version], [2])
+m4_define([pop_minor_version], [3])
+m4_define([pop_micro_version], [0])
 m4_define([pop_version], [pop_major_version.pop_minor_version.pop_micro_version])
 m4_define([pop_git_url], [https://github.com/pop-project/pop-gtk-theme])
 
@@ -25,6 +25,7 @@ AM_SILENT_RULES([yes])
 
 POP_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
 POP_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
+POP_OPTION([GNOME],     [gnome],     [Gnome-Shell],    [disable])
 POP_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 POP_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
 POP_OPTION([UNITY],     [unity],     [Unity],          [disable])
@@ -63,6 +64,14 @@ if test x"$GLIB_COMPILE_RESOURCES" = x; then
 	AC_MSG_ERROR(['glib-compile-resources' not found.])
 fi
 
+if test x"$ENABLE_GNOME" = xyes; then
+	AC_PATH_PROG([GNOME_SHELL], [gnome-shell])
+	if test x"$GNOME_SHELL" = x; then
+		AC_MSG_ERROR(['gnome-shell' not found.])
+	fi
+	POP_GNOME
+fi
+
 POP_COLOR_SCHEME
 
 AC_CONFIG_FILES([
@@ -96,6 +105,7 @@ AC_MSG_RESULT([
          accent-color:           $ACCENT (default: $accent_default)
          suggestion-color:       $SUGGESTION (default: $suggestion_default)
          destruction-color:      $DESTRUCTION (default: $destruction_default)
+         background-color:       $BACKGROUND (Default: $background-default)
 
         -----------------------------------------------------------
         | Supported Gtk+ Version
@@ -133,3 +143,4 @@ AC_MSG_RESULT([
         ===========================================================
                              =>> run 'make' and 'sudo make install'
 ])
+
