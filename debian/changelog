@@ -1,3 +1,9 @@
+system76-pop-gtk-theme (1.3.0) zesty; urgency=medium
+
+  * Fix building from upstream Adapta.
+
+ -- Ian Santopietro <ian@system76.com>  Tue, 30 May 2017 14:50:20 -0600
+
 system76-pop-gtk-theme (1.2.2) zesty; urgency=medium
 
   * Fix color migration problems from rebase.

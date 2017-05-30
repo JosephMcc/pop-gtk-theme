@@ -15,4 +15,6 @@ override_dh_auto_configure:
 		--disable-chrome \
 		--disable-plank \
 		--disable-telegram \
-		--disable-nokto
+		--disable-nokto \
+		--enable-gnome \
+		--enable-gtk_legacy
