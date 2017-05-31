@@ -14,7 +14,8 @@ Build-Depends: debhelper (>= 9),
 	       libglib2.0-dev (>= 2.48.0),
 	       libgdk-pixbuf2.0-dev (>= 2.32.2),
 	       librsvg2-dev (>= 2.40.13),
-	       libxml2-utils
+	       libxml2-utils,
+	       gnome-shell
 Standards-Version: 3.9.8
 Homepage: https://github.com/system76/pop-gtk-theme
 
