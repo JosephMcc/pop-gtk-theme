@@ -3695,7 +3695,7 @@ switch {
   }
 
   &:checked slider {
-    background-color: $selected_bg_color;
+    background-color: $accent_color;
     background-image: none;
     box-shadow: $z-depth-1,
                 inset 0 1px $highlight_color;
