@@ -1998,7 +1998,7 @@ StScrollBar {
   @include fontscaling($ref_size * 0.9);
   padding: 1px 0;
   border: none;
-  color: $osd_fg_color;
+  color: red;
   background-color: $osd_slight_fill_color;
   box-shadow: $empty_shadow;
 
@@ -2020,7 +2020,7 @@ StScrollBar {
 .dash-item-container {
   background: transparent;
 
-  > StWidget { padding: 0; }
+  > StWidget { padding: 4; }
 }
 
 .dash-label { // osd tooltip
@@ -2311,9 +2311,9 @@ StScrollBar {
   &-bin {
     padding: 5px;
     border-radius: 4px;
-    border-top: 1px solid $menu_highlight;
-    background-color: if($nokto == 'false', $inverted_bg_color,
-                                            $bg_color);
+    border-top: 1px solid $borders_highlight;
+    background-color: if($nokto == 'false', shellopacity($inverted_bg_color, 0.5),
+                                            shellopacity($bg_color, 0.5));
     box-shadow: $z-depth-1;
   }
 }

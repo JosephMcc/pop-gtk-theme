@@ -2428,9 +2428,9 @@ StScrollBar {
   &-bin {
     padding: 5px;
     border-radius: 2px;
-    border-top: 1px solid $menu_highlight;
-    background-color: if($nokto == 'false', $inverted_bg_color,
-                                            $bg_color);
+    border-top: 1px solid $borders_highlight;
+    background-color: if($nokto == 'false', shellopacity($inverted_bg_color, 0.5),
+                                            shellopacity($bg_color, 0.5));
     box-shadow: $z-depth-1;
   }
 }
