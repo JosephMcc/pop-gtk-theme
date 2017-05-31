@@ -1923,7 +1923,7 @@ terminal-window {
 
   &.background:not(.csd),
   vte-terminal { // set the same background with decorations
-    background-color: $inverted_dark_color;
+    background-color: $dark_neutral_gray;
     color: $inverted_fg_color;
   }
 
