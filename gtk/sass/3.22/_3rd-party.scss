@@ -2257,6 +2257,11 @@ window.background:not(.csd):not(.solid-csd) {
                         url("assets/radio-checked#{$asset_suffix}@2.png"));
     }
   }
+
+  > widget {
+    > frame,
+    > separator { color: $borders_color; }
+  }
 }
 
 
