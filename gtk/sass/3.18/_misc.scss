@@ -855,7 +855,7 @@ ContactsWindow {
 
 TerminalScreen,
 TerminalWindow.background { // dark variant as default
-  background-color: $inverted_dark_color;
+  background-color: $dark_neutral_gray;
   color: $selected_fg_color;
 }
 

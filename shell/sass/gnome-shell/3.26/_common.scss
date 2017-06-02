@@ -14,9 +14,9 @@
                        box-shadow;
   transition-timing-function: $slope_medium;
   transition-duration: $duration_medium;
+  // quicker response for keyboard operations
+  &:focus { transition-duration: 0s; }
 }
-
-$panel-corner-radius: 0;
 
 $font-family: Noto Sans, Cantarell, Sans-Serif;
 $mono-font-family: Noto Mono, Monospace;
@@ -821,6 +821,10 @@ StScrollBar {
     // expand actual image area as possible as we can
     background-size: if($eta == 'false', 48px 48px, 36px 36px);
     background-position: center center;
+    -st-background-image-shadow: $z-depth-1;
+    transition-duration: 0s;
+
+    #panel.solid & { -st-background-image-shadow: none; }
   }
 
   &:hover,
@@ -829,6 +833,10 @@ StScrollBar {
   &:checked {
     StIcon.popup-menu-icon {
       background-image: url("assets/show-apps-hover.svg");
+      -st-background-image-shadow: $z-depth-2;
+      transition-duration: 0s;
+
+      #panel.solid & { -st-background-image-shadow: none; }
     }
   }
 }
@@ -1041,16 +1049,12 @@ StScrollBar {
   background-color: shellopacity($selected_bg_color, 0.2);
 
   &-left.on-primary {
-    border-radius: $panel-corner-radius $panel-corner-radius 0 0;
+    border-radius: 2px 2px 0 0;
 
-    &.tile-preview-right {
-      border-radius: $panel-corner-radius $panel-corner-radius 0 0;
-    }
+    &.tile-preview-right { border-radius: 2px 2px 0 0; }
   }
 
-  &-right.on-primary {
-    border-radius: 0 $panel-corner-radius 0 0;
-  }
+  &-right.on-primary { border-radius: 0 2px 0 0; }
 }
 
 
@@ -1065,14 +1069,13 @@ StScrollBar {
   transition-timing-function: $slope_slow;
   transition-duration: $duration_long;
 
-  // remain top-edge solid part
   &,
   &:overview,
   &.unlock-screen,
   &.login-screen,
   &.lock-screen {
     background-color: $panel_hidden_fill_color;
-    box-shadow: inset 0 2px $panel_bg_color;
+    box-shadow: $empty_shadow;
     transition-timing-function: $slope_slow;
     transition-duration: $duration_long;
 
@@ -1087,7 +1090,7 @@ StScrollBar {
   }
 
   .panel-corner {
-    -panel-corner-radius: $panel-corner-radius;
+    -panel-corner-radius: 0;
     -panel-corner-background-color: $panel_hidden_fill_color;
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
@@ -2118,6 +2121,7 @@ StScrollBar {
   color: $osd_fg_color;
   background-color: $osd_slight_fill_color;
   box-shadow: $empty_shadow;
+  transition-duration: $duration_long;
 
   &:ltr { border-radius: 0 2px 2px 0; }
   &:rtl { border-radius: 2px 0 0 2px; }
@@ -2161,6 +2165,7 @@ StScrollBar {
     padding: 0;
     border: none;
     box-shadow: $empty_shadow;
+    transition-duration: $duration_long;
   }
 
   @each $_dock, $_radius in (top, 0 0 2px 2px),
@@ -2252,14 +2257,14 @@ StScrollBar {
 // .app-display { spacing: 20px; }
 
 .app-view-controls { // favorties | all toggle container
-  width: 320 + 24px; // search entry width + search icon width(24) ?
+  width: 320px;
   padding-bottom: if($eta == 'false', 24px, 18px);
   background-color: $hidden_fill_color !important;
   box-shadow: inset 0 1px $osd_semi_fill_color;
 }
 
 .app-view-control { // favorties | all toggle button
-  padding: if($eta == 'false', 7px 32px 8px, 5px 26px 6px);
+  padding: if($eta == 'false', 7px 32px 8px, 5px 32px 6px);
   border-radius: 0;
   font-weight: 700;
   color: if($nokto == 'false', $osd_secondary_fg_color,
@@ -2317,6 +2322,9 @@ StScrollBar {
     @extend %icon_tile;
     color: $osd_secondary_fg_color;
     transition-duration: 0s;
+
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & { border-radius: 0; }
   }
 
   &:focus .overview-icon,
@@ -2327,19 +2335,51 @@ StScrollBar {
     background-image: none;
     color: $osd_fg_color;
     transition-duration: 0s;
+
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & {
+      border-radius: 0;
+      background-color: $hidden_fill_color;
+      box-shadow: inset 0 2px $osd_fill_color;
+    }
+
+    #dashtopanelScrollview & {
+      background-color: $osd_slight_fill_color;
+      box-shadow: $empty_shadow;
+    }
   }
+
   &:active .overview-icon {
     border-image: none;
     background-color: $osd_semi_fill_color;
     background-image: none;
     color: $osd_fg_color;
     transition-duration: $duration_medium;
+
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & {
+      border-radius: 0;
+      background-color: $hidden_fill_color;
+      box-shadow: inset 0 2px $osd_fill_color;
+    }
+
+    #dashtopanelScrollview & {
+      background-color: $osd_slight_fill_color;
+      box-shadow: $empty_shadow;
+    }
   }
+
   &:checked .overview-icon {
-    background-color: $osd_indicator_color;
+    border-radius: 0;
+    background-color: $hidden_fill_color;
     color: $osd_fg_color;
-    box-shadow: $empty_shadow;
-    transition-duration: 0s;
+    box-shadow: inset 0 -2px $osd_indicator_color;
+    transition-duration: $duration_long;
+
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & { box-shadow: inset 0 2px $osd_indicator_color; }
+
+    #dashtopanelScrollview & { box-shadow: $empty_shadow; }
   }
 }
 
@@ -2351,18 +2391,23 @@ StScrollBar {
       border-radius: 100px;
       transition-duration: 0s;
     }
+
     &:hover .overview-icon,
     &:focus .overview-icon { // more lighter fill than osd_semi_fill!
       background-color: $osd_slight_fill_color;
       transition-duration: 0s;
     }
+
     &:active .overview-icon {
       background-color: $osd_semi_fill_color;
       transition-duration: $duration_medium;
     }
-    &:checked .overview-icon {
-      background-color: $osd_indicator_color;
-      transition-duration: 0s;
+
+    &:checked .overview-icon,
+    &:checked:hover .overview-icon {
+      background-color: $hidden_fill_color;
+      box-shadow: $empty_shadow;
+      transition-duration: $duration_long;
     }
   }
 }
@@ -2385,16 +2430,25 @@ StScrollBar {
   StLabel { padding-top: 6px; }
 }
 
-.app-well-app.app-folder > .overview-icon { background: transparent; }
-
 .show-apps {
   .show-apps-icon {
     border: none;
     background-image: url("assets/show-apps.svg");
     background-size: contain;
     color: transparent;
-    transition-duration: 0s;
+    transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
+
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: $z-depth-1;
+    }
+
+    #panel.solid #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
+    }
   }
 
   &:hover .show-apps-icon,
@@ -2402,23 +2456,73 @@ StScrollBar {
   &:focus .show-apps-icon {
     color: transparent;
     background-image: url("assets/show-apps-hover.svg");
+    transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-1;
+
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: $z-depth-2;
+    }
+
+    #panel.solid #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
+    }
   }
   &:checked .show-apps-icon {
     color: transparent;
     background-image: url("assets/show-apps-checked.svg");
+    transition-duration: $duration_long;
     -st-background-image-shadow: $z-depth-2;
-  }
 
-  &:hover,
-  &:focus { transition-duration: 0s; }
-  &:active,
-  &:checked {
-    &, &:hover { transition-duration: $duration_medium; }
+    // FIXME: workaround for DashToPanelExtension
+    #panelLeft & {
+      background-image: url("assets/show-apps-hover.svg");
+      transition-duration: 0s;
+      -st-background-image-shadow: $z-depth-2;
+    }
+
+    #panel.solid #panelLeft & {
+      transition-duration: 0s;
+      -st-background-image-shadow: none;
+    }
   }
 }
 
 // Collections
+.app-well-app.app-folder {
+  > .overview-icon {
+    background-color: $osd_slight_fill_color;
+    box-shadow: $empty_shadow;
+  }
+  &:hover,
+  &:focus {
+    > .overview-icon {
+      background-color: $osd_semi_fill_color;
+      box-shadow: $empty_shadow;
+    }
+  }
+  &:active {
+    &, &:hover {
+      > .overview-icon {
+        border-radius: 0;
+        background-color: $osd_semi_fill_color;
+        box-shadow: inset 0 -2px $osd_indicator_color;
+      }
+    }
+  }
+  &:checked {
+    &, &:hover {
+      > .overview-icon {
+        border-radius: 0;
+        background-color: $hidden_fill_color;
+        box-shadow: inset 0 -2px $osd_indicator_color;
+      }
+    }
+  }
+}
+
 .app-folder-popup { // expanded collection
   -arrow-border-radius: 0;
   -arrow-background-color: transparent;
@@ -2479,6 +2583,26 @@ StScrollBar {
 .grid-search-result .overview-icon.overview-icon-with-label {
   padding: 10px 8px 5px 8px;
   spacing: 4px;
+}
+
+
+// /***************************
+//  * Dash To Panel Extension *
+//  ***************************/
+
+// main workarounds for .overview-icon class are embedded
+// into common section directly.
+#panelLeft {
+  StBin.overview-icon {
+    .show-apps-icon {
+      min-height: 24px;
+      padding: 0;
+      background-size: 36px 36px;
+      background-repeat: no-repeat;
+    }
+  }
+
+  StScrollView#dashtopanelScrollview { padding: 0; }
 }
 
 
