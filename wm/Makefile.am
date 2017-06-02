@@ -1,8 +1,8 @@
 themedir     = $(datadir)/themes
-popdir    = $(DESTDIR)$(themedir)/Pop
-noktodir     = $(DESTDIR)$(themedir)/Pop-Nokto
-popetadir = $(DESTDIR)$(themedir)/Pop-Eta
-noktoetadir  = $(DESTDIR)$(themedir)/Pop-Nokto-Eta
+popdir      = $(DESTDIR)$(themedir)/Pop
+noktodir    = $(DESTDIR)$(themedir)/Pop-Nokto
+popetadir   = $(DESTDIR)$(themedir)/Pop-Eta
+noktoetadir = $(DESTDIR)$(themedir)/Pop-Nokto-Eta
 
 metacitydir   = $(srcdir)/metacity-1
 metacity_file = \
@@ -116,6 +116,8 @@ openbox_rc_nokto_file = \
 openbox_compton_file = \
 	$(openboxdir)/compton.conf
 
+parallel_option = -0 --no-notice --line-buffer --jobs 100% --noswap
+
 # ***************************************************
 # * Generate PNG images and clone SVG and XBM files *
 # ***************************************************
@@ -156,7 +158,7 @@ if ENABLE_PARALLEL
 	cd $(srcdir)/asset/assets-xfwm-scripts && \
 		./recolor-assets-xfwm.sh
 	cd $(srcdir)/asset/assets-xfwm-scripts && \
-	$(PARALLEL) --no-notice --line-buffer -j0 bash ::: \
+	$(PARALLEL) $(parallel_option) bash ::: \
 		render-assets-xfwm-button.sh \
 		render-assets-xfwm-edge.sh \
 		render-assets-xfwm-title.sh
@@ -180,13 +182,9 @@ if ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
-if ENABLE_NOKTO
-	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
-endif
-	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
-if ENABLE_NOKTO
-	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
-endif
+	ln -sf ../pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../pop/metacity-1 $(popetadir)/metacity-1
+	ln -sf ../pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 
 if ENABLE_CINNAMON
@@ -194,13 +192,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
-if ENABLE_NOKTO
-	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
-endif
-	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
-if ENABLE_NOKTO
-	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
-endif
+	ln -sf ../pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../pop/metacity-1 $(popetadir)/metacity-1
+	ln -sf ../pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -209,13 +203,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
-if ENABLE_NOKTO
-	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
-endif
-	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
-if ENABLE_NOKTO
-	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
-endif
+	ln -sf ../pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../pop/metacity-1 $(popetadir)/metacity-1
+	ln -sf ../pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -224,13 +214,9 @@ if !ENABLE_FLASHBACK
 	$(MKDIR_P) $(popdir)/metacity-1
 	cp -Rv $(metacity_file) $(popdir)/metacity-1
 	cd $(popdir)
-if ENABLE_NOKTO
-	ln -sf ../Pop/metacity-1 $(noktodir)/metacity-1
-endif
-	ln -sf ../Pop/metacity-1 $(popetadir)/metacity-1
-if ENABLE_NOKTO
-	ln -sf ../Pop/metacity-1 $(noktoetadir)/metacity-1
-endif
+	ln -sf ../pop/metacity-1 $(noktodir)/metacity-1
+	ln -sf ../pop/metacity-1 $(popetadir)/metacity-1
+	ln -sf ../pop/metacity-1 $(noktoetadir)/metacity-1
 endif
 endif
 
@@ -238,23 +224,17 @@ if ENABLE_XFCE
 	$(MKDIR_P) $(popdir)/xfwm4
 	cp -Rv $(xfwm_file) $(popdir)/xfwm4
 	cd $(popdir)
-if ENABLE_NOKTO
-	ln -sf ../Pop/xfwm4 $(noktodir)/xfwm4
-endif
+	ln -sf ../pop/xfwm4 $(noktodir)/xfwm4
 endif
 
 if ENABLE_OPENBOX
 	$(MKDIR_P) $(popdir)/openbox-3
-if ENABLE_NOKTO
 	$(MKDIR_P) $(noktodir)/openbox-3
-endif
 	cp -Rv $(openbox_file) $(popdir)/openbox-3
 	cp -Rv $(openbox_rc_file) $(popdir)/openbox-3/themerc
 	cp -Rv $(openbox_compton_file) $(popdir)/openbox-3/
-if ENABLE_NOKTO
 	cp -Rv $(openbox_file) $(noktodir)/openbox-3
 	cp -Rv $(openbox_rc_nokto_file) $(noktodir)/openbox-3/themerc
-endif
 endif
 
 # *******************
@@ -262,26 +242,49 @@ endif
 # *******************
 
 uninstall-local:
+if ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(popdir)/metacity-1 && rm -rfv $(popdir)/metacity-1
 	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
 	test -e $(popetadir)/metacity-1 && rm -rfv $(popetadir)/metacity-1
+endif
+
+if ENABLE_CINNAMON
+if !ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(popdir)/metacity-1 && rm -rfv $(popdir)/metacity-1
 	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
 	test -e $(popetadir)/metacity-1 && rm -rfv $(popetadir)/metacity-1
+endif
+endif
+
+if ENABLE_UNITY
+if !ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(popdir)/metacity-1 && rm -rfv $(popdir)/metacity-1
 	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
 	test -e $(popetadir)/metacity-1 && rm -rfv $(popetadir)/metacity-1
+endif
+endif
+
+if ENABLE_MATE
+if !ENABLE_FLASHBACK
 	test -e $(noktodir)/metacity-1 && rm -rfv $(noktodir)/metacity-1
 	test -e $(popdir)/metacity-1 && rm -rfv $(popdir)/metacity-1
 	test -e $(noktoetadir)/metacity-1 && rm -rfv $(noktoetadir)/metacity-1
 	test -e $(popetadir)/metacity-1 && rm -rfv $(popetadir)/metacity-1
+endif
+endif
+
+if ENABLE_XFCE
 	test -e $(noktodir)/xfwm4 && rm -rfv $(noktodir)/xfwm4
 	test -e $(popdir)/xfwm4 && rm -rfv $(popdir)/xfwm4
+endif
+
+if ENABLE_OPENBOX
 	test -e $(noktodir)/openbox-3 && rm -rfv $(noktodir)/openbox-3
 	test -e $(popdir)/openbox-3 && rm -rfv $(popdir)/openbox-3
+endif
 
 # ****************************
 # * Clean up generated files *
