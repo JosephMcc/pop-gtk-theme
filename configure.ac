@@ -36,7 +36,6 @@ POP_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
 POP_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 POP_OPTION([PLANK],     [plank],     [Plank],          [disable])
 POP_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
-POP_OPTION([NOKTO],     [nokto],     [Nokto],          [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
 PKG_CHECK_MODULES(GLIB,       [glib-2.0 >= 2.48.0])
@@ -121,8 +120,7 @@ AC_MSG_RESULT([
         -----------------------------------------------------------
 
          Budgie-Desktop:         always (>= 10.2.7)
-
-         GNOME:                  $ENABLE_GNOME (SCSS ver. : $GNOME_SCSS_VERSION)
+         GNOME:                  $ENABLE_GNOME (SCSS ver. $GNOME_SCSS_VERSION)
          Cinnamon:               $ENABLE_CINNAMON
          GNOME-Flashback:        $ENABLE_FLASHBACK
          Unity:                  $ENABLE_UNITY
@@ -138,7 +136,6 @@ AC_MSG_RESULT([
          Chrome(ium):            $ENABLE_CHROME
          Plank:                  $ENABLE_PLANK
          Telegram:               $ENABLE_TELEGRAM
-         Nokto Theme:            $ENABLE_NOKTO
 
         ===========================================================
                              =>> run 'make' and 'sudo make install'

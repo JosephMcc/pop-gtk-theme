@@ -40,4 +40,4 @@ Makefile
 Makefile.in
 missing
 inkscape.log
-Makecache
+makelog.txt
