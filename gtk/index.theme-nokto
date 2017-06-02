@@ -6,9 +6,9 @@ Encoding=UTF-8
 
 [X-GNOME-Metatheme]
 Type=X-GNOME-Metatheme
-GtkTheme=Pop-Nokto
+GtkTheme=Pop-Dark
 MetacityTheme=Pop
-IconTheme=Adwaita
-CursorTheme=Adwaita
+IconTheme=Pop
+CursorTheme=Pop
 CursorSize=24
 ButtonLayout=:close
