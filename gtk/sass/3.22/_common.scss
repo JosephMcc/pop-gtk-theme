@@ -90,13 +90,13 @@ $titlebutton_small: if($ref_weight < 1.0, 20px, 28px);
 
 .gtkstyle-fallback {
   background-color: $bg_color;
-  color: $fg_color;
+  color: $secondary_fg_color;
   &:hover {
-    background-color: darken($bg_color, 5%);
+    background-color: mix($fg_color, $bg_color, 10%);
     color: $fg_color;
   }
   &:active {
-    background-color: darken($bg_color, 10%);
+    background-color: mix($fg_color, $bg_color, 20%);
     color: $fg_color;
   }
   &:disabled {
@@ -2495,7 +2495,8 @@ headerbar {
 
   // misc
   .tiled &,
-  .maximized & {
+  .maximized &,
+  .fullscreen & {
     border-top-color: $inverted_dark_color;
     border-radius: 0;
   }
@@ -2617,7 +2618,7 @@ headerbar.selection-mode { // selection-mode specific
   }
 }
 
-.background:not(.maximized):not(.tiled):not(.solid-csd) {
+.background:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
   headerbar,
   .titlebar { // set rounded corners
     border-top-left-radius: 4px;
@@ -2644,7 +2645,7 @@ headerbar.selection-mode { // selection-mode specific
 }
 
 // force using rounded corners in case of paned titlebars
-window:not(.maximized):not(.tiled):not(.solid-csd) {
+window:not(.maximized):not(.fullscreen):not(.tiled):not(.solid-csd) {
   paned.titlebar,
   grid.titlebar {
     border-top-left-radius: 4px;
@@ -2712,7 +2713,8 @@ headerbar.titlebar.default-decoration {
   }
 
   &.tiled,
-  &.maximized {
+  &.maximized,
+  &.fullscreen {
     box headerbar,
     headerbar {
       &, &:not(:last-child) {
@@ -2741,35 +2743,65 @@ dialog.background.csd > headerbar.titlebar {
 .linked.path-bar,
 .path-bar {
   button {
-    &, &.text-button {
-      padding: 0 rem(1.3px) 0;
+    &.text-button:not(.image-button) {
+      padding: 0 rem(2.7px, $sw: 1.0) 0;
       -gtk-outline-radius: 2px;
-    }
-    &.image-button { padding: 0 rem(5.3px) 0; }
 
-    &.text-button.image-button {
-      -gtk-outline-radius: 2px;
       label {
-        padding-left: 0;
-        padding-right: 0;
+        margin-left: rem(5.3px);
+        margin-right: rem(5.3px);
+        padding: 0 0 rem(1.3px);
+      }
+    }
+
+    &.image-button {
+      padding: 0 rem(2.7px, $sw: 1.0) 0;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+
+      image {
+        margin: 0 rem(5.3px) 0;
+        padding: 0;
       }
     }
 
     &.text-button.image-button {
-      label { // FIXME: is it still needed?
-        &:last-child { padding-right: rem(5.3px); }
-        &:first-child { padding-left: rem(5.3px); }
+      &, &.toggle {
+        padding: 0 rem(2.7px, $sw: 1.0) 0;
+        -gtk-outline-radius: 2px;
+
+        label {
+          padding: 0 0 rem(1.3px);
+          &:dir(ltr) {
+            margin-left: 0;
+            margin-right: rem(5.3px);
+          }
+          &:dir(rtl) {
+            margin-left: rem(5.3px);
+            margin-right: 0;
+          }
+        }
+
+        image {
+          &:dir(ltr) {
+            margin-left: rem(1.3px);
+            margin-right: rem(5.3px);
+          }
+          &:dir(ltr) {
+            margin-left: rem(5.3px);
+            margin-right: rem(1.3px);
+          }
+        }
       }
     }
 
-    image { padding: rem(1.3px) rem(5.3px) 0; }
-
-    &.slider-button, // workaround for Nautilus 3.2x
-    &.image-button.text-button.toggle {
+    &.slider-button {
       min-height: $icon_size;
-      padding: 0 rem(1.3px) 0;
-      border-radius: 4px;
+      padding: 0 rem(2.7px, $sw: 1.0) 0;
+      border-radius: 2px;
       -gtk-outline-radius: 2px;
+
+      image { margin: 0 rem(5.3px) 0; }
     }
   }
 }
@@ -4580,7 +4612,7 @@ levelbar {
 
   trough {
     padding: 2px;
-    border-radius: 100px;
+    border-radius: 2px;
     box-shadow: $z-depth-1;
     &:disabled { box-shadow: none; }
     &.horizontal { padding: 2px 1px; }
@@ -5798,7 +5830,7 @@ button.flat.scale { // standalone Speaker/Mic buttons
 //  *********************/
 
 decoration {
-  border-radius: 4px 4px 4px 4px; // Fix here if windows are weird
+  border-radius: 4px 4px 0 0; // Fix here if windows are weird
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0;
   box-shadow: $z-depth-4;

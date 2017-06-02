@@ -25,6 +25,7 @@ AM_SILENT_RULES([yes])
 
 POP_OPTION([PARALLEL],  [parallel],  [parallel-build], [disable])
 POP_OPTION([GTK_NEXT],  [gtk_next],  [Gtk-4.0],        [disable])
+POP_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 POP_OPTION([GNOME],     [gnome],     [Gnome-Shell],    [disable])
 POP_OPTION([CINNAMON],  [cinnamon],  [Cinnamon],       [disable])
 POP_OPTION([FLASHBACK], [flashback], [Flashback],      [disable])
@@ -35,7 +36,6 @@ POP_OPTION([OPENBOX],   [openbox],   [Openbox],        [disable])
 POP_OPTION([CHROME],    [chrome],    [Chrome(ium)],    [disable])
 POP_OPTION([PLANK],     [plank],     [Plank],          [disable])
 POP_OPTION([TELEGRAM],  [telegram],  [Telegram],       [disable])
-POP_OPTION([GTK_LEGACY],[gtk_legacy],[Gtk-3.18],       [disable])
 POP_OPTION([NOKTO],     [nokto],     [Nokto],          [disable])
 
 PKG_CHECK_MODULES(GDK_PIXBUF, [gdk-pixbuf-2.0 >= 2.32.2])
@@ -120,9 +120,9 @@ AC_MSG_RESULT([
         | DE and WM Support
         -----------------------------------------------------------
 
-         GNOME:                  always (>= 3.18.3)
          Budgie-Desktop:         always (>= 10.2.7)
 
+         GNOME:                  $ENABLE_GNOME (SCSS ver. : $GNOME_SCSS_VERSION)
          Cinnamon:               $ENABLE_CINNAMON
          GNOME-Flashback:        $ENABLE_FLASHBACK
          Unity:                  $ENABLE_UNITY
@@ -143,4 +143,3 @@ AC_MSG_RESULT([
         ===========================================================
                              =>> run 'make' and 'sudo make install'
 ])
-
