@@ -1,8 +1,10 @@
 **Reporter info**
 
+```
  * Distribution - (run ```lsb_release -a```)
  * Gtk+ 3.0 version - (run ```apt policy libgtk-3-0```)
  * Desktop environment - 
+ ```
 
 **Pop version (if you knew)**
 
