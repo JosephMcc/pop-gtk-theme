@@ -2,7 +2,7 @@ themedir    = $(datadir)/themes
 popdir      = $(DESTDIR)$(themedir)/Pop
 noktodir    = $(DESTDIR)$(themedir)/Pop-Dark
 popetadir   = $(DESTDIR)$(themedir)/Pop-Eta
-noktoetadir = $(DESTDIR)$(themedir)/Pop-Dark-Eta
+noktoetadir = $(DESTDIR)$(themedir)/Pop-Eta-Dark
 
 chromedir         = $(srcdir)/chrome
 chrome_file       = $(chromedir)/pop-theme.crx
