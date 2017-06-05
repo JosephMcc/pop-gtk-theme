@@ -2146,6 +2146,17 @@ window.background:not(.csd):not(.solid-csd) {
     > frame,
     > separator { color: $borders_color; }
   }
+    > button > button:not(.flat) {
+    // enforce fallback buttons inside the HTML pages
+    @extend %button_fallback_normal;
+    &:hover { @extend %button_fallback_hover; }
+    &:active,
+    &:checked { @extend %button_fallback_active; }
+    &:disabled { @extend %button_fallback_insensitive; }
+    &:checked:disabled {
+      @extend %button_fallback_checked_insensitive;
+    }
+  }
 }
 
 
