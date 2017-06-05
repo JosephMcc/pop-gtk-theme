@@ -1,8 +1,8 @@
 themedir    = $(datadir)/themes
 popdir      = $(DESTDIR)$(themedir)/Pop
 noktodir    = $(DESTDIR)$(themedir)/Pop-Dark
-popetadir   = $(DESTDIR)$(themedir)/Pop-Eta
-noktoetadir = $(DESTDIR)$(themedir)/Pop-Eta-Dark
+popetadir   = $(DESTDIR)$(themedir)/Pop-Slim
+noktoetadir = $(DESTDIR)$(themedir)/Pop-Slim-Dark
 
 metacitydir   = $(srcdir)/metacity-1
 metacity_file = \
