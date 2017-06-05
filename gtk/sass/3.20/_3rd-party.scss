@@ -1342,14 +1342,14 @@ UnityPanelWidget,
 .lightdm-gtk-greeter {
   // top-panel styling
   #panel_window {
-    background-image: image($panel_bg_color);
-    color: $inverted_fg_color;
+    background-image: image(mix($black, $literally_black, 25%));
+    color: mix($black, $literally_black, 25%);
     box-shadow: none;
     font-weight: 700;
     text-shadow: none;
 
     &, &.background,
-    > * > * { background-color: transparent; } // FIXME: ugly wildcard
+    > * > * { background-color: mix($black, $literally_black, 25%); } // FIXME: ugly wildcard
 
     menubar {
       @extend .gnome-panel-menu-bar;

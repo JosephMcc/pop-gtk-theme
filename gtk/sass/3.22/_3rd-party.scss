@@ -1342,14 +1342,15 @@ UnityPanelWidget,
 .lightdm-gtk-greeter {
   // top-panel styling
   #panel_window {
-    background-image: image($panel_bg_color);
+    $background-image: image(mix($black, $literally_black, 25%));
+    background-color: mix($black, $literally_black, 25%);
     color: $inverted_fg_color;
     box-shadow: none;
     font-weight: 700;
     text-shadow: none;
 
     &, &.background,
-    > * > * { background-color: transparent; } // FIXME: ugly wildcard
+    > * > * { background-color: mix($black, $literally_black, 25%); } // FIXME: ugly wildcard
 
     menubar {
       @extend .gnome-panel-menu-bar;
@@ -1374,7 +1375,7 @@ UnityPanelWidget,
       > menuitem {
         padding: rem(5.3px, $sw: 1.0) 0 rem(6.7px, $sw: 1.0);
         background-color: transparent;
-        &:hover { box-shadow: inset 0 2px $selected_bg_color; }
+        &:hover { box-shadow: inset 0 2px $accent_color; }
       }
 
       menu {
@@ -1400,7 +1401,7 @@ UnityPanelWidget,
   #restart_dialog {
     @extend messagedialog;
     border: 1px solid $borders_color;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: none;
 
     button {
@@ -1431,7 +1432,7 @@ UnityPanelWidget,
           border-image: -gtk-gradient(radial,
                                       center bottom, 0,
                                       center bottom, 0.5,
-                                      to($selected_bg_color),
+                                      to($accent_color),
                                       to(transparent))
                                       0 0 2 / 0 0 2px;
           color: $selected_fg_color;
@@ -1452,7 +1453,6 @@ UnityPanelWidget,
     entry { // prevent junmping when showing CapsLock warning
       min-height: rem($widget_size);
       padding: 0 if($ref_weight < 1.0, 4px / 2, 8px / 2);
-      font-family: monospace;
     }
 
     infobar.error { // notification revealer
