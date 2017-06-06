@@ -2304,7 +2304,7 @@ window > popover > stack > grid > button {
     font-weight: 500;
     &:selected {
       background-color: transparent;
-      color: $selected_bg_color;
+      color: $accent_color;
     }
   }
 }
