@@ -1201,6 +1201,8 @@ $fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
 
 paned.titlebar.horizontal {
   headerbar {
+    border-top-right-radius: 4px; //Needed to correct square corner headerbar
+
     button.flat.toggle.popup:not(.image-button) { // left-pane header button
       min-height: $icon_size * 1.5;
       padding-top: if($ref_weight < 1.0,
