@@ -1074,7 +1074,7 @@ StScrollBar {
   }
 
   .panel-corner {
-    -panel-corner-radius: 0;
+    -panel-corner-radius: 4px;
     -panel-corner-background-color: $panel_bg_color;
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
@@ -1084,21 +1084,21 @@ StScrollBar {
 
     &:hover {
       background-color: $panel_hidden_fill_color;
-      box-shadow: inset 0 2px $osd_fill_color;
+      box-shadow: inset 0 2px transparent;
     }
     &:active,
     &:overview,
     &:focus {
       -panel-corner-border-color: transparent;
-      background-color: $panel_hidden_fill_color;
-      box-shadow: inset 0 2px $osd_indicator_color;
+      background-color: transparent;
+      box-shadow: inset 0 2px transparent;
     }
 
     &.lock-screen,
     &.login-screen,
     &.unlock-screen {
-      -panel-corner-radius: 0;
-      -panel-corner-background-color: transparent;
+      -panel-corner-radius: 4px;
+      -panel-corner-background-color: $panel_bg_color;
       -panel-corner-border-color: transparent;
     }
 
