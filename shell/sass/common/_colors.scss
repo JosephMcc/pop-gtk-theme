@@ -106,11 +106,11 @@ $selected_bg_label_color:           if($variant == 'light',
                                            mix($selected_bg_color, $fg_color, 80%),
                                            mix($selected_bg_color, $fg_color, 60%));
 $insensitive_selected_bg_label_color: shellopacity($selected_bg_label_color, 0.4);
-$secondary_selected_bg_color:       gtkopacity($selected_bg_color, 0.9);
-$secondary_selected_bg_label_color: gtkopacity($secondary_selected_bg_color, 0.9);
+$secondary_selected_bg_color:       shellopacity($selected_bg_color, 0.9);
+$secondary_selected_bg_label_color: shellopacity($secondary_selected_bg_color, 0.9);
 
 $inverted_selected_bg_label_color:     mix($selected_bg_color, $inverted_fg_color, 60%);
-$inverted_secondary_selected_bg_label_color:   gtkopacity($inverted_selected_bg_label_color, 0.9);
+$inverted_secondary_selected_bg_label_color:   shellopacity($white, 0.9);
 
 $selected_bg_fill_color: shellopacity($selected_bg_color, 0.1);
 $selected_bg_active_fill_color: shellopacity($selected_bg_color, 0.25);
