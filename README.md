@@ -174,10 +174,13 @@ sudo apt install system76-pop-gtk-theme
 5. To disable some DE supports, pass these specific options to `autogen.sh`:
 
  ```
+ --disable-gnome         disable gnome-shell support (type: bool)
+ --disable-cinnamon      disable cinnamon support (type: bool)
  --disable-flashback     disable flashback support (type: bool)
  --disable-unity         disable unity support (type: bool)
  --disable-xfce          disable xfce support (type: bool)
  --disable-mate          disable mate support (type: bool)
+ --disable-openbox       disable openbox support (type: bool)
  ```
 
  > **Note:**
@@ -188,6 +191,7 @@ sudo apt install system76-pop-gtk-theme
 6. To enable next Gtk+ release support, pass this option:
 
  ```
+ --enable-gtk_legacy    enable Gtk+ 3.18 support (type: bool)
  --enable-gtk_next      enable Gtk+ 4.0 support (type: bool)
  ```
 
@@ -215,14 +219,6 @@ sudo apt install system76-pop-gtk-theme
  >     and `make clean` cleans up all generated files from source directories.
  >   * This feature unfortunately is not supported in `Openbox-3` and `Telegram 1.0` theming.
 
-
-8. Enable Nokto Theme
-
-By default, the Nokto theme is not installed into the system. If you would like to add it, pass this option:
-```
---enable-nokto
-```
-
 Extra Browser Support
 ---------------------
  To try experimental browser specific theming, pass this option:
@@ -236,6 +232,7 @@ Extra Browser Support
  > **Note:**
  >
  >   * Currently only Chrome(ium) theming is supported.
+ >   * Chrome(ium) 59.0.30xx or newer, theming is pulled from Gtk+ 3.x directly.
  >
  >   * Vivaldi can make custom themes via settings like these:
  >     ```
@@ -293,7 +290,8 @@ Work in Progress
 
 TODO
 ----
-* Move Gtk+ 3.18.x theming to legacy (priority: Mid)
+* Prepare for Meson build system (priority: high)
+* Prepare for FlatPak packaging (priority: mid)
 * Prepare for Steam theming (priority: Low)
 * Add Firefox specific theming (priority: undecided)
 

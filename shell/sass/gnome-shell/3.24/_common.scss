@@ -323,12 +323,13 @@ StScrollBar {
     height: 48px;
     border-radius: 4px;
     background-size: contain;
+    color: $osd_fg_color;
   }
 
   &-shutdown-icon {
     width: 48px;
     height: 48px;
-    color: $almost_white;
+    color: $osd_fg_color;
   }
 
   &-inhibitor-layout {
@@ -809,11 +810,10 @@ StScrollBar {
   }
 
   StIcon.popup-menu-icon {
-    min-width: if($eta == 'false', 48px - 12px, 36px - 12px);
-    padding: 0;
-    background-image: url("assets/show-apps.svg");
-    // expand actual image area as possible as we can
-    background-size: if($eta == 'false', 48px 48px, 36px 36px);
+    min-width: if($eta == 'false', 26px, 20px);
+    padding: if($eta == 'false', 0 5px, 0 2px);
+    background-image: url("assets/show-apps-panel.svg");
+    background-size: 32px 32px;
     background-position: center center;
     transition-duration: 0s;
   }
@@ -823,7 +823,7 @@ StScrollBar {
   &:active,
   &:checked {
     StIcon.popup-menu-icon {
-      background-image: url("assets/show-apps-hover.svg");
+      background-image: url("assets/show-apps-panel-hover.svg");
       transition-duration: 0s;
     }
   }
@@ -1051,8 +1051,12 @@ StScrollBar {
 //  ***********/
 
 #panel {
-  height: if($eta == 'false', 30px,  // = 2.25em
-                              25px); // = 1.875em
+  // default height
+  min-height: if($eta == 'false', 30px,  // = 2.25em
+                                  25px); // = 1.875em
+  // special height for upscaled via font-scaling-factor
+  // this should be always smaller than min-height if f-s-f < 1.0
+  height: if($eta == 'false', 2.1em, 1.8em);
   background-color: $panel_bg_color;
   font-weight: 700;
   transition-timing-function: $slope_slow;
@@ -1517,7 +1521,8 @@ StScrollBar {
   }
 
   &-icon-bin {
-    padding: 0;
+    padding: 0; // FIXME: needs to override the stock gresource
+                // (Since upstream still uses padding properties)
 
     // subtruct .message-content's 'close' button padding
     &:ltr { margin: 4px - 2px 0 0 6px; }
@@ -1569,6 +1574,7 @@ StScrollBar {
       color: $secondary_selected_bg_label_color;
     }
 
+    // FIXME: how do you do this in sass?
     *:hover > StIcon,
     *:focus > StIcon {
       color: $selected_bg_label_color;
@@ -1662,6 +1668,11 @@ StScrollBar {
 
   StLabel { padding: if($eta == 'false', 0 4px 1px, 0 2px 1px); }
 
+  StIcon { // override StLabel base-line shifter
+    padding-top: 1px;
+    padding-bottom: 0;
+  }
+
   .label-shadow { color: transparent; }
 }
 
@@ -1696,6 +1707,7 @@ StScrollBar {
 //  * OpenWeather Extension *
 //  *************************/
 
+// FIXME: Why devs use 'system-menu-action' class? wrong place...
 .openweather-button,
 .openweather-menu-button-container,
 .openweather-button-box,
@@ -2057,7 +2069,7 @@ StScrollBar {
   @include fontscaling($ref_size * 0.9);
   padding: 1px 0;
   border: none;
-  color: red;
+  color: $osd_fg_color;
   background-color: $osd_slight_fill_color;
   box-shadow: $empty_shadow;
   transition-duration: $duration_long;
@@ -2380,6 +2392,9 @@ StScrollBar {
 
     // FIXME: workaround for DashToPanelExtension
     #panelLeft & {
+      background-image: url("assets/show-apps-panel.svg");
+      background-size: 32px 32px;
+      background-position: center center;
       transition-duration: 0s;
       -st-background-image-shadow: none;
     }
@@ -2395,6 +2410,9 @@ StScrollBar {
 
     // FIXME: workaround for DashToPanelExtension
     #panelLeft & {
+      background-image: url("assets/show-apps-panel-hover.svg");
+      background-size: 32px 32px;
+      background-position: center center;
       transition-duration: 0s;
       -st-background-image-shadow: none;
     }
@@ -2407,7 +2425,9 @@ StScrollBar {
 
     // FIXME: workaround for DashToPanelExtension
     #panelLeft & {
-      background-image: url("assets/show-apps-hover.svg");
+      background-image: url("assets/show-apps-panel-hover.svg");
+      background-size: 32px 32px;
+      background-position: center center;
       transition-duration: 0s;
       -st-background-image-shadow: none;
     }
@@ -2456,9 +2476,9 @@ StScrollBar {
   &-bin {
     padding: 5px;
     border-radius: 4px;
-    border-top: 1px solid $borders_highlight;
-    background-color: if($nokto == 'false', shellopacity($inverted_bg_color, 0.5),
-                                            shellopacity($bg_color, 0.5));
+    border-top: 1px solid $menu_highlight;
+    background-color: if($nokto == 'false', $inverted_bg_color,
+                                            $bg_color);
     box-shadow: $z-depth-1;
   }
 }
@@ -2521,7 +2541,7 @@ StScrollBar {
     .show-apps-icon {
       min-height: 24px;
       padding: 0;
-      background-size: 36px 36px;
+      background-size: 32px 32px;
       background-repeat: no-repeat;
     }
   }
