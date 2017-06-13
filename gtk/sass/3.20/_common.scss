@@ -161,7 +161,10 @@ textview {
 }
 
 textview {
-  &, &.view { // remove images and transitions
+  &,
+  &.view,
+  text,
+  text selection { // remove images and transitions
     background-image: none;
     transition: none;
   }
@@ -4616,6 +4619,7 @@ levelbar {
     border-radius: 100px;
     box-shadow: $z-depth-1;
     &:disabled { box-shadow: none; }
+
     &.horizontal { padding: 2px 1px; }
     &.vertical { padding: 1px 2px; }
   }
@@ -4627,16 +4631,16 @@ levelbar {
     border-radius: 0;
     border: none;
     box-shadow: none;
+
+    &.low { background-color: $warning_color; }
+
+    &:not(.empty),
+    &.high { background-color: $selected_bg_color; }
+
+    &.full { background-color: $success_color; }
+
+    &.empty { background-color: $track_color; }
   }
-
-  block.low { background-color: $warning_color; }
-
-  block:not(.empty),
-  block.high { background-color: $selected_bg_color; }
-
-  block.full { background-color: $success_color; }
-
-  block.empty { background-color: $track_color; }
 }
 
 
