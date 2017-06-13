@@ -3,8 +3,8 @@ ACLOCAL_AMFLAGS = -I m4
 themedir    = $(datadir)/themes
 popdir      = $(DESTDIR)$(themedir)/Pop
 noktodir    = $(DESTDIR)$(themedir)/Pop-Dark
-popetadir   = $(DESTDIR)$(themedir)/Pop-Eta
-noktoetadir = $(DESTDIR)$(themedir)/Pop-Dark-Eta
+popetadir   = $(DESTDIR)$(themedir)/Pop-Slim
+noktoetadir = $(DESTDIR)$(themedir)/Pop-Slim-Dark
 
 SUBDIRS = \
 	gtk \

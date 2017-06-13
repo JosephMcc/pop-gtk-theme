@@ -1386,6 +1386,8 @@ $fake-shadow-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.20),
 
 paned.titlebar.horizontal {
   headerbar {
+    border-top-right-radius: 4px; //Needed to correct square corner headerbar.
+
     button.flat.toggle.popup:not(.image-button) { // left-pane header button
       min-height: $icon_size * 1.5;
       padding-top: if($ref_weight < 1.0,
@@ -1394,7 +1396,7 @@ paned.titlebar.horizontal {
       padding-bottom: if($ref_weight < 1.0,
                       rem(($widget_size - $icon_size * 1.5 - 2px) / 2),
                       rem(($widget_size - $icon_size * 1.5) / 2));
-      border-radius: 2px;
+      border-radius: 4px;
       -gtk-outline-radius: 2px;
 
       box > .title {
@@ -2304,7 +2306,7 @@ window > popover > stack > grid > button {
     font-weight: 500;
     &:selected {
       background-color: transparent;
-      color: $selected_bg_color;
+      color: $accent_color;
     }
   }
 }

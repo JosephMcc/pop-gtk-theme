@@ -1,8 +1,8 @@
 themedir    = $(datadir)/themes
 popdir      = $(DESTDIR)$(themedir)/Pop
 noktodir    = $(DESTDIR)$(themedir)/Pop-Dark
-popetadir   = $(DESTDIR)$(themedir)/Pop-Eta
-noktoetadir = $(DESTDIR)$(themedir)/Pop-Dark-Eta
+popetadir   = $(DESTDIR)$(themedir)/Pop-Slim
+noktoetadir = $(DESTDIR)$(themedir)/Pop-Slim-Dark
 
 shelldir   = $(srcdir)/gnome-shell
 shell_file = \
