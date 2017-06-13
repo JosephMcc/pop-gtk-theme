@@ -16,4 +16,4 @@ override_dh_auto_configure:
 		--disable-plank \
 		--disable-telegram \
 		--enable-gnome \
-		--enable-gtk_legacy
+		--disable-gtk_legacy
