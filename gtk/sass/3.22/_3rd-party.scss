@@ -2205,13 +2205,41 @@ window > box.vertical > box.horizontal {
 //  * Eclipse/SWT (neon) *
 //  **********************/
 
-window.background > box.vertical {
+window.background:not(.csd) > box.vertical {
   > menubar { // force setting foreground colour
     color: $inverted_secondary_fg_color;
   }
 
-  > scrolledwindow widget > toolbar { // remove inline-shadows
-    box-shadow: none;
+  > scrolledwindow widget > toolbar {
+    box-shadow: none; // remove inline-shadows
+
+    button { // hard-coded crazy zero-padding
+      min-height: if($ref_weight < 1.0, $icon_size * 1.5, $icon_size * 1.75);
+      min-width: if($ref_weight < 1.0, $icon_size * 1.5, $icon_size * 1.75);
+      margin: 2px 0;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
+
+    separator { margin: 2px 0; }
+  }
+
+  > scrolledwindow > widget > widget {
+    border-width: 0 0 1px;
+    border-style: none none solid;
+    border-color: transparent transparent $solid_light_borders_color;
+  }
+
+  scrolledwindow widget > widget > entry {
+    // internal padding is still alive in Gtk+3!?
+    // any ideas how they develop their UIs...
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  widget > frame > widget > widget > scrolledwindow > textview {
+    // override hard-coded crazy rgb(0,0,0)
+    text { background-image: image($base_color); }
   }
 }
 
@@ -2316,6 +2344,61 @@ PanelSeparator {
   border-width: 0;
   background: none;
   background-image: none;
+  color: gtkopacity($inverted_secondary_fg_color, 0.1 * 0.55);
+}
+
+MatePanelAppletFrameDBus {
+  border-style: solid;
+  border-color: gtkopacity($inverted_secondary_fg_color, 0.1 * 0.55);
+
+  &:dir(ltr) { border-width: 0 0 0 2px; }
+  &:dir(rtl) { border-width: 0 2px 0 0; }
+}
+
+// 'hide' arrow buttons
+PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
+  @extend %button_flat_normal;
+  min-height: 4px;
+  min-width: 4px;
+  padding: 0;
+  border-radius: 0;
+  border-style: solid;
+  border-color: gtkopacity($inverted_secondary_fg_color, 0.1 * 0.55);
+  -gtk-outline-radius: 0;
+  background-color: transparent;
+  color: $inverted_secondary_fg_color;
+  &:hover {
+    @extend %button_flat_hover;
+    background-color: transparent;
+    color: $inverted_fg_color;
+  }
+  &:active {
+    @extend %button_flat_active;
+    background-color: transparent;
+    color: $inverted_fg_color;
+  }
+  &:disabled {
+    @extend %button_flat_disabled;
+    color: $insensitive_inverted_fg_color;
+  }
+  &:checked {
+    @extend %button_flat_checked;
+    background-color: transparent;
+    color: $inverted_fg_color;
+  }
+
+  > image {
+    padding: 0 rem(4px, $sw: 1.0);
+  }
+
+  &:first-child {
+    &:dir(ltr) { border-width: 0 1px 0 0; }
+    &:dir(rtl) { border-width: 0 0 0 1px; }
+  }
+  &:not(:first-child) {
+    &:dir(ltr) { border-width: 0 0 0 1px; }
+    &:dir(rtl) { border-width: 0 1px 0 0; }
+  }
 }
 
 .mate-panel-menu-bar menubar,
@@ -2392,6 +2475,22 @@ PanelSeparator {
       // set vertical padding with icon's padding
       > box.horizontal > image { padding: rem(5.3px) 0; }
     }
+  }
+}
+
+.mate-panel-applet-slider {
+  background-color: transparent;
+
+  frame { // draw actual widget
+    border-width: 1px;
+    border-style: solid;
+    border-color: $menu_highlight_color transparent transparent;
+    border-radius: 2px;
+    background-color: $secondary_base_color;
+
+    // unset borders
+    *,
+    > border { border: unset; }
   }
 }
 
@@ -2551,23 +2650,31 @@ PanelSeparator {
         &:dir(rtl) { margin-right: -2px; }
       }
 
+      &.toggle,
+      &.image-button,
+      &.text-button,
+      &.slider-button { // enforce square buttons
+        border-radius: 2px;
+        -gtk-outline-radius: 2px;
+      }
+
       &, &.slider-button { // use linked-array button styling
-        @include button(flat-normal);
+        @extend %button_flat_normal;
         @extend %button_array;
         &:hover {
-          @include button(flat-hover);
+          @extend %button_flat_hover;
           @extend %button_array:hover;
         }
         &:active {
-          @include button(flat-active);
+          @extend %button_flat_active;
           @extend %button_array:active;
         }
         &:disabled {
-          @include button(flat-insensitive);
+          @extend %button_flat_disabled;
           @extend %button_array:disabled;
         }
         &:checked {
-          @include button(flat-checked);
+          @extend %button_flat_checked;
           @extend %button_array:checked;
         }
       }
@@ -3199,9 +3306,12 @@ window#wb_main_window {
 //  * Chrome(ium) *
 //  ***************/
 
-window.background:not(.csd):not(.solid-csd) {
-  > toolbar:not(.primary-toolbar) > entry, // ver.59.0.3053 or lower
-  > entry { // ver.59.0.3067 or higher
+window.background.chromium {
+  // checked-tab & toolbar & button widgets
+  background-color: if($variant == 'light', $bg_color, $base_color);
+  color: if($variant == 'light', $secondary_fg_color, $fg_color);
+
+  entry.chromium {
     &, &:focus { // overrides standard borders
       border-image: none;
       border: 1px solid $borders_color;
@@ -3209,7 +3319,22 @@ window.background:not(.csd):not(.solid-csd) {
   }
 
   // internal region of toolbar's entry widget
-  > textview.view { background-color: $light_color; }
+  > textview.view {
+    background-color: $light_color;
+
+    text {
+      color: if($variant == 'light', $secondary_fg_color, $fg_color);
+      caret-color: if($variant == 'light', $secondary_fg_color, $fg_color);
+      &:focus {
+        color: $fg_color;
+        caret-color: $fg_color;
+      }
+      &:selected,
+      selection {
+        &, &:focus { @extend %selected_items; }
+      }
+    }
+  }
 
   // ver.59.0.3067 or higher
   // override default @theme_bg_color in their own tooltip widgets
