@@ -85,7 +85,7 @@ sudo apt install pop-theme
 ```
 It's recomended to use the `system76-pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
 ```
-sudo apt install system76-pop-gtk-theme
+sudo apt install pop-gtk-theme
 ```
 
 
