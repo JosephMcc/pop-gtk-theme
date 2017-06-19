@@ -83,7 +83,7 @@ sudo add-apt-repository ppa:system76/pop
 sudo apt update
 sudo apt install pop-theme
 ```
-It's recomended to use the `system76-pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
+It's recomended to use the `pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
 ```
 sudo apt install pop-gtk-theme
 ```
