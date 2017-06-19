@@ -79,9 +79,9 @@ Pop supports Gtk+ 3.22.x, 3.20.x and 3.18.x
 
 Pop is intended to be installed through the package manager. Packages for Ubuntu are available in PPA:
 ```
-sudo add-apt-repository ppa:system76-dev/stable
+sudo add-apt-repository ppa:system76/pop
 sudo apt update
-sudo apt install system76-pop-theme
+sudo apt install pop-theme
 ```
 It's recomended to use the `system76-pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
 ```
