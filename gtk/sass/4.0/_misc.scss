@@ -134,7 +134,15 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   }
 }
 
-.tweak-group {
+box.vertical > stack.main-container { // unset hard-coded margin
+  margin: -20px;
+
+  > scrolledwindow { margin: 0; }
+}
+
+list.tweak-group {
+  padding: 20px; // revive gaps for child rows
+
   // for shell-extensions group
   row.activatable:not(.tweak) {
     &:hover,
@@ -147,8 +155,8 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
 }
 
 row.tweak { // basic row node container in right-pane
-  &:dir(ltr) { padding-left: rem(13.3px, $sw: 1.0); }
-  &:dir(rtl) { padding-right: rem(13.3px, $sw: 1.0); }
+  &:dir(ltr) { margin-left: rem(13.3px, $sw: 1.0); }
+  &:dir(rtl) { margin-right: rem(13.3px, $sw: 1.0); }
 
   &, &.title {
     min-height: rem($widget_size);
@@ -164,13 +172,47 @@ row.tweak { // basic row node container in right-pane
     color: $tertiary_fg_color;
     font-weight: 700;
     // unset indentation
-    &:dir(ltr) { padding-left: 0; }
-    &:dir(rtl) { padding-right: 0; }
+    &:dir(ltr) { margin-left: 0; }
+    &:dir(rtl) { margin-right: 0; }
+  }
+
+  // child sub list elements
+  &:not(.title) > list { // raised material
+    border-radius: 2px;
+    background-color: $base_color;
+    box-shadow: $z-depth-1,
+                inset 0 1px $highlight_color;
+
+    > row.activatable {
+      color: $secondary_fg_color;
+      &:hover { // revive ripple effects
+        background-image: radial-gradient(circle farthest-corner at center,
+                                          gtkalpha(currentColor, 0) 100%,
+                                          transparent 0%),
+                          image(gtkalpha(currentColor, 0.05));
+        color: $fg_color;
+      }
+      &:active {
+        animation: list_ripple_effect 0.3s $slope_slow forwards;
+        color: $fg_color;
+      }
+
+      > box.horizontal {
+        > label,
+        > box.vertical > label:first-child { font-weight: 500; }
+
+        > image { color: $selected_bg_color; }
+      }
+
+      // draw horizontal lines
+      &:not(:last-child) { border-bottom: 1px solid $borders_color; }
+    }
   }
 }
 
 // container and tweaks in a group
-.tweak-group-startup {
+list.tweak-group-startup {
+  padding: 20px; // revive gaps for child rows
   background-color: $bg_color;
 
   row {
@@ -218,8 +260,11 @@ row.tweak { // basic row node container in right-pane
   }
 }
 
-.tweak-titlebar-right { // FIXME: weird allocations with standard switches,
-  switch {              // use pixmap based switches instead
+// FIXME: weird allocations with standard switches,
+// use pixmap based switches instead. Python...
+.tweak-titlebar-right,
+dialog.csd > headerbar.titlebar {
+  > switch {
     min-width: rem(50px);
     min-height: rem(28px);
 
@@ -2207,12 +2252,14 @@ window > grid.vertical > stack > stack > grid.vertical {
 
 window headerbar > box.horizontal:not(.linked) {
   // 'new-list' text-button
-  > button.toggle.popup:not(.text-button):not(.image-button) {
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-    font-weight: 700;
+  > button.toggle.popup {
+    &:not(.text-button):not(.image-button):not(.icon):not(.appmenu) {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+      font-weight: 700;
 
-    > label { padding: 0 rem(8px); }
+      > label { padding: 0 rem(8px); }
+    }
   }
 
   > button:not(.image-button):not(.text-button) {
@@ -2434,7 +2481,7 @@ window.background > box.vertical {
 
       > .item {
         min-height: $icon_size;
-        margin: rem(-10.7px) 0;
+        margin: rem(-5.3px) 0;
         padding: rem(4px) rem(6px) rem(5.3px);
         border: 0 none transparent;
         color: $inverted_secondary_fg_color;
@@ -2635,12 +2682,13 @@ window.background > box.vertical > stack > widget > box.horizontal {
   }
 }
 
-viewport.frame > box.vertical > revealer > box.horizontal {
+viewport.frame > box.vertical box.horizontal {
   > button.round-button { // categories expander button
     // hard-coded crazy 16px roundness
     min-height: 32px;
     min-width: 32px;
     padding: 0;
+    -gtk-outline-radius: 16px;
   }
 }
 
