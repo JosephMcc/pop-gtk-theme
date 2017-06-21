@@ -25,11 +25,11 @@ PLACEHOLDER_COLOR: #78909C;                     // Placeholder foreground color
 ACCENT_LABEL_COLOR: #8DCDC8;                    // Action-area foreground color
 2ND_ACCENT_LABEL_COLOR: #8DCDC8E5;              // Secondary action-area foreground color (90%)
 
-BG_COLOR: #263238;                              // Main background color
-BASE_COLOR: #29353B;                            // Entry/Notebook background color
-SECONDARY_BASE_COLOR: #28343A;                  // Popover/Menu background color
-SECONDARY_DARK_COLOR: #243035;                  // Sidebar background color
-DARK_COLOR: #222D32;                            // WindowFrame background color
+BG_COLOR: #574f4a;                              // Main background color
+BASE_COLOR: #574f4a;                            // Entry/Notebook background color
+SECONDARY_BASE_COLOR: #999;                  // Popover/Menu background color
+SECONDARY_DARK_COLOR: #333;                  // Sidebar background color
+DARK_COLOR: #000;                            // WindowFrame background color
 
 SEMI_FILL_COLOR: #CFD8DC1A;                     // Hovered button background color (10%)
 FILL_COLOR: #CFD8DC33;                          // Active button/ripple background color (20%)
@@ -100,7 +100,7 @@ imageBgTransparent: SOLID_WHITE;
 
 activeButtonBg: SUGGESTED_COLOR;                // Currently selected button background
 activeButtonBgOver: SUGGESTED_HOVER_COLOR;      // Mouse over currently selected button background
-activeButtonBgRipple: SUGGESTED_ACTIVE_COLOR;   // Primary button background color (and active chat) - Press & hold 
+activeButtonBgRipple: SUGGESTED_ACTIVE_COLOR;   // Primary button background color (and active chat) - Press & hold
 activeButtonFg: 2ND_SELECTED_FG_COLOR;          // Currently selected button text
 activeButtonFgOver: SELECTED_FG_COLOR;          // Mouse over currently selected button text
 activeButtonSecondaryFg: SECONDARY_FG_COLOR;    // Counter color on primary button
@@ -164,7 +164,7 @@ titleBg: DARK_COLOR;                            // Title bar
 titleShadow: 10_BLACK;
 titleButtonFg: SECONDARY_FG_COLOR;              // Title bar buttons(min/max/close)
 titleButtonBgOver: SEMI_FILL_COLOR;             // Title bar min/max background (hover)
-titleButtonFgOver: FG_COLOR;                    // Title bar min/max icons 
+titleButtonFgOver: FG_COLOR;                    // Title bar min/max icons
 titleButtonBgActive: titleButtonBg;
 titleButtonFgActive: titleButtonFg;
 titleButtonBgActiveOver: titleButtonBgOver;
@@ -184,7 +184,7 @@ titleFg: INSENSITIVE_FG_COLOR;                  // Inactive title bar text (Mac)
 trayCounterBg: ERROR_COLOR;                     // Unread messages counter background in tray (not muted, default red)
 trayCounterBgMute: SECONDARY_DARK_COLOR;        // Unread messages counter background in tray (muted, default gray)
 trayCounterFg: SECONDARY_FG_COLOR;              // Unread messages counter text (number)
-trayCounterBgMacInvert: SOLID_WHITE;            
+trayCounterBgMacInvert: SOLID_WHITE;
 trayCounterFgMacInvert: SOLID_WHITE;
 
 // layers
@@ -218,7 +218,7 @@ contactsStatusFgOnline: windowActiveTextFg;
 
 photoCropFadeBg: layerBg;                       // "Out-of-bounds" area in photo cropping (avatars etc...)
 photoCropPointFg: ACCENT_COLOR;                 // Photo crop "corners" (which you drag to crop photo)
- 
+
 // intro
 introBg: windowBg;
 introTitleFg: windowBoldFg;
@@ -380,7 +380,7 @@ msgInMonoFgSelected: BG_COLOR;                  // inbox message monospace text 
 msgOutMonoFg: ACCENT_COLOR;                     // Fixedwidth font / outgoing msg
 msgOutMonoFgSelected: BG_COLOR;                 // outbox message monospace text in a selected text or message
 
-msgDateImgFg: msgServiceFg;						
+msgDateImgFg: msgServiceFg;
 msgDateImgBg: OSD_BG_COLOR;                     // Download / play / etc overlay backgrounds
 msgDateImgBgOver: OSD_BG_COLOR;                 // Mouse over download / play / etc overlay backgrounds
 msgDateImgBgSelected: SELECTED_BG_COLOR;
