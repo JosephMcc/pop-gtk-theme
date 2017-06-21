@@ -266,7 +266,7 @@ buttonbox {
     &:not(.linked) button {
       @extend %button_flat_normal;
       background-color: transparent;
-      color: $inverted_secondary_selected_bg_label_color;
+      color: $secondary_fg_color;
       font-weight: 700;
       &:hover {
         @extend %button_flat_hover;

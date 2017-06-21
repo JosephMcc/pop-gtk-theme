@@ -1,3 +1,20 @@
+// /************
+//  * Ubiquity *
+//  ************/
+
+#live_installer > #wizard {
+
+    #page_mode #title_section label#page_title { //Page Title text
+        color: $almost_white;
+    }
+
+    #progress_eventbox #progress_mode { //Progress dots at the bottom
+        progressbar *{
+            border-radius: 100px;
+        }
+    }
+}
+
 // /******************
 //  * Budgie-Desktop *
 //  ******************/
@@ -2291,19 +2308,30 @@ window.background:not(.csd):not(.solid-csd) {
   > widget {
     > frame,
     > separator { color: $borders_color; }
-  }
-  > button > button:not(.flat) {
-    // enforce fallback buttons inside the HTML pages
-    @extend %button_fallback_normal;
-    &:hover { @extend %button_fallback_hover; }
-    &:active,
-    &:checked { @extend %button_fallback_active; }
-    &:disabled { @extend %button_fallback_insensitive; }
-    &:checked:disabled {
-      @extend %button_fallback_checked_insensitive;
+
+    > button > button:not(.flat) {
+      // enforce fallback buttons inside the HTML pages
+      @extend %button_fallback_normal;
+      &:hover { @extend %button_fallback_hover; }
+      &:active,
+      &:checked { @extend %button_fallback_active; }
+      &:disabled { @extend %button_fallback_insensitive; }
+      &:checked:disabled {
+        @extend %button_fallback_checked_insensitive;
+      }
+    }
+
+    > entry, // 53.x
+    > entry > entry { // 52.x or lower
+      // enforce fallback entries inside the HTML pages
+      @extend %entry_fallback_normal;
+      border-radius: 2px;
+      &:focus { @extend %entry_fallback_focus; }
+      &:disabled { @extend %entry_fallback_insensitive; }
     }
   }
 }
+
 
 
 // /*************
