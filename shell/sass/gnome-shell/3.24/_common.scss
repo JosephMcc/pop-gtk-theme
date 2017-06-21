@@ -1355,7 +1355,7 @@ StScrollBar {
 
   &-with-events {
     background-image: none;
-    color: $link_color;
+    color: $selected_bg_color;
     font-weight: 700;
     text-decoration: underline;
     &:hover { background-color: shellopacity($link_color, 0.2); }
@@ -1403,9 +1403,9 @@ StScrollBar {
   &:focus { background-color: shellopacity($semi_fill_color, 0.5); }
 
   &.calendar-day-with-events {
-    color: shellopacity($link_color, 0.5);
+    color: shellopacity($selected_bg_color, 0.5);
     &:hover,
-    &:focus { background-color: shellopacity($link_color, 0.1); }
+    &:focus { background-color: shellopacity($selected_bg_color, 0.1); }
   }
 }
 
