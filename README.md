@@ -83,13 +83,13 @@ sudo add-apt-repository ppa:system76/pop
 sudo apt update
 sudo apt install pop-theme
 ```
-It's recomended to use the `pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
+It's recommended to use the `pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
 ```
 sudo apt install pop-gtk-theme
 ```
 You'll also need to install the [User Themes extension](https://extensions.gnome.org/extension/19/user-themes/) if your not using a System76 machine. 
 
-It's also recomended to restart your computer after appling all of the Shell themes.
+It's also recommended to restart your computer after applying all of the Shell themes.
 
 
 
