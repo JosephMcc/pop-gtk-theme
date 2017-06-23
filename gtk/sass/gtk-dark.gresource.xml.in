@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/pop-project/gtk-@VERSION@">
-    <file preprocess='to-pixdata'>assets/bar-blue.svg</file>
-    <file preprocess='to-pixdata'>assets/bar-green.svg</file>
-    <file preprocess='to-pixdata'>assets/bar-red.svg</file>
-    <file preprocess='to-pixdata'>assets/bar-yellow.svg</file>
-    <file preprocess='to-pixdata'>assets/panel-grid.svg</file>
+    <file>assets/bar-blue.svg</file>
+    <file>assets/bar-green.svg</file>
+    <file>assets/bar-red.svg</file>
+    <file>assets/bar-yellow.svg</file>
     <file preprocess='to-pixdata'>assets/calendar-day-selected@2.png</file>
     <file preprocess='to-pixdata'>assets/calendar-day-selected.png</file>
     <file preprocess='to-pixdata'>assets/checkbox-active-selectionmode-dark@2.png</file>
@@ -110,12 +109,18 @@
     <file preprocess='to-pixdata'>assets/running-dot-bottom.png</file>
     <file preprocess='to-pixdata'>assets/running-dot-top@2.png</file>
     <file preprocess='to-pixdata'>assets/running-dot-top.png</file>
-    <file preprocess='to-pixdata'>assets/show-apps-checked-shadow.svg</file>
-    <file preprocess='to-pixdata'>assets/show-apps-checked.svg</file>
-    <file preprocess='to-pixdata'>assets/show-apps-hover-shadow.svg</file>
-    <file preprocess='to-pixdata'>assets/show-apps-hover.svg</file>
-    <file preprocess='to-pixdata'>assets/show-apps-shadow.svg</file>
-    <file preprocess='to-pixdata'>assets/show-apps.svg</file>
+    <file preprocess='to-pixdata'>assets/show-apps@2.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-checked-shadow@2.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-checked-shadow.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-checked@2.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-checked.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-hover-shadow@2.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-hover-shadow.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-hover@2.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-hover.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-shadow@2.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps-shadow.png</file>
+    <file preprocess='to-pixdata'>assets/show-apps.png</file>
     <file preprocess='to-pixdata'>assets/slider-active-dark@2.png</file>
     <file preprocess='to-pixdata'>assets/slider-active-dark.png</file>
     <file preprocess='to-pixdata'>assets/slider-dark@2.png</file>
