@@ -70,6 +70,7 @@ stage {
 
 %entry {
   @include entry(normal);
+  min-height: 1.2em;
   padding: 7px 8px 8px;
   caret-size: 1px;
   border-radius: 0;
@@ -92,6 +93,7 @@ stage {
 
 %osd_entry {
   @include entry(normal);
+  min-height: 1.2em;
   padding: 7px 8px 8px;
   border-radius: 0;
   border-width: 0;
@@ -427,7 +429,7 @@ $icon_size: 16px;
   @include fontscaling($ref_size * 1.0);
   height: 28px;
   width: 32px; // setting under 32px causes blurred window-list icons
-  color: $osd_secondary_fg_color;
+  color: $osd_fg_color;
   background-color: $panel_bg_color;
   font-weight: 700;
 
@@ -506,14 +508,14 @@ $icon_size: 16px;
     -minimum-hpadding: 3px;
     border-width: 0;
     font-weight: 700;
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     &:hover { color: $selected_fg_color; }
   }
 
   &-button {
     -natural-hpadding: 6px;
     -minimum-hpadding: 3px;
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     font-weight: 700;
     transition-duration: 0.2s;
     &:hover,
@@ -728,8 +730,8 @@ $icon_size: 16px;
 
   &-change-month-back,
   &-change-month-forward {
-    width: 16px;
-    height: 16px;
+    width: $icon_size;
+    height: $icon_size;
     padding: 2px;
     border-radius: 100px;
     &:focus,
@@ -1224,10 +1226,11 @@ $icon_size: 16px;
 .menu {
   &-favorites-box {
     padding: 7px;
-    border-radius: 2px;
-    border: 1px solid $borders_color;
-    background-color: $base_color;
-    box-shadow: $z-depth-2;
+    border-radius: 0;
+    border: 0 solid $borders_color;
+    background-color: transparent;
+    &:ltr { border-right-width: 1px; }
+    &:rtl { border-left-width: 1px; }
 
     // reset minimum-limits used in generic popup-menus
     .popup-menu-item { min-width: 0; }
@@ -1248,13 +1251,18 @@ $icon_size: 16px;
     &-button { padding: 7px; }
   }
 
-  &-categories-box { padding: 7px 20px 7px 20px; }
+  &-categories-box {
+    padding: 7px 7px 0 7px;
+    border: 0 solid $borders_color;
+    &:ltr { border-right-width: 1px; }
+    &:rtl { border-left-width: 1px; }
+  }
 
   &-applications-inner-box,
   &-applications-outer-box { padding: 7px 7px 0 7px; }
 
   &-application-button {
-    padding: 7px;
+    padding: 0 7px;
     border: 1px solid transparent;
     color: $secondary_fg_color;
 
@@ -1264,45 +1272,41 @@ $icon_size: 16px;
 
     &-selected {
       @extend %button:hover;
-      padding: 7px;
+      padding: 0 7px;
       border: 1px solid transparent;
       color: $fg_color;
       &:highlighted { font-weight: 700; }
     }
 
-    &-label:ltr { padding-left: 5px; }
-    &-label:rtl { padding-right: 5px; }
+    &-label { // embed vertical padding directly
+      &:ltr { padding: 6px 0 7px 5px; }
+      &:rtl { padding: 6px 5px 7px 0; }
+    }
   }
 
   &-category-button {
-    padding: 7px;
+    padding: 0 7px;
     border: 1px solid transparent;
     color: $secondary_fg_color;
 
+    &-hover,
     &-selected {
-      padding: 7px;
+      padding: 0 7px;
+      border-radius: 2px;
       border: 1px solid transparent;
-      background-color: transparent;
+      background-color: shellopacity($selected_bg_color, 0.1);
       color: $selected_bg_color;
     }
 
-    &-hover {
-      @extend %button:hover;
-      padding: 7px;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      color: $fg_color;
-    }
-
     &-greyed {
-      padding: 7px;
+      padding: 0 7px;
       border: 1px solid transparent;
       color: $insensitive_fg_color;
     }
 
-    &-label {
-      &:ltr { padding-left: 5px; }
-      &:rtl { padding-right: 5px; }
+    &-label { // embed vertical padding directly
+      &:ltr { padding: 6px 0 7px 5px; }
+      &:rtl { padding: 6px 5px 7px 0; }
     }
   }
 
@@ -1326,13 +1330,12 @@ $icon_size: 16px;
 #menu-search-entry {
   @extend %entry;
   width: 24em;
-  height: 1.2em;
   caret-color: $fg_color;
   font-weight: 500;
 }
 
 .menu-search-entry-icon {
-  icon-size: 16px;
+  icon-size: $icon_size;
   color: $fg_color;
 }
 
@@ -1409,7 +1412,7 @@ $icon_size: 16px;
     border: none;
     background-image: none;
     background-color: $hidden_fill_color;
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     font-weight: 700;
 
     .panel-top &,
@@ -1421,7 +1424,7 @@ $icon_size: 16px;
     }
 
     &:hover {
-      color: $osd_fg_color;
+      color: $selected_fg_color;
 
       @each $position, $_indicator in (top, 0 2px),
                                       (bottom, 0 -2px),
@@ -1436,7 +1439,7 @@ $icon_size: 16px;
     &:checked,
     &:focus {
       &, &:hover {
-        color: $osd_fg_color;
+        color: $selected_fg_color;
 
         @each $position, $_indicator in (top, 0 2px),
                                         (bottom, 0 -2px),
@@ -1482,7 +1485,7 @@ $icon_size: 16px;
     padding-top: 2px;
     padding-bottom: 2px;
 
-    StIcon { icon-size: 16px; }
+    StIcon { icon-size: $icon_size; }
 
     StLabel {
       padding-left: 5px;
@@ -1502,7 +1505,7 @@ $icon_size: 16px;
 
   StLabel { padding-top: 2px; }
 
-  StIcon { icon-size: 16px; }
+  StIcon { icon-size: $icon_size; }
 }
 
 .sound-seek-slider { width: 140px; }
@@ -1528,7 +1531,7 @@ $icon_size: 16px;
     spacing: 0.5em;
 
     StButton:small {
-      width: 16px;
+      width: $icon_size;
       height: 8px;
       padding: 1px;
 
@@ -1560,7 +1563,7 @@ $icon_size: 16px;
       &:hover{ @include button(osd-hover); }
       &:active { @include button(osd-active); }
 
-      StIcon { icon-size: 16px; }
+      StIcon { icon-size: $icon_size; }
     }
 
     StBoxLayout { padding-top: 2px; }
@@ -1613,11 +1616,11 @@ $icon_size: 16px;
 .workspace-button { // numeric buttons
   width: 20px;
   height: 10px;
-  color: $osd_secondary_fg_color;
+  color: $osd_fg_color;
   background-color: $hidden_fill_color;
   transition-duration: 0.2s;
   &:hover {
-    color: $osd_fg_color;
+    color: $selected_fg_color;
 
     @each $position, $_indicator in (top, 0 2px),
                                     (bottom, 0 -2px),
@@ -1802,21 +1805,22 @@ $icon_size: 16px;
   }
 
   &-box {
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     text-shadow: none;
     &:hover,
     &:checked {
-      color: $osd_fg_color;
+      color: $selected_fg_color;
       background-color: $hidden_fill_color;
     }
     &:highlight { background-color: $accent_active_fill_color; }
 
-    @each $position, $_padding, $_indicator in (top, 0 3px, 0 2px),
-                                               (bottom, 0 3px, 0 -2px),
+    @each $position, $_padding, $_indicator in (top, 0 6px, 0 2px),
+                                               (bottom, 0 6px, 0 -2px),
                                                (left, 2px 0, 2px 0),
                                                (right, 2px 0, -2px 0) {
       .panel-#{$position} & {
         padding: #{$_padding};
+        spacing: 2px;
         &:hover,
         &:checked {
           box-shadow: inset #{$_indicator} 0 $osd_indicator_color;
@@ -1826,25 +1830,25 @@ $icon_size: 16px;
   }
 
   &-label {
-    color: $osd_secondary_fg_color;
+    color: $osd_fg_color;
     font-weight: 700;
 
     &:hover,
     .applet-box:hover &,
     .applet-box:checked & {
-      color: $osd_fg_color;
+      color: $selected_fg_color;
       text-shadow: none;
     }
   }
 
   &-icon {
-    icon-size: 16px;
-    color: $osd_secondary_fg_color;
+    icon-size: $icon_size;
+    color: $osd_fg_color;
 
     &:hover,
     .applet-box:hover > &,
     .applet-box:checked > & {
-      color: $osd_fg_color;
+      color: $selected_fg_color;
       text-shadow: none;
     }
   }
@@ -1997,7 +2001,7 @@ $icon_size: 16px;
 .expo-workspaces-name-entry {
   @include fontscaling($ref_size * 0.9);
   -cinnamon-caption-spacing: 12px;
-  height: 15px;
+  min-height: 1.2em;
   padding: 4px 8px;
   border-radius: 0;
   color: $osd_dim_fg_color;
@@ -2070,7 +2074,10 @@ $icon_size: 16px;
 // /******************
 //  * Systray Applet *
 //  ******************/
-.systray {
-  spacing: 2px;
+
+.systray,
+#CinnamonTrayIcon {
+  spacing: 0;
+  padding: 0;
 }
 

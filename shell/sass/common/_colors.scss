@@ -82,7 +82,7 @@ $menuentry_hidden_fill_color: if($nokto == 'false',
                                  rgba(255, 255, 255, 0.01),
                                  rgba(0, 0, 0, 0.01));
 
-$panel_bg_color: mix($black, $literally_black, 25%);
+$panel_bg_color: mix($black, $literally_black, 43%);
 $panel_hidden_fill_color: shellopacity($panel_bg_color, 0.01);
 $panel_fill_color: $panel_bg_color;
 
@@ -195,4 +195,3 @@ $osd_outer_borders_color: transparent;
 $tooltip_borders_color: $osd_borders_color;
 
 $insensitive_osd_fill_color: shellopacity($osd_fill_color, 0.4);
-

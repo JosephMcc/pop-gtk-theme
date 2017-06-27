@@ -1,3 +1,24 @@
+// /************
+//  * Ubiquity *
+//  ************/
+
+#live_installer > #wizard {
+
+  #page_mode #title_section label#page_title { //Page Title text
+    color: $almost_white;
+  }
+
+  #progress_eventbox #progress_mode { //Progress dots at the bottom
+    progressbar *{
+      border-radius: 100px;
+    }
+
+    label { //Installation text
+      color: $almost_white;
+    }
+  }
+}
+
 // /******************
 //  * Budgie Desktop *
 //  ******************/
@@ -11,7 +32,7 @@
                                     to(gtkalpha($inverted_fg_color, 0.2)),
                                     to(transparent)),
                       linear-gradient(to bottom,
-                                      gtkalpha($inverted_fg_color, 0.2));
+                                      gtkalpha($inverted_fg_color, 0.1));
   }
   to {
     background-image: -gtk-gradient(radial,
@@ -20,7 +41,7 @@
                                     to(gtkalpha($inverted_fg_color, 0.2)),
                                     to(transparent)),
                       linear-gradient(to bottom,
-                                      gtkalpha($inverted_fg_color, 0.2));
+                                      gtkalpha($inverted_fg_color, 0.1));
   }
 }
 
@@ -38,6 +59,7 @@ $full_orientation: ((top, bottom),
 
 // panel styling
 .budgie-panel {
+  // solid-mode
   // always use dark-color of dark variant
   background-color: $panel_bg_color;
   color: $inverted_fg_color;
@@ -57,6 +79,24 @@ $full_orientation: ((top, bottom),
   > GtkBox:last-child {
     margin: -2px -2px -2px 0;
     &:dir(rtl) { margin: -2px 0 -2px -2px; }
+  }
+
+
+  // transparent-mode
+  &.transparent {
+    background-color: transparent;
+
+    GtkBox {
+      &.start-region,
+      &.center-region,
+      &.end-region { // draw shadows by default
+        // FIXME: NaTray puts widgets as "widgets",
+        // so we can not render icons-shadows anyhow...
+        GtkImage { icon-shadow: $z-depth-1; }
+
+        .label { text-shadow: $z-depth-1; }
+      }
+    }
   }
 }
 
@@ -246,7 +286,7 @@ $full_orientation: ((top, bottom),
 }
 
 // main menu styling
-.budgie-panel BudgieMenuApplet {
+.budgie-panel {
   .button.flat.budgie-menu-launcher {
     padding: 0;
     border: 0 none transparent;
@@ -261,7 +301,8 @@ $full_orientation: ((top, bottom),
 
     GtkImage {
       // override stock icon with specific one
-      background-image: url("assets/show-apps.svg");
+      background-image: -gtk-scaled(url("assets/show-apps.png"),
+                                    url("assets/show-apps@2.png"));
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -270,11 +311,43 @@ $full_orientation: ((top, bottom),
 
     &:hover,
     &:active {
-      GtkImage { background-image: url("assets/show-apps-hover.svg"); }
+      GtkImage {
+        background-image: -gtk-scaled(url("assets/show-apps-hover.png"),
+                                      url("assets/show-apps-hover@2.png"));
+      }
     }
     &:checked,
     &:checked:hover {
-      GtkImage { background-image: url("assets/show-apps-checked.svg"); }
+      GtkImage {
+        background-image: -gtk-scaled(url("assets/show-apps-checked.png"),
+                                      url("assets/show-apps-checked@2.png"));
+      }
+    }
+  }
+
+  &.transparent {
+    .button.flat.budgie-menu-launcher {
+      GtkImage {
+        background-image: -gtk-scaled(url("assets/show-apps-shadow.png"),
+                                      url("assets/show-apps-shadow@2.png"));
+      }
+
+      &:hover,
+      &:active {
+        GtkImage {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps-hover-shadow.png"),
+                            url("assets/show-apps-hover-shadow@2.png"));
+        }
+      }
+      &:checked,
+      &:checked:hover {
+        GtkImage {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps-checked-shadow.png"),
+                            url("assets/show-apps-checked-shadow@2.png"));
+        }
+      }
     }
   }
 }

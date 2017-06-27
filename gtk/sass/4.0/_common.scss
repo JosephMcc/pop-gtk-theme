@@ -840,6 +840,8 @@ button {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(10.7px);
+      border-radius: 0;
+      -gtk-outline-radius: 0;
 
       image { padding: 0; }
   }
@@ -1685,8 +1687,8 @@ toolbar {
       color: $insensitive_secondary_fg_color;
     }
 
-    button,
-    button.flat { // set specific roundness
+    &,
+    &.flat { // set specific roundness
       &,
       &.text-button,
       &.text-button.image-button {
@@ -1699,14 +1701,14 @@ toolbar {
       }
     }
 
-    .text-button,
-    .image-button.text-button {
+    &.text-button,
+    &.image-button.text-button {
       min-width: rem(13.3px);
-      min-height: rem(29.3px);
+      min-height: rem($icon_size + 13.3px);
       padding: 0 rem(13.3px) 0;
     }
 
-    .image-button {
+    &.image-button {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(6.7px);
@@ -1757,7 +1759,7 @@ toolbar {
       }
     }
 
-    .image-button {
+    &.image-button {
       min-width: $icon_size;
       min-height: $icon_size;
       padding: rem(6.7px);
@@ -1770,6 +1772,12 @@ toolbar {
     @extend %button_array;
     border-radius: 4px;
     -gtk-outline-radius: 2px;
+  }
+
+  .background & entry {
+    min-width: rem(33.3px);
+    min-height: rem($icon_size + 13.3px);
+    padding: 0 rem(8px) 0;
   }
 
   // toolbar separators
@@ -5168,11 +5176,13 @@ stacksidebar {
     background-color: if($variant == 'light', rgba(12, 18, 0, 0.01),
                                               rgba(18, 22, 0, 0.04));
 
-    &:dir(ltr) { box-shadow: if($variant == 'light', $sidebar-light-ltr,
-                                                     $sidebar-dark-ltr);
+    &:dir(ltr) {
+      box-shadow: if($variant == 'light', $sidebar-light-ltr,
+                                          $sidebar-dark-ltr);
     }
-    &:dir(rtl) { box-shadow: if($variant == 'light', $sidebar-light-rtl,
-                                                     $sidebar-dark-rtl);
+    &:dir(rtl) {
+      box-shadow: if($variant == 'light', $sidebar-light-rtl,
+                                          $sidebar-dark-rtl);
     }
   }
 
@@ -5355,10 +5365,12 @@ paned {
     &:dir(ltr) {
       margin: 0 rem(-8px) 0 0;
       padding: 0 rem(8px) 0 0;
+      background-position: left;
     }
     &:dir(rtl) {
       margin: 0 0 0 rem(-8px);
       padding: 0 0 0 rem(8px);
+      background-position: right;
     }
 
     &.wide {
@@ -5453,20 +5465,35 @@ infobar {
 
     progressbar { // use 'white' bit and trough
       trough { background-color: gtkopacity($selected_fg_color, 0.2); }
+
       progress { background-color: $selected_fg_color; }
     }
   }
 }
 
-.info { background-color: $info_bg_color; }
+.info {
+  background-color: if($variant == 'dark',
+                       mix($info_bg_color, $bg_color, 75%),
+                       $info_bg_color);
+}
 
-.question { background-color: $question_bg_color; }
+.question {
+  background-color: if($variant == 'dark',
+                       mix($question_bg_color, $bg_color, 75%),
+                       $question_bg_color);
+}
 
-.warning { background-color: $warning_bg_color; }
+.warning {
+  background-color: if($variant == 'dark',
+                       mix($warning_bg_color, $bg_color, 75%),
+                       $warning_bg_color);
+}
 
 .error { // use white text for this
   color: $selected_fg_color;
-  background-color: $error_bg_color;
+  background-color: if($variant == 'dark',
+                       mix($error_bg_color, $bg_color, 75%),
+                       $error_bg_color);
 }
 
 

@@ -1,3 +1,39 @@
+pop-gtk-theme (1.3.1.13) zesty; urgency=medium
+
+  * Merge in changes from upstream.
+
+ -- Ian Santopietro <ian@system76.com>  Tue, 27 Jun 2017 09:32:10 -0600
+
+pop-gtk-theme (1.3.1.12) zesty; urgency=medium
+
+  * Use White instead of Foreground Color for Ubiquity.
+
+ -- Ian Santopietro <ian@system76.com>  Fri, 23 Jun 2017 13:21:06 -0600
+
+pop-gtk-theme (1.3.1.11) zesty; urgency=medium
+
+  * Merge in lastest upstream.
+  * Correct Ubiquity invisible text issue.
+
+ -- Ian Santopietro <ian@system76.com>  Fri, 23 Jun 2017 11:53:06 -0600
+
+pop-gtk-theme (1.3.1.10) zesty; urgency=medium
+
+  * Lighten GNOME Shell Panel color.
+  * Mirror GNOME Shell panel color change in GTK-based panels.
+  * Fix blue-inderline bug in GNOME Weather.
+  * Ensure Firefox styling is correct.
+
+ -- Ian Santopietro <ian@system76.com>  Fri, 23 Jun 2017 10:13:03 -0600
+
+pop-gtk-theme (1.3.1.9) zesty; urgency=medium
+
+  * 3rd Party: Re-apply panel-grid for MATE taskbar.
+  * Shell: Make days with events blue in calendar popover
+  * Maintenance: Merge from upstream
+
+ -- Ian Santopietro <ian@system76.com>  Wed, 21 Jun 2017 11:14:54 -0600
+
 pop-gtk-theme (1.3.1.8) zesty; urgency=medium
 
   * Update conflicts

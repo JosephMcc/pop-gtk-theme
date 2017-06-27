@@ -4,15 +4,19 @@
 
 #live_installer > #wizard {
 
-    #page_mode #title_section label#page_title { //Page Title text
-        color: $almost_white;
+  #page_mode #title_section label#page_title { //Page Title text
+    color: $almost_white;
+  }
+
+  #progress_eventbox #progress_mode { //Progress dots at the bottom
+    progressbar *{
+      border-radius: 100px;
     }
 
-    #progress_eventbox #progress_mode { //Progress dots at the bottom
-        progressbar *{
-            border-radius: 100px;
-        }
+    label { //Installation text
+      color: $almost_white;
     }
+  }
 }
 
 // /******************
@@ -25,30 +29,27 @@
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha($inverted_fg_color, 0.2) 0%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.2));
+                      image(gtkalpha($inverted_fg_color, 0.1));
   }
   66% {
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha($inverted_fg_color, 0.2) 100%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.2));
+                      image(gtkalpha($inverted_fg_color, 0.1));
   }
   100% {
     background-image: radial-gradient(circle farthest-corner at center,
                                       gtkalpha($inverted_fg_color, 0) 100%,
                                       transparent 0%),
-                      image(gtkalpha($inverted_fg_color, 0.2));
+                      image(gtkalpha($inverted_fg_color, 0.1));
   }
 }
 
-// orientation
+// basic orientation
 $orientation: ((top, bottom),
-               (bottom, top));
-
-$full_orientation: ((top, bottom),
-                    (bottom, top),
-                    (left, right),
-                    (right, left));
+               (bottom, top),
+               (left, right),
+               (right, left));
 
 // specific transition
 $budgie_transition: opacity 0.2s $slope_medium,
@@ -61,17 +62,36 @@ $budgie_transition: opacity 0.2s $slope_medium,
 .budgie-container { background-color: transparent; }
 
 .budgie-panel {
-  // panel styling
+  // solid-mode
   // always use dark-color of dark variant
   background-color: $panel_bg_color;
   color: $inverted_fg_color;
   font-weight: 700;
+  transition: $budgie_transition;
 
   // used to indicate unread notifications
   .alert { color: $suggested_color; }
+
+  // transparent-mode
+  &.transparent {
+    background-color: transparent;
+    transition: $budgie_transition;
+
+    box {
+      &.start-region,
+      &.center-region,
+      &.end-region { // draw shadows by default
+        // FIXME: NaTray puts widgets as "widgets",
+        // so we can not render icons-shadows anyhow...
+        image { -gtk-icon-shadow: $z-depth-1; }
+
+        label { text-shadow: $z-depth-1; }
+      }
+    }
+  }
 }
 
-@each $along_side, $opp_side in $full_orientation {
+@each $along_side, $opp_side in $orientation {
   // panel shadow styling
   .#{$along_side} .shadow-block {
     background-color: transparent;
@@ -85,8 +105,13 @@ $budgie_transition: opacity 0.2s $slope_medium,
 // wnck tasklist styling
 .budgie-panel button#tasklist-button {
   border: none;
-  background: none;
+  background-image: radial-gradient(circle farthest-corner at center,
+                                    gtkalpha($inverted_fg_color, 0) 100%,
+                                    transparent 0%),
+                    image(gtkalpha($inverted_fg_color, 0));
+  background-color: transparent;
   box-shadow: none; // unset standard wnck styling
+  transition: $budgie_transition;
 
   label,
   image { opacity: 0.75; }
@@ -98,6 +123,12 @@ $budgie_transition: opacity 0.2s $slope_medium,
 
     label,
     image { opacity: 1.0; }
+  }
+
+  &:active {
+    transition: $budgie_transition,
+                background-image 0s;
+    animation: budgie_ripple_effect 0.3s $slope_slow forwards;
   }
 }
 
@@ -172,8 +203,10 @@ box.horizontal.pinned { // drop-target
 }
 
 // draw underscores and dots
-@each $along_side, $_dot in (top, top),
-                            (bottom, bottom) {
+@each $along_side, $_dot, $_h, $_w in (top, top, 2.0, 1.818),
+                                      (bottom, bottom, 2.0, 1.818),
+                                      (left, left, 1.818, 2.0),
+                                      (right, right, 1.818, 2.0) {
   .#{$along_side} .budgie-panel {
     .unpinned button.flat.launcher,
     .pinned button.flat.launcher.running {
@@ -181,7 +214,7 @@ box.horizontal.pinned { // drop-target
       // FIXME: Upstream deformed aspect-ratio to 1:1.1
       border-image: -gtk-scaled(url("assets/running-dot-#{$_dot}.png"),
                                 url("assets/running-dot-#{$_dot}@2.png"))
-                    2.0 1.818 / 2.0px 1.818px;
+                    #{$_h} #{$_w} / #{$_h}px #{$_w}px;
       &:hover,
       &:active,
       &:checked {
@@ -211,40 +244,101 @@ box.horizontal.pinned { // drop-target
   }
 }
 
+// budgie specific popover widgets
+window.budgie-popover:not(.csd) {
+  &.background {
+    @extend popover.background;
+    padding: 0; // unset padding
+    background-clip: border-box;
+    // FIXME: we can't expose depth-3
+    &, &:backdrop { box-shadow: $z-depth-2; }
+  }
+
+  > frame.container {
+    padding: 2px 0 0;
+
+    .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
+
+    &,
+    > border {
+      border-style: none; // hide container borders
+      background-color: $secondary_base_color;
+    }
+  }
+}
+
 // main menu styling
-.budgie-panel button.flat.budgie-menu-launcher {
-  min-width: $icon_size + 8px;
-  min-height: $icon_size + 8px;
-  padding: 0 ($icon_size + 8px) * 0.05;
-  border: 0 none transparent;
-  border-radius: 0;
-  -gtk-outline-radius: 0;
-  transition: $budgie_transition;
-  &:hover,
-  &:active,
-  &:checked {
-    background-image: none;
-    background-color: transparent;
+.budgie-panel {
+  button.flat.budgie-menu-launcher {
+    min-width: $icon_size + 8px;
+    min-height: $icon_size + 8px;
+    padding: 0;
+    border: 0 none transparent;
+    border-radius: 0;
+    -gtk-outline-radius: 0;
+    transition: $budgie_transition;
+    &:hover,
+    &:active,
+    &:checked {
+      background-image: none;
+      background-color: transparent;
+    }
+
+    .left.budgie-container &,
+    .right.budgie-container & { padding: 2px; }
+
+    image {
+      // override stock icon with specific one
+      min-width: $icon_size + 4px;
+      min-height: $icon_size + 4px;
+      background-image: -gtk-scaled(url("assets/show-apps.png"),
+                                    url("assets/show-apps@2.png"));
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: transparent;
+    }
+
+    &:hover,
+    &:active {
+      image {
+        background-image: -gtk-scaled(url("assets/show-apps-hover.png"),
+                                      url("assets/show-apps-hover@2.png"));
+      }
+    }
+    &:checked,
+    &:checked:hover {
+      image {
+        background-image: -gtk-scaled(url("assets/show-apps-checked.png"),
+                                      url("assets/show-apps-checked@2.png"));
+      }
+    }
   }
 
-  image {
-    // override stock icon with specific one
-    min-width: $icon_size + 4px;
-    min-height: $icon_size + 4px;
-    background-image: url("assets/show-apps.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    color: transparent;
-  }
+  &.transparent {
+    button.flat.budgie-menu-launcher {
+      image {
+        background-image: -gtk-scaled(url("assets/show-apps-shadow.png"),
+                                      url("assets/show-apps-shadow@2.png"));
+      }
 
-  &:hover,
-  &:active {
-    image { background-image: url("assets/show-apps-hover.svg"); }
-  }
-  &:checked,
-  &:checked:hover {
-    image { background-image: url("assets/show-apps-checked.svg"); }
+      &:hover,
+      &:active {
+        image {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps-hover-shadow.png"),
+                            url("assets/show-apps-hover-shadow@2.png"));
+        }
+      }
+      &:checked,
+      &:checked:hover {
+        image {
+          background-image: -gtk-scaled(
+                            url("assets/show-apps-checked-shadow.png"),
+                            url("assets/show-apps-checked-shadow@2.png"));
+        }
+      }
+    }
   }
 }
 
@@ -252,10 +346,14 @@ box.horizontal.pinned { // drop-target
   background-color: $secondary_base_color;
 
   &.background {
-    padding: 2px 0 0; // remove side/bottom padding
     border-style: solid none none; // remove side/bottom borders
 
-    .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
+    &,
+    .container {
+      padding: 2px 0 0; // remove side/bottom padding
+
+      .bottom.budgie-container & { padding: 2px 0 2px; } // revive bottom padding
+    }
   }
 
   scrolledwindow,
@@ -319,7 +417,6 @@ box.horizontal.pinned { // drop-target
 
 // user-indicator styling
 .user-menu {
-  border-radius: 2px;
   background-color: $secondary_base_color;
 
   list,
@@ -380,72 +477,73 @@ box.horizontal.pinned { // drop-target
         }
       }
     }
+  }
 
-    // top-row (user-name and avatar)
-    @at-root .user-menu > box.vertical row.activatable:first-child {
-      padding-bottom: rem(10.7px); // fix truncated drop-shadow
-      outline-offset: 0;
-      outline-width: 0;
+  // top-row (user-name and avatar)
+  > box.vertical row.activatable:first-child,
+  > frame.container > box.vertical row.activatable:first-child {
+    margin-bottom: rem(10.7px); // fix truncated drop-shadow
+    outline-offset: 0;
+    outline-width: 0;
 
-      .indicator-item {
-        background-color: $suggested_color;
-        box-shadow: $z-depth-1,
+    .indicator-item {
+      background-color: $suggested_color;
+      box-shadow: $z-depth-1,
+                  inset 0 1px $highlight_color;
+      transition-timing-function: $slope_medium;
+      transition-property: box-shadow;
+      transition-duration: 0.2s;
+
+      &:dir(ltr) { // mask avatar's background
+        padding-left: 7px; // non-scaling unit
+        background-image: linear-gradient(to right, $borders_color);
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 38px auto; // non-scaling unit
+      }
+      &:dir(rtl) {
+        padding-right: 7px;
+        background-image: linear-gradient(to left, $borders_color);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: 38px auto;
+      }
+
+      label {
+        color: $secondary_selected_fg_color;
+
+        &:dir(ltr) { padding-left: rem(8px); }
+        &:dir(rtl) { padding-right: rem(8px); }
+      }
+
+      image {
+        color: $secondary_selected_fg_color;
+
+        &:first-child { // avatar image
+          min-width: 24px;
+          min-height: 20px;
+          padding-top: rem(6.7px);
+          opacity: 0.9;
+        }
+      }
+
+      &:hover {
+        box-shadow: $z-depth-2,
                     inset 0 1px $highlight_color;
         transition-timing-function: $slope_medium;
         transition-property: box-shadow;
         transition-duration: 0.2s;
 
-        &:dir(ltr) { // mask avatar's background
-          padding-left: 7px; // non-scaling unit
-          background-image: linear-gradient(to right, $borders_color);
-          background-position: left center;
-          background-repeat: no-repeat;
-          background-size: 38px auto; // non-scaling unit
-        }
-        &:dir(rtl) {
-          padding-right: 7px;
-          background-image: linear-gradient(to left, $borders_color);
-          background-position: right center;
-          background-repeat: no-repeat;
-          background-size: 38px auto;
-        }
-
-        label {
-          color: $secondary_selected_fg_color;
-
-          &:dir(ltr) { padding-left: rem(8px); }
-          &:dir(rtl) { padding-right: rem(8px); }
-        }
+        label { color: $selected_fg_color; }
 
         image {
-          color: $secondary_selected_fg_color;
+          color: $selected_fg_color;
 
-          &:first-child { // avatar image
-            min-width: 24px;
-            min-height: 20px;
-            padding-top: rem(6.7px);
-            opacity: 0.9;
-          }
+          &:first-child { opacity: 1.0; }
         }
-
-        &:hover {
-          box-shadow: $z-depth-2,
-                      inset 0 1px $highlight_color;
-          transition-timing-function: $slope_medium;
-          transition-property: box-shadow;
-          transition-duration: 0.2s;
-
-          label { color: $selected_fg_color; }
-
-          image {
-            color: $selected_fg_color;
-
-            &:first-child { opacity: 1.0; }
-          }
-        }
-
-        label { font-weight: 700; }
       }
+
+      label { font-weight: 700; }
     }
   }
 }
@@ -722,43 +820,93 @@ box.horizontal.pinned { // drop-target
   // shrink label
   > box widget > widget > label {
     margin-top: rem(-0.7px, $sw: 1.0);
-    padding: 1.3px 2px 0;
+    margin-bottom: -2px;
+    padding: 1.3px 0 0;
     font-size: 80%;
   }
 }
 
 // popover of sound-indicator styling
-.budgie-container.top,
-.budgie-container.bottom {
-  > popover.background > box.vertical > button.flat.image-button {
-    min-width: rem($widget_size, $sw: 1.0);
-    min-height: rem($widget_size, $sw: 1.0);
-    margin: rem(2.7px, $sw: 1.0) 0;
-    padding: 0;
+%budgie-sound-indicator {
+  min-width: rem($widget_size, $sw: 1.0);
+  min-height: rem($widget_size, $sw: 1.0);
+  margin: rem(2.7px, $sw: 1.0) 0;
+  padding: 0;
 
-    &:first-child { // '+' button
-      &:hover {
-        background: none;
-        color: $success_color;
-        animation: volume_hover 0.2s linear forwards;
-      }
+  &:first-child { // '+' button
+    &:hover {
+      background: none;
+      color: $success_color;
+      animation: volume_hover 0.2s linear forwards;
     }
+  }
 
-    &:last-child { // '-' button
-      &:hover {
-        background: none;
-        color: $error_color;
-        animation: volume_hover 0.2s linear forwards;
-      }
+  &:last-child { // '-' button
+    &:hover {
+      background: none;
+      color: $error_color;
+      animation: volume_hover 0.2s linear forwards;
     }
   }
 }
 
+.budgie-container.top,
+.budgie-container.bottom {
+  > popover.background > box.vertical > button.flat.image-button {
+    @extend %budgie-sound-indicator;
+  }
+}
+
+window.budgie-popover.background frame.container > box.vertical {
+  > button.flat.image-button {
+    @extend %budgie-sound-indicator;
+  }
+}
+
+// night-light-indicator styling
+.night-light-indicator {
+  &,
+  frame.container { padding: 0 2px 2px; }
+
+  .view-header {
+    label {
+      @extend .dim-label;
+      font-size: 15px;
+      font-weight: 400;
+      &:dir(ltr) { padding-left: 4px; }
+      &:dir(ltr) { padding-right: 4px; }
+    }
+  }
+
+  box.vertical > button.flat.display-settings-button {
+    @extend %transition; // revive transitions
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    color: $secondary_accent_label_color;
+    font-weight: 700;
+    &:hover {
+      @extend %transition; // revive transitions
+      background-color: transparent;
+      color: $accent_label_color;
+    }
+    &:active {
+      background-color: transparent;
+      color: $accent_label_color;
+    }
+
+    label { padding: rem(5.3px) 0 rem(6.7px); }
+  }
+}
+
 // places-indicator styling
-popover.places-menu {
+.places-menu {
   &.background {
-    padding: 2px 0 0; // remove side/bottom padding
-    border-style: solid none none; // remove side/bottom borders
+    &,
+    .container {
+      padding: 2px 0 0; // remove side/bottom padding
+      border-style: solid none none; // remove side/bottom borders
+    }
   }
 
   .places-section-header {
@@ -876,9 +1024,12 @@ popover.places-menu {
         }
       }
 
-      button.unmount-button {
-        margin: rem(1.3px) rem(5.3px);
-        padding: rem(4px);
+      button.image-button.unmount-button {
+        &:not(.text-button) { // specificity bump for overriding our default
+                              // 'eject' button spacing
+          margin: rem(1.3px) rem(5.3px);
+          padding: rem(4px);
+        }
       }
     }
 
@@ -915,17 +1066,20 @@ popover.places-menu {
 }
 
 // keyboard indicator applet
-widget.keyboard-indicator >  widget > box.horizontal {
-  > widget > image {
-    margin-top: rem(-0.7px, $sw: 1.0);
-    &:dir(ltr) { padding: 2.7px 0 0 3px; }
-    &:dir(rtl) { padding: 2.7px 3px 0 0; }
-  }
+.top.budgie-container,
+.bottom.budgie-container {
+  widget.keyboard-indicator >  widget > box.horizontal {
+    > widget > image {
+      margin-top: rem(-0.7px, $sw: 1.0);
+      &:dir(ltr) { padding: 2.7px 0 0 3px; }
+      &:dir(rtl) { padding: 2.7px 3px 0 0; }
+    }
 
-  > stack > widget.keyboard-label > label {
-    margin-top: rem(-0.7px, $sw: 1.0);
-    &:dir(ltr) { padding: 1.3px 3px rem(1.3px, $sw: 1.0) 0; }
-    &:dir(rtl) { padding: 1.3px 0 rem(1.3px, $sw: 1.0) 3px; }
+    > stack > widget.keyboard-label > label {
+      margin-top: rem(-0.7px, $sw: 1.0);
+      &:dir(ltr) { padding: 1.3px 3px rem(1.3px, $sw: 1.0) 0; }
+      &:dir(rtl) { padding: 1.3px 0 rem(1.3px, $sw: 1.0) 3px; }
+    }
   }
 }
 
@@ -1022,7 +1176,7 @@ window.budgie-switcher-window {
 
   // draw actual backgrounds and shadows
   .drop-shadow {
-    margin: 8px 8px 12px; // reserve area for shadows
+    margin: 8px 8px 16px; // reserve area for shadows
     border-radius: 2px;
     background-color: gtkopacity($inverted_dark_color, 0.9);
     box-shadow: $z-depth-4; // raise to level-4
@@ -1220,7 +1374,7 @@ window.budgie-switcher-window {
     // use non-scaling units
     min-width: $icon_size + 8px;
     min-height: $icon_size + 8px;
-    padding: 4px 0;
+    padding: 0;
     border-radius: 0;
     color: $inverted_fg_color;
     transition: $budgie_transition;
@@ -1615,6 +1769,14 @@ window.background > popover.background > frame > list > row.activatable {
   }
 }
 
+window.background:not(.csd):not(.solid-csd) > overlay {
+  > box.nobg.osd > revealer > button { // back/forward buttons
+    @extend button.osd.image-button;
+    min-width: $icon_size * 1.5;
+    min-height: $icon_size * 1.5;
+  }
+}
+
 
 // /********
 //  * Nemo *
@@ -1836,18 +1998,18 @@ window.background > grid.vertical > stack > paned.horizontal {
       }
     }
   }
+}
 
-  .trackrow {
-    &, &playing {
-      // lollypop can not understand outer marigns
-      button.image-button { margin: 0; }
-    }
+row.trackrow {
+  &, &playing {
+    // lollypop can not understand outer marigns
+    button.image-button:not(.text-button) { margin: 0; }
   }
+}
 
-  .track-menu-button { // back to square button
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-  }
+.track-menu-button { // back to square button
+  border-radius: 2px;
+  -gtk-outline-radius: 2px;
 }
 
 
@@ -2283,6 +2445,16 @@ window.background:not(.csd) > box.vertical {
     // override hard-coded crazy rgb(0,0,0)
     text { background-image: image($base_color); }
   }
+
+  scrolledwindow widget > widget {
+    > checkbutton check,
+    > radiobutton radio { // disable ripple animations
+      &:hover,
+      &:active,
+      &:hover:checked,
+      &:hover:indeterminate { animation: none; }
+    }
+  }
 }
 
 
@@ -2514,25 +2686,30 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
 }
 
 // Brisk-Menu applet
-.mate-panel-menu-bar button.flat.toggle.brisk-button {
-  padding: 0 rem(4px, $sw: 1.0);
-  border-radius: 0;
-  -gtk-outline-radius: 0;
-  background-image: none;
-  background-color: transparent;
-  color: $inverted_secondary_fg_color;
-  font-weight: 700;
-  &:hover {
+.mate-panel-menu-bar button.flat.toggle {
+  &.brisk-button {
+    padding: 0 rem(4px, $sw: 1.0);
+    border-radius: 0;
+    -gtk-outline-radius: 0;
     background-image: none;
-    color: $inverted_fg_color;
-    box-shadow: inset 0 -2px $track_color;
+    background-color: transparent;
+    color: $inverted_secondary_fg_color;
+    font-weight: 700;
+    &:hover {
+      background-image: none;
+      color: $inverted_fg_color;
+      box-shadow: inset 0 -2px $track_color;
+    }
+    &:active { animation: none; }
+    &:checked {
+      background-image: none;
+      color: $inverted_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+    }
   }
-  &:active { animation: none; }
-  &:checked {
-    background-image: none;
-    color: $inverted_fg_color;
-    box-shadow: inset 0 -2px $selected_bg_color;
-  }
+
+  // vertical panel mode?
+  &.brisk-button-vertical { padding: 0; }
 }
 
 .brisk-menu {
@@ -2560,9 +2737,6 @@ PanelToplevel.mate-panel-menu-bar > grid.horizontal > button {
   box.vertical > box.horizontal > box.vertical > separator.horizontal {
     min-height: 0;
     background-color: transparent;
-  }
-
-  .brisk-button { // what's this?
   }
 
   .apps-list { // right-pane
@@ -2898,8 +3072,18 @@ window#MyControlCenter > frame > box.horizontal {
 .background:not(.csd) > box.horizontal {
   > notebook { // right-pane
     // remove unwanted frames/borders
-    border: none;
-    box-shadow: none;
+    &.frame {
+      border: none;
+
+      > stack {
+        border-width: 1px;
+        border-style: solid;
+        border-color: $bg_color;
+        box-shadow: none;
+        &:dir(ltr) { border-left-color: $paned_borders_color; }
+        &:dir(rtl) { border-right-color: $paned_borders_color; }
+      }
+    }
   }
 }
 
@@ -3433,6 +3617,22 @@ window.background.chromium {
   background-color: if($variant == 'light', $bg_color, $base_color);
   color: if($variant == 'light', $secondary_fg_color, $fg_color);
 
+  // FIXME: not for actual button widgets but for toolbar's separators
+  // crazy: src/+/master/chrome/browser/ui/libgtkui/gtk_ui.cc#891
+  button { // for inactive-tab borders
+    border-width: 1px;
+    border-style: solid;
+    border-color: if($variant == 'light',
+                     mix($fg_color, $solid_light_borders_color, 10%),
+                     mix($bg_color, $solid_dark_borders_color, 75%));
+  }
+
+  &:backdrop button { // for inactive-tab edges
+    border-color: if($variant == 'light',
+                     mix($fg_color, $solid_light_borders_color, 5%),
+                     mix($bg_color, $solid_dark_borders_color, 85%));
+  }
+
   entry.chromium {
     &, &:focus { // overrides standard borders
       border-image: none;
@@ -3456,6 +3656,12 @@ window.background.chromium {
         &, &:focus { @extend %selected_items; }
       }
     }
+  }
+
+  // spinner colour
+  > spinner {
+    color: $accent_label_color;
+    &:disabled { color: mix($accent_label_color, $bg_color, 30%); }
   }
 
   // ver.59.0.3067 or higher

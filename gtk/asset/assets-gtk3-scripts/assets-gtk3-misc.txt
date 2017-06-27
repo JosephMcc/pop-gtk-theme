@@ -12,7 +12,15 @@ equal-active-dark
 equal-insensitive-dark
 running-dot-top
 running-dot-bottom
+running-dot-left
+running-dot-right
 calendar-day-selected
 thumbnail
 thumbnail-dark
 needs-attention
+show-apps
+show-apps-hover
+show-apps-checked
+show-apps-shadow
+show-apps-hover-shadow
+show-apps-checked-shadow

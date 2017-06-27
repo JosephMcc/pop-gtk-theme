@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/system76/pop-gtk-theme/raw/master/logo.png"/>
+<img src="https://github.com/system76/pop-gtk-theme/raw/master/Pop_gtk-logo.png"/>
 </p>
 
 -------------------
@@ -225,7 +225,7 @@ It's also recommended to restart your computer after applying all of the Shell t
 
 Extra Browser Support
 ---------------------
- To try experimental browser specific theming, pass this option:
+ To try legacy Chrome(ium) specific theming (`< 59.0.30xx`), pass this option:
 
  ```
  --enable-chrome         enable Chrome(ium) support (type: bool)
@@ -235,8 +235,8 @@ Extra Browser Support
 
  > **Note:**
  >
- >   * Currently only Chrome(ium) theming is supported.
  >   * Chrome(ium) 59.0.30xx or newer, theming is pulled from Gtk+ 3.x directly.
+ >     So `Settings > Appearance > Themes` should be `GTK+`.
  >
  >   * Vivaldi can make custom themes via settings like these:
  >     ```

@@ -134,7 +134,15 @@ sn-button { padding: 0 rem(4px, $sw: 1.0); }
   }
 }
 
-.tweak-group {
+box.vertical > stack.main-container { // unset hard-coded margin
+  margin: -20px;
+
+  > scrolledwindow { margin: 0; }
+}
+
+list.tweak-group {
+  padding: 20px; // revive gaps for child rows
+
   // for shell-extensions group
   row.activatable:not(.tweak) {
     &:hover,
@@ -170,7 +178,8 @@ row.tweak { // basic row node container in right-pane
 }
 
 // container and tweaks in a group
-.tweak-group-startup {
+list.tweak-group-startup {
+  padding: 20px; // revive gaps for child rows
   background-color: $bg_color;
 
   row {
@@ -2034,7 +2043,7 @@ window stack > frame > frame > grid.horizontal > grid.horizontal {
         border-image: -gtk-gradient(radial,
                                     center bottom, 0,
                                     center bottom, 0.5,
-                                    to($selected_bg_color),
+                                    to($accent_color),
                                     to(transparent))
                                     0 0 2 / 0 0 2px;
       }
@@ -2074,12 +2083,14 @@ window > grid.vertical > stack > stack > grid.vertical {
 
 window headerbar > box.horizontal:not(.linked) {
   // 'new-list' text-button
-  > button.toggle.popup:not(.text-button):not(.image-button) {
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-    font-weight: 700;
+  > button.toggle.popup {
+    &:not(.text-button):not(.image-button):not(.icon):not(.appmenu) {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+      font-weight: 700;
 
-    > label { padding: 0 rem(8px); }
+      > label { padding: 0 rem(8px); }
+    }
   }
 
   > button:not(.image-button):not(.text-button) {
