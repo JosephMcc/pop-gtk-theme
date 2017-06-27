@@ -87,9 +87,12 @@ It's recommended to use the `pop-theme` metapackage, as this will pull in all co
 ```
 sudo apt install pop-gtk-theme
 ```
-You'll also need to install the [User Themes extension](https://extensions.gnome.org/extension/19/user-themes/) if your not using a System76 machine. 
-
-It's also recommended to restart your computer after applying all of the Shell themes.
+It's also recommended to restart the GNOME Shell after applying the theme of your choice.
+```
+Alt + F2 
+r
+enter
+```
 
 
 
