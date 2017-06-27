@@ -88,10 +88,15 @@ It's recommended to use the `pop-theme` metapackage, as this will pull in all co
 sudo apt install pop-gtk-theme
 ```
 It's also recommended to restart the GNOME Shell after applying the theme of your choice.
+
+Enter the Shell's command launcher
 ```
-Alt + F2 
+Alt + F2
+```
+
+This will restart the Shell after you hit Enter
+```
 r
-enter
 ```
 
 
