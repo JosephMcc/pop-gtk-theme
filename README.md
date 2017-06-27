@@ -83,10 +83,22 @@ sudo add-apt-repository ppa:system76/pop
 sudo apt update
 sudo apt install pop-theme
 ```
-It's recomended to use the `pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
+It's recommended to use the `pop-theme` metapackage, as this will pull in all components of the look. However, individual components can be installed separately, e.g:
 ```
 sudo apt install pop-gtk-theme
 ```
+It's also recommended to restart the GNOME Shell after applying the theme of your choice.
+
+Enter the Shell's command launcher
+```
+Alt + F2
+```
+
+This will restart the Shell after you hit Enter
+```
+r
+```
+
 
 
 ### Installation from Git Source
